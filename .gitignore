@@ -16,8 +16,9 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-.exe
-.pdb
+*.exe
+*.pdb
+*.cache
 
 # Local History for Visual Studio Code
 .history/
@@ -36,9 +37,9 @@
 .history/
 *.sln.iml
 *.log
-.tmp
-.sln
-.suo
+*.tmp
+*.sln
+*.suo
 
 # Build results
 [Dd]ebug/
