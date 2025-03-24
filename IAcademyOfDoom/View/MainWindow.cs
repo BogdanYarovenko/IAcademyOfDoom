@@ -31,7 +31,7 @@ namespace IAcademyOfDoom.View
             Difficulty? difficulty = null;
             string name = null;
             DifficultySelect select = new DifficultySelect();
-            if (select.ShowDialog()==DialogResult.OK)
+            if (select.ShowDialog() == DialogResult.OK)
             {
                 name = select.InputName;
                 difficulty = select.Difficulty;

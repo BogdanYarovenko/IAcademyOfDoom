@@ -21,10 +21,5 @@ namespace IAcademyOfDoom.View
         {
 
         }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
     }
 }
