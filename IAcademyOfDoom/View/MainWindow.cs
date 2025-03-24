@@ -35,6 +35,7 @@ namespace IAcademyOfDoom.View
             {
                 name = select.InputName;
                 difficulty = select.Difficulty;
+                MessageBox.Show(name);
             }
             InitializeComponent();
             c.Associate(this, name, difficulty);
