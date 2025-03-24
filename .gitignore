@@ -39,6 +39,8 @@
 *.log
 *.tmp
 *.suo
+*.sln
+*.csproj
 
 # Build results
 [Dd]ebug/
