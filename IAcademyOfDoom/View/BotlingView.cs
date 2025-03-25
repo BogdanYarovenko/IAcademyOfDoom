@@ -1,6 +1,7 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
 using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.View
 {
@@ -57,7 +58,11 @@ namespace IAcademyOfDoom.View
         /// <returns>true iff the point is within the graphic representation of the object</returns>
         public bool Contains(Point point)
         {
-            return Math.Abs(point.X-Center.X) <= Size.Width && Math.Abs(point.Y-Center.Y) < Size.Height;
+            double a = Size.Width / 2.0; // half width  of ellipse  
+            double b = Size.Height / 2.0; // halg height of ellipse
+          
+            double ellipseEquation = Math.Pow((point.X - Center.X) / a, 2) + Math.Pow((point.Y - Center.Y) / b, 2);
+            return ellipseEquation <= 1;
         }
     }
 }
