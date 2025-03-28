@@ -115,10 +115,11 @@ namespace IAcademyOfDoom.View
             }
             if (e.Button == MouseButtons.Right)
             {
+
                 Botling target = BotlingHere(e.Location);
                 if (target != null)
                 {
-                    DisplayStateOf(target);
+                    DisplayStateOf(target, true);
                 }
             }
         }
@@ -328,7 +329,7 @@ namespace IAcademyOfDoom.View
         /// Method displaying the current status of a logical botling mobile.
         /// </summary>
         /// <param name="botling">the logical botling</param>
-        public void DisplayStateOf(Botling botling)
+        public void DisplayStateOf(Botling botling, bool isMessageBox = false)
         {
             string name = botling.Name;
             string hp = botling.HP.ToString() + " HP";
@@ -349,9 +350,17 @@ namespace IAcademyOfDoom.View
             {
                 badges += " none";
             }
-            WriteLine("Botling " + name + ": " + hp);
-            WriteLine("  " + skills);
-            WriteLine("  " + badges);
+
+            if (isMessageBox)
+            {
+                MessageBox.Show("Botling " + name + ": " + hp + "\n  " + skills + "\n  " + badges);
+            }
+            else
+            {
+                WriteLine("Botling " + name + ": " + hp);
+                WriteLine("  " + skills);
+                WriteLine("  " + badges);
+            }
         }
         /// <summary>
         /// Method called by the controller when the game is over.
