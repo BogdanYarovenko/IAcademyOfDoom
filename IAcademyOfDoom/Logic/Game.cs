@@ -221,13 +221,9 @@ namespace IAcademyOfDoom.Logic
         public bool NextWave()
         {
             waveNumber++;
-            if (waveNumber > Default.MaxWaves)
-            {
-                return false;
-            }
             wave = new Wave(waveNumber);
 
-            return (wave != null);
+            return (wave.Turn != null);
         }
         #endregion
         #region private methods

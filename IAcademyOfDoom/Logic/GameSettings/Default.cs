@@ -16,7 +16,6 @@
         public static int StudentCost { get; } = 5;
         public static int FacultyCost { get; } = 5;
         public static int BaseProfHitPoints { get; } = 50;
-        public static int MaxWaves { get; } = 2;
         public static int ExamDifficulty(Difficulty difficulty)
         {
             switch (difficulty)
