@@ -377,15 +377,26 @@ namespace IAcademyOfDoom.View
         }
         public void DisplayStateOf(RoomView roomView, bool isMessageBox = false)
         {
-            WriteLine(roomView.Label);
-            Room room = roomView.Room;
-            if (room != null)
+            if (isMessageBox)
             {
-                WriteLine(room.Name);
-                WriteLine(room.Type.ToString());
-                WriteLine(room.X + " " + room.Y);
+                MessageBox.Show(
+                    $"Room Label: {roomView.Label}\n\n" +
+                    $"* Room Name: {roomView.Room?.Name}\n" +
+                    $"* Room Type: {roomView.Room?.Type.ToString()}\n" +
+                    $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}"
+                );
             }
-            
+            else
+            {
+                WriteLine(roomView.Label);
+                Room room = roomView.Room;
+                if (room != null)
+                {
+                    WriteLine(room.Name);
+                    WriteLine(room.Type.ToString());
+                    WriteLine(room.X + " " + room.Y);
+                }
+            }
         }
         /// <summary>
         /// Method called by the controller when the game is over.
