@@ -336,7 +336,7 @@ namespace IAcademyOfDoom.View
             string skills = "Skills: ";
             foreach (SkillType skill in botling.Skills.Keys)
             {
-                skills += "[" + skill.ToString() + "]" + "=" + botling.Skills[skill] + " ";
+                skills += "[ " + skill.ToString() + " ]" + " =" + botling.Skills[skill] + " ";
             }
             string badges = "Badges:";
             foreach (SkillType skill in botling.Badges.Keys)
@@ -353,7 +353,12 @@ namespace IAcademyOfDoom.View
 
             if (isMessageBox)
             {
-                MessageBox.Show("Botling " + name + ": " + hp + "\n  " + skills + "\n  " + badges);
+                MessageBox.Show(
+                    $"Botling: {name}\n\n" +
+                    $"* Coordonates: {{ {botling.X} , {botling.Y} }}\n" +
+                    $"* HP: {hp}\n" +
+                    $"* Skills: {skills}\n" +
+                    $"* Badges: {badges}" );
             }
             else
             {
