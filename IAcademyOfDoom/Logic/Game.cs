@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.Logic
 {
@@ -131,7 +132,10 @@ namespace IAcademyOfDoom.Logic
             currentPhase = Phase.Assault;
             successes = failures = 0;
             wave = new Wave(waveNumber);
+            
         }
+
+       
         /// <summary>
         /// Progresses in the assault phase.
         /// </summary>
@@ -187,8 +191,10 @@ namespace IAcademyOfDoom.Logic
             {
                 currentPhase = Phase.Result;
                 wave = null;
-                waveNumber++;
-                c.EndAssault();
+                if (!NextWave())
+                {
+                    c.EndAssault();
+                }
             }
         }
         /// <summary>
@@ -213,7 +219,14 @@ namespace IAcademyOfDoom.Logic
         /// <returns>false: game over</returns>
         public bool NextWave()
         {
-            return false;
+            waveNumber++;
+            if (waveNumber > Default.MaxWaves)
+            {
+                return false;
+            }
+            wave = new Wave(waveNumber);
+
+            return (wave != null);
         }
         #endregion
         #region private methods

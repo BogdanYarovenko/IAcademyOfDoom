@@ -23,6 +23,9 @@ namespace IAcademyOfDoom.Logic.GameSequence
                 case 1:
                     Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.None, 4 } });
                     break;
+                case 2:
+                    Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.None, 5} });
+                    break;
                 default:
                     break;
             }
