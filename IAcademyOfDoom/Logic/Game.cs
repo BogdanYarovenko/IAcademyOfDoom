@@ -191,10 +191,11 @@ namespace IAcademyOfDoom.Logic
             {
                 currentPhase = Phase.Result;
                 wave = null;
-                if (!NextWave())
+                c.EndAssault();
+                /*if (!NextWave())
                 {
-                    c.EndAssault();
-                }
+                    
+                }*/
             }
         }
         /// <summary>

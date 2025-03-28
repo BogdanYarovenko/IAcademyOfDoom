@@ -149,8 +149,7 @@ namespace IAcademyOfDoom.View
         /// <param name="results">the results of the previous wave, as a pair</param>        
         public void DisplayResults((int successes, int failures) results)
         {
-           
-           WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures.");
+            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures.");
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false ;
             Refresh();
