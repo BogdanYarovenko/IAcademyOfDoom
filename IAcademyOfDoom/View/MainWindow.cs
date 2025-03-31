@@ -126,13 +126,10 @@ namespace IAcademyOfDoom.View
                 if (room != null)
                 {
                     ProfRoom profRoom = (ProfRoom)room.Room;
-                    WriteLine(c.Placeables().Count + "");
                     c.AddPlaceable(new Placeable(room.Room.Type, profRoom.SkillType, room.Room.Name));
-                    WriteLine(c.Placeables().Count + "");
 
                     c.DestroyRoom(profRoom);
                     PreviewPlaceableItems(c.Placeables());
-                        
                 }
                 else if (c.Placeables().Count > 0 && RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
                 {
