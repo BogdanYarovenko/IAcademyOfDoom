@@ -16,6 +16,7 @@ namespace IAcademyOfDoom.View
         /// The location - top left corner.
         /// </summary>
         public Point Location { get; private set; }
+        public bool isSelected = false;
         /// <summary>
         /// Parametered constructor.
         /// </summary>
@@ -34,7 +35,7 @@ namespace IAcademyOfDoom.View
         {
             Point p = new Point(Location.X + Settings.TextOffset.Width, Location.Y);
             Rectangle rectangle = new Rectangle(Location, Settings.PlaceableSquare);
-            graphics.FillRectangle(Settings.PlaceableSquareBrush, rectangle);
+            graphics.FillRectangle(isSelected ? Settings.PlaceableSquareBrushSelected : Settings.PlaceableSquareBrush, rectangle);
             graphics.DrawString("Placeable: " + Placeable.ToString(), Settings.RoomFont, Settings.TextBrush, p);
         }
         /// <summary>

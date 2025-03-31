@@ -120,7 +120,6 @@
             this.DoubleBuffered = true;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             this.ResumeLayout(false);

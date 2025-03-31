@@ -24,6 +24,7 @@ namespace IAcademyOfDoom.View
         public static int PlaceableTop = Top + 50;
         public static Size PlaceableSquare { get; } = new Size(7, 7);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;
+        public static Brush PlaceableSquareBrushSelected { get; } = Brushes.Green;
         public static int PlaceableOffset { get; } = 20;
         public static Color GetRoomColourFor(RoomType type)
         {

@@ -20,7 +20,10 @@ namespace IAcademyOfDoom.View
         private Controller c = Controller.Instance;
         private readonly List<BotlingView> bots = new List<BotlingView>();
         private readonly List<RoomView> rooms = new List<RoomView>();
+
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
+        private int m_selectIndexPlaceables = 0;
+
         #endregion
         #region constructor
         /// <summary>
@@ -107,11 +110,23 @@ namespace IAcademyOfDoom.View
             (int x, int y) = PointCoordinates(e.Location);
             if (e.Button == MouseButtons.Left && endPrepButton.Enabled)
             {
-                if (!c.CanEndPreparations() && c.Placeables().Count > 0 && RoomHere(e.Location) == null &&
-                    !(x, y).Equals((-1, -1)))
+                int indexPlaceable = 0;
+                foreach (PlaceableView placeable in placeables)
                 {
-                    Placeable placeable = c.Placeables()[0];
+                    if (placeable.OnSquare(e.Location))
+                    {
+                        placeables[m_selectIndexPlaceables].isSelected = false;
+                        placeable.isSelected = true;
+                        m_selectIndexPlaceables = indexPlaceable;
+                    }
+                    indexPlaceable++;
+                }
+
+                if (!c.CanEndPreparations() && c.Placeables().Count > 0 && RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
+                {
+                    Placeable placeable = c.Placeables()[m_selectIndexPlaceables];
                     c.PlaceHere(x, y, placeable);
+                    m_selectIndexPlaceables = 0;
                 }
             }
             if (e.Button == MouseButtons.Right)
@@ -130,6 +145,8 @@ namespace IAcademyOfDoom.View
                     return;
                 }
             }
+
+            Refresh();
         }
         #endregion
         #region public methods
@@ -525,10 +542,5 @@ namespace IAcademyOfDoom.View
             list[(botling.X, botling.Y)].Add(botling);
         }
         #endregion
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
