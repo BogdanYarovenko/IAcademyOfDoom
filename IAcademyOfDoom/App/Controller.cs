@@ -104,6 +104,10 @@ namespace IAcademyOfDoom.App
         {
             return game.Placeables().Count == 0;
         }
+        public void AddPlaceable(Placeable placeable)
+        {
+            game.AddPlaceable(placeable);
+        }
         /// <summary>
         /// Method called to place a placeable item.
         /// </summary>

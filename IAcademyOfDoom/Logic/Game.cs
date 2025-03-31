@@ -95,6 +95,10 @@ namespace IAcademyOfDoom.Logic
         {
             rooms.Add(placeable.MakeRoom(x, y));
         }
+        public void AddPlaceable(Placeable placeable)
+        {
+            placeables.Add(placeable);
+        }
         /// <summary>
         /// Provides a copy of the list of placeable items.
         /// </summary>

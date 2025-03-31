@@ -122,7 +122,19 @@ namespace IAcademyOfDoom.View
                     indexPlaceable++;
                 }
 
-                if (!c.CanEndPreparations() && c.Placeables().Count > 0 && RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
+                RoomView room = RoomHere(e.Location);
+                if (room != null)
+                {
+                    ProfRoom profRoom = (ProfRoom)room.Room;
+                    WriteLine(c.Placeables().Count + "");
+                    c.AddPlaceable(new Placeable(room.Room.Type, profRoom.SkillType, room.Room.Name));
+                    WriteLine(c.Placeables().Count + "");
+
+                    c.DestroyRoom(profRoom);
+                    PreviewPlaceableItems(c.Placeables());
+                        
+                }
+                else if (c.Placeables().Count > 0 && RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
                 {
                     Placeable placeable = c.Placeables()[m_selectIndexPlaceables];
                     c.PlaceHere(x, y, placeable);
@@ -340,11 +352,18 @@ namespace IAcademyOfDoom.View
             int x = Settings.PlaceableLeft;
             int y = Settings.PlaceableTop;
 
+            int i = 0;
             foreach (Placeable placeable in placeables)
             {
                 items += " " + placeable.ToString();
-                this.placeables.Add(new PlaceableView(placeable, new Point(x, y)));
+                PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
+                if (i == m_selectIndexPlaceables)
+                    newPlaceableView.isSelected = true;
+
+                this.placeables.Add(newPlaceableView);
+                
                 y += Settings.PlaceableOffset;
+                i++;
             }
             WriteLine("Preparations: please place the following...");
             WriteLine("Items:" + items);
