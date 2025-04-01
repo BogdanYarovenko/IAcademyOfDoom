@@ -182,13 +182,26 @@ namespace IAcademyOfDoom.View
         /// Method called by the controller to set the window to results mode.
         /// </summary>
         /// <param name="results">the results of the previous wave, as a pair</param>        
-        public void DisplayResults((int successes, int failures) results)
+        public void DisplayResults((int successes, int failures, int dead) results)
         {
-            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures.");
+            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
+          
+           
             Refresh();
             c.NextWave();
+        }
+
+        private void showResultsButton_Click(object sender, EventArgs e)
+        {
+            if (endPrepButton.Enabled)
+            {
+                MessageBox.Show("Assault do not started yet");
+            }
+            else { c.GetLastResults(); }
+   
+
         }
         /// <summary>
         /// Method called by the controller to update the botling mobiles.
@@ -558,5 +571,7 @@ namespace IAcademyOfDoom.View
             list[(botling.X, botling.Y)].Add(botling);
         }
         #endregion
+
+       
     }
 }

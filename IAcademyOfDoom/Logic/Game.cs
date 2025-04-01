@@ -54,6 +54,7 @@ namespace IAcademyOfDoom.Logic
         private Wave wave = null;
         private int successes;
         private int failures;
+        private int dead;
         private readonly List<Room> rooms = new List<Room>();
         private readonly List<Placeable> placeables = new List<Placeable>();
         private readonly List<Botling> botlings = new List<Botling>();
@@ -134,7 +135,7 @@ namespace IAcademyOfDoom.Logic
         public void EndPreparations()
         {
             currentPhase = Phase.Assault;
-            successes = failures = 0;
+            successes = failures = dead = 0;
             wave = new Wave(waveNumber);
             
         }
@@ -170,7 +171,7 @@ namespace IAcademyOfDoom.Logic
                         c.LessonResult(botling, b);
                         if (!b && botling.HP <= 0)
                         {
-                            StoreExamResult(ExamResult.Failure);
+                            StoreExamResult(ExamResult.Dead);
                             terminatedNow.Add(botling);
                         }
                     }
@@ -195,7 +196,8 @@ namespace IAcademyOfDoom.Logic
             {
                 currentPhase = Phase.Result;
                 wave = null;
-                c.EndAssault();
+                
+                    c.EndAssault();
                 /*if (!NextWave())
                 {
                     
@@ -206,9 +208,9 @@ namespace IAcademyOfDoom.Logic
         /// Accesses the current results of the assault.
         /// </summary>
         /// <returns>a success - failures pair</returns>
-        public (int successes, int failures) GetResults()
+        public (int successes, int failures, int dead) GetResults()
         {
-            return (successes, failures);
+            return (successes, failures, dead);
         }
         /// <summary>
         /// Removes a room.

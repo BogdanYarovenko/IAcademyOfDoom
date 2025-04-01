@@ -5,6 +5,6 @@
     /// </summary>
     public enum ExamResult
     {
-        Success, Failure
+        Success, Failure, Dead
     }
 }
