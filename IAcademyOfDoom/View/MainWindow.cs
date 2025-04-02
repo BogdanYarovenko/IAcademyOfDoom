@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace IAcademyOfDoom.View
@@ -19,9 +20,12 @@ namespace IAcademyOfDoom.View
         #region private attributes
         private Controller c = Controller.Instance;
         private readonly List<BotlingView> bots = new List<BotlingView>();
+
         private readonly List<RoomView> rooms = new List<RoomView>();
+        private RoomView m_selectedRoom = null;
 
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
+        private PlaceableView m_placeableSelected = null;
         private int m_selectIndexPlaceables = 0;
 
         #endregion
@@ -50,7 +54,7 @@ namespace IAcademyOfDoom.View
             {
                 playerNameLabel.Visible = false;
             }
-
+            SyncRooms();
         }
         #endregion
         #region event handling methods
@@ -61,13 +65,14 @@ namespace IAcademyOfDoom.View
         /// <param name="e">used to get the graphic context</param>
         private void MainWindow_Paint(object sender, PaintEventArgs e)
         {
+            e.Graphics.DrawRectangle(Pens.Gray, Settings.PlaceableObjetsSquareArea);
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
             }
             BackgroundGrid(e.Graphics);
-            SyncRooms();
+            
             foreach (RoomView room in rooms)
             {
                 room.Draw(e.Graphics);
@@ -110,32 +115,16 @@ namespace IAcademyOfDoom.View
             (int x, int y) = PointCoordinates(e.Location);
             if (e.Button == MouseButtons.Left && endPrepButton.Enabled)
             {
-                int indexPlaceable = 0;
-                foreach (PlaceableView placeable in placeables)
-                {
-                    if (placeable.OnSquare(e.Location))
-                    {
-                        placeables[m_selectIndexPlaceables].isSelected = false;
-                        placeable.isSelected = true;
-                        m_selectIndexPlaceables = indexPlaceable;
-                    }
-                    indexPlaceable++;
-                }
+                selectPlaceableView(e.Location);
 
-                RoomView room = RoomHere(e.Location);
-                if (room != null)
-                {
-                    ProfRoom profRoom = (ProfRoom)room.Room;
-                    c.AddPlaceable(new Placeable(room.Room.Type, profRoom.SkillType, room.Room.Name));
+                m_selectedRoom = RoomHere(e.Location);
+                if (m_selectedRoom != null && m_selectedRoom.Room.Type == RoomType.Cycle)
+                    m_selectedRoom = null; 
 
-                    c.DestroyRoom(profRoom);
-                    PreviewPlaceableItems(c.Placeables());
-                }
-                else if (c.Placeables().Count > 0 && RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
+                if (m_selectedRoom == null && m_placeableSelected == null && placeables.Count > 0)
                 {
-                    Placeable placeable = c.Placeables()[m_selectIndexPlaceables];
-                    c.PlaceHere(x, y, placeable);
                     m_selectIndexPlaceables = 0;
+                    m_PlaceRoom(e.Location);
                 }
             }
             if (e.Button == MouseButtons.Right)
@@ -157,6 +146,58 @@ namespace IAcademyOfDoom.View
 
             Refresh();
         }
+
+        private void MainWindow_MouseUp(object sender, MouseEventArgs e)
+        {
+            
+            if (m_placeableSelected != null)
+            {
+                bool isPlaced = m_PlaceRoom(e.Location);
+                if (!isPlaced)
+                {
+                    PreviewPlaceableItems(c.Placeables());
+                }
+            }
+            else if (m_selectedRoom != null)
+            {
+                (int x, int y) = PointCoordinates(e.Location);
+                m_selectedRoom.relocate();
+                if (Settings.PlaceableObjetsSquareArea.Contains(e.Location))
+                {
+                    ProfRoom profRoom = (ProfRoom)m_selectedRoom.Room;
+                    c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, profRoom.SkillType, m_selectedRoom.Room.Name));
+
+                    c.DestroyRoom(profRoom);
+                    PreviewPlaceableItems(c.Placeables());
+                }
+                else if (RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
+                {
+                    m_selectedRoom.Room.moveTo(x, y);
+                    m_selectedRoom.relocate();
+                }
+            }
+
+            m_selectedRoom = null;
+
+            m_placeableSelected = null;
+            m_selectIndexPlaceables = 0;
+            Refresh();
+        }
+
+        private void MainWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m_placeableSelected != null)
+            {
+                m_placeableSelected.Location = Utils.getCenteredPosition(e.Location, Settings.PlaceableSquare);
+            }
+
+            if (m_selectedRoom != null)
+            {
+                 m_selectedRoom.Location = Utils.getCenteredPosition(e.Location, new Size(Settings.Width, Settings.Height));
+            }
+            Refresh();
+        }
+
         #endregion
         #region public methods
         /// <summary>
@@ -354,8 +395,6 @@ namespace IAcademyOfDoom.View
             {
                 items += " " + placeable.ToString();
                 PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
-                if (i == m_selectIndexPlaceables)
-                    newPlaceableView.isSelected = true;
 
                 this.placeables.Add(newPlaceableView);
                 
@@ -483,37 +522,31 @@ namespace IAcademyOfDoom.View
                 return (-1, -1);
             }
         }
-        private void SyncRooms()
+        public void SyncRooms()
         {
-            foreach (Room r in c.Rooms())
+            HashSet<Room> currentRooms = new HashSet<Room>(c.Rooms());
+            rooms.RemoveAll(rv => !currentRooms.Contains(rv.Room));
+            HashSet<Room> existingRooms = new HashSet<Room>(rooms.Select(rv => rv.Room));
+            foreach (Room room in currentRooms)
             {
-                bool add = true;
-                int i = 0;
-                while (i < rooms.Count && !add)
+                if (!existingRooms.Contains(room))
                 {
-                    if (rooms[i].Room.Equals(r))
-                    {
-                        add = false;
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                }
-                if (add)
-                {
-                    rooms.Add(RoomView.CreateFromRoom(r));
-                }
-            }
-            List<RoomView> checkList = new List<RoomView>(rooms);
-            foreach (RoomView view in checkList)
-            {
-                if (!c.Rooms().Contains(view.Room))
-                {
-                    rooms.Remove(view);
+                    rooms.Add(RoomView.CreateFromRoom(room));
                 }
             }
         }
+        private bool m_PlaceRoom(Point pos)
+        {
+            (int x, int y) = PointCoordinates(pos);
+            if (RoomHere(pos) == null && !(x, y).Equals((-1, -1)))
+            {
+                Placeable placeable = c.Placeables()[m_selectIndexPlaceables];
+                c.PlaceHere(x, y, placeable);
+                return true;
+            }
+            return false;
+        }
+
         private static void BackgroundGrid(Graphics graphics)
         {
             for (int i = 0; i < Settings.Cols; i++)
@@ -531,7 +564,7 @@ namespace IAcademyOfDoom.View
             int index = -1;
             while (index == -1 && i < rooms.Count)
             {
-                if (rooms[i].Contains(location))
+                if (rooms[i].Contains(location) && !(m_selectedRoom != null && !m_selectedRoom.Equals(m_selectedRoom)))
                 {
                     index = i;
                 }
@@ -549,6 +582,24 @@ namespace IAcademyOfDoom.View
                 return rooms[index];
             }
         }
+
+        private bool selectPlaceableView(Point p)
+        {
+            int indexPlaceable = 0;
+            foreach (PlaceableView placeable in placeables)
+            {
+                if (placeable.OnSquare(p))
+                {
+                    m_placeableSelected = placeable;
+                    m_selectIndexPlaceables = indexPlaceable;
+                    return true;
+                }
+                indexPlaceable++;
+            }
+
+            return false;
+        }
+
         private void PutBotlingInListByRoom(Dictionary<(int x, int y), List<Botling>> list, Botling botling)
         {
             if (!list.ContainsKey((botling.X, botling.Y)))

@@ -45,5 +45,10 @@ namespace IAcademyOfDoom.View
         {
             return new Rectangle(Location, new Size(Settings.Width, Settings.Height)).Contains(p);
         }
+
+        public void relocate()
+        {
+            Location = MainWindow.ConvertCoordinates(Room.X, Room.Y);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.View
 {
@@ -17,14 +18,14 @@ namespace IAcademyOfDoom.View
         public static int Top { get; } = 100;
         public static Pen Pen { get; } = Pens.Black;
         public static Size BotlingSize { get; } = new Size(10, 10);
-        public static Size TextOffset { get; } = new Size(5, Height/2);
+        public static Size TextOffset { get; } = new Size(8, Height/2);
         public static Brush TextBrush { get; } = Brushes.Black;
         public static Font RoomFont { get; } = SystemFonts.IconTitleFont;
         public static int PlaceableLeft = Left + Width * Cols + 50;
         public static int PlaceableTop = Top + 50;
-        public static Size PlaceableSquare { get; } = new Size(7, 7);
+        public static readonly Rectangle PlaceableObjetsSquareArea = new Rectangle(PlaceableLeft - 5, PlaceableTop - 5, 255, 305);
+        public static Size PlaceableSquare { get; } = new Size(10, 10);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;
-        public static Brush PlaceableSquareBrushSelected { get; } = Brushes.Green;
         public static int PlaceableOffset { get; } = 20;
         public static Color GetRoomColourFor(RoomType type)
         {
