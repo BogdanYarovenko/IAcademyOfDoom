@@ -85,8 +85,14 @@ namespace IAcademyOfDoom.Logic
             
             Money = Default.BaseMoney(Difficulty);
         }
+
         #endregion
         #region public methods
+        public void initAfterWindow()
+        {
+            Money = Default.BaseMoney(Difficulty);
+        }
+
         /// <summary>
         /// Adds a room at one position given a placeable item.
         /// </summary>

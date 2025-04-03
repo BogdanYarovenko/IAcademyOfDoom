@@ -23,7 +23,6 @@ namespace IAcademyOfDoom.View
         private readonly List<BotlingView> bots = new List<BotlingView>();
 
         private readonly List<RoomView> rooms = new List<RoomView>();
-        private int nBOfCoins = Game.Money;
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private PlaceableView m_placeableSelected = null;
@@ -68,7 +67,7 @@ namespace IAcademyOfDoom.View
         {
             e.Graphics.DrawRectangle(Pens.Gray, Settings.PlaceableObjetsSquareArea);
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
-            numberOfCoins.Text = "Your balance is : "  + nBOfCoins.ToString() + " €";
+            numberOfCoins.Text = "Your balance is : "  + Game.Money.ToString() + " €";
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
@@ -229,9 +228,9 @@ namespace IAcademyOfDoom.View
         {
             c.GetLastResults();
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
-            nBOfCoins += results.dead;
-            nBOfCoins -= results.successes;
-            nBOfCoins += results.failures;
+            //Game.Money += results.dead;
+            //Game.Money -= results.successes;
+            //Game.Money += results.failures;
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
           

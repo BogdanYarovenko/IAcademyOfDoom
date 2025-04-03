@@ -43,6 +43,7 @@ namespace IAcademyOfDoom.App
             {
                 Game.Difficulty = difficulty.Value;
             }
+            game.initAfterWindow();
             window.WriteLine("Init new game...");
             window.PreviewPlaceableItems(game.Placeables());
         }

@@ -31,7 +31,10 @@ namespace IAcademyOfDoom.Logic.Places
         /// Turns this into a placeable item.
         /// </summary>
         /// <returns>null</returns>
-        public Placeable MakePlaceable() { return new Placeable(RoomType, Skill, Name); }
+        public Placeable MakePlaceable()
+        {
+            return new Placeable(RoomType, Skill, Name);
+        }
 
         /// <summary>
         /// Returns a string representation of the Buyable object.
