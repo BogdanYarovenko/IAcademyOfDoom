@@ -13,10 +13,27 @@ namespace IAcademyOfDoom.View
 {
     public partial class Magasin : Form
     {
+        private const int _COST = 5;
         public Magasin()
         {
             InitializeComponent();
             BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+        }
+
+        // <summary>
+        // Method to update the balance in the magasin
+        //
+        // TO:DO => Add the verification if the player don't have reach the amount of each room
+        // </summary>
+        private bool _isBuyable()
+        {
+            if (Game.Money >= _COST)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -31,10 +48,16 @@ namespace IAcademyOfDoom.View
             this.Close();
         }
 
+
+
         private void Magasin_Load(object sender, EventArgs e)
         {
 
         }
 
+        private void restRoomButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
