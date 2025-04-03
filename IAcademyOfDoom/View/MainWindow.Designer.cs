@@ -134,13 +134,14 @@
             // 
             // magasinDesign
             // 
+            this.magasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.magasinDesign.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.magasinDesign.Location = new System.Drawing.Point(953, 23);
+            this.magasinDesign.Image = global::IAcademyOfDoom.Properties.Resources.Design_sans_titre;
+            this.magasinDesign.Location = new System.Drawing.Point(1043, 52);
             this.magasinDesign.Name = "magasinDesign";
-            this.magasinDesign.Size = new System.Drawing.Size(162, 23);
+            this.magasinDesign.Size = new System.Drawing.Size(67, 63);
             this.magasinDesign.TabIndex = 9;
-            this.magasinDesign.Text = "Magasin";
-            this.magasinDesign.UseVisualStyleBackColor = true;
+            this.magasinDesign.UseVisualStyleBackColor = false;
             this.magasinDesign.Click += new System.EventHandler(this.magasinDesign_Click);
             // 
             // MainWindow
