@@ -82,8 +82,6 @@ namespace IAcademyOfDoom.Logic
             Buyables.Add(new Buyable(RoomType.Facility, Default.StudentCost, "Rest room"));
             Buyables.Add(new Buyable(RoomType.Facility, Default.StudentCost, "Party room"));
             Buyables.Add(new Buyable(RoomType.Facility, Default.FacultyCost, "Faculty lounge"));
-            
-            Money = Default.BaseMoney(Difficulty);
         }
 
         #endregion
