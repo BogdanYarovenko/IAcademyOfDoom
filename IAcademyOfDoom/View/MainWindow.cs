@@ -25,9 +25,11 @@ namespace IAcademyOfDoom.View
         private readonly List<RoomView> rooms = new List<RoomView>();
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
+        private readonly List<BuyableView> buyables = new List<BuyableView>();
         private PlaceableView m_placeableSelected = null;
+        private BuyableView m_buyableSelected = null;
         private int m_selectIndexPlaceables = 0;
-
+        private int m_selectIndexBuyables = 0;
         #endregion
         #region constructor
         /// <summary>
@@ -71,6 +73,10 @@ namespace IAcademyOfDoom.View
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
+            }
+            foreach(BuyableView buyable in buyables)
+            {
+                buyable.Draw(e.Graphics);
             }
             BackgroundGrid(e.Graphics);
             
@@ -228,9 +234,6 @@ namespace IAcademyOfDoom.View
         {
             c.GetLastResults();
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
-            //Game.Money += results.dead;
-            //Game.Money -= results.successes;
-            //Game.Money += results.failures;
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
           
@@ -420,6 +423,34 @@ namespace IAcademyOfDoom.View
                 i++;
             }
             WriteLine("Preparations: please place the following...");
+            WriteLine("Items:" + items);
+            Refresh();
+        }
+        public void PreviewBuyableItems(List<Buyable> buyables)
+        {
+            this.buyables.Clear();
+            if (buyables.Count == 0)
+            {
+                WriteLine("All items bought!");
+                return;
+            }
+
+            string items = "";
+            int x = Settings.PlaceableLeft;
+            int y = Settings.PlaceableTop;
+
+            int i = 0;
+            foreach (Buyable buyable in buyables)
+            {
+                items += " " + buyable.ToString();
+                BuyableView newBuyableView = new BuyableView(buyable, new Point(x, y));
+
+                this.buyables.Add(newBuyableView);
+
+                y += Settings.PlaceableOffset;
+                i++;
+            }
+            WriteLine("Buy items available...");
             WriteLine("Items:" + items);
             Refresh();
         }
@@ -613,6 +644,22 @@ namespace IAcademyOfDoom.View
                     return true;
                 }
                 indexPlaceable++;
+            }
+
+            return false;
+        }
+        private bool selectBuyableView(Point p)
+        {
+            int indexBuyable = 0;
+            foreach (BuyableView buyable in buyables)
+            {
+                if (buyable.OnSquare(p)) 
+                {
+                    m_buyableSelected = buyable; 
+                    m_selectIndexBuyables = indexBuyable; 
+                    return true;
+                }
+                indexBuyable++;
             }
 
             return false;

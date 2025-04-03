@@ -64,6 +64,7 @@
     <Compile Include="Logic\GameSequence\Turn.cs" />
     <Compile Include="Logic\GameSequence\Wave.cs" />
     <Compile Include="Logic\Skills\SkillTypeUtils.cs" />
+    <Compile Include="View\BuyableView.cs" />
     <Compile Include="View\DifficultySelect.cs">
       <SubType>Form</SubType>
     </Compile>
