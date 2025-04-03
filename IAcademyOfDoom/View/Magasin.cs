@@ -25,12 +25,37 @@ namespace IAcademyOfDoom.View
             //_qtyRooms.Add("tutoringRoom", 0); Rajouter le type de salle
         }
 
+        /// <summary>
+        /// Method to buy a room. It checks if the room is available and if the player has enough money
+        /// </summary>
+        /// <param name="typeOfRoom">The name of the room</param>
+        /// <returns> True if the operation was successful. </returns>
+        private bool isBuyable(string typeOfRoom)
+        {
+            if (_qtyRooms.ContainsKey(typeOfRoom)) 
+            {
+                if (_qtyRooms[typeOfRoom] > 0 && Game.Money >= _COST)
+                {
+                    _qtyRooms[typeOfRoom]--;
+                    purchaseSucced(typeOfRoom);
+                    if (_qtyRooms[typeOfRoom] == 0)
+                    {
+                        disableRoomButton(typeOfRoom);
+                    }
+                    return true;
+                } else
+                {
+                    purchaseFailed(typeOfRoom);
+                }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Method to display that the purchase of the room failed due to not enough money
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void PurchaseFailed(String typeOfRoom)
+        private void purchaseFailed(String typeOfRoom)
         {
             switch (typeOfRoom)
             {
@@ -57,7 +82,7 @@ namespace IAcademyOfDoom.View
         /// Method to display the successful purchase message and quantity of the room remaining
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void PurchaseSucced(String typeOfRoom) {
+        private void purchaseSucced(String typeOfRoom) {
             switch (typeOfRoom)
             {
                 case "restRoom":
@@ -87,7 +112,7 @@ namespace IAcademyOfDoom.View
         /// Disable the button of the room type passed in parameter
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void DisableRoomButton(string typeOfRoom)
+        private void disableRoomButton(string typeOfRoom)
         {
             Button roomButton = null;
 
