@@ -36,6 +36,10 @@
             this.loungeRoomButton = new System.Windows.Forms.Button();
             this.orientationOfficeButton = new System.Windows.Forms.Button();
             this.tutoringRoomButton = new System.Windows.Forms.Button();
+            this.restRoomQty = new System.Windows.Forms.Label();
+            this.loungeRoomQty = new System.Windows.Forms.Label();
+            this.orientOfficeQty = new System.Windows.Forms.Label();
+            this.tutorRoomQty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // okButton
@@ -71,7 +75,7 @@
             // restRoomButton
             // 
             this.restRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomButton.Location = new System.Drawing.Point(80, 157);
+            this.restRoomButton.Location = new System.Drawing.Point(42, 124);
             this.restRoomButton.Name = "restRoomButton";
             this.restRoomButton.Size = new System.Drawing.Size(181, 82);
             this.restRoomButton.TabIndex = 3;
@@ -81,7 +85,7 @@
             // loungeRoomButton
             // 
             this.loungeRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomButton.Location = new System.Drawing.Point(313, 157);
+            this.loungeRoomButton.Location = new System.Drawing.Point(42, 219);
             this.loungeRoomButton.Name = "loungeRoomButton";
             this.loungeRoomButton.Size = new System.Drawing.Size(181, 82);
             this.loungeRoomButton.TabIndex = 4;
@@ -91,7 +95,7 @@
             // orientationOfficeButton
             // 
             this.orientationOfficeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orientationOfficeButton.Location = new System.Drawing.Point(80, 284);
+            this.orientationOfficeButton.Location = new System.Drawing.Point(42, 317);
             this.orientationOfficeButton.Name = "orientationOfficeButton";
             this.orientationOfficeButton.Size = new System.Drawing.Size(181, 82);
             this.orientationOfficeButton.TabIndex = 5;
@@ -101,18 +105,62 @@
             // tutoringRoomButton
             // 
             this.tutoringRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutoringRoomButton.Location = new System.Drawing.Point(313, 284);
+            this.tutoringRoomButton.Location = new System.Drawing.Point(42, 415);
             this.tutoringRoomButton.Name = "tutoringRoomButton";
             this.tutoringRoomButton.Size = new System.Drawing.Size(181, 82);
             this.tutoringRoomButton.TabIndex = 6;
             this.tutoringRoomButton.Text = "Tutoring rooms\r\n\r\nCost : 5\r\n";
             this.tutoringRoomButton.UseVisualStyleBackColor = true;
             // 
+            // restRoomQty
+            // 
+            this.restRoomQty.AutoSize = true;
+            this.restRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restRoomQty.Location = new System.Drawing.Point(246, 157);
+            this.restRoomQty.Name = "restRoomQty";
+            this.restRoomQty.Size = new System.Drawing.Size(50, 16);
+            this.restRoomQty.TabIndex = 7;
+            this.restRoomQty.Text = "Qty : 4";
+            // 
+            // loungeRoomQty
+            // 
+            this.loungeRoomQty.AutoSize = true;
+            this.loungeRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loungeRoomQty.Location = new System.Drawing.Point(246, 252);
+            this.loungeRoomQty.Name = "loungeRoomQty";
+            this.loungeRoomQty.Size = new System.Drawing.Size(50, 16);
+            this.loungeRoomQty.TabIndex = 8;
+            this.loungeRoomQty.Text = "Qty : 4";
+            // 
+            // orientOfficeQty
+            // 
+            this.orientOfficeQty.AutoSize = true;
+            this.orientOfficeQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orientOfficeQty.Location = new System.Drawing.Point(246, 350);
+            this.orientOfficeQty.Name = "orientOfficeQty";
+            this.orientOfficeQty.Size = new System.Drawing.Size(50, 16);
+            this.orientOfficeQty.TabIndex = 9;
+            this.orientOfficeQty.Text = "Qty : 3";
+            // 
+            // tutorRoomQty
+            // 
+            this.tutorRoomQty.AutoSize = true;
+            this.tutorRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tutorRoomQty.Location = new System.Drawing.Point(246, 448);
+            this.tutorRoomQty.Name = "tutorRoomQty";
+            this.tutorRoomQty.Size = new System.Drawing.Size(131, 16);
+            this.tutorRoomQty.TabIndex = 10;
+            this.tutorRoomQty.Text = "Qty : 1 / each type";
+            // 
             // Magasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.tutorRoomQty);
+            this.Controls.Add(this.orientOfficeQty);
+            this.Controls.Add(this.loungeRoomQty);
+            this.Controls.Add(this.restRoomQty);
             this.Controls.Add(this.tutoringRoomButton);
             this.Controls.Add(this.orientationOfficeButton);
             this.Controls.Add(this.loungeRoomButton);
@@ -138,5 +186,9 @@
         private System.Windows.Forms.Button loungeRoomButton;
         private System.Windows.Forms.Button orientationOfficeButton;
         private System.Windows.Forms.Button tutoringRoomButton;
+        private System.Windows.Forms.Label restRoomQty;
+        private System.Windows.Forms.Label loungeRoomQty;
+        private System.Windows.Forms.Label orientOfficeQty;
+        private System.Windows.Forms.Label tutorRoomQty;
     }
 }
