@@ -236,6 +236,24 @@ namespace IAcademyOfDoom.Logic
 
             return (wave.Turn != null);
         }
+
+        /// <summary>
+        /// Remove the specified amount of money from the current money
+        /// </summary>
+        /// <returns>true if the money was removed, false if not enough money</returns>
+        public static bool RemoveMoney(int amount)
+        {
+            if (Money - amount >= 0)
+            {
+                Money -= amount;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
         #region private methods
         private void StoreExamResult(ExamResult examResult)

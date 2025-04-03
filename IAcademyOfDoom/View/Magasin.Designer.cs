@@ -102,6 +102,7 @@
             this.loungeRoomButton.TabIndex = 4;
             this.loungeRoomButton.Text = "Lounge room\r\n\r\nCost : 5";
             this.loungeRoomButton.UseVisualStyleBackColor = true;
+            this.loungeRoomButton.Click += new System.EventHandler(this.loungeRoomButton_Click);
             // 
             // orientationOfficeButton
             // 
@@ -113,6 +114,7 @@
             this.orientationOfficeButton.TabIndex = 5;
             this.orientationOfficeButton.Text = "Orientation office\r\n\r\nCost : 5\r\n";
             this.orientationOfficeButton.UseVisualStyleBackColor = true;
+            this.orientationOfficeButton.Click += new System.EventHandler(this.orientationOfficeButton_Click);
             // 
             // tutoringRoomButton
             // 
@@ -124,6 +126,7 @@
             this.tutoringRoomButton.TabIndex = 6;
             this.tutoringRoomButton.Text = "Tutoring rooms\r\n\r\nCost : 5\r\n";
             this.tutoringRoomButton.UseVisualStyleBackColor = true;
+            this.tutoringRoomButton.Click += new System.EventHandler(this.tutoringRoomButton_Click);
             // 
             // restRoomQty
             // 
