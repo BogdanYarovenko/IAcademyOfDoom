@@ -28,5 +28,11 @@ namespace IAcademyOfDoom.View
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void Magasin_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
