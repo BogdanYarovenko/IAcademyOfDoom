@@ -20,7 +20,7 @@ namespace IAcademyOfDoom.View
         private Controller c = Controller.Instance;
         private readonly List<BotlingView> bots = new List<BotlingView>();
         private readonly List<RoomView> rooms = new List<RoomView>();
-
+        private  int nBOfCoins = 5;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private int m_selectIndexPlaceables = 0;
 
@@ -62,6 +62,7 @@ namespace IAcademyOfDoom.View
         private void MainWindow_Paint(object sender, PaintEventArgs e)
         {
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
+            numberOfCoins.Text = "Coins : "  + nBOfCoins.ToString();
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
@@ -184,7 +185,11 @@ namespace IAcademyOfDoom.View
         /// <param name="results">the results of the previous wave, as a pair</param>        
         public void DisplayResults((int successes, int failures, int dead) results)
         {
+            c.GetLastResults();
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
+            nBOfCoins += results.dead;
+            nBOfCoins -= results.successes;
+            nBOfCoins += results.failures;
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
           

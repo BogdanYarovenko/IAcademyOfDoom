@@ -36,6 +36,7 @@
             this.quitButton = new System.Windows.Forms.Button();
             this.playerNameLabel = new System.Windows.Forms.Label();
             this.showResultsButton = new System.Windows.Forms.Button();
+            this.numberOfCoins = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -116,11 +117,21 @@
             this.showResultsButton.UseVisualStyleBackColor = true;
             this.showResultsButton.Click += new System.EventHandler(this.showResultsButton_Click);
             // 
+            // numberOfCoins
+            // 
+            this.numberOfCoins.AutoSize = true;
+            this.numberOfCoins.Location = new System.Drawing.Point(34, 52);
+            this.numberOfCoins.Name = "numberOfCoins";
+            this.numberOfCoins.Size = new System.Drawing.Size(42, 13);
+            this.numberOfCoins.TabIndex = 8;
+            this.numberOfCoins.Text = "Coins : ";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 687);
+            this.Controls.Add(this.numberOfCoins);
             this.Controls.Add(this.showResultsButton);
             this.Controls.Add(this.playerNameLabel);
             this.Controls.Add(this.quitButton);
@@ -149,6 +160,7 @@
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Label playerNameLabel;
         private System.Windows.Forms.Button showResultsButton;
+        private System.Windows.Forms.Label numberOfCoins;
     }
 }
 
