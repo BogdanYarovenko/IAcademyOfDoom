@@ -23,6 +23,7 @@ namespace IAcademyOfDoom.View
 
         private readonly List<RoomView> rooms = new List<RoomView>();
         private  int nBOfCoins = 5;
+        private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private PlaceableView m_placeableSelected = null;
         private int m_selectIndexPlaceables = 0;
