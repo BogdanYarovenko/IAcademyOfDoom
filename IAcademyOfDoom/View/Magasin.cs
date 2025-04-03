@@ -25,15 +25,35 @@ namespace IAcademyOfDoom.View
             //_qtyRooms.Add("tutoringRoom", 0); Rajouter le type de salle
         }
 
+
         /// <summary>
-        /// Method to update the balance in the magasin
-        ///
-        /// TO:DO => Add the verification if the player don't have reach the amount of each room
+        /// Disable the button of the room type passed in parameter
         /// </summary>
-        /// <returns> True if the room is buyable  </returns>
-        private bool _isBuyable(String typeOfRoom)
+        /// <param name="typeOfRoom"> the name of the room</param>
+        private void DisableRoomButton(string typeOfRoom)
         {
-            return true;
+            Button roomButton = null;
+
+            switch (typeOfRoom)
+            {
+                case "restRoom":
+                    roomButton = restRoomButton;
+                    break;
+                case "loungeRoom":
+                    roomButton = loungeRoomButton;
+                    break;
+                case "orientationOffice":
+                    roomButton = orientationOfficeButton;
+                    break;
+                case "tutoringRoom":
+                    roomButton = tutoringRoomButton;
+                    break;
+            }
+
+            if (roomButton != null)
+            {
+                roomButton.Enabled = false;
+            }
         }
 
         private void okButton_Click(object sender, EventArgs e)
