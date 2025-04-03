@@ -74,10 +74,10 @@
             // botnumTextLabel
             // 
             this.botnumTextLabel.AutoSize = true;
-            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botnumTextLabel.Location = new System.Drawing.Point(34, 23);
             this.botnumTextLabel.Name = "botnumTextLabel";
-            this.botnumTextLabel.Size = new System.Drawing.Size(117, 13);
+            this.botnumTextLabel.Size = new System.Drawing.Size(98, 13);
             this.botnumTextLabel.TabIndex = 3;
             this.botnumTextLabel.Text = "Number of botlings:";
             // 
@@ -125,17 +125,16 @@
             // numberOfCoins
             // 
             this.numberOfCoins.AutoSize = true;
-            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberOfCoins.Location = new System.Drawing.Point(34, 52);
             this.numberOfCoins.Name = "numberOfCoins";
-            this.numberOfCoins.Size = new System.Drawing.Size(50, 13);
+            this.numberOfCoins.Size = new System.Drawing.Size(0, 13);
             this.numberOfCoins.TabIndex = 8;
-            this.numberOfCoins.Text = "Coins : ";
             // 
             // magasinDesign
             // 
             this.magasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.magasinDesign.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.magasinDesign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.magasinDesign.Image = global::IAcademyOfDoom.Properties.Resources.Design_sans_titre;
             this.magasinDesign.Location = new System.Drawing.Point(1043, 52);
             this.magasinDesign.Name = "magasinDesign";
@@ -161,6 +160,7 @@
             this.Controls.Add(this.outputListBox);
             this.DoubleBuffered = true;
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainWindow";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);

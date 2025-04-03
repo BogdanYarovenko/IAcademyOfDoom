@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IAcademyOfDoom.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace IAcademyOfDoom.View
         public Magasin()
         {
             InitializeComponent();
+            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
         }
 
         private void okButton_Click(object sender, EventArgs e)
