@@ -22,12 +22,7 @@ namespace IAcademyOfDoom.View
         private readonly List<BotlingView> bots = new List<BotlingView>();
 
         private readonly List<RoomView> rooms = new List<RoomView>();
-<<<<<<< HEAD
         private  int nBOfCoins = 5;
-=======
-        private RoomView m_selectedRoom = null;
-
->>>>>>> 2a2ecf3cce707fb44a7689170da8b72278f5ec0d
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private PlaceableView m_placeableSelected = null;
         private int m_selectIndexPlaceables = 0;

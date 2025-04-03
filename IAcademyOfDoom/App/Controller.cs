@@ -4,11 +4,7 @@ using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using IAcademyOfDoom.View;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Windows.Forms;
-=======
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
->>>>>>> 2a2ecf3cce707fb44a7689170da8b72278f5ec0d
 
 namespace IAcademyOfDoom.App
 {
