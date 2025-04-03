@@ -250,6 +250,9 @@ namespace IAcademyOfDoom.Logic
                 case ExamResult.Failure:
                     failures++;
                     break;
+                case ExamResult.Dead:
+                    dead++; 
+                    break;
             }
         }
         private Room FindRoomAt(int x, int y)
