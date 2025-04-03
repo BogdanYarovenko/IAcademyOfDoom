@@ -90,7 +90,6 @@
             this.Controls.Add(this.nameLabel);
             this.Name = "DifficultySelect";
             this.Text = "DifficultySelect";
-            this.Load += new System.EventHandler(this.DifficultySelect_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

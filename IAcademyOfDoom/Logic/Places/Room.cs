@@ -1,4 +1,5 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
+using System.Drawing;
 
 namespace IAcademyOfDoom.Logic.Places
 {
@@ -66,6 +67,12 @@ namespace IAcademyOfDoom.Logic.Places
         public virtual object ActOnEntry(Botling botling)
         {
             return botling.Exam();
+        }
+        
+        public void moveTo(int x, int y)
+        {
+            X = x;
+            Y = y;
         }
     }
 }

@@ -4,7 +4,11 @@ using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using IAcademyOfDoom.View;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Windows.Forms;
+=======
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+>>>>>>> 2a2ecf3cce707fb44a7689170da8b72278f5ec0d
 
 namespace IAcademyOfDoom.App
 {
@@ -127,6 +131,7 @@ namespace IAcademyOfDoom.App
             game.PlaceThisHere(x, y, placeable);
             window.WriteLine("Placed:" + placeable.ToString());
             window.PreviewPlaceableItems(game.Placeables());
+            window.SyncRooms();
             window.Refresh();
         }
         /// <summary>
@@ -146,6 +151,7 @@ namespace IAcademyOfDoom.App
         public void DestroyRoom(ProfRoom profRoom)
         {
             game.DestroyRoom(profRoom);
+            window.SyncRooms();
             window.WriteLine(profRoom.Name + ", exhausted, retires after one final lesson.");
         }
         /// <summary>

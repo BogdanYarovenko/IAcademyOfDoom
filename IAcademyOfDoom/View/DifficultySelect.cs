@@ -6,7 +6,7 @@ namespace IAcademyOfDoom.View
 {
     public partial class DifficultySelect : Form
     {
-        public Difficulty? Difficulty { get { return difficultyListBox.Items[difficultyListBox.SelectedIndex == -1 ? 0 : difficultyListBox.SelectedIndex ] as Difficulty?; } }
+        public Difficulty? Difficulty { get { return difficultyListBox.Items[difficultyListBox.SelectedIndex == -1 ? 0 : difficultyListBox.SelectedIndex] as Difficulty?; } }
         public string InputName { get { return nameTextBox.Text; } }
         public DifficultySelect()
         {
@@ -15,11 +15,6 @@ namespace IAcademyOfDoom.View
             {
                 difficultyListBox.Items.Add(difficulty);
             }
-        }
-
-        private void DifficultySelect_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
