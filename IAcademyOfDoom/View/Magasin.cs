@@ -27,6 +27,36 @@ namespace IAcademyOfDoom.View
 
 
         /// <summary>
+        /// Method to display the successful purchase message and quantity of the room remaining
+        /// </summary>
+        /// <param name="typeOfRoom">the name of the room</param>
+        private void PurchaseSucced(String typeOfRoom) {
+            switch (typeOfRoom)
+            {
+                case "restRoom":
+                    messageRestQty.Text = "Purchase successful";
+                    messageRestQty.ForeColor = Color.Green;
+                    restRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
+                    break;
+                case "loungeRoom":
+                    messageLoungeQty.Text = "Purchase successful";
+                    messageLoungeQty.ForeColor = Color.Green;
+                    loungeRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
+                    break;
+                case "orientationOffice":
+                    messageOrientationQty.Text = "Purchase successful";
+                    messageOrientationQty.ForeColor = Color.Green;
+                    orientOfficeQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
+                    break;
+                case "tutoringRoom":
+                    messageTutoringQty.Text = "Purchase successful";
+                    messageTutoringQty.ForeColor = Color.Green;
+                    // tutorRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString(); Need to implement different type of this room
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Disable the button of the room type passed in parameter
         /// </summary>
         /// <param name="typeOfRoom"> the name of the room</param>
