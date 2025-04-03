@@ -32,9 +32,9 @@ namespace IAcademyOfDoom.View
         /// <returns> True if the operation was successful. </returns>
         private bool isBuyable(string typeOfRoom)
         {
-            if (_qtyRooms.ContainsKey(typeOfRoom)) 
+            if (_qtyRooms[typeOfRoom] > 0) 
             {
-                if (_qtyRooms[typeOfRoom] > 0 && Game.Money >= _COST)
+                if (Game.Money >= _COST)
                 {
                     _qtyRooms[typeOfRoom]--;
                     purchaseSucced(typeOfRoom);
@@ -47,6 +47,7 @@ namespace IAcademyOfDoom.View
                 {
                     purchaseFailed(typeOfRoom);
                 }
+                purchaseFailed(typeOfRoom);
             }
             return false;
         }
@@ -161,24 +162,44 @@ namespace IAcademyOfDoom.View
         {
             // Sale de detente
             String roomType = "restRoom";
+            if (isBuyable(roomType))
+            {
+                Game.RemoveMoney(_COST);
+                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            }
         }
 
         private void loungeRoomButton_Click(object sender, EventArgs e)
         {
             // Salle de repos
             String roomType = "loungeRoom";
+            if (isBuyable(roomType))
+            {
+                Game.RemoveMoney(_COST);
+                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            }
         }
 
         private void orientationOfficeButton_Click(object sender, EventArgs e)
         {
             // Salle d'orientation
             String roomType = "orientationOffice";
+            if (isBuyable(roomType))
+            {
+                Game.RemoveMoney(_COST);
+                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            }
         }
 
         private void tutoringRoomButton_Click(object sender, EventArgs e)
         {
             // Salle de tutorat
             String roomType = "tutoringRoom";
+            if (isBuyable(roomType))
+            {
+                Game.RemoveMoney(_COST);
+                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            }
         }
     }
 }
