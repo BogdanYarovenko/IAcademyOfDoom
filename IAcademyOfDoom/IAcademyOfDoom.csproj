@@ -71,6 +71,12 @@
     <Compile Include="View\DifficultySelect.Designer.cs">
       <DependentUpon>DifficultySelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Magasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Magasin.Designer.cs">
+      <DependentUpon>Magasin.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="View\Utils.cs" />
     <EmbeddedResource Include="View\DifficultySelect.resx">
       <DependentUpon>DifficultySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Magasin.resx">
+      <DependentUpon>Magasin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

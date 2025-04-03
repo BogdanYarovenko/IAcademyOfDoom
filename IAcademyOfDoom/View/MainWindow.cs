@@ -673,8 +673,13 @@ namespace IAcademyOfDoom.View
             }
             list[(botling.X, botling.Y)].Add(botling);
         }
+
         #endregion
 
-       
+        private void magasinDesign_Click(object sender, EventArgs e)
+        {
+            Magasin mg = new Magasin();
+            if (mg.ShowDialog() == DialogResult.OK) { }
+        }
     }
 }

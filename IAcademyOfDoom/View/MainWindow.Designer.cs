@@ -37,6 +37,7 @@
             this.playerNameLabel = new System.Windows.Forms.Label();
             this.showResultsButton = new System.Windows.Forms.Button();
             this.numberOfCoins = new System.Windows.Forms.Label();
+            this.magasinDesign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -49,6 +50,7 @@
             // 
             // endPrepButton
             // 
+            this.endPrepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endPrepButton.Location = new System.Drawing.Point(833, 492);
             this.endPrepButton.Name = "endPrepButton";
             this.endPrepButton.Size = new System.Drawing.Size(162, 23);
@@ -60,6 +62,7 @@
             // nextInAssaultButton
             // 
             this.nextInAssaultButton.Enabled = false;
+            this.nextInAssaultButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nextInAssaultButton.Location = new System.Drawing.Point(833, 521);
             this.nextInAssaultButton.Name = "nextInAssaultButton";
             this.nextInAssaultButton.Size = new System.Drawing.Size(162, 23);
@@ -71,9 +74,10 @@
             // botnumTextLabel
             // 
             this.botnumTextLabel.AutoSize = true;
+            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botnumTextLabel.Location = new System.Drawing.Point(34, 23);
             this.botnumTextLabel.Name = "botnumTextLabel";
-            this.botnumTextLabel.Size = new System.Drawing.Size(98, 13);
+            this.botnumTextLabel.Size = new System.Drawing.Size(117, 13);
             this.botnumTextLabel.TabIndex = 3;
             this.botnumTextLabel.Text = "Number of botlings:";
             // 
@@ -109,6 +113,7 @@
             // 
             // showResultsButton
             // 
+            this.showResultsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showResultsButton.Location = new System.Drawing.Point(833, 550);
             this.showResultsButton.Name = "showResultsButton";
             this.showResultsButton.Size = new System.Drawing.Size(162, 23);
@@ -120,17 +125,30 @@
             // numberOfCoins
             // 
             this.numberOfCoins.AutoSize = true;
+            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberOfCoins.Location = new System.Drawing.Point(34, 52);
             this.numberOfCoins.Name = "numberOfCoins";
-            this.numberOfCoins.Size = new System.Drawing.Size(42, 13);
+            this.numberOfCoins.Size = new System.Drawing.Size(50, 13);
             this.numberOfCoins.TabIndex = 8;
             this.numberOfCoins.Text = "Coins : ";
+            // 
+            // magasinDesign
+            // 
+            this.magasinDesign.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.magasinDesign.Location = new System.Drawing.Point(953, 23);
+            this.magasinDesign.Name = "magasinDesign";
+            this.magasinDesign.Size = new System.Drawing.Size(162, 23);
+            this.magasinDesign.TabIndex = 9;
+            this.magasinDesign.Text = "Magasin";
+            this.magasinDesign.UseVisualStyleBackColor = true;
+            this.magasinDesign.Click += new System.EventHandler(this.magasinDesign_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 687);
+            this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
             this.Controls.Add(this.showResultsButton);
             this.Controls.Add(this.playerNameLabel);
@@ -163,6 +181,7 @@
         private System.Windows.Forms.Label playerNameLabel;
         private System.Windows.Forms.Button showResultsButton;
         private System.Windows.Forms.Label numberOfCoins;
+        private System.Windows.Forms.Button magasinDesign;
     }
 }
 

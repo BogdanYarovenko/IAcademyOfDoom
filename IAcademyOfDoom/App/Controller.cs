@@ -86,6 +86,7 @@ namespace IAcademyOfDoom.App
         public (int successes, int failures, int dead) GetLastResults()
         {
             var results = game.GetResults();
+           
             MessageBox.Show($"✅ Successes: {results.successes}\n❌ Failures: {results.failures}\n☠️ Dead: {results.dead}");
 
             return results;
