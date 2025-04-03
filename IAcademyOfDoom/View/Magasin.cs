@@ -27,9 +27,36 @@ namespace IAcademyOfDoom.View
 
 
         /// <summary>
+        /// Method to display that the purchase of the room failed due to not enough money
+        /// </summary>
+        /// <param name="typeOfRoom">The name of the room</param>
+        private void PurchaseFailed(String typeOfRoom)
+        {
+            switch (typeOfRoom)
+            {
+                case "restRoom":
+                    messageRestQty.Text = "Not enough money";
+                    messageRestQty.ForeColor = Color.Red;
+                    break;
+                case "loungeRoom":
+                    messageLoungeQty.Text = "Not enough money";
+                    messageLoungeQty.ForeColor = Color.Red;
+                    break;
+                case "orientationOffice":
+                    messageOrientationQty.Text = "Not enough money";
+                    messageOrientationQty.ForeColor = Color.Red;
+                    break;
+                case "tutoringRoom":
+                    messageTutoringQty.Text = "Not enough money";
+                    messageTutoringQty.ForeColor = Color.Red;
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Method to display the successful purchase message and quantity of the room remaining
         /// </summary>
-        /// <param name="typeOfRoom">the name of the room</param>
+        /// <param name="typeOfRoom">The name of the room</param>
         private void PurchaseSucced(String typeOfRoom) {
             switch (typeOfRoom)
             {
@@ -59,7 +86,7 @@ namespace IAcademyOfDoom.View
         /// <summary>
         /// Disable the button of the room type passed in parameter
         /// </summary>
-        /// <param name="typeOfRoom"> the name of the room</param>
+        /// <param name="typeOfRoom">The name of the room</param>
         private void DisableRoomButton(string typeOfRoom)
         {
             Button roomButton = null;
