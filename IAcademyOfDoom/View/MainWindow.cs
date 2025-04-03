@@ -1,4 +1,5 @@
 ﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic;
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
@@ -22,7 +23,7 @@ namespace IAcademyOfDoom.View
         private readonly List<BotlingView> bots = new List<BotlingView>();
 
         private readonly List<RoomView> rooms = new List<RoomView>();
-        private  int nBOfCoins = 5;
+        private int nBOfCoins = Game.Money;
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private PlaceableView m_placeableSelected = null;
@@ -67,7 +68,7 @@ namespace IAcademyOfDoom.View
         {
             e.Graphics.DrawRectangle(Pens.Gray, Settings.PlaceableObjetsSquareArea);
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
-            numberOfCoins.Text = "Coins : "  + nBOfCoins.ToString();
+            numberOfCoins.Text = "Your balance is : "  + nBOfCoins.ToString() + " €";
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);

@@ -46,7 +46,7 @@ namespace IAcademyOfDoom.Logic
         /// <summary>
         /// The current money of the player.
         /// </summary>
-        public int Money { get; private set; }
+        public static int Money { get; private set; }
         #endregion
         #region private attributes
         private Phase currentPhase = Phase.Preparation;
@@ -82,6 +82,7 @@ namespace IAcademyOfDoom.Logic
             Buyables.Add(new Buyable(RoomType.Facility, Default.StudentCost, "Rest room"));
             Buyables.Add(new Buyable(RoomType.Facility, Default.StudentCost, "Party room"));
             Buyables.Add(new Buyable(RoomType.Facility, Default.FacultyCost, "Faculty lounge"));
+            
             Money = Default.BaseMoney(Difficulty);
         }
         #endregion
