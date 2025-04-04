@@ -1,4 +1,5 @@
 ﻿using IAcademyOfDoom.Logic;
+using IAcademyOfDoom.Logic.Places;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,7 @@ namespace IAcademyOfDoom.View
         {
             if (_purchasedItem.ContainsKey(typeOfRoom))
             {
-                _purchasedItem[typeOfRoom]++; 
+                _purchasedItem[typeOfRoom]++;
             }
             else
             {
