@@ -139,6 +139,15 @@ namespace IAcademyOfDoom.View
             }
         }
 
+        /// <summary>
+        /// Update the display of the balance and remove money from balance
+        /// </summary>
+        private void loadBuyable()
+        {
+            Game.RemoveMoney(_COST);
+            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+        }
+
         private void okButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -164,8 +173,7 @@ namespace IAcademyOfDoom.View
             String roomType = "restRoom";
             if (isBuyable(roomType))
             {
-                Game.RemoveMoney(_COST);
-                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+                loadBuyable();
             }
         }
 
@@ -175,8 +183,7 @@ namespace IAcademyOfDoom.View
             String roomType = "loungeRoom";
             if (isBuyable(roomType))
             {
-                Game.RemoveMoney(_COST);
-                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+                loadBuyable();
             }
         }
 
@@ -186,8 +193,7 @@ namespace IAcademyOfDoom.View
             String roomType = "orientationOffice";
             if (isBuyable(roomType))
             {
-                Game.RemoveMoney(_COST);
-                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+                loadBuyable();
             }
         }
 
@@ -197,8 +203,7 @@ namespace IAcademyOfDoom.View
             String roomType = "tutoringRoom";
             if (isBuyable(roomType))
             {
-                Game.RemoveMoney(_COST);
-                BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+                loadBuyable();
             }
         }
     }
