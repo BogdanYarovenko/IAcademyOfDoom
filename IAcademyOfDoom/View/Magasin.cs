@@ -15,6 +15,7 @@ namespace IAcademyOfDoom.View
     {
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
+        private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
         public Magasin()
         {
             InitializeComponent();
@@ -22,7 +23,32 @@ namespace IAcademyOfDoom.View
             _qtyRooms.Add("restRoom", 4);
             _qtyRooms.Add("loungeRoom", 4);
             _qtyRooms.Add("orientationOffice", 3);
-            //_qtyRooms.Add("tutoringRoom", 0); Rajouter le type de salle
+            _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
+        }
+
+        /// <summary>
+        /// Update the display in the purchased item
+        /// </summary>
+        /// <param name="typeOfRoom">The name of the room</param>
+        private void addPurchaseToList(String typeOfRoom)
+        {
+            if (_purchasedItem.ContainsKey(typeOfRoom))
+            {
+                _purchasedItem[typeOfRoom]++; 
+            }
+            else
+            {
+                _purchasedItem.Add(typeOfRoom, 1); 
+            }
+            purchasedLabel.Text = "";
+            foreach (string item in _purchasedItem.Keys)
+            {
+                purchasedLabel.Text += item + ": " + _purchasedItem[item] + ", ";
+            }
+            if (_purchasedItem.Count > 0)
+            {
+                purchasedLabel.Text = purchasedLabel.Text.TrimEnd(',', ' ');
+            }
         }
 
         /// <summary>
@@ -174,6 +200,7 @@ namespace IAcademyOfDoom.View
             if (isBuyable(roomType))
             {
                 loadBuyable();
+                addPurchaseToList(roomType);
             }
         }
 
@@ -184,6 +211,7 @@ namespace IAcademyOfDoom.View
             if (isBuyable(roomType))
             {
                 loadBuyable();
+                addPurchaseToList(roomType);
             }
         }
 
@@ -194,6 +222,7 @@ namespace IAcademyOfDoom.View
             if (isBuyable(roomType))
             {
                 loadBuyable();
+                addPurchaseToList(roomType);
             }
         }
 
@@ -204,6 +233,7 @@ namespace IAcademyOfDoom.View
             if (isBuyable(roomType))
             {
                 loadBuyable();
+                addPurchaseToList(roomType);
             }
         }
     }
