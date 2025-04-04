@@ -16,8 +16,7 @@ namespace IAcademyOfDoom.View
     {
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
-        private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
-        private String purchasedList = "";
+        private static Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
         private static int _restQty = 4;
         private static int _lgQty = 4;
         private static int _orientQty = 3;
@@ -38,8 +37,17 @@ namespace IAcademyOfDoom.View
             restRoomQty.Text = "Qty : " + _restQty.ToString();
             loungeRoomQty.Text = "Qty : " + _lgQty.ToString();
             orientOfficeQty.Text = "Qty : " + _orientQty.ToString();
-            purchasedLabel.Text = purchasedList;
-            //tutorRoomQty.Text = "Qty : " + 
+            //tutorRoomQty.Text = "Qty : " +
+            StringBuilder sb = new StringBuilder();
+            foreach (string item in _purchasedItem.Keys)
+            {
+                sb.Append(item).Append(": ").Append(_purchasedItem[item]).Append(", ");
+            }
+            if (_purchasedItem.Count > 0) 
+            {
+                sb.Length -= 2; 
+            }
+            purchasedLabel.Text = sb.ToString();
         }
 
         /// <summary>
@@ -67,7 +75,6 @@ namespace IAcademyOfDoom.View
                 sb.Length -= 2;
             }
             purchasedLabel.Text = sb.ToString();
-            purchasedList = purchasedLabel.Text;
         }
 
         /// <summary>
