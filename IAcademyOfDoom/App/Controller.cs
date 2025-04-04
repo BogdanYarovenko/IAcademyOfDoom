@@ -147,11 +147,11 @@ namespace IAcademyOfDoom.App
         /// Method called from the game when a prof room is removed.
         /// </summary>
         /// <param name="profRoom">the room being removed</param>
-        public void DestroyRoom(ProfRoom profRoom)
+        public void DestroyRoom(Room room)
         {
-            game.DestroyRoom(profRoom);
+            game.DestroyRoom(room);
             window.SyncRooms();
-            window.WriteLine(profRoom.Name + ", exhausted, retires after one final lesson.");
+            window.WriteLine(room.Name + ", exhausted, retires after one final lesson.");
         }
         /// <summary>
         /// Method used to make the game advance to the next wave.
