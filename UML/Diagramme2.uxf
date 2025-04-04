@@ -1,0 +1,108 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>480</y><w>300</w><h>210</h></coordinates><panel_attributes>Placeable
+
+--
+- name : String
+- RoomType : RoomType
+- Skill : SkillType?
+--
++ RoomType.get() : RoomType
+- RoomType.set() : RoomType
++ Skill.get() : RoomType
+- Skill.set() : RoomType
++ Placeable(RoomType, SkillType?, String)
++ MakeRoom(int, int) : Room
++ ToString() : String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1600</x><y>20</y><w>350</w><h>520</h></coordinates><panel_attributes>Botlings
+
+--
+- Skills : Dictionary&lt;SkillType, int&gt;
+- Badges : Dictionary&lt;SkillType, bool&gt;  
+- HP : int
+- Name : String
+- Type : BotType
+- X : int = 0 
+- Y : int = 0 
+- NextMove : (int, int)
+--
+
++ Skills.get() : Dictionary&lt;SkillType, int&gt;    
++ Badges.get() : Dictionary&lt;SkillType, bool&gt;  
++ HP.get() : int
++ HP.set() : int
++ Name.get(): String
+- Name.set(): String
++ Type.get() : BotType
+- Type.set() : BotType
++ X.get() : int 
++ X.set() : int
++ Y.get() : int
++ Y.set() : int 
++ NextMove.get() : (int, int)
+- NextMove.set() : (int, int)
++ Botling()
++ Botling(BotType)
++ Move() : void
++ TestSkill(SkillType, int) : bool
++ GetLessonIn(Skilltype) : bool
++ Exam() : ExamResult
+- SetInitialSetOfSkills() : void
+- Next() : (int, int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1210</x><y>600</y><w>380</w><h>300</h></coordinates><panel_attributes>Room
+
+--
+- X : int
+- Y : int
+- Type : RoomType
+- Name : String
+--
+_+ SpawnArea() : Room_
+_+ __ExamRoom() : Room_
+
++ X.get() : int
+- X.set() : int
++ Y.get() : int
+- Y.set() : int
++ Type.get() : RoomType
+~ Type.set() : RoomType 
++ Name.get() : String
+~ Name.set() : String 
++ Room(int, int) 
++ ActOnEntry(Botling) : object &lt;&lt;abstract&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>730</x><y>200</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+BotType
+
+--
+
+None
+Speedster 
+Perfectionnist
+Introvert
+Lucky
+Aimless 
+Persistent</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>560</y><w>210</w><h>130</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+RoomType
+
+--
+
+Cycle
+Prof
+Facility</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>880</y><w>210</w><h>180</h></coordinates><panel_attributes>ProfRoom
+
+--
+- HP : int
+- SkillType : SkillType
+--
++ HP.get() : int
++ HP.set() : int
++ SkillType.get() : SkillType
++ SkillType.set() : SkillType
++ ProfRoom : base
++ ActOnEntry : object
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>300</y><w>690</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;670;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>620</y><w>310</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;120;10;120;120;290;120</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>610</y><w>380</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0</panel_attributes><additional_attributes>360;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>20</y><w>210</w><h>200</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+SkillType
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>210</y><w>50</w><h>290</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes><additional_attributes>10;10;10;270</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>110</y><w>450</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes><additional_attributes>10;10;250;10;250;200;430;200</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>860</y><w>280</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>260;10;10;120</additional_attributes></element></diagram>
