@@ -17,13 +17,17 @@ namespace IAcademyOfDoom.View
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
         private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
+        private static int _restQty = 4;
+        private static int _lgQty = 4;
+        private static int _orientQty = 3;
+
         public Magasin()
         {
             InitializeComponent();
             BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
-            _qtyRooms.Add("restRoom", 4);
-            _qtyRooms.Add("loungeRoom", 4);
-            _qtyRooms.Add("orientationOffice", 3);
+            _qtyRooms.Add("restRoom", _restQty);
+            _qtyRooms.Add("loungeRoom", _lgQty);
+            _qtyRooms.Add("orientationOffice", _orientQty);
             _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
         }
 
