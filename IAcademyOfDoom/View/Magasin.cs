@@ -17,14 +17,29 @@ namespace IAcademyOfDoom.View
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
         private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
+        private String purchasedList = "";
+        private static int _restQty = 4;
+        private static int _lgQty = 4;
+        private static int _orientQty = 3;
+
         public Magasin()
         {
             InitializeComponent();
             BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
-            _qtyRooms.Add("restRoom", 4);
-            _qtyRooms.Add("loungeRoom", 4);
-            _qtyRooms.Add("orientationOffice", 3);
+            _qtyRooms.Add("restRoom", _restQty);
+            _qtyRooms.Add("loungeRoom", _lgQty);
+            _qtyRooms.Add("orientationOffice", _orientQty);
             _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
+            initMagasin();
+        }
+
+        private void initMagasin()
+        {
+            restRoomQty.Text = "Qty : " + _restQty.ToString();
+            loungeRoomQty.Text = "Qty : " + _lgQty.ToString();
+            orientOfficeQty.Text = "Qty : " + _orientQty.ToString();
+            purchasedLabel.Text = purchasedList;
+            //tutorRoomQty.Text = "Qty : " + 
         }
 
         /// <summary>
@@ -41,15 +56,18 @@ namespace IAcademyOfDoom.View
             {
                 _purchasedItem.Add(typeOfRoom, 1); 
             }
-            purchasedLabel.Text = "";
+            StringBuilder sb = new StringBuilder();
+
             foreach (string item in _purchasedItem.Keys)
             {
-                purchasedLabel.Text += item + ": " + _purchasedItem[item] + ", ";
+                sb.Append(item).Append(": ").Append(_purchasedItem[item]).Append(", ");
             }
             if (_purchasedItem.Count > 0)
             {
-                purchasedLabel.Text = purchasedLabel.Text.TrimEnd(',', ' ');
+                sb.Length -= 2;
             }
+            purchasedLabel.Text = sb.ToString();
+            purchasedList = purchasedLabel.Text;
         }
 
         /// <summary>
@@ -116,16 +134,19 @@ namespace IAcademyOfDoom.View
                 case "restRoom":
                     messageRestQty.Text = "Purchase successful";
                     messageRestQty.ForeColor = Color.Green;
+                    _restQty--;
                     restRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "loungeRoom":
                     messageLoungeQty.Text = "Purchase successful";
                     messageLoungeQty.ForeColor = Color.Green;
+                    _lgQty--;
                     loungeRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "orientationOffice":
                     messageOrientationQty.Text = "Purchase successful";
                     messageOrientationQty.ForeColor = Color.Green;
+                    _orientQty--;
                     orientOfficeQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "tutoringRoom":
