@@ -156,7 +156,6 @@ namespace IAcademyOfDoom.View
 
         private void MainWindow_MouseUp(object sender, MouseEventArgs e)
         {
-            
             if (m_placeableSelected != null)
             {
                 bool isPlaced = m_PlaceRoom(e.Location);
@@ -171,10 +170,16 @@ namespace IAcademyOfDoom.View
                 m_selectedRoom.relocate();
                 if (Settings.PlaceableObjetsSquareArea.Contains(e.Location))
                 {
-                    ProfRoom profRoom = (ProfRoom)m_selectedRoom.Room;
-                    c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, profRoom.SkillType, m_selectedRoom.Room.Name));
+                    if (m_selectedRoom.Room.Type == RoomType.Prof)
+                    {
+                        c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, ((ProfRoom)m_selectedRoom.Room).SkillType, m_selectedRoom.Room.Name));
+                    }
+                    else
+                    {
 
-                    c.DestroyRoom(profRoom);
+                    }
+
+                    c.DestroyRoom(m_selectedRoom.Room);
                     PreviewPlaceableItems(c.Placeables());
                 }
                 else if (RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))

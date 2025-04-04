@@ -221,7 +221,7 @@ namespace IAcademyOfDoom.Logic
         /// Removes a room.
         /// </summary>
         /// <param name="profRoom">the room to remove</param>
-        public void DestroyRoom(ProfRoom profRoom)
+        public void DestroyRoom(Room profRoom)
         {
             rooms.Remove(profRoom);
         }
