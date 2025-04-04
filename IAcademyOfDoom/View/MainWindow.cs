@@ -684,7 +684,9 @@ namespace IAcademyOfDoom.View
         private void magasinDesign_Click(object sender, EventArgs e)
         {
             Magasin mg = new Magasin();
-            if (mg.ShowDialog() == DialogResult.OK) { }
+            if (mg.ShowDialog() == DialogResult.OK) {
+                Game.RemoveMoney(mg._theoricalBalance);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace IAcademyOfDoom.View
 {
     public partial class Magasin : Form
     {
+        public int _theoricalBalance = Game.Money;
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
         private static Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
@@ -199,8 +200,8 @@ namespace IAcademyOfDoom.View
         /// </summary>
         private void loadBuyable()
         {
-            Game.RemoveMoney(_COST);
-            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            _theoricalBalance -= _COST;
+            BalanceInMagasin.Text = "Your balance is : " + _theoricalBalance.ToString() + " €";
         }
 
         private void okButton_Click(object sender, EventArgs e)
