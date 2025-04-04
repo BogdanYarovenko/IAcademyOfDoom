@@ -17,6 +17,7 @@ namespace IAcademyOfDoom.View
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
         private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
+        private String purchasedList = " ";
         private static int _restQty = 4;
         private static int _lgQty = 4;
         private static int _orientQty = 3;
@@ -29,6 +30,15 @@ namespace IAcademyOfDoom.View
             _qtyRooms.Add("loungeRoom", _lgQty);
             _qtyRooms.Add("orientationOffice", _orientQty);
             _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
+            initMagasin();
+        }
+
+        private void initMagasin()
+        {
+            restRoomQty.Text = "Qty : " + _restQty.ToString();
+            loungeRoomQty.Text = "Qty : " + _lgQty.ToString();
+            orientOfficeQty.Text = "Qty : " + _orientQty.ToString();
+            //tutorRoomQty.Text = "Qty : " + 
         }
 
         /// <summary>
@@ -120,16 +130,19 @@ namespace IAcademyOfDoom.View
                 case "restRoom":
                     messageRestQty.Text = "Purchase successful";
                     messageRestQty.ForeColor = Color.Green;
+                    _restQty--;
                     restRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "loungeRoom":
                     messageLoungeQty.Text = "Purchase successful";
                     messageLoungeQty.ForeColor = Color.Green;
+                    _lgQty--;
                     loungeRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "orientationOffice":
                     messageOrientationQty.Text = "Purchase successful";
                     messageOrientationQty.ForeColor = Color.Green;
+                    _orientQty--;
                     orientOfficeQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
                 case "tutoringRoom":

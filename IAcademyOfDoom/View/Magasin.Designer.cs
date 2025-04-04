@@ -137,9 +137,8 @@
             this.restRoomQty.Location = new System.Drawing.Point(184, 167);
             this.restRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.restRoomQty.Name = "restRoomQty";
-            this.restRoomQty.Size = new System.Drawing.Size(38, 13);
+            this.restRoomQty.Size = new System.Drawing.Size(0, 13);
             this.restRoomQty.TabIndex = 7;
-            this.restRoomQty.Text = "Qty : 4";
             // 
             // loungeRoomQty
             // 
@@ -148,9 +147,8 @@
             this.loungeRoomQty.Location = new System.Drawing.Point(435, 167);
             this.loungeRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loungeRoomQty.Name = "loungeRoomQty";
-            this.loungeRoomQty.Size = new System.Drawing.Size(38, 13);
+            this.loungeRoomQty.Size = new System.Drawing.Size(0, 13);
             this.loungeRoomQty.TabIndex = 8;
-            this.loungeRoomQty.Text = "Qty : 4";
             // 
             // orientOfficeQty
             // 
@@ -159,9 +157,8 @@
             this.orientOfficeQty.Location = new System.Drawing.Point(184, 310);
             this.orientOfficeQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orientOfficeQty.Name = "orientOfficeQty";
-            this.orientOfficeQty.Size = new System.Drawing.Size(38, 13);
+            this.orientOfficeQty.Size = new System.Drawing.Size(0, 13);
             this.orientOfficeQty.TabIndex = 9;
-            this.orientOfficeQty.Text = "Qty : 3";
             // 
             // tutorRoomQty
             // 
