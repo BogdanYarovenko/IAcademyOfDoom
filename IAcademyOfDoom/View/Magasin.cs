@@ -14,7 +14,9 @@ namespace IAcademyOfDoom.View
 {
     public partial class Magasin : Form
     {
-        public int _theoricalBalance = Game.Money;
+        public int _theoricalBalance;
+        private Dictionary<String, int> _qtyRoomsInSession = new Dictionary<String, int>();
+        private Dictionary<String, int> _sessionPurchases = new Dictionary<String, int>(); 
         private const int _COST = 5;
         private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
         private static Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
@@ -25,20 +27,21 @@ namespace IAcademyOfDoom.View
         public Magasin()
         {
             InitializeComponent();
-            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
-            _qtyRooms.Add("restRoom", _restQty);
-            _qtyRooms.Add("loungeRoom", _lgQty);
-            _qtyRooms.Add("orientationOffice", _orientQty);
-            _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
+            _theoricalBalance = Game.Money;
+            BalanceInMagasin.Text = "Your balance is : " + _theoricalBalance.ToString() + " €";
+            _qtyRoomsInSession.Add("restRoom", _restQty);
+            _qtyRoomsInSession.Add("loungeRoom", _lgQty);
+            _qtyRoomsInSession.Add("orientationOffice", _orientQty);
+            _qtyRoomsInSession.Add("tutoringRoom", 0); // Mettre la quantité statique si elle existe
             initMagasin();
         }
 
         private void initMagasin()
         {
-            restRoomQty.Text = "Qty : " + _restQty.ToString();
-            loungeRoomQty.Text = "Qty : " + _lgQty.ToString();
-            orientOfficeQty.Text = "Qty : " + _orientQty.ToString();
-            //tutorRoomQty.Text = "Qty : " +
+            restRoomQty.Text = "Qty : " + _qtyRoomsInSession["restRoom"].ToString();
+            loungeRoomQty.Text = "Qty : " + _qtyRoomsInSession["loungeRoom"].ToString();
+            orientOfficeQty.Text = "Qty : " + _qtyRoomsInSession["orientationOffice"].ToString();
+            // tutorRoomQty.Text = ...
             StringBuilder sb = new StringBuilder();
             foreach (string item in _purchasedItem.Keys)
             {
@@ -57,25 +60,34 @@ namespace IAcademyOfDoom.View
         /// <param name="typeOfRoom">The name of the room</param>
         private void addPurchaseToList(String typeOfRoom)
         {
-            if (_purchasedItem.ContainsKey(typeOfRoom))
+            if (_sessionPurchases.ContainsKey(typeOfRoom))
             {
-                _purchasedItem[typeOfRoom]++;
+                _sessionPurchases[typeOfRoom]++;
             }
             else
             {
-                _purchasedItem.Add(typeOfRoom, 1); 
+                _sessionPurchases.Add(typeOfRoom, 1);
             }
             StringBuilder sb = new StringBuilder();
+            Dictionary<string, int> combinedPurchases = new Dictionary<string, int>(_purchasedItem);
 
-            foreach (string item in _purchasedItem.Keys)
+            foreach (var sP in _sessionPurchases)
             {
-                sb.Append(item).Append(": ").Append(_purchasedItem[item]).Append(", ");
+                if (combinedPurchases.ContainsKey(sP.Key))
+                    combinedPurchases[sP.Key] += sP.Value;
+                else
+                    combinedPurchases.Add(sP.Key, sP.Value);
             }
-            if (_purchasedItem.Count > 0)
+
+            foreach (string item in combinedPurchases.Keys)
+            {
+                sb.Append(item).Append(": ").Append(combinedPurchases[item]).Append(", ");
+            }
+            if (combinedPurchases.Count > 0)
             {
                 sb.Length -= 2;
             }
-            purchasedLabel.Text = sb.ToString();
+            purchasedLabel.Text = sb.ToString(); ;
         }
 
         /// <summary>
