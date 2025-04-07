@@ -32,8 +32,6 @@ namespace IAcademyOfDoom.View
         public Magasin()
         {
             InitializeComponent();
-            _localMoney = Game.Money;
-            BalanceInMagasin.Text = "Your balance is : " + _localMoney.ToString() + " €";
             _qtyRooms.Add(FrameTypeRoom.RestRoom, 4);
             _qtyRooms.Add(FrameTypeRoom.LoungeRoom, 4);
             _qtyRooms.Add(FrameTypeRoom.OrientationOffice, 3);
@@ -42,6 +40,7 @@ namespace IAcademyOfDoom.View
         private void Magasin_Load(object sender, EventArgs e)
         {
             _localMoney = Game.Money;
+            BalanceInMagasin.Text = "Your balance is : " + _localMoney.ToString() + " €";
             purchasedLabel.Text = "";
             initMagasin();
         }
@@ -52,9 +51,8 @@ namespace IAcademyOfDoom.View
             loungeRoomQty.Text = "Qty : " + _qtyRooms[FrameTypeRoom.LoungeRoom].ToString();
             orientOfficeQty.Text = "Qty : " + _qtyRooms[FrameTypeRoom.OrientationOffice].ToString();
 
-            /*isBuyable(FrameTypeRoom.RestRoom);
-            isBuyable(FrameTypeRoom.LoungeRoom);
-            isBuyable(FrameTypeRoom.OrientationOffice);*/
+            resetStates();
+            resetPurchaseLabels();
 
             //tutorRoomQty.Text = "Qty : " + 
 
@@ -89,6 +87,14 @@ namespace IAcademyOfDoom.View
             purchasedLabel.Text = sb.ToString();
         }
 
+        private void resetStates()
+        {
+            foreach (FrameTypeRoom type in _qtyRooms.Keys)
+            {
+                setRoomButton(type, _qtyRooms[type] != 0);
+            }
+        }
+
         /// <summary>
         /// Method to buy a room. It checks if the room is available and if the player has enough money
         /// </summary>
@@ -96,11 +102,12 @@ namespace IAcademyOfDoom.View
         /// <returns> True if the operation was successful. </returns>
         private bool isBuyable(FrameTypeRoom typeOfRoom)
         {
-            if (_qtyRooms[typeOfRoom] > 0)
+            return _qtyRooms[typeOfRoom] > 0 && _localMoney >= _COST;
+
+            /*if (_qtyRooms[typeOfRoom] > 0) 
             {
-                if (Game.Money >= _COST)
+                if (_localMoney >= _COST)
                 {
-                    _qtyRooms[typeOfRoom]--;
                     purchaseSucced(typeOfRoom);
                     if (_qtyRooms[typeOfRoom] == 0)
                     {
@@ -113,7 +120,7 @@ namespace IAcademyOfDoom.View
                     purchaseFailed(typeOfRoom);
                 }
             }
-            return false;
+            return false;*/
         }
 
         /// <summary>
@@ -174,11 +181,16 @@ namespace IAcademyOfDoom.View
             }
         }
 
+        private void resetPurchaseLabels()
+        {
+            messageRestQty.Text = messageLoungeQty.Text = messageOrientationQty.Text = messageTutoringQty.Text = "";
+        }
+
         /// <summary>
         /// Disable the button of the room type passed in parameter
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void disableRoomButton(FrameTypeRoom typeOfRoom)
+        private void setRoomButton(FrameTypeRoom typeOfRoom, bool state)
         {
             Button roomButton = null;
 
@@ -200,7 +212,7 @@ namespace IAcademyOfDoom.View
 
             if (roomButton != null)
             {
-                roomButton.Enabled = false;
+                roomButton.Enabled = state;
             }
         }
 
@@ -239,8 +251,15 @@ namespace IAcademyOfDoom.View
         {
             if (isBuyable(typeOfRoom))
             {
+                _qtyRooms[typeOfRoom]--;
+                setRoomButton(typeOfRoom, _qtyRooms[typeOfRoom] != 0);
+                purchaseSucced(typeOfRoom);
                 loadBuyable();
                 addPurchaseToList(typeOfRoom);
+            }
+            else
+            {
+                purchaseFailed(typeOfRoom);
             }
         }
 

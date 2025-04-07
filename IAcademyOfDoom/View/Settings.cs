@@ -22,8 +22,8 @@ namespace IAcademyOfDoom.View
         public static Brush TextBrush { get; } = Brushes.Black;
         public static Font RoomFont { get; } = SystemFonts.IconTitleFont;
         public static int PlaceableLeft = Left + Width * Cols + 50;
-        public static int PlaceableTop = Top + 50;
-        public static readonly Rectangle PlaceableObjetsSquareArea = new Rectangle(PlaceableLeft - 5, PlaceableTop - 5, 255, 305);
+        public static int PlaceableTop = Top + 5;
+        public static readonly Rectangle PlaceableObjetsSquareArea = new Rectangle(PlaceableLeft - 5, PlaceableTop - 5, 255, 350);
         public static Size PlaceableSquare { get; } = new Size(10, 10);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;
 
