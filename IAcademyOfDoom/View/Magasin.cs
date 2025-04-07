@@ -12,41 +12,60 @@ using System.Windows.Forms;
 
 namespace IAcademyOfDoom.View
 {
+    enum FrameTypeRoom
+    {
+        RestRoom,
+        LoungeRoom,
+        OrientationOffice,
+        TutoringRoom
+    }
+
     public partial class Magasin : Form
     {
         private const int _COST = 5;
-        private Dictionary<String, int> _qtyRooms = new Dictionary<String, int>();
-        private Dictionary<String, int> _purchasedItem = new Dictionary<String, int>();
-        private String purchasedList = "";
-        private static int _restQty = 4;
-        private static int _lgQty = 4;
-        private static int _orientQty = 3;
+
+        private int _localMoney;
+        private Dictionary<FrameTypeRoom, int> _qtyRooms = new Dictionary<FrameTypeRoom, int>();
+        private Dictionary<FrameTypeRoom, int> _purchasedItem = new Dictionary<FrameTypeRoom, int>();
+        //private String purchasedList = "";
 
         public Magasin()
         {
             InitializeComponent();
-            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
-            _qtyRooms.Add("restRoom", _restQty);
-            _qtyRooms.Add("loungeRoom", _lgQty);
-            _qtyRooms.Add("orientationOffice", _orientQty);
-            _qtyRooms.Add("tutoringRoom", 0); //Rajouter le type de salle
+            _localMoney = Game.Money;
+            BalanceInMagasin.Text = "Your balance is : " + _localMoney.ToString() + " €";
+            _qtyRooms.Add(FrameTypeRoom.RestRoom, 4);
+            _qtyRooms.Add(FrameTypeRoom.LoungeRoom, 4);
+            _qtyRooms.Add(FrameTypeRoom.OrientationOffice, 3);
+            _qtyRooms.Add(FrameTypeRoom.TutoringRoom, 0); //Rajouter le type de salle
+        }
+        private void Magasin_Load(object sender, EventArgs e)
+        {
+            _localMoney = Game.Money;
+            purchasedLabel.Text = "";
             initMagasin();
         }
 
         private void initMagasin()
         {
-            restRoomQty.Text = "Qty : " + _restQty.ToString();
-            loungeRoomQty.Text = "Qty : " + _lgQty.ToString();
-            orientOfficeQty.Text = "Qty : " + _orientQty.ToString();
-            purchasedLabel.Text = purchasedList;
+            restRoomQty.Text = "Qty : " + _qtyRooms[FrameTypeRoom.RestRoom].ToString();
+            loungeRoomQty.Text = "Qty : " + _qtyRooms[FrameTypeRoom.LoungeRoom].ToString();
+            orientOfficeQty.Text = "Qty : " + _qtyRooms[FrameTypeRoom.OrientationOffice].ToString();
+
+            /*isBuyable(FrameTypeRoom.RestRoom);
+            isBuyable(FrameTypeRoom.LoungeRoom);
+            isBuyable(FrameTypeRoom.OrientationOffice);*/
+
             //tutorRoomQty.Text = "Qty : " + 
+
+            //purchasedLabel.Text = purchasedList;
         }
 
         /// <summary>
         /// Update the display in the purchased item
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void addPurchaseToList(String typeOfRoom)
+        private void addPurchaseToList(FrameTypeRoom typeOfRoom)
         {
             if (_purchasedItem.ContainsKey(typeOfRoom))
             {
@@ -56,18 +75,18 @@ namespace IAcademyOfDoom.View
             {
                 _purchasedItem.Add(typeOfRoom, 1); 
             }
+
             StringBuilder sb = new StringBuilder();
 
-            foreach (string item in _purchasedItem.Keys)
+            foreach (FrameTypeRoom item in _purchasedItem.Keys)
             {
-                sb.Append(item).Append(": ").Append(_purchasedItem[item]).Append(", ");
+                sb.Append(item.ToString()).Append(": ").Append(_purchasedItem[item]).Append(", ");
             }
             if (_purchasedItem.Count > 0)
             {
                 sb.Length -= 2;
             }
             purchasedLabel.Text = sb.ToString();
-            purchasedList = purchasedLabel.Text;
         }
 
         /// <summary>
@@ -75,9 +94,9 @@ namespace IAcademyOfDoom.View
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
         /// <returns> True if the operation was successful. </returns>
-        private bool isBuyable(string typeOfRoom)
+        private bool isBuyable(FrameTypeRoom typeOfRoom)
         {
-            if (_qtyRooms[typeOfRoom] > 0) 
+            if (_qtyRooms[typeOfRoom] > 0)
             {
                 if (Game.Money >= _COST)
                 {
@@ -88,11 +107,11 @@ namespace IAcademyOfDoom.View
                         disableRoomButton(typeOfRoom);
                     }
                     return true;
-                } else
+                }
+                else
                 {
                     purchaseFailed(typeOfRoom);
                 }
-                purchaseFailed(typeOfRoom);
             }
             return false;
         }
@@ -101,23 +120,23 @@ namespace IAcademyOfDoom.View
         /// Method to display that the purchase of the room failed due to not enough money
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void purchaseFailed(String typeOfRoom)
+        private void purchaseFailed(FrameTypeRoom typeOfRoom)
         {
             switch (typeOfRoom)
             {
-                case "restRoom":
+                case FrameTypeRoom.RestRoom:
                     messageRestQty.Text = "Not enough money";
                     messageRestQty.ForeColor = Color.Red;
                     break;
-                case "loungeRoom":
+                case FrameTypeRoom.LoungeRoom:
                     messageLoungeQty.Text = "Not enough money";
                     messageLoungeQty.ForeColor = Color.Red;
                     break;
-                case "orientationOffice":
+                case FrameTypeRoom.OrientationOffice:
                     messageOrientationQty.Text = "Not enough money";
                     messageOrientationQty.ForeColor = Color.Red;
                     break;
-                case "tutoringRoom":
+                case FrameTypeRoom.TutoringRoom:
                     messageTutoringQty.Text = "Not enough money";
                     messageTutoringQty.ForeColor = Color.Red;
                     break;
@@ -128,28 +147,26 @@ namespace IAcademyOfDoom.View
         /// Method to display the successful purchase message and quantity of the room remaining
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void purchaseSucced(String typeOfRoom) {
+        private void purchaseSucced(FrameTypeRoom typeOfRoom) {
             switch (typeOfRoom)
             {
-                case "restRoom":
+                case FrameTypeRoom.RestRoom:
                     messageRestQty.Text = "Purchase successful";
                     messageRestQty.ForeColor = Color.Green;
-                    _restQty--;
                     restRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
-                case "loungeRoom":
+                case FrameTypeRoom.LoungeRoom:
                     messageLoungeQty.Text = "Purchase successful";
                     messageLoungeQty.ForeColor = Color.Green;
-                    _lgQty--;
                     loungeRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
-                case "orientationOffice":
+                case FrameTypeRoom.OrientationOffice:
                     messageOrientationQty.Text = "Purchase successful";
                     messageOrientationQty.ForeColor = Color.Green;
-                    _orientQty--;
+
                     orientOfficeQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
-                case "tutoringRoom":
+                case FrameTypeRoom.TutoringRoom:
                     messageTutoringQty.Text = "Purchase successful";
                     messageTutoringQty.ForeColor = Color.Green;
                     // tutorRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString(); Need to implement different type of this room
@@ -161,22 +178,22 @@ namespace IAcademyOfDoom.View
         /// Disable the button of the room type passed in parameter
         /// </summary>
         /// <param name="typeOfRoom">The name of the room</param>
-        private void disableRoomButton(string typeOfRoom)
+        private void disableRoomButton(FrameTypeRoom typeOfRoom)
         {
             Button roomButton = null;
 
             switch (typeOfRoom)
             {
-                case "restRoom":
+                case FrameTypeRoom.RestRoom:
                     roomButton = restRoomButton;
                     break;
-                case "loungeRoom":
+                case FrameTypeRoom.LoungeRoom:
                     roomButton = loungeRoomButton;
                     break;
-                case "orientationOffice":
+                case FrameTypeRoom.OrientationOffice:
                     roomButton = orientationOfficeButton;
                     break;
-                case "tutoringRoom":
+                case FrameTypeRoom.TutoringRoom:
                     roomButton = tutoringRoomButton;
                     break;
             }
@@ -192,71 +209,60 @@ namespace IAcademyOfDoom.View
         /// </summary>
         private void loadBuyable()
         {
-            Game.RemoveMoney(_COST);
-            BalanceInMagasin.Text = "Your balance is : " + Game.Money.ToString() + " €";
+            _localMoney -= _COST;
+            BalanceInMagasin.Text = "Your balance is : " + _localMoney.ToString() + " €";
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            Game.RemoveMoney(Game.Money - _localMoney);
             this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+
+            foreach (FrameTypeRoom typeOfRoom in _purchasedItem.Keys)
+            {
+                _qtyRooms[typeOfRoom] += _purchasedItem[typeOfRoom];
+            }
+            _purchasedItem.Clear();
+
             this.Close();
         }
 
+        
 
-
-        private void Magasin_Load(object sender, EventArgs e)
+        private void buy(FrameTypeRoom typeOfRoom)
         {
-
-        }
-
-        private void restRoomButton_Click(object sender, EventArgs e)
-        {
-            // Sale de detente
-            String roomType = "restRoom";
-            if (isBuyable(roomType))
+            if (isBuyable(typeOfRoom))
             {
                 loadBuyable();
-                addPurchaseToList(roomType);
+                addPurchaseToList(typeOfRoom);
             }
         }
 
-        private void loungeRoomButton_Click(object sender, EventArgs e)
-        {
-            // Salle de repos
-            String roomType = "loungeRoom";
-            if (isBuyable(roomType))
-            {
-                loadBuyable();
-                addPurchaseToList(roomType);
-            }
-        }
+        private void restRoomButton_Click(object sender, EventArgs e) { buy(FrameTypeRoom.RestRoom); }
+        private void loungeRoomButton_Click(object sender, EventArgs e) { buy(FrameTypeRoom.LoungeRoom); }
+        private void orientationOfficeButton_Click(object sender, EventArgs e) { buy(FrameTypeRoom.OrientationOffice); }
+        private void tutoringRoomButton_Click(object sender, EventArgs e) { buy(FrameTypeRoom.TutoringRoom); }
 
-        private void orientationOfficeButton_Click(object sender, EventArgs e)
+        public List<Placeable> getPurchasedPlaceables()
         {
-            // Salle d'orientation
-            String roomType = "orientationOffice";
-            if (isBuyable(roomType))
-            {
-                loadBuyable();
-                addPurchaseToList(roomType);
-            }
-        }
+            List<Placeable> placeables = new List<Placeable>();
 
-        private void tutoringRoomButton_Click(object sender, EventArgs e)
-        {
-            // Salle de tutorat
-            String roomType = "tutoringRoom";
-            if (isBuyable(roomType))
+            foreach (FrameTypeRoom typeOfRoom in _purchasedItem.Keys)
             {
-                loadBuyable();
-                addPurchaseToList(roomType);
+                for (int i = 0; i < _purchasedItem[typeOfRoom]; i++)
+                {
+                    placeables.Add(new Placeable(RoomType.Facility, null, typeOfRoom.ToString()));
+                }
             }
+            _purchasedItem.Clear();
+
+            return placeables;
         }
     }
 }

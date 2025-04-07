@@ -7,7 +7,7 @@ namespace IAcademyOfDoom.Logic.Places
     /// </summary>
     public class Placeable
     {
-        private readonly string name;
+        public readonly string name;
         /// <summary>
         /// The type of the room.
         /// </summary>
@@ -49,6 +49,8 @@ namespace IAcademyOfDoom.Logic.Places
                     {
                         return null;
                     }
+                case RoomType.Facility:
+                    return new FacilityRoom(x, y) { Name = name };
                 default:
                     return null;
             }

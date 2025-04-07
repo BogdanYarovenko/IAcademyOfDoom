@@ -30,6 +30,9 @@ namespace IAcademyOfDoom.View
         private BuyableView m_buyableSelected = null;
         private int m_selectIndexPlaceables = 0;
         private int m_selectIndexBuyables = 0;
+
+        Magasin magasin = null;
+
         #endregion
         #region constructor
         /// <summary>
@@ -683,8 +686,20 @@ namespace IAcademyOfDoom.View
 
         private void magasinDesign_Click(object sender, EventArgs e)
         {
-            Magasin mg = new Magasin();
-            if (mg.ShowDialog() == DialogResult.OK) { }
+            if (magasin == null)
+            {
+                magasin = new Magasin();
+            }
+
+            if (magasin.ShowDialog() == DialogResult.OK)
+            {
+                List<Placeable> placeables = magasin.getPurchasedPlaceables();
+                foreach (Placeable placeable in placeables)
+                {
+                    c.AddPlaceable(placeable);
+                }
+                PreviewPlaceableItems(c.Placeables());
+            }
         }
     }
 }
