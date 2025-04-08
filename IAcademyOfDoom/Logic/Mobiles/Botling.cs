@@ -1,7 +1,10 @@
-﻿using IAcademyOfDoom.Logic.GameSettings;
+﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Skills;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.Logic.Mobiles
 {
@@ -10,6 +13,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
     /// </summary>
     public class Botling
     {
+        protected Controller c = Controller.Instance;
         /// <summary>
         /// The current values for each basic skill.
         /// </summary>
@@ -181,7 +185,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 Badges.Add(skill, false);
             }
         }
-        private (int x, int y) Next()
+        protected virtual (int x, int y) Next()
         {
             if (X == Game.MaxX && Y == Game.MaxY)
             {

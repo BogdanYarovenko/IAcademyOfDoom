@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Controller.cs" />
+    <Compile Include="Logic\Mobiles\Perfectionnist.cs" />
     <Compile Include="Logic\Mobiles\Speedster.cs" />
     <Compile Include="Logic\Places\Buyable.cs" />
     <Compile Include="Logic\GameSettings\Difficulty.cs" />

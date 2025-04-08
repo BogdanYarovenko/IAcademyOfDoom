@@ -134,6 +134,7 @@ namespace IAcademyOfDoom.Logic
                 return false;
             }
         }
+
         /// <summary>
         /// Ends the preparation phase and goes into the assault phase.
         /// </summary>
@@ -271,13 +272,13 @@ namespace IAcademyOfDoom.Logic
                     break;
             }
         }
-        private Room FindRoomAt(int x, int y)
+        public Room FindRoomAt(int x, int y, bool isCycleRoom = true)
         {
             int i = 0;
             int index = -1;
             while (index == -1 && i < rooms.Count)
             {
-                if (rooms[i]?.X==x && rooms[i]?.Y==y)
+                if ((rooms[i]?.X==x && rooms[i]?.Y==y) && (isCycleRoom && rooms[i].Type == RoomType.Cycle))
                 {
                     index = i;
                 }

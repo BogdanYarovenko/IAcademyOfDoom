@@ -133,6 +133,11 @@ namespace IAcademyOfDoom.App
             window.SyncRooms();
             window.Refresh();
         }
+
+        public Room IsRoomHere(int x, int y, bool isCycleRoom = true)
+        {
+            return game.FindRoomAt(x, y, isCycleRoom);
+        }
         /// <summary>
         /// Method called from the game when a botling's lesson has ended.
         /// </summary>
