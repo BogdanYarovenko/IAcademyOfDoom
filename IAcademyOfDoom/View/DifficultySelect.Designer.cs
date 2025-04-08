@@ -31,60 +31,71 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.difficultyLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.difficultyListBox = new System.Windows.Forms.ListBox();
             this.okButton = new System.Windows.Forms.Button();
+            this.difficulySelectList = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(36, 30);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(76, 43);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(61, 13);
+            this.nameLabel.Size = new System.Drawing.Size(87, 20);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Your name:";
+            this.nameLabel.Text = "Your name";
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Location = new System.Drawing.Point(36, 58);
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLabel.Location = new System.Drawing.Point(53, 124);
             this.difficultyLabel.Name = "difficultyLabel";
-            this.difficultyLabel.Size = new System.Drawing.Size(95, 13);
+            this.difficultyLabel.Size = new System.Drawing.Size(136, 20);
             this.difficultyLabel.TabIndex = 1;
-            this.difficultyLabel.Text = "Selected Difficulty:";
+            this.difficultyLabel.Text = "Selected Difficulty";
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(139, 27);
+            this.nameTextBox.AccessibleDescription = "Votre";
+            this.nameTextBox.AccessibleName = "Votre";
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.nameTextBox.Location = new System.Drawing.Point(16, 83);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(223, 20);
             this.nameTextBox.TabIndex = 2;
-            // 
-            // difficultyListBox
-            // 
-            this.difficultyListBox.FormattingEnabled = true;
-            this.difficultyListBox.Location = new System.Drawing.Point(139, 58);
-            this.difficultyListBox.Name = "difficultyListBox";
-            this.difficultyListBox.Size = new System.Drawing.Size(120, 95);
-            this.difficultyListBox.TabIndex = 3;
             // 
             // okButton
             // 
+            this.okButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(377, 47);
+            this.okButton.FlatAppearance.BorderSize = 0;
+            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.okButton.Location = new System.Drawing.Point(361, 114);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(132, 43);
             this.okButton.TabIndex = 4;
-            this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Text = "Start";
+            this.okButton.UseVisualStyleBackColor = false;
+            // 
+            // difficulySelectList
+            // 
+            this.difficulySelectList.FormattingEnabled = true;
+            this.difficulySelectList.Location = new System.Drawing.Point(57, 168);
+            this.difficulySelectList.Name = "difficulySelectList";
+            this.difficulySelectList.Size = new System.Drawing.Size(121, 21);
+            this.difficulySelectList.TabIndex = 5;
             // 
             // DifficultySelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 167);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(539, 238);
+            this.Controls.Add(this.difficulySelectList);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.difficultyListBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.nameLabel);
@@ -100,7 +111,7 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label difficultyLabel;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.ListBox difficultyListBox;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.ComboBox difficulySelectList;
     }
 }
