@@ -63,7 +63,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// <summary>
         /// Enact the move.
         /// </summary>
-        public void Move()
+        public virtual void Move()
         {
             (X, Y) = NextMove;
             NextMove = Next();

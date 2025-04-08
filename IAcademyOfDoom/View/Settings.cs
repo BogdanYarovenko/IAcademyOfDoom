@@ -1,5 +1,6 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -44,13 +45,17 @@ namespace IAcademyOfDoom.View
         }
         public static Color GetBotColourFor(BotType type)
         {
-            switch (type)
+            switch(type)
             {
-                case BotType.None:
-                    return Color.CadetBlue;
-                default:
-                    return Color.Black;
-            }
+               
+                case BotType.Speedster: return Color.Red;
+                case BotType.Perfectionnist: return Color.Blue;
+                case BotType.Introvert: return Color.Green;
+                case  BotType.Lucky: return Color.Gold;
+                case BotType.Aimless: return Color.Purple;
+               case BotType.Persistent: return Color.Orange;
+                default: return Color.CadetBlue;// None
+            };
         }
     }
 }

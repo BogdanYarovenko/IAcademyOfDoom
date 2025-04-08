@@ -43,9 +43,12 @@ namespace IAcademyOfDoom.Logic.GameSequence
                 {
                     for (int i = 0; i < Bots[bot]; i++)
                     {
-                        if (bot is BotType.None)
-                        {
+                        
                             res.Add(new Botling(bot));
+                        if (bot == BotType.Speedster)
+                        {
+                           
+                            res.Add(new Speedster());
                         }
                     }
                 }
