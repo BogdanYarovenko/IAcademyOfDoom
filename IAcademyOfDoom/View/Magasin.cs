@@ -22,6 +22,9 @@ namespace IAcademyOfDoom.View
 
     public partial class Magasin : Form
     {
+        public int _theoricalBalance;
+        private Dictionary<String, int> _qtyRoomsInSession = new Dictionary<String, int>();
+        private Dictionary<String, int> _sessionPurchases = new Dictionary<String, int>(); 
         private const int _COST = 5;
 
         private int _localMoney;
@@ -65,13 +68,13 @@ namespace IAcademyOfDoom.View
         /// <param name="typeOfRoom">The name of the room</param>
         private void addPurchaseToList(FrameTypeRoom typeOfRoom)
         {
-            if (_purchasedItem.ContainsKey(typeOfRoom))
+            if (_sessionPurchases.ContainsKey(typeOfRoom))
             {
-                _purchasedItem[typeOfRoom]++;
+                _sessionPurchases[typeOfRoom]++;
             }
             else
             {
-                _purchasedItem.Add(typeOfRoom, 1); 
+                _sessionPurchases.Add(typeOfRoom, 1);
             }
 
             StringBuilder sb = new StringBuilder();
@@ -80,7 +83,7 @@ namespace IAcademyOfDoom.View
             {
                 sb.Append(item.ToString()).Append(": ").Append(_purchasedItem[item]).Append(", ");
             }
-            if (_purchasedItem.Count > 0)
+            if (combinedPurchases.Count > 0)
             {
                 sb.Length -= 2;
             }

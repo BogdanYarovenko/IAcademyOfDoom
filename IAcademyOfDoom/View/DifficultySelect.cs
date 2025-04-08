@@ -6,14 +6,14 @@ namespace IAcademyOfDoom.View
 {
     public partial class DifficultySelect : Form
     {
-        public Difficulty? Difficulty { get { return difficultyListBox.Items[difficultyListBox.SelectedIndex == -1 ? 0 : difficultyListBox.SelectedIndex] as Difficulty?; } }
+        public Difficulty? Difficulty { get { return difficulySelectList.Items[difficulySelectList.SelectedIndex == -1 ? 0 : difficulySelectList.SelectedIndex] as Difficulty?; } }
         public string InputName { get { return nameTextBox.Text; } }
         public DifficultySelect()
         {
             InitializeComponent();
             foreach (Difficulty difficulty in Enum.GetValues(typeof(Difficulty)))
             {
-                difficultyListBox.Items.Add(difficulty);
+                difficulySelectList.Items.Add(difficulty);
             }
         }
     }
