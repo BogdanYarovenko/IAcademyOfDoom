@@ -56,7 +56,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 bool isBottomRoom = isNextToWall(X, Y + 1);
                 if (isRightRoom && isBottomRoom)
                 {
-                    if (Game.Random.Next() % 2 == 0)
+                    if ((Game.Random.Next() % 2 == 0 || Y == Game.MaxY) && X != Game.MaxX)
                         return (X + 1, Y);
                     return(X, Y + 1);
                 }

@@ -278,7 +278,7 @@ namespace IAcademyOfDoom.Logic
             int index = -1;
             while (index == -1 && i < rooms.Count)
             {
-                if ((rooms[i]?.X==x && rooms[i]?.Y==y) && (isCycleRoom && rooms[i].Type == RoomType.Cycle))
+                if (rooms[i]?.X==x && rooms[i]?.Y==y)
                 {
                     index = i;
                 }
@@ -293,6 +293,9 @@ namespace IAcademyOfDoom.Logic
             }
             else
             {
+                if (!isCycleRoom && rooms[index].Type == RoomType.Cycle)
+                    return null;
+
                 return rooms[index];
             }
         }
