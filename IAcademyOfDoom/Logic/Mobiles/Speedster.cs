@@ -5,19 +5,19 @@ using System;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Speedster.
+    /// A class representing a bot of type Speedster.
     /// </summary>
     public class Speedster : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Speedster.
+        /// Constructor for the Speedster class.
         /// </summary>
         public Speedster() : base(BotType.Speedster)
         {
         }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour le Speedster.
+        /// Overrides the move method for the Speedster.
         /// </summary>
         public override void Move()
         {
@@ -28,18 +28,18 @@ namespace IAcademyOfDoom.Logic.Mobiles
 
             if (distance > 1)
             {
-                HP--; 
+                HP--;
             }
 
             base.Move();
         }
 
         /// <summary>
-        /// Détermine la prochaine position à atteindre à partir de la position actuelle.
-        /// La méthode choisit entre se déplacer à droite ou vers le bas en fonction des pièces présentes et de la proximité d'un mur.
-        /// Si aucune pièce n'est trouvée, elle sélectionne la direction avec le plus d'espace libre, ou choisit la direction qui est la moins proche d'un mur.
+        /// Determines the next position to reach from the current position.
+        /// The method chooses between moving right or down depending on the available rooms and proximity to a wall.
+        /// If no rooms are found, it selects the direction with the most free space, or chooses the direction that is least close to a wall.
         /// </summary>
-        /// <returns>Un tuple (x, y) représentant les nouvelles coordonnées de la position suivante.</returns>
+        /// <returns>A tuple (x, y) representing the new coordinates of the next position.</returns>
         protected override (int x, int y) Next()
         {
             bool isRight = c.IsRoomHere(X + 1, Y) != null;
@@ -73,7 +73,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 {
                     if (Game.Random.Next() % 2 == 0)
                         return (X + 1, Y);
-                    return(X, Y + 1);
+                    return (X, Y + 1);
                 }
                 else if (isRight)
                 {
@@ -88,12 +88,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
         }
 
         /// <summary>
-        /// Vérifie si la position spécifiée est à côté d'un mur.
-        /// Les murs sont définis par les bords du jeu (en fonction de Game.MaxX et Game.MaxY).
+        /// Checks if the specified position is next to a wall.
+        /// The walls are defined by the edges of the game (based on Game.MaxX and Game.MaxY).
         /// </summary>
-        /// <param name="x">La coordonnée x de la position à vérifier.</param>
-        /// <param name="y">La coordonnée y de la position à vérifier.</param>
-        /// <returns>Retourne vrai si la position est à côté d'un mur, sinon faux.</returns>
+        /// <param name="x">The x-coordinate of the position to check.</param>
+        /// <param name="y">The y-coordinate of the position to check.</param>
+        /// <returns>Returns true if the position is next to a wall, otherwise false.</returns>
         private bool isNextToWall(int x, int y)
         {
             return ((x <= Game.MaxX && y == 0) || (y <= Game.MaxY && x == 0) || (x == Game.MaxX && y <= Game.MaxY) || (y == Game.MaxY && x <= Game.MaxX));

@@ -7,21 +7,23 @@ using System.Threading.Tasks;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Lucky
-    /// /// </summary>
+    /// A class representing a bot of type Lucky
+    /// </summary>
     public class Lucky : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Lucky
+        /// Constructor for the Lucky class
         /// </summary>
         public Lucky() : base(BotType.Lucky)
         { }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour Lucky
+        /// Overrides the move method for Lucky
         /// </summary>
         public override void Move()
         {
             base.Move();
         }
     }
+}
+

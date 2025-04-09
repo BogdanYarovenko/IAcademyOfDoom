@@ -5,30 +5,31 @@ using System;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Perfectionnist
-    /// /// </summary>
+    /// A class representing a bot of type Perfectionist
+    /// </summary>
     public class Perfectionnist : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Perfectionnist
+        /// Constructor for the Perfectionist class
         /// </summary>
         public Perfectionnist() : base(BotType.Perfectionnist)
         {
         }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour le Perfectionnist
+        /// Overrides the move method for the Perfectionist bot
         /// </summary>
         public override void Move()
         {
             base.Move();
         }
+
         /// <summary>
-        /// Si le botling se trouve dans une salle et que l'examen échoue, il reste dans sa position actuelle. 
-        /// Sinon, il poursuit avec la logique de mouvement par défaut.
+        /// If the bot is in a room and the exam fails, it stays in its current position.
+        /// Otherwise, it proceeds with the default movement logic.
         /// </summary>
         /// <returns>
-        /// Un tuple représentant les coordonnées (x, y) du prochain mouvement du botling.
+        /// A tuple representing the coordinates (x, y) of the next move for the bot.
         /// </returns>
         protected override (int x, int y) Next()
         {

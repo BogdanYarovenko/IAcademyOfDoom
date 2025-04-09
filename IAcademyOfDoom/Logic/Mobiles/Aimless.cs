@@ -7,21 +7,23 @@ using System.Threading.Tasks;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Aimless
-    /// /// </summary>
+    /// A class representing a bot of type Aimless
+    /// </summary>
     public class Aimless : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Aimless
+        /// Constructor for the Aimless class
         /// </summary>
         public Aimless() : base(BotType.Aimless)
         { }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour Aimless
+        /// Overrides the move method for the Aimless bot
         /// </summary>
         public override void Move()
         {
             base.Move();
         }
     }
+
+}
