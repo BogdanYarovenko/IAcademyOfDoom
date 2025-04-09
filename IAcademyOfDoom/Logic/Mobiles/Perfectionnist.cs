@@ -24,9 +24,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
             base.Move();
         }
         /// <summary>
-        /// 
+        /// Si le botling se trouve dans une salle et que l'examen échoue, il reste dans sa position actuelle. 
+        /// Sinon, il poursuit avec la logique de mouvement par défaut.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// Un tuple représentant les coordonnées (x, y) du prochain mouvement du botling.
+        /// </returns>
         protected override (int x, int y) Next()
         {
             if (c.IsRoomHere(X, Y, false) != null)
@@ -35,7 +38,6 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 if (res != ExamResult.Success)
                     return (X, Y);
             }
-
             return base.Next();
         }
     }

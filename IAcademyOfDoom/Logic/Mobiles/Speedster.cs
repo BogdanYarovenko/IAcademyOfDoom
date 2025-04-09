@@ -5,7 +5,7 @@ using System;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Speedster, qui se déplace rapidement vers sa cible et perd des points de vie en fonction de la distance.
+    /// Une classe représentant un bot de type Speedster.
     /// </summary>
     public class Speedster : Botling
     {
@@ -17,7 +17,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour que le Speedster se déplace directement vers un mur ou une salle dans la direction visée.
+        /// Redéfinit la méthode de mouvement pour le Speedster.
         /// </summary>
         public override void Move()
         {

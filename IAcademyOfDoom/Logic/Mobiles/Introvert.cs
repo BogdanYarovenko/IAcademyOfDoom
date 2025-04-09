@@ -8,24 +8,21 @@ using static System.Net.Mime.MediaTypeNames;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Perfectionnist
+    /// Une classe représentant un bot de type Introvert
     /// /// </summary>
     public class Introvert : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Perfectionnist
+        /// Constructeur pour la classe Introvert
         /// </summary>
         public Introvert() : base(BotType.Introvert)
-        {
-        }
+        {}
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour que le Perfectionnist
+        /// Redéfinit la méthode de mouvement pour Introvert
         /// </summary>
         public override void Move()
         {
-
-
             base.Move();
         }
 
@@ -74,13 +71,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 {
                     return (X + 1, Y); 
                 }
-                // Si seul le bas est à côté d'un mur mais pas occupé par un bot
                 else if (isBottomWall)
                 {
-                    return (X, Y + 1); // Se déplacer vers le bas
+                    return (X, Y + 1);
                 }
             }
-            return (X, Y); // Si aucune condition n'est remplie, rester à la position actuelle
+            return (X, Y);
         }
 
         /// <summary>
