@@ -32,6 +32,11 @@ namespace IAcademyOfDoom.View
         public Point Center { get {  return new Point(Location.X + Size.Width/2,
             Location.Y + Size.Height / 2); } }
         /// <summary>
+        /// 
+        /// </summary>
+        public bool IsHovered { get; set; }
+
+        /// <summary>
         /// Parametered constructor.
         /// </summary>
         /// <param name="location">the top left corner</param>
@@ -42,7 +47,9 @@ namespace IAcademyOfDoom.View
             Colour = Settings.GetBotColourFor(botling.Type);
             Size = Settings.BotlingSize;
             Botling = botling;
+            IsHovered = false;    
         }
+  
         /// <summary>
         /// Method displaying the graphics.
         /// </summary>
@@ -50,6 +57,7 @@ namespace IAcademyOfDoom.View
         public void Draw(Graphics graphics)
         {
             graphics.FillEllipse(new SolidBrush(Colour), new Rectangle(Location, Size));
+        
         }
         /// <summary>
         /// Method checking whether a point is contained in the representation (bounding box).
@@ -59,8 +67,7 @@ namespace IAcademyOfDoom.View
         public bool Contains(Point point)
         {
             double a = Size.Width / 2.0; // half width  of ellipse  
-            double b = Size.Height / 2.0; // halg height of ellipse
-          
+            double b = Size.Height / 2.0; // half height of ellipse
             double ellipseEquation = Math.Pow((point.X - Center.X) / a, 2) + Math.Pow((point.Y - Center.Y) / b, 2);
             return ellipseEquation <= 1;
         }

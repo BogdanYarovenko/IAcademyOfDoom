@@ -254,6 +254,18 @@ namespace IAcademyOfDoom.Logic
                 return false;
             }
         }
+        public bool IsRoomOccupiedByBot(int x, int y)
+        {
+            foreach (Botling botling in botlings)
+            {
+                if (botling.X == x && botling.Y == y)
+                {
+                    return true; 
+                }
+            }
+            
+            return false;
+        }
 
         #endregion
         #region private methods

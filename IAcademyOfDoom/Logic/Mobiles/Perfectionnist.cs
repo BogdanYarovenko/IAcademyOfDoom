@@ -5,25 +5,28 @@ using System;
 namespace IAcademyOfDoom.Logic.Mobiles
 {
     /// <summary>
-    /// Une classe représentant un bot de type Speedster, qui se déplace rapidement vers sa cible et perd des points de vie en fonction de la distance.
-    /// </summary>
+    /// Une classe représentant un bot de type Perfectionnist
+    /// /// </summary>
     public class Perfectionnist : Botling
     {
         /// <summary>
-        /// Constructeur pour la classe Speedster.
+        /// Constructeur pour la classe Perfectionnist
         /// </summary>
         public Perfectionnist() : base(BotType.Perfectionnist)
         {
         }
 
         /// <summary>
-        /// Redéfinit la méthode de mouvement pour que le Speedster se déplace directement vers un mur ou une salle dans la direction visée.
+        /// Redéfinit la méthode de mouvement pour le Perfectionnist
         /// </summary>
         public override void Move()
         {
             base.Move();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override (int x, int y) Next()
         {
             if (c.IsRoomHere(X, Y, false) != null)
@@ -32,7 +35,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 if (res != ExamResult.Success)
                     return (X, Y);
             }
-            
+
             return base.Next();
         }
     }
