@@ -63,6 +63,16 @@ namespace IAcademyOfDoom.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_ground_main_window {
+            get {
+                object obj = ResourceManager.GetObject("Back ground main window", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Design_sans_titre {
             get {
                 object obj = ResourceManager.GetObject("Design sans titre", resourceCulture);

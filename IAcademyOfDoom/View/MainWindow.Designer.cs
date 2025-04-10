@@ -147,6 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.ClientSize = new System.Drawing.Size(1160, 687);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
