@@ -122,9 +122,6 @@ namespace IAcademyOfDoom.View
                     );
                     Point arrowPosition = new Point((int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X, (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y);
 
-                    int XX = (int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X;
-                    int YY = (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y;
-
                     Pen arrowPen = new Pen(Color.Red, 2);
                     graphics.DrawLine(arrowPen, startPoint, endPoint);
                     const int arrowHeadSize = 5;
