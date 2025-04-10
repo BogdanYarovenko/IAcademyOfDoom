@@ -25,7 +25,8 @@ namespace IAcademyOfDoom.Logic.GameSequence
         /// </summary>
         /// <param name="reps">the repetitions</param>
         /// <param name="bots">botType to number of instances dictionary</param>
-        public Turn(int reps, Dictionary<BotType, int> bots) {
+        public Turn(int reps, Dictionary<BotType, int> bots)
+        {
             Reps = reps;
             Bots = bots;
         }
@@ -44,7 +45,7 @@ namespace IAcademyOfDoom.Logic.GameSequence
                     for (int i = 0; i < Bots[bot]; i++)
                     {
                         switch (bot)
-                        {
+                        { ///  None, Speedster, Perfectionnist, Introvert, Lucky, Aimless, Persistent
                             case BotType.None:
                                 res.Add(new Botling(bot));
                                 break;
@@ -54,6 +55,18 @@ namespace IAcademyOfDoom.Logic.GameSequence
                             case BotType.Perfectionnist:
                                 res.Add(new Perfectionnist());
                                 break;
+                            case BotType.Introvert:
+                                res.Add(new Introvert());
+                                break;
+                                //case BotType.Lucky:
+                                //    res.Add(new Lucky());
+                                //    break;
+                                //case BotType.Aimless:
+                                //    res.Add(new Aimless());
+                                //    break;
+                                //case BotType.Persistent:
+                                //    res.Add(new Persistent());
+                                //    break;
                         }
                     }
                 }

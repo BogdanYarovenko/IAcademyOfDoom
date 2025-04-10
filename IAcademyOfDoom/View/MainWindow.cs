@@ -30,7 +30,7 @@ namespace IAcademyOfDoom.View
         private BuyableView m_buyableSelected = null;
         private int m_selectIndexPlaceables = 0;
         private int m_selectIndexBuyables = 0;
-
+        private BotlingView hoveredBotlingView;
         Magasin magasin = null;
 
         #endregion
@@ -72,17 +72,17 @@ namespace IAcademyOfDoom.View
         {
             e.Graphics.DrawRectangle(Pens.Gray, Settings.PlaceableObjetsSquareArea);
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
-            numberOfCoins.Text = "Your balance is : "  + Game.Money.ToString() + " €";
+            numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
             }
-            foreach(BuyableView buyable in buyables)
+            foreach (BuyableView buyable in buyables)
             {
                 buyable.Draw(e.Graphics);
             }
             BackgroundGrid(e.Graphics);
-            
+
             foreach (RoomView room in rooms)
             {
                 room.Draw(e.Graphics);
@@ -91,7 +91,32 @@ namespace IAcademyOfDoom.View
             {
                 bot.Draw(e.Graphics);
             }
+            if (hoveredBotlingView != null)
+            {
+                DrawDirectionHint(e.Graphics, hoveredBotlingView);
+            }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="graphics"></param>
+        /// <param name="botlingView"></param>
+        private void DrawDirectionHint(Graphics graphics, BotlingView botlingView)
+        {
+            if (botlingView.IsHovered)
+            { (int x, int y) direction = botlingView.Botling.NextMove;
+               if (direction != (0, 0))
+                {
+                    Point startPoint = botlingView.Center;
+                    int arrowSize = Math.Max(10, botlingView.Size.Width / 10);
+                    Point endPoint = new Point(startPoint.X + direction.x * arrowSize, startPoint.Y + direction.y * arrowSize);
+                    Pen arrowPen = new Pen(Color.Red, 2);
+                    graphics.DrawLine(arrowPen, startPoint, endPoint);
+                    //TODO add the head of arrow
+                }
+            }
+        }
+
         private void EndPrepButton_Click(object sender, EventArgs e)
         {
             if (c.CanEndPreparations()) { c.EndPreparations(); }
@@ -129,7 +154,7 @@ namespace IAcademyOfDoom.View
 
                 m_selectedRoom = RoomHere(e.Location);
                 if (m_selectedRoom != null && m_selectedRoom.Room.Type == RoomType.Cycle)
-                    m_selectedRoom = null; 
+                    m_selectedRoom = null;
 
                 if (m_selectedRoom == null && m_placeableSelected == null && placeables.Count > 0)
                 {
@@ -208,7 +233,21 @@ namespace IAcademyOfDoom.View
 
             if (m_selectedRoom != null)
             {
-                 m_selectedRoom.Location = Utils.getCenteredPosition(e.Location, new Size(Settings.Width, Settings.Height));
+                m_selectedRoom.Location = Utils.getCenteredPosition(e.Location, new Size(Settings.Width, Settings.Height));
+            }
+            foreach (BotlingView bot in bots)
+            {
+                if (bot.Contains(e.Location))
+                {
+                    bot.IsHovered = true;
+                    hoveredBotlingView = bot;
+
+                }
+                else
+                {
+                    bot.IsHovered = false;
+                }
+
             }
             Refresh();
         }
@@ -244,8 +283,8 @@ namespace IAcademyOfDoom.View
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
-          
-           
+
+
             Refresh();
             c.NextWave();
         }
@@ -257,7 +296,7 @@ namespace IAcademyOfDoom.View
                 MessageBox.Show("Assault do not started yet");
             }
             else { c.GetLastResults(); }
-   
+
 
         }
         /// <summary>
@@ -426,7 +465,7 @@ namespace IAcademyOfDoom.View
                 PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
 
                 this.placeables.Add(newPlaceableView);
-                
+
                 y += Settings.PlaceableOffset;
                 i++;
             }
@@ -495,7 +534,7 @@ namespace IAcademyOfDoom.View
                     $"* Coordonates: {{ {botling.X} , {botling.Y} }}\n" +
                     $"* HP: {hp}\n" +
                     $"* Skills: {skills}\n" +
-                    $"* Badges: {badges}" );
+                    $"* Badges: {badges}");
             }
             else
             {
@@ -661,10 +700,10 @@ namespace IAcademyOfDoom.View
             int indexBuyable = 0;
             foreach (BuyableView buyable in buyables)
             {
-                if (buyable.OnSquare(p)) 
+                if (buyable.OnSquare(p))
                 {
-                    m_buyableSelected = buyable; 
-                    m_selectIndexBuyables = indexBuyable; 
+                    m_buyableSelected = buyable;
+                    m_selectIndexBuyables = indexBuyable;
                     return true;
                 }
                 indexBuyable++;

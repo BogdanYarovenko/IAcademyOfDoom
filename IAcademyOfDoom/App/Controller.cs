@@ -138,6 +138,11 @@ namespace IAcademyOfDoom.App
         {
             return game.FindRoomAt(x, y, isCycleRoom);
         }
+        public bool IsRoomOccupiedByBot(int x, int y)
+        {
+           
+            return game.IsRoomOccupiedByBot(x, y);
+        }
         /// <summary>
         /// Method called from the game when a botling's lesson has ended.
         /// </summary>

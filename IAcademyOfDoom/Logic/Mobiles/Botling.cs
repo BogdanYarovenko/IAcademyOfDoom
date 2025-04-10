@@ -71,6 +71,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         {
             (X, Y) = NextMove;
             NextMove = Next();
+            
         }
         /// <summary>
         /// A diceroll-based test for a skill.
@@ -204,6 +205,11 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 return (X, Y + 1);
             }
             return (X + 1, Y);
+        }
+
+        protected bool isInMap(int x, int y)
+        {
+            return x >= 0 && y >= 0 && x <= Game.MaxX && y <= Game.MaxY;
         }
     }
 }
