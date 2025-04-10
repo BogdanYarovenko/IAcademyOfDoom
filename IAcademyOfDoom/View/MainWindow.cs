@@ -104,15 +104,39 @@ namespace IAcademyOfDoom.View
         private void DrawDirectionHint(Graphics graphics, BotlingView botlingView)
         {
             if (botlingView.IsHovered)
-            { (int x, int y) direction = botlingView.Botling.NextMove;
-               if (direction != (0, 0))
+            {
+                int prevX = botlingView.Botling.X;
+                int prevY = botlingView.Botling.Y;
+                (int x, int y) positionNext = botlingView.Botling.NextMove;
+                if (positionNext != (0, 0))
                 {
                     Point startPoint = botlingView.Center;
-                    int arrowSize = Math.Max(10, botlingView.Size.Width / 10);
-                    Point endPoint = new Point(startPoint.X + direction.x * arrowSize, startPoint.Y + direction.y * arrowSize);
+                    int arrowLength = 20;
+                    Point vector = new Point(positionNext.x - prevX,positionNext.y - prevY);
+                    double length = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
+                    Point normalized = new Point((int)(vector.X / length),(int)(vector.Y / length));
+                    Point endPoint = new Point(
+                        (int)(startPoint.X + normalized.X * arrowLength),
+                        (int)(startPoint.Y + normalized.Y * arrowLength)
+                    );
+                    Point arrowPosition = new Point((int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X, (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y);
+
+                    int XX = (int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X;
+                    int YY = (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y;
+
                     Pen arrowPen = new Pen(Color.Red, 2);
                     graphics.DrawLine(arrowPen, startPoint, endPoint);
-                    //TODO add the head of arrow
+                    const int arrowHeadSize = 5;
+                    Point arrowHead1 = new Point(
+                        (int)(arrowPosition.X + arrowHeadSize * (-normalized.Y)),
+                        (int)(arrowPosition.Y + arrowHeadSize * normalized.X)
+                    );
+                    Point arrowHead2 = new Point(
+                        (int)(arrowPosition.X + arrowHeadSize * normalized.Y),
+                        (int)(arrowPosition.Y + arrowHeadSize * (-normalized.X))
+                    );
+                    graphics.DrawLine(arrowPen, endPoint, arrowHead1);
+                    graphics.DrawLine(arrowPen, endPoint, arrowHead2);
                 }
             }
         }
