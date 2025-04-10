@@ -258,7 +258,7 @@ namespace IAcademyOfDoom.Logic
         {
             foreach (Botling botling in botlings)
             {
-                if (botling.X == x && botling.Y == y)
+                if (botling.NextMove.x == x && botling.NextMove.y == y)
                 {
                     return true; 
                 }

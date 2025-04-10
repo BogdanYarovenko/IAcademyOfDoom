@@ -15,16 +15,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// <summary>
         /// Constructor for the Introvert class
         /// </summary>
-        public Introvert() : base(BotType.Introvert)
-        { }
-
-        /// <summary>
-        /// Overrides the move method for Introvert
-        /// </summary>
-        public override void Move()
-        {
-            base.Move();
-        }
+        public Introvert() : base(BotType.Introvert) { }
 
         /// <summary>
         /// Determines the next position to reach from the current position.
@@ -35,9 +26,8 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// <returns>A tuple (x, y) representing the new coordinates of the next position.</returns>
         protected override (int x, int y) Next()
         {
-            bool isRight = c.IsRoomHere(X + 1, Y) != null && !c.IsRoomOccupiedByBot(X + 1, Y);
-            bool isBottom = c.IsRoomHere(X, Y + 1) != null && !c.IsRoomOccupiedByBot(X, Y + 1);
-
+            bool isRight = (!c.IsRoomOccupiedByBot(X + 1, Y) || c.IsRoomHere(X + 1, Y)?.Type == RoomType.Cycle) && isInMap(X + 1, Y);
+            bool isBottom = (!c.IsRoomOccupiedByBot(X, Y + 1) || c.IsRoomHere(X, Y + 1)?.Type == RoomType.Cycle) && isInMap(X, Y + 1);
            
             if (isRight && isBottom)
             {
@@ -53,22 +43,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
             {
                 return (X, Y + 1);
             }
-            else
-            {
-                return (X, Y);
-            }
-        }
-
-        /// <summary>
-        /// Checks if the specified position is next to a wall.
-        /// The walls are defined by the edges of the game (based on Game.MaxX and Game.MaxY).
-        /// </summary>
-        /// <param name="x">The x-coordinate of the position to check.</param>
-        /// <param name="y">The y-coordinate of the position to check.</param>
-        /// <returns>Returns true if the position is next to a wall, otherwise false.</returns>
-        private bool isNextToWall(int x, int y)
-        {
-            return ((x <= Game.MaxX && y == 0) || (y <= Game.MaxY && x == 0) || (x == Game.MaxX && y <= Game.MaxY) || (y == Game.MaxY && x <= Game.MaxX));
+            return (X, Y);
         }
     }
 }
