@@ -74,19 +74,22 @@
             // botnumTextLabel
             // 
             this.botnumTextLabel.AutoSize = true;
-            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botnumTextLabel.BackColor = System.Drawing.Color.Transparent;
+            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botnumTextLabel.Location = new System.Drawing.Point(34, 23);
             this.botnumTextLabel.Name = "botnumTextLabel";
-            this.botnumTextLabel.Size = new System.Drawing.Size(98, 13);
+            this.botnumTextLabel.Size = new System.Drawing.Size(117, 13);
             this.botnumTextLabel.TabIndex = 3;
             this.botnumTextLabel.Text = "Number of botlings:";
             // 
             // numberOfBotlingsContentLabel
             // 
             this.numberOfBotlingsContentLabel.AutoSize = true;
+            this.numberOfBotlingsContentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.numberOfBotlingsContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberOfBotlingsContentLabel.Location = new System.Drawing.Point(138, 23);
             this.numberOfBotlingsContentLabel.Name = "numberOfBotlingsContentLabel";
-            this.numberOfBotlingsContentLabel.Size = new System.Drawing.Size(16, 13);
+            this.numberOfBotlingsContentLabel.Size = new System.Drawing.Size(19, 13);
             this.numberOfBotlingsContentLabel.TabIndex = 4;
             this.numberOfBotlingsContentLabel.Text = "   ";
             // 
@@ -105,9 +108,11 @@
             // playerNameLabel
             // 
             this.playerNameLabel.AutoSize = true;
+            this.playerNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerNameLabel.Location = new System.Drawing.Point(204, 23);
             this.playerNameLabel.Name = "playerNameLabel";
-            this.playerNameLabel.Size = new System.Drawing.Size(28, 13);
+            this.playerNameLabel.Size = new System.Drawing.Size(35, 13);
             this.playerNameLabel.TabIndex = 6;
             this.playerNameLabel.Text = "       ";
             // 
@@ -125,8 +130,9 @@
             // numberOfCoins
             // 
             this.numberOfCoins.AutoSize = true;
-            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfCoins.Location = new System.Drawing.Point(34, 52);
+            this.numberOfCoins.BackColor = System.Drawing.Color.Transparent;
+            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCoins.Location = new System.Drawing.Point(1011, 23);
             this.numberOfCoins.Name = "numberOfCoins";
             this.numberOfCoins.Size = new System.Drawing.Size(0, 13);
             this.numberOfCoins.TabIndex = 8;
