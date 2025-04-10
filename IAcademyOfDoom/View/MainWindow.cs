@@ -222,14 +222,17 @@ namespace IAcademyOfDoom.View
                 m_selectedRoom.relocate();
                 if (Settings.PlaceableObjetsSquareArea.Contains(e.Location))
                 {
+                    SkillType? skill = null;
                     if (m_selectedRoom.Room.Type == RoomType.Prof)
                     {
-                        c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, ((ProfRoom)m_selectedRoom.Room).SkillType, m_selectedRoom.Room.Name));
+                        skill = ((ProfRoom)m_selectedRoom.Room).SkillType;
                     }
-                    else
+                    else if (m_selectedRoom.Room.Type == RoomType.Facility)
                     {
-
+                        //skill = ((FacilityRoom)m_selectedRoom.Room).SkillType; // no skill
                     }
+
+                    c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, skill, m_selectedRoom.Room.Name));
 
                     c.DestroyRoom(m_selectedRoom.Room);
                     PreviewPlaceableItems(c.Placeables());
