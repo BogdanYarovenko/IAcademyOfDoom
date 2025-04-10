@@ -38,6 +38,7 @@
             this.showResultsButton = new System.Windows.Forms.Button();
             this.numberOfCoins = new System.Windows.Forms.Label();
             this.magasinDesign = new System.Windows.Forms.Button();
+            this.outputButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -47,6 +48,7 @@
             this.outputListBox.Name = "outputListBox";
             this.outputListBox.Size = new System.Drawing.Size(765, 134);
             this.outputListBox.TabIndex = 0;
+            this.outputListBox.Visible = false;
             // 
             // endPrepButton
             // 
@@ -76,7 +78,7 @@
             this.botnumTextLabel.AutoSize = true;
             this.botnumTextLabel.BackColor = System.Drawing.Color.Transparent;
             this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botnumTextLabel.Location = new System.Drawing.Point(34, 23);
+            this.botnumTextLabel.Location = new System.Drawing.Point(15, 23);
             this.botnumTextLabel.Name = "botnumTextLabel";
             this.botnumTextLabel.Size = new System.Drawing.Size(117, 13);
             this.botnumTextLabel.TabIndex = 3;
@@ -149,6 +151,18 @@
             this.magasinDesign.UseVisualStyleBackColor = false;
             this.magasinDesign.Click += new System.EventHandler(this.magasinDesign_Click);
             // 
+            // outputButton
+            // 
+            this.outputButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.outputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputButton.Location = new System.Drawing.Point(254, 463);
+            this.outputButton.Name = "outputButton";
+            this.outputButton.Size = new System.Drawing.Size(75, 23);
+            this.outputButton.TabIndex = 10;
+            this.outputButton.Text = "↓ output ↓";
+            this.outputButton.UseVisualStyleBackColor = true;
+            this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +170,7 @@
             this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1160, 687);
+            this.Controls.Add(this.outputButton);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
             this.Controls.Add(this.showResultsButton);
@@ -191,6 +206,7 @@
         private System.Windows.Forms.Button showResultsButton;
         private System.Windows.Forms.Label numberOfCoins;
         private System.Windows.Forms.Button magasinDesign;
+        private System.Windows.Forms.Button outputButton;
     }
 }
 

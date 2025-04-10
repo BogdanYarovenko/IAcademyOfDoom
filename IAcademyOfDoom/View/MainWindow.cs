@@ -60,6 +60,7 @@ namespace IAcademyOfDoom.View
                 playerNameLabel.Visible = false;
             }
             SyncRooms();
+           
         }
         #endregion
         #region event handling methods
@@ -144,7 +145,9 @@ namespace IAcademyOfDoom.View
         private void EndPrepButton_Click(object sender, EventArgs e)
         {
             if (c.CanEndPreparations()) { c.EndPreparations(); }
-            else { WriteLine("Preparations are not complete yet."); }
+            else {
+                MessageBox.Show("Preparations are not complete yet."); 
+                WriteLine("Preparations are not complete yet."); }
         }
         /// <summary>
         /// Event handling: click on next in assault button.
@@ -765,6 +768,19 @@ namespace IAcademyOfDoom.View
                     c.AddPlaceable(placeable);
                 }
                 PreviewPlaceableItems(c.Placeables());
+            }
+        }
+
+        private void outputButton_Click(object sender, EventArgs e)
+        {
+           outputListBox.Visible = !outputListBox.Visible;
+            if (outputListBox.Visible)
+            {
+                outputButton.Text = "Hide output";
+            }
+            else
+            {
+                outputButton.Text = "Show output";
             }
         }
     }
