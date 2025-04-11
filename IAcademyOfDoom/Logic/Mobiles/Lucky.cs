@@ -15,7 +15,9 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// Constructor for the Lucky class
         /// </summary>
         public Lucky() : base(BotType.Lucky)
-        { }
+        {
+           HP -= 2;
+        }
 
         /// <summary>
         /// Overrides the move method for Lucky
@@ -24,6 +26,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         {
             base.Move();
         }
+       
     }
 }
 

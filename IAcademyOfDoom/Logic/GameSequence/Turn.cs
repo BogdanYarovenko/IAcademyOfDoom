@@ -58,15 +58,15 @@ namespace IAcademyOfDoom.Logic.GameSequence
                             case BotType.Introvert:
                                 res.Add(new Introvert());
                                 break;
-                                //case BotType.Lucky:
-                                //    res.Add(new Lucky());
-                                //    break;
-                                //case BotType.Aimless:
-                                //    res.Add(new Aimless());
-                                //    break;
-                                //case BotType.Persistent:
-                                //    res.Add(new Persistent());
-                                //    break;
+                            case BotType.Lucky:
+                                res.Add(new Lucky());
+                              break;
+                             case BotType.Aimless:
+                                  res.Add(new Aimless());
+                               break;
+                               case BotType.Persistent:
+                                 res.Add(new Persistent());
+                                 break;
                         }
                     }
                 }

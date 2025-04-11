@@ -22,7 +22,7 @@ namespace IAcademyOfDoom.Logic.GameSequence
             switch (waveNumber)
             {
                 case 1:
-                    Turn = new Turn(8, new Dictionary<BotType, int>() {{ BotType.Speedster, 1 } });
+                    Turn = new Turn(8, new Dictionary<BotType, int>() {{ BotType.Lucky, 1 } });
                     break;
                 case 2:
                     Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.None, 5 } });

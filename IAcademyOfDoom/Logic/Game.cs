@@ -4,6 +4,7 @@ using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using IAcademyOfDoom.Logic.Skills;
+using IAcademyOfDoom.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace IAcademyOfDoom.Logic
         /// A random number generator (used everywhere).
         /// </summary>
         public static Random Random { get; } = new Random();
+
+       
+
         /// <summary>
         /// The difficulty of the game.
         /// </summary>
@@ -89,6 +93,11 @@ namespace IAcademyOfDoom.Logic
         public void initAfterWindow()
         {
             Money = Default.BaseMoney(Difficulty);
+        }
+        public static void Dice()
+        {
+            Game.Random.Next(1, 7);
+
         }
 
         /// <summary>
@@ -265,6 +274,24 @@ namespace IAcademyOfDoom.Logic
             }
             
             return false;
+        }
+
+        public bool isBotInList(Botling botling)
+        {
+           return  botlings.Contains(botling);
+        }
+
+
+        public bool SameTypeOfBotling(Botling botling)
+        {
+            foreach (Botling bot in botlings)
+            {
+                if (bot.GetType() != botling.GetType())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         #endregion
