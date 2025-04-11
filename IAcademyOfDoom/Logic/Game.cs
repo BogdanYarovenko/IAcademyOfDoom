@@ -94,9 +94,9 @@ namespace IAcademyOfDoom.Logic
         {
             Money = Default.BaseMoney(Difficulty);
         }
-        public static void Dice()
+        public static int Dice()
         {
-            Game.Random.Next(1, 7);
+            return Game.Random.Next(1, 7);
 
         }
 
@@ -179,7 +179,19 @@ namespace IAcademyOfDoom.Logic
                     if (result is ExamResult examResult)
                     {
                         StoreExamResult(examResult);
-                        terminatedNow.Add(botling);
+
+
+                        if (!(botling.Type == BotType.Persistent))
+                        {
+                            terminatedNow.Add(botling);
+                        }
+                        else
+                        {
+                            if(examResult == ExamResult.Success ||  examResult == ExamResult.Dead)
+                            {
+                                terminatedNow.Add(botling);
+                            }
+                        }
                     }
                     else if (result is bool b)
                     {
@@ -213,10 +225,10 @@ namespace IAcademyOfDoom.Logic
                 wave = null;
                 
                     c.EndAssault();
-                /*if (!NextWave())
+               
                 {
                     
-                }*/
+                }
             }
         }
         /// <summary>

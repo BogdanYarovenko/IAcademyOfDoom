@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace IAcademyOfDoom.Logic.Mobiles
 {
@@ -19,14 +21,17 @@ namespace IAcademyOfDoom.Logic.Mobiles
            HP -= 2;
         }
 
-        /// <summary>
-        /// Overrides the move method for Lucky
-        /// </summary>
-        public override void Move()
-        {
-            base.Move();
+        protected override (int x, int y) Next()
+        { 
+            int initDiceValue = Game.Dice();
+            if (initDiceValue == 1)
+            {
+                initDiceValue += Game.Dice();
+            }
+            HP += initDiceValue;
+            return base.Next();
         }
-       
+
     }
 }
 

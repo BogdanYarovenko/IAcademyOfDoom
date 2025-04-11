@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IAcademyOfDoom.Logic.Places;
 using System.Windows.Forms;
 
 namespace IAcademyOfDoom.Logic.Mobiles
@@ -24,6 +20,21 @@ namespace IAcademyOfDoom.Logic.Mobiles
         public override void Move()
         {
             base.Move();
+        }
+        protected override (int x, int y) Next()
+        {
+            
+            if (NextMove.x == Room.ExamRoom().X && NextMove.y == Room.ExamRoom().Y)
+            {
+                ExamResult finalExam = this.Exam();
+                if (finalExam == ExamResult.Failure)
+                {
+                  
+                    return (0, 0);
+                }
+            }
+       
+            return base.Next();
         }
     }
 }
