@@ -118,10 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Back ground main window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back ground main window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backGroundShop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backGroundShop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Design sans titre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design sans titre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Back ground main window" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Back ground main window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

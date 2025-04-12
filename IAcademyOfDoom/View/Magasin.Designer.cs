@@ -51,10 +51,10 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(622, 145);
+            this.okButton.Location = new System.Drawing.Point(622, 141);
             this.okButton.Margin = new System.Windows.Forms.Padding(2);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(129, 50);
+            this.okButton.Size = new System.Drawing.Size(205, 75);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -62,10 +62,10 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(622, 248);
+            this.cancelButton.Location = new System.Drawing.Point(622, 324);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(129, 50);
+            this.cancelButton.Size = new System.Drawing.Size(205, 75);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -74,8 +74,9 @@
             // BalanceInMagasin
             // 
             this.BalanceInMagasin.AutoSize = true;
+            this.BalanceInMagasin.BackColor = System.Drawing.Color.Transparent;
             this.BalanceInMagasin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceInMagasin.Location = new System.Drawing.Point(29, 19);
+            this.BalanceInMagasin.Location = new System.Drawing.Point(515, 15);
             this.BalanceInMagasin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BalanceInMagasin.Name = "BalanceInMagasin";
             this.BalanceInMagasin.Size = new System.Drawing.Size(125, 20);
@@ -85,48 +86,48 @@
             // restRoomButton
             // 
             this.restRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomButton.Location = new System.Drawing.Point(32, 141);
+            this.restRoomButton.Location = new System.Drawing.Point(342, 56);
             this.restRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.restRoomButton.Name = "restRoomButton";
-            this.restRoomButton.Size = new System.Drawing.Size(136, 67);
+            this.restRoomButton.Size = new System.Drawing.Size(113, 55);
             this.restRoomButton.TabIndex = 3;
-            this.restRoomButton.Text = "Rest room\r\n\r\nCost : 5";
+            this.restRoomButton.Text = "Rest room";
             this.restRoomButton.UseVisualStyleBackColor = true;
             this.restRoomButton.Click += new System.EventHandler(this.restRoomButton_Click);
             // 
             // loungeRoomButton
             // 
             this.loungeRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomButton.Location = new System.Drawing.Point(279, 141);
+            this.loungeRoomButton.Location = new System.Drawing.Point(97, 56);
             this.loungeRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.loungeRoomButton.Name = "loungeRoomButton";
-            this.loungeRoomButton.Size = new System.Drawing.Size(136, 67);
+            this.loungeRoomButton.Size = new System.Drawing.Size(113, 55);
             this.loungeRoomButton.TabIndex = 4;
-            this.loungeRoomButton.Text = "Lounge room\r\n\r\nCost : 5";
+            this.loungeRoomButton.Text = "Lounge room\r\n";
             this.loungeRoomButton.UseVisualStyleBackColor = true;
             this.loungeRoomButton.Click += new System.EventHandler(this.loungeRoomButton_Click);
             // 
             // orientationOfficeButton
             // 
             this.orientationOfficeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orientationOfficeButton.Location = new System.Drawing.Point(32, 284);
+            this.orientationOfficeButton.Location = new System.Drawing.Point(97, 310);
             this.orientationOfficeButton.Margin = new System.Windows.Forms.Padding(2);
             this.orientationOfficeButton.Name = "orientationOfficeButton";
-            this.orientationOfficeButton.Size = new System.Drawing.Size(136, 67);
+            this.orientationOfficeButton.Size = new System.Drawing.Size(113, 55);
             this.orientationOfficeButton.TabIndex = 5;
-            this.orientationOfficeButton.Text = "Orientation office\r\n\r\nCost : 5\r\n";
+            this.orientationOfficeButton.Text = "Orientation office\r\n";
             this.orientationOfficeButton.UseVisualStyleBackColor = true;
             this.orientationOfficeButton.Click += new System.EventHandler(this.orientationOfficeButton_Click);
             // 
             // tutoringRoomButton
             // 
             this.tutoringRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutoringRoomButton.Location = new System.Drawing.Point(279, 284);
+            this.tutoringRoomButton.Location = new System.Drawing.Point(342, 310);
             this.tutoringRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.tutoringRoomButton.Name = "tutoringRoomButton";
-            this.tutoringRoomButton.Size = new System.Drawing.Size(136, 67);
+            this.tutoringRoomButton.Size = new System.Drawing.Size(113, 55);
             this.tutoringRoomButton.TabIndex = 6;
-            this.tutoringRoomButton.Text = "Tutoring rooms\r\n\r\nCost : 5\r\n";
+            this.tutoringRoomButton.Text = "Tutoring rooms\r\n";
             this.tutoringRoomButton.UseVisualStyleBackColor = true;
             this.tutoringRoomButton.Click += new System.EventHandler(this.tutoringRoomButton_Click);
             // 
@@ -134,7 +135,7 @@
             // 
             this.restRoomQty.AutoSize = true;
             this.restRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomQty.Location = new System.Drawing.Point(184, 167);
+            this.restRoomQty.Location = new System.Drawing.Point(157, 113);
             this.restRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.restRoomQty.Name = "restRoomQty";
             this.restRoomQty.Size = new System.Drawing.Size(0, 13);
@@ -144,7 +145,7 @@
             // 
             this.loungeRoomQty.AutoSize = true;
             this.loungeRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomQty.Location = new System.Drawing.Point(435, 167);
+            this.loungeRoomQty.Location = new System.Drawing.Point(399, 113);
             this.loungeRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loungeRoomQty.Name = "loungeRoomQty";
             this.loungeRoomQty.Size = new System.Drawing.Size(0, 13);
@@ -164,7 +165,7 @@
             // 
             this.tutorRoomQty.AutoSize = true;
             this.tutorRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutorRoomQty.Location = new System.Drawing.Point(435, 310);
+            this.tutorRoomQty.Location = new System.Drawing.Point(350, 369);
             this.tutorRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tutorRoomQty.Name = "tutorRoomQty";
             this.tutorRoomQty.Size = new System.Drawing.Size(96, 13);
@@ -176,15 +177,16 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(2, 450);
+            this.splitter1.Size = new System.Drawing.Size(2, 559);
             this.splitter1.TabIndex = 12;
             this.splitter1.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 415);
+            this.label4.Location = new System.Drawing.Point(497, 500);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 20);
@@ -194,8 +196,9 @@
             // buyableLabel
             // 
             this.buyableLabel.AutoSize = true;
+            this.buyableLabel.BackColor = System.Drawing.Color.Transparent;
             this.buyableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buyableLabel.Location = new System.Drawing.Point(304, 84);
+            this.buyableLabel.Location = new System.Drawing.Point(228, 9);
             this.buyableLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.buyableLabel.Name = "buyableLabel";
             this.buyableLabel.Size = new System.Drawing.Size(98, 26);
@@ -223,7 +226,7 @@
             // messageTutoringQty
             // 
             this.messageTutoringQty.AutoSize = true;
-            this.messageTutoringQty.Location = new System.Drawing.Point(297, 369);
+            this.messageTutoringQty.Location = new System.Drawing.Point(297, 412);
             this.messageTutoringQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.messageTutoringQty.Name = "messageTutoringQty";
             this.messageTutoringQty.Size = new System.Drawing.Size(0, 13);
@@ -242,7 +245,7 @@
             // 
             this.purchasedLabel.AutoSize = true;
             this.purchasedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasedLabel.Location = new System.Drawing.Point(184, 420);
+            this.purchasedLabel.Location = new System.Drawing.Point(652, 505);
             this.purchasedLabel.Name = "purchasedLabel";
             this.purchasedLabel.Size = new System.Drawing.Size(0, 13);
             this.purchasedLabel.TabIndex = 20;
@@ -251,7 +254,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.backGroundShop;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(910, 559);
             this.Controls.Add(this.purchasedLabel);
             this.Controls.Add(this.messageOrientationQty);
             this.Controls.Add(this.messageTutoringQty);
@@ -271,6 +276,7 @@
             this.Controls.Add(this.BalanceInMagasin);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
+            this.DoubleBuffered = true;
             this.Name = "Magasin";
             this.Text = "Magasin";
             this.Load += new System.EventHandler(this.Magasin_Load);
