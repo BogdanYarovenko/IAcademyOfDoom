@@ -307,7 +307,7 @@ namespace IAcademyOfDoom.View
         public void DisplayResults((int successes, int failures, int dead) results)
         {
             c.GetLastResults();
-            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
+            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} are dead" );
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
 

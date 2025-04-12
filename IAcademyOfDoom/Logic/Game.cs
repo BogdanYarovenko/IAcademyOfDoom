@@ -179,19 +179,7 @@ namespace IAcademyOfDoom.Logic
                     if (result is ExamResult examResult)
                     {
                         StoreExamResult(examResult);
-
-
-                        if (!(botling.Type == BotType.Persistent))
-                        {
-                            terminatedNow.Add(botling);
-                        }
-                        else
-                        {
-                            if(examResult == ExamResult.Success ||  examResult == ExamResult.Dead)
-                            {
-                                terminatedNow.Add(botling);
-                            }
-                        }
+                        terminatedNow.Add(botling);
                     }
                     else if (result is bool b)
                     {
