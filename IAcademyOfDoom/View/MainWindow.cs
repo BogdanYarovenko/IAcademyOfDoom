@@ -32,6 +32,8 @@ namespace IAcademyOfDoom.View
         private int m_selectIndexBuyables = 0;
         private BotlingView hoveredBotlingView;
         Magasin magasin = null;
+        private System.Windows.Forms.Timer assaultTimer;
+
 
         #endregion
         #region constructor
@@ -49,6 +51,7 @@ namespace IAcademyOfDoom.View
                 difficulty = select.Difficulty;
             }
             InitializeComponent();
+            InitializeTimer();
             c.Associate(this, name, difficulty);
             if (c.Name != null)
             {
@@ -61,6 +64,13 @@ namespace IAcademyOfDoom.View
             }
             SyncRooms();
            
+        }
+
+        public void InitializeTimer()
+        {
+            assaultTimer = new System.Windows.Forms.Timer();
+            assaultTimer.Interval = 150;
+            assaultTimer.Tick += AssaultTimer_Clock; 
         }
         #endregion
         #region event handling methods
@@ -153,7 +163,7 @@ namespace IAcademyOfDoom.View
         /// <param name="e">ignored</param>
         private void NextInAssaultButton_Click(object sender, EventArgs e)
         {
-            c.NextInAssault();
+
         }
         /// <summary>
         /// Event handling: click on quit button.
@@ -306,6 +316,7 @@ namespace IAcademyOfDoom.View
         /// <param name="results">the results of the previous wave, as a pair</param>        
         public void DisplayResults((int successes, int failures, int dead) results)
         {
+            assaultTimer.Stop();
             c.GetLastResults();
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} was dead");
             endPrepButton.Enabled = true;
@@ -779,6 +790,35 @@ namespace IAcademyOfDoom.View
             {
                 outputButton.Text = "Show output";
             }
+        }
+
+        private void AssaultTimer_Clock(object sender, EventArgs e)
+        {
+            if (nextInAssaultButton.Enabled && !endPrepButton.Enabled)
+            {
+                c.NextInAssault();
+            }
+            else
+            {
+                assaultTimer.Stop();
+            }
+        }
+
+        private void nextInAssaultButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && nextInAssaultButton.Enabled)
+            {
+                c.NextInAssault();
+                assaultTimer.Start();
+            }
+        }
+
+        private void nextInAssaultButton_MouseUp(object sender, MouseEventArgs e)
+        {
+          if (e.Button == MouseButtons.Left)
+           {
+                assaultTimer.Stop();
+           }
         }
     }
 }
