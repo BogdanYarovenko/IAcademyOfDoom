@@ -235,6 +235,15 @@ namespace IAcademyOfDoom.View
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            reinitialise();
+            this.Close();
+        } 
+        private void Magasin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reinitialise();
+        }
+        private void reinitialise()
+        {
             this.DialogResult = DialogResult.Cancel;
 
             foreach (FrameTypeRoom typeOfRoom in _purchasedItem.Keys)
@@ -242,8 +251,6 @@ namespace IAcademyOfDoom.View
                 _qtyRooms[typeOfRoom] += _purchasedItem[typeOfRoom];
             }
             _purchasedItem.Clear();
-
-            this.Close();
         }
 
         
@@ -284,5 +291,7 @@ namespace IAcademyOfDoom.View
 
             return placeables;
         }
+
+        
     }
 }
