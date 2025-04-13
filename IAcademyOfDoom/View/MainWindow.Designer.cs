@@ -72,6 +72,8 @@
             this.nextInAssaultButton.Text = "Assault: next";
             this.nextInAssaultButton.UseVisualStyleBackColor = true;
             this.nextInAssaultButton.Click += new System.EventHandler(this.NextInAssaultButton_Click);
+            this.nextInAssaultButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextInAssaultButton_MouseDown);
+            this.nextInAssaultButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nextInAssaultButton_MouseUp);
             // 
             // botnumTextLabel
             // 
