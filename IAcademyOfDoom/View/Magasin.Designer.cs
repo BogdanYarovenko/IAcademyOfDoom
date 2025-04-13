@@ -56,6 +56,8 @@
             // okButton
             // 
             this.okButton.BackColor = System.Drawing.SystemColors.Control;
+            this.okButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.okButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.okButton.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okButton.Location = new System.Drawing.Point(440, 359);
@@ -69,6 +71,8 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(619, 359);
@@ -94,44 +98,59 @@
             // 
             // restRoomButton
             // 
+            this.restRoomButton.BackColor = System.Drawing.Color.Transparent;
+            this.restRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.restRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.restRoomButton.FlatAppearance.BorderSize = 2;
             this.restRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomButton.Location = new System.Drawing.Point(282, 174);
+            this.restRoomButton.Location = new System.Drawing.Point(283, 174);
             this.restRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.restRoomButton.Name = "restRoomButton";
             this.restRoomButton.Size = new System.Drawing.Size(113, 55);
             this.restRoomButton.TabIndex = 3;
             this.restRoomButton.Text = "Buy RR";
-            this.restRoomButton.UseVisualStyleBackColor = true;
+            this.restRoomButton.UseVisualStyleBackColor = false;
             this.restRoomButton.Click += new System.EventHandler(this.restRoomButton_Click);
             // 
             // loungeRoomButton
             // 
+            this.loungeRoomButton.BackColor = System.Drawing.Color.Transparent;
+            this.loungeRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.loungeRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loungeRoomButton.FlatAppearance.BorderSize = 2;
             this.loungeRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomButton.Location = new System.Drawing.Point(69, 174);
+            this.loungeRoomButton.Location = new System.Drawing.Point(73, 174);
             this.loungeRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.loungeRoomButton.Name = "loungeRoomButton";
             this.loungeRoomButton.Size = new System.Drawing.Size(113, 55);
             this.loungeRoomButton.TabIndex = 4;
             this.loungeRoomButton.Text = "Buy LR";
-            this.loungeRoomButton.UseVisualStyleBackColor = true;
+            this.loungeRoomButton.UseVisualStyleBackColor = false;
             this.loungeRoomButton.Click += new System.EventHandler(this.loungeRoomButton_Click);
             // 
             // orientationOfficeButton
             // 
+            this.orientationOfficeButton.BackColor = System.Drawing.Color.Black;
+            this.orientationOfficeButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.orientationOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.orientationOfficeButton.FlatAppearance.BorderSize = 2;
             this.orientationOfficeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orientationOfficeButton.Location = new System.Drawing.Point(69, 386);
+            this.orientationOfficeButton.Location = new System.Drawing.Point(70, 386);
             this.orientationOfficeButton.Margin = new System.Windows.Forms.Padding(2);
             this.orientationOfficeButton.Name = "orientationOfficeButton";
             this.orientationOfficeButton.Size = new System.Drawing.Size(113, 55);
             this.orientationOfficeButton.TabIndex = 5;
             this.orientationOfficeButton.Text = "Buy OO";
-            this.orientationOfficeButton.UseVisualStyleBackColor = true;
+            this.orientationOfficeButton.UseVisualStyleBackColor = false;
             this.orientationOfficeButton.Click += new System.EventHandler(this.orientationOfficeButton_Click);
             // 
             // tutoringRoomButton
             // 
+            this.tutoringRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
+            this.tutoringRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tutoringRoomButton.FlatAppearance.BorderSize = 2;
             this.tutoringRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutoringRoomButton.Location = new System.Drawing.Point(282, 386);
+            this.tutoringRoomButton.Location = new System.Drawing.Point(283, 386);
             this.tutoringRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.tutoringRoomButton.Name = "tutoringRoomButton";
             this.tutoringRoomButton.Size = new System.Drawing.Size(113, 55);

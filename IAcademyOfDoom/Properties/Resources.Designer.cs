@@ -103,36 +103,6 @@ namespace IAcademyOfDoom.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Design_sans_titre__4_ {
-            get {
-                object obj = ResourceManager.GetObject("Design sans titre (4)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Design_sans_titre__4___1_ {
-            get {
-                object obj = ResourceManager.GetObject("Design sans titre (4) (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Design_sans_titre__4___2_ {
-            get {
-                object obj = ResourceManager.GetObject("Design sans titre (4) (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap DesignMagasin {
             get {
                 object obj = ResourceManager.GetObject("DesignMagasin", resourceCulture);
