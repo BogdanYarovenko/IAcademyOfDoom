@@ -237,11 +237,12 @@ namespace IAcademyOfDoom.View
         {
             reinitialise();
             this.Close();
-        } 
+        }
         private void Magasin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            reinitialise();
+            if (this.DialogResult != DialogResult.OK) reinitialise();
         }
+
         private void reinitialise()
         {
             this.DialogResult = DialogResult.Cancel;
@@ -252,6 +253,7 @@ namespace IAcademyOfDoom.View
             }
             _purchasedItem.Clear();
         }
+
 
         
 
@@ -292,6 +294,6 @@ namespace IAcademyOfDoom.View
             return placeables;
         }
 
-        
+       
     }
 }
