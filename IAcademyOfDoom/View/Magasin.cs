@@ -73,17 +73,18 @@ namespace IAcademyOfDoom.View
             {
                 _purchasedItem.Add(typeOfRoom, 1);
             }
-
             StringBuilder sb = new StringBuilder();
+          int columnWidth = 20;
+            sb.Append("Room Type".PadRight(columnWidth)).Append("Quantity").Append("\n");
+            sb.Append(new string('-', columnWidth *2)).Append("\n");
 
             foreach (FrameTypeRoom item in _purchasedItem.Keys)
             {
-                sb.Append(item.ToString()).Append(": ").Append(_purchasedItem[item]).Append(", ");
+                sb.Append(item.ToString().PadRight(columnWidth))
+                  .Append(_purchasedItem[item].ToString())
+                  .Append("\n");
             }
-            if (_purchasedItem.Count > 0)
-            {
-                sb.Length -= 2;
-            }
+
             purchasedLabel.Text = sb.ToString();
         }
 
