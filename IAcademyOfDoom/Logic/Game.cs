@@ -176,11 +176,19 @@ namespace IAcademyOfDoom.Logic
                     (int x, int y) = (botling.X, botling.Y);
                     Room entered = FindRoomAt(x, y);
                     object result = entered?.ActOnEntry(botling);
-                    if (result is ExamResult examResult)
-                    {
-                        StoreExamResult(examResult);
-                        terminatedNow.Add(botling);
-                    }
+                   
+                        if (result is ExamResult examResult)
+                        {
+                            StoreExamResult(examResult);
+
+                            // If BotType is Persistent and its examResult is Failure, do not add it to terminatedNow
+                            if (!(botling.Type == BotType.Persistent && examResult == ExamResult.Failure))
+                            {
+                                terminatedNow.Add(botling);
+                            }
+                        }
+                    
+              
                     else if (result is bool b)
                     {
                         c.LessonResult(botling, b);

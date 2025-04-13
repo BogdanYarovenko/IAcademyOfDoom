@@ -27,12 +27,9 @@ namespace IAcademyOfDoom.Logic.Mobiles
             if (IsAtExamRoom(NextMove))
             {
                 ExamResult finalExam = Exam();
-               //MessageBox.Show("ExamResult of Next " + finalExam);
                 if (finalExam == ExamResult.Failure)
-                {
-                    X = 0;
-                    Y = 0;
-
+                {                 
+                    return (0, 0);
                 }
             }
             return base.Next();
