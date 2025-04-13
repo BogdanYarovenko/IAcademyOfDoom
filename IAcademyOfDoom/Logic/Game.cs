@@ -96,7 +96,7 @@ namespace IAcademyOfDoom.Logic
         }
         public static int Dice()
         {
-            return Game.Random.Next(1, 7);
+            return Game.Random.Next(0, 6) + 1;
 
         }
 
