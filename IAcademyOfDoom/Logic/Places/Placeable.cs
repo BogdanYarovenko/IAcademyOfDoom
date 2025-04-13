@@ -52,7 +52,7 @@ namespace IAcademyOfDoom.Logic.Places
                 case RoomType.Facility:
                     return new FacilityRoom(x, y) { Name = name };
                 default:
-                    return null;
+                    return null;  
             }
         }
         /// <summary>
