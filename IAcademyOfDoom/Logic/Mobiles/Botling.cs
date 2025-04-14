@@ -206,6 +206,15 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
             return (X + 1, Y);
         }
+        public void MoveTo(int x, int y)
+        {
+            if (isInMap(x, y))
+            {
+                X = x;
+                Y = y;
+            } 
+        }
+
 
         protected bool isInMap(int x, int y)
         {

@@ -24,6 +24,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
         {
             base.Move();
         }
+
+
+        protected override (int x, int y) Next()
+        {
+            return base.Next();
+        }
     }
 
 }

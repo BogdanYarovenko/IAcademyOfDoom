@@ -162,11 +162,11 @@ namespace IAcademyOfDoom.Logic
         public void NextInAssault()
         {
             bool change = false;
-            List<Botling> spawnedNow=null;
-            List<Botling> terminatedNow=new List<Botling>();
+            List<Botling> spawnedNow = null;
+            List<Botling> terminatedNow = new List<Botling>();
             if (wave != null && wave.Turn != null)
             {
-                spawnedNow=wave.Turn.SpawnOrNull();
+                spawnedNow = wave.Turn.SpawnOrNull();
             }
             if (botlings.Count > 0)
             {
@@ -176,22 +176,20 @@ namespace IAcademyOfDoom.Logic
                     (int x, int y) = (botling.X, botling.Y);
                     Room entered = FindRoomAt(x, y);
                     object result = entered?.ActOnEntry(botling);
-                   
-                        if (result is ExamResult examResult)
-                        {
-                            StoreExamResult(examResult);
+
+                    if (result is ExamResult examResult)
+                    {
+                        StoreExamResult(examResult);
 
                         if (botling.Type == BotType.Persistent && examResult == ExamResult.Failure)
                         {
-                           
+                            botling.MoveTo(0,0);
                         }
                         else
                         {
                             terminatedNow.Add(botling);
                         }
                     }
-                    
-              
                     else if (result is bool b)
                     {
                         c.LessonResult(botling, b);
@@ -211,7 +209,7 @@ namespace IAcademyOfDoom.Logic
             }
             if (change)
             {
-                foreach(Botling removable in terminatedNow)
+                foreach (Botling removable in terminatedNow)
                 {
                     botlings.Remove(removable);
                 }
@@ -222,12 +220,7 @@ namespace IAcademyOfDoom.Logic
             {
                 currentPhase = Phase.Result;
                 wave = null;
-                
-                    c.EndAssault();
-               
-                {
-                    
-                }
+                c.EndAssault();
             }
         }
         /// <summary>
@@ -287,17 +280,17 @@ namespace IAcademyOfDoom.Logic
             return false;
         }
 
-        public bool isBotInList(Botling botling)
+        public  bool isBotInList(Botling botling)
         {
            return  botlings.Contains(botling);
         }
 
 
-        public bool SameTypeOfBotling(Botling botling)
+        public  bool SameTypeOfBotling(Botling botling)
         {
             foreach (Botling bot in botlings)
             {
-                if (bot.GetType() != botling.GetType())
+               if(bot.Type != botling.Type)
                 {
                     return false;
                 }
