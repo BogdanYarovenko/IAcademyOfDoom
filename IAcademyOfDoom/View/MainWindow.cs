@@ -1,5 +1,6 @@
 ﻿using IAcademyOfDoom.App;
 using IAcademyOfDoom.Logic;
+using IAcademyOfDoom.Logic.Actions;
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
@@ -26,6 +27,7 @@ namespace IAcademyOfDoom.View
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private readonly List<BuyableView> buyables = new List<BuyableView>();
+        private readonly List<ActionView> actionViews = new List<ActionView>();
         private PlaceableView m_placeableSelected = null;
         private BuyableView m_buyableSelected = null;
         private int m_selectIndexPlaceables = 0;
@@ -82,11 +84,20 @@ namespace IAcademyOfDoom.View
         private void MainWindow_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(Pens.Gray, Settings.PlaceableObjetsSquareArea);
+            e.Graphics.DrawString("Placeables", Settings.TitleFont, Brushes.Black,
+                new PointF(Settings.PlaceableObjetsSquareArea.X + 70, Settings.PlaceableObjetsSquareArea.Y - 20));
+            e.Graphics.DrawRectangle(Pens.Gray, Settings.ActionsObjectsSquareArea);
+            e.Graphics.DrawString("Actions availables", Settings.TitleFont, Brushes.Black,
+               new PointF(Settings.ActionsObjectsSquareArea.X + 50, Settings.ActionsObjectsSquareArea.Y - 20));
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
             foreach (PlaceableView placeable in placeables)
             {
                 placeable.Draw(e.Graphics);
+            }
+            foreach(ActionView action in actionViews)
+            {
+                action.Draw(e.Graphics);
             }
             foreach (BuyableView buyable in buyables)
             {
@@ -508,34 +519,6 @@ namespace IAcademyOfDoom.View
                 i++;
             }
             WriteLine("Preparations: please place the following...");
-            WriteLine("Items:" + items);
-            Refresh();
-        }
-        public void PreviewBuyableItems(List<Buyable> buyables)
-        {
-            this.buyables.Clear();
-            if (buyables.Count == 0)
-            {
-                WriteLine("All items bought!");
-                return;
-            }
-
-            string items = "";
-            int x = Settings.PlaceableLeft;
-            int y = Settings.PlaceableTop;
-
-            int i = 0;
-            foreach (Buyable buyable in buyables)
-            {
-                items += " " + buyable.ToString();
-                BuyableView newBuyableView = new BuyableView(buyable, new Point(x, y));
-
-                this.buyables.Add(newBuyableView);
-
-                y += Settings.PlaceableOffset;
-                i++;
-            }
-            WriteLine("Buy items available...");
             WriteLine("Items:" + items);
             Refresh();
         }

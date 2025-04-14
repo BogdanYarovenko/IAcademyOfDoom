@@ -22,9 +22,9 @@ namespace IAcademyOfDoom.Logic.Places
         {
 
 
-            foreach (SkillType skill in botling.Skills) { 
+          /*  foreach (SkillType skill in botling.Skills) { 
             
-            }
+            }*/
 
             // TO:DO
             return null;

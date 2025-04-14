@@ -53,6 +53,7 @@
     <Compile Include="Logic\Mobiles\Perfectionnist.cs" />
     <Compile Include="Logic\Mobiles\Persistent.cs" />
     <Compile Include="Logic\Mobiles\Speedster.cs" />
+    <Compile Include="Logic\Actions\GameAction.cs" />
     <Compile Include="Logic\Places\Buyable.cs" />
     <Compile Include="Logic\GameSettings\Difficulty.cs" />
     <Compile Include="Logic\Mobiles\Botling.cs" />
@@ -66,11 +67,14 @@
     <Compile Include="Logic\Places\Placeable.cs" />
     <Compile Include="Logic\Places\ProfRoom.cs" />
     <Compile Include="Logic\Places\Room.cs" />
+    <Compile Include="Logic\Places\RoomLounge.cs" />
+    <Compile Include="Logic\Places\RoomRest.cs" />
     <Compile Include="Logic\Places\RoomType.cs" />
     <Compile Include="Logic\Skills\SkillType.cs" />
     <Compile Include="Logic\GameSequence\Turn.cs" />
     <Compile Include="Logic\GameSequence\Wave.cs" />
     <Compile Include="Logic\Skills\SkillTypeUtils.cs" />
+    <Compile Include="View\ActionView.cs" />
     <Compile Include="View\BuyableView.cs" />
     <Compile Include="View\DifficultySelect.cs">
       <SubType>Form</SubType>

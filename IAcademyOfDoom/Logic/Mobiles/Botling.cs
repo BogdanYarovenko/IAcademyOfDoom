@@ -45,7 +45,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// <summary>
         /// This botling will move there next.
         /// </summary>
-        public (int x, int y) NextMove { get; private set; }
+        public (int x, int y) NextMove { get; set; }
         /// <summary>
         /// Empty constructor, use with caution.
         /// </summary>
@@ -213,6 +213,11 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 X = x;
                 Y = y;
             } 
+        }
+        public void Repeater()
+        {
+            MoveTo(0, 0);
+            NextMove = Next(); 
         }
 
 

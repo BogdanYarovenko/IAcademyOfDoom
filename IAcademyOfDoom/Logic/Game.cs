@@ -164,13 +164,14 @@ namespace IAcademyOfDoom.Logic
             bool change = false;
             List<Botling> spawnedNow = null;
             List<Botling> terminatedNow = new List<Botling>();
+            List<Botling> toProcess = botlings.ToList();
             if (wave != null && wave.Turn != null)
             {
                 spawnedNow = wave.Turn.SpawnOrNull();
             }
             if (botlings.Count > 0)
             {
-                foreach (Botling botling in botlings)
+                foreach (Botling botling in toProcess)
                 {
                     botling.Move();
                     (int x, int y) = (botling.X, botling.Y);
@@ -183,13 +184,16 @@ namespace IAcademyOfDoom.Logic
 
                         if (botling.Type == BotType.Persistent && examResult == ExamResult.Failure)
                         {
-                            botling.MoveTo(0,0);
+
+                            botling.Repeater();
+                          
                         }
                         else
                         {
                             terminatedNow.Add(botling);
                         }
                     }
+                
                     else if (result is bool b)
                     {
                         c.LessonResult(botling, b);
@@ -216,11 +220,17 @@ namespace IAcademyOfDoom.Logic
                 c.BotRemove(terminatedNow);
                 c.BotChange(botlings);
             }
+           
             else
             {
                 currentPhase = Phase.Result;
                 wave = null;
                 c.EndAssault();
+            }
+            Console.WriteLine("Оставшиеся ботлинги:");
+            foreach (var b in toProcess)
+            {
+                Console.WriteLine($" - {b.Name} @ ({b.X}, {b.Y})");
             }
         }
         /// <summary>

@@ -21,14 +21,28 @@ namespace IAcademyOfDoom.View
         public static Size BotlingSize { get; } = new Size(10, 10);
         public static Size TextOffset { get; } = new Size(8, Height/2);
         public static Brush TextBrush { get; } = Brushes.Black;
+        public static Brush ActionBrush { get; } = Brushes.Black;
         public static Font RoomFont { get; } = SystemFonts.IconTitleFont;
+        public static Font ActionFont { get; } = SystemFonts.IconTitleFont;
+        public static Font TitleFont { get; } = new Font("Arial", 12, FontStyle.Bold);
         public static int PlaceableLeft = Left + Width * Cols + 50;
         public static int PlaceableTop = Top + 5;
-        public static readonly Rectangle PlaceableObjetsSquareArea = new Rectangle(PlaceableLeft - 5, PlaceableTop - 5, 255, 350);
+        public static int ActionLeft = PlaceableLeft + 230 + 20;
+        public static int ActionTop = PlaceableTop;
+        public static Size ObjectsBoxSize = new Size(230, 350);
+        public static readonly Rectangle PlaceableObjetsSquareArea =
+                new Rectangle(x: PlaceableLeft - 5, y: PlaceableTop - 5,  
+                            width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
+        public static readonly Rectangle ActionsObjectsSquareArea =
+                new Rectangle(x: ActionLeft - 5, y: ActionTop - 5, 
+                            width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
         public static Size PlaceableSquare { get; } = new Size(10, 10);
+        public static Size ActionSquare { get; } = new Size(10,10);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;
+        public static Brush ActionsSquareBrush { get; } = Brushes.Firebrick;
 
         public static int PlaceableOffset { get; } = 20;
+        public static int ActionsOffset { get; } = 20;
         public static Color GetRoomColourFor(RoomType type)
         {
             switch (type)
