@@ -181,12 +181,15 @@ namespace IAcademyOfDoom.Logic
                         {
                             StoreExamResult(examResult);
 
-                            // If BotType is Persistent and its examResult is Failure, do not add it to terminatedNow
-                            if (!(botling.Type == BotType.Persistent && examResult == ExamResult.Failure))
-                            {
-                                terminatedNow.Add(botling);
-                            }
+                        if (botling.Type == BotType.Persistent && examResult == ExamResult.Failure)
+                        {
+                           
                         }
+                        else
+                        {
+                            terminatedNow.Add(botling);
+                        }
+                    }
                     
               
                     else if (result is bool b)

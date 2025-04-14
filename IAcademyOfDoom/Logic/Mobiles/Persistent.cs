@@ -23,22 +23,25 @@ namespace IAcademyOfDoom.Logic.Mobiles
         }
         protected override (int x, int y) Next()
         {
-
-            if (IsAtExamRoom(NextMove))
+            if (IsAtExamRoom((X, Y)))
             {
                 ExamResult finalExam = Exam();
                 if (finalExam == ExamResult.Failure)
-                {                 
+                {
                     return (0, 0);
+                }
+                else
+                {
+                    return base.Next();
                 }
             }
             return base.Next();
         }
 
-        private bool IsAtExamRoom((int x, int y) move)
+        private bool IsAtExamRoom((int x, int y) position)
         {
             var examRoom = Room.ExamRoom();
-            return move.x == examRoom.X && move.y == examRoom.Y;
+            return position.x == examRoom.X && position.y == examRoom.Y;
         }
     }
    
