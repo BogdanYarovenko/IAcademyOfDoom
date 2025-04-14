@@ -83,11 +83,11 @@ namespace IAcademyOfDoom.App
         {
             window.DisplayResults(game.GetResults());
         }
-        public (int successes, int failures, int dead) GetLastResults()
+        public (int successes, int failures, int Tired) GetLastResults()
         {
             var results = game.GetResults();
            
-            MessageBox.Show($"✅ Successes: {results.successes}\n❌ Failures: {results.failures}\n☠️ Dead: {results.dead} \n  ");
+            MessageBox.Show($"✅ Successes: {results.successes}\n❌ Failures: {results.failures}\n☠️ Tired: {results.tired} \n  ");
 
             return results;
         }

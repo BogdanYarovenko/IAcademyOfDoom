@@ -314,11 +314,11 @@ namespace IAcademyOfDoom.View
         /// Method called by the controller to set the window to results mode.
         /// </summary>
         /// <param name="results">the results of the previous wave, as a pair</param>        
-        public void DisplayResults((int successes, int failures, int dead) results)
+        public void DisplayResults((int successes, int failures, int tired) results)
         {
             assaultTimer.Stop();
             c.GetLastResults();
-            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.dead} are dead" );
+            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.tired} are tired" );
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
 
