@@ -332,8 +332,7 @@ namespace IAcademyOfDoom.View
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.tired} are tired" );
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
-
-
+            Game.AddMoney(results.successes);
             Refresh();
             c.NextWave();
         }

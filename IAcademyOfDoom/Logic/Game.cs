@@ -264,6 +264,7 @@ namespace IAcademyOfDoom.Logic
         /// <summary>
         /// Remove the specified amount of money from the current money
         /// </summary>
+        /// <param name="amount"> the amount to remove</param>
         /// <returns>true if the money was removed, false if not enough money</returns>
         public static bool RemoveMoney(int amount)
         {
@@ -276,6 +277,16 @@ namespace IAcademyOfDoom.Logic
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Add the specified ammount of money to the current money
+        /// </summary>
+        /// <param name="amount"> the amount to add </param>
+        public static void AddMoney(int amount)
+        {
+            Money += amount;
+            
         }
         public bool IsRoomOccupiedByBot(int x, int y)
         {
