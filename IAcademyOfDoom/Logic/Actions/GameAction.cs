@@ -5,15 +5,19 @@
     /// </summary>
     public class GameAction
     {
+        enum ActionType
+        {
+            Heal, Target, Specialisation 
+        }
+
+
         /// <summary>
         /// The name or label of the action.
         /// </summary>
-        public string Name { get; private set; }
+        public String Name { get; private set; }
 
-        /// <summary>
-        /// Optional description of what the action does.
-        /// </summary>
-        public string Description { get; private set; }
+
+        public ActionType Type { get; private set; } 
 
         /// <summary>
         /// Optional cost of performing the action (energy, points, etc.)
@@ -30,10 +34,10 @@
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameAction(string name, string description, int cost)
+        public GameAction(String name, ActionType type,  int cost)
         {
             Name = name;
-            Description = description;
+            Type = type;
             Cost = cost;
            
             IsAvailable = true;
