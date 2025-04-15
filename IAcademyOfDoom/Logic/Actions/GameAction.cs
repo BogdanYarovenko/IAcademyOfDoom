@@ -5,16 +5,11 @@
     /// </summary>
     public class GameAction
     {
-        enum ActionType
-        {
-            Heal, Target, Specialisation 
-        }
-
 
         /// <summary>
         /// The name or label of the action.
         /// </summary>
-        public String Name { get; private set; }
+        public string Name { get; private set; }
 
 
         public ActionType Type { get; private set; } 
@@ -34,7 +29,7 @@
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameAction(String name, ActionType type,  int cost)
+        public GameAction(string name, ActionType type,  int cost)
         {
             Name = name;
             Type = type;
@@ -43,11 +38,12 @@
             IsAvailable = true;
         }
 
+
       
 
         public override string ToString()
         {
-            return $"{Name} ({Cost})";
+            return $"{Name}:{Type} ~~ ({Cost})";
         }
     }
 

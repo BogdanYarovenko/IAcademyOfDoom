@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Controller.cs" />
+    <Compile Include="Logic\Actions\ActionType.cs" />
     <Compile Include="Logic\Mobiles\Aimless.cs" />
     <Compile Include="Logic\Mobiles\Introvert.cs" />
     <Compile Include="Logic\Mobiles\Lucky.cs" />

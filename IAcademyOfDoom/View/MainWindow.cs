@@ -87,7 +87,7 @@ namespace IAcademyOfDoom.View
             e.Graphics.DrawString("Placeables", Settings.TitleFont, Brushes.Black,
                 new PointF(Settings.PlaceableObjetsSquareArea.X + 70, Settings.PlaceableObjetsSquareArea.Y - 20));
             e.Graphics.DrawRectangle(Pens.Gray, Settings.ActionsObjectsSquareArea);
-            e.Graphics.DrawString("Actions availables", Settings.TitleFont, Brushes.Black,
+            e.Graphics.DrawString("Availables actions", Settings.TitleFont, Brushes.Black,
                new PointF(Settings.ActionsObjectsSquareArea.X + 50, Settings.ActionsObjectsSquareArea.Y - 20));
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
@@ -95,6 +95,9 @@ namespace IAcademyOfDoom.View
             {
                 placeable.Draw(e.Graphics);
             }
+            int x = Settings.ActionTop;
+            int y = Settings.ActionLeft;
+            actionViews.Add(new ActionView(new GameAction("HealType ", ActionType.Heal, 5), new Point(x, y) ));
             foreach(ActionView action in actionViews)
             {
                 action.Draw(e.Graphics);
@@ -521,6 +524,34 @@ namespace IAcademyOfDoom.View
             WriteLine("Items:" + items);
             Refresh();
         }
+      /*  public void PreviewActionItems(List<Action> actions)
+        {
+            this.actions.Clear();
+            if (actions.Count == 0)
+            {
+                WriteLine("All items placed !");
+                return;
+            }
+
+            string items = "";
+            int x = Settings.PlaceableLeft;
+            int y = Settings.PlaceableTop;
+
+            int i = 0;
+            foreach (Action action in actions)
+            {
+                items += " " + placeable.ToString();
+                PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
+
+                this.placeables.Add(newPlaceableView);
+
+                y += Settings.PlaceableOffset;
+                i++;
+            }
+            WriteLine("Preparations: please place the following...");
+            WriteLine("Items:" + items);
+            Refresh();
+        }*/
         /// <summary>
         /// Method displaying the current status of a logical botling mobile.
         /// </summary>
