@@ -227,11 +227,6 @@ namespace IAcademyOfDoom.Logic
                 wave = null;
                 c.EndAssault();
             }
-            Console.WriteLine("Оставшиеся ботлинги:");
-            foreach (var b in toProcess)
-            {
-                Console.WriteLine($" - {b.Name} @ ({b.X}, {b.Y})");
-            }
         }
         /// <summary>
         /// Accesses the current results of the assault.
