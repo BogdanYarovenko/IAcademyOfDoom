@@ -21,18 +21,26 @@ namespace IAcademyOfDoom.Logic.Places
         {
             //Page 33
             int compare = -1;
-            String nameOfTheSkill = " ";
+            SkillType? weakestSkill = null;
 
-            foreach (SkillType skill in botling.Skills.Keys)
+            foreach (KeyValuePair<SkillType, int> skillEntry in botling.Skills)
             {
-                if (compare > botling.Skills[skill])
+                if (skillEntry.Key.IsBaseSkill())
                 {
-                    compare = botling.Skills[skill];
-                    nameOfTheSkill = skill.ToString();
+                    if (skillEntry.Value < compare)
+                    {
+                        compare = skillEntry.Value;
+                        weakestSkill = skillEntry.Key;
+                    }
                 }
             }
 
-            // TO:DO -> Orienté le botling
+            // TO:DO -> Orienté le botling 
+
+            if (weakestSkill.HasValue) { 
+            
+            
+            }
 
             return null;
         }
