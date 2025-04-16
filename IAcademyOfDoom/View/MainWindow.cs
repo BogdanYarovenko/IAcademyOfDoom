@@ -97,7 +97,7 @@ namespace IAcademyOfDoom.View
             }
             int x = Settings.ActionTop;
             int y = Settings.ActionLeft;
-            actionViews.Add(new ActionView(new GameAction("HealType ", ActionType.Heal, 5), new Point(x, y) ));
+            //actionViews.Add(new ActionView(new GameAction("HealType ", ActionType.Heal, 5), new Point(x, y) ));
             foreach(ActionView action in actionViews)
             {
                 action.Draw(e.Graphics);

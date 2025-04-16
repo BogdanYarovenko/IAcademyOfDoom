@@ -107,6 +107,10 @@ namespace IAcademyOfDoom.App
         {
             window.RemoveBots(removed);
         }
+        public bool IsSameTypeOfBotling(Botling bot)
+        {
+            return game.IsSameTypeOfBotling(bot);
+        }
         /// <summary>
         /// Method checking whether all mandatory placeable items are placed.
         /// </summary>
@@ -138,9 +142,13 @@ namespace IAcademyOfDoom.App
         {
             return game.FindRoomAt(x, y, isCycleRoom);
         }
+        public bool IsRoomTypeHere(int x, int y, RoomType type)
+        {
+            Room room = IsRoomHere(x, y);
+            return room != null && room.Type == type;
+        }
         public bool IsRoomOccupiedByBot(int x, int y)
         {
-           
             return game.IsRoomOccupiedByBot(x, y);
         }
         /// <summary>
