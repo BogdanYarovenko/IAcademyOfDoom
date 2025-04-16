@@ -17,17 +17,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// Constructor for the Aimless class
         /// </summary>
         public Aimless() : base(BotType.Aimless)
-        { }
-
-        /// <summary>
-        /// Overrides the move method for the Aimless bot
-        /// </summary>
-        public override void Move()
         {
-            base.Move();
         }
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override (int x, int y) Next()
         {
             if (c.IsSameTypeOfBotling(this))
