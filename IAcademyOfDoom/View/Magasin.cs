@@ -53,10 +53,6 @@ namespace IAcademyOfDoom.View
 
             resetStates();
             resetPurchaseLabels();
-
-            //tutorRoomQty.Text = "Qty : " + 
-
-            //purchasedLabel.Text = purchasedList;
         }
 
         /// <summary>
@@ -104,24 +100,6 @@ namespace IAcademyOfDoom.View
         private bool isBuyable(FrameTypeRoom typeOfRoom)
         {
             return _qtyRooms[typeOfRoom] > 0 && _localMoney >= _COST;
-
-            /*if (_qtyRooms[typeOfRoom] > 0) 
-            {
-                if (_localMoney >= _COST)
-                {
-                    purchaseSucced(typeOfRoom);
-                    if (_qtyRooms[typeOfRoom] == 0)
-                    {
-                        disableRoomButton(typeOfRoom);
-                    }
-                    return true;
-                }
-                else
-                {
-                    purchaseFailed(typeOfRoom);
-                }
-            }
-            return false;*/
         }
 
         /// <summary>

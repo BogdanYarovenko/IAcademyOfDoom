@@ -302,14 +302,14 @@ namespace IAcademyOfDoom.Logic
         }
 
 
-        public  bool SameTypeOfBotling(Botling botling)
+        public bool IsSameTypeOfBotling(Botling botling)
         {
             foreach (Botling bot in botlings)
             {
-               if(bot.Type != botling.Type)
-                {
+               if (bot.Type != botling.Type)
+               {
                     return false;
-                }
+               }
             }
             return true;
         }
