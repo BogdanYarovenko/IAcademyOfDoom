@@ -22,16 +22,22 @@ namespace IAcademyOfDoom.Logic.GameSequence
             switch (waveNumber)
             {
                 case 1:
-                    Turn = new Turn(3, new Dictionary<BotType, int>() {{ BotType.Persistent, 3 }, { BotType.Aimless,  1} });
+                    Turn = new Turn(3, new Dictionary<BotType, int>() {{ BotType.Introvert, 1 }, { BotType.None, 1 } });
                     break;
                 case 2:
-                    Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.None, 5 } });
+                    Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.Lucky, 1 }, { BotType.None, 2 } });
                     break;
                 case 3:
+                    Turn = new Turn(6, new Dictionary<BotType, int>() { { BotType.Speedster, 1 }, { BotType.Aimless, 1 }, { BotType.None, 1 } });
+                    break;
                 case 4:
+                    Turn = new Turn(8, new Dictionary<BotType, int>() { { BotType.Speedster, 1 }, { BotType.Persistent, 1 }, { BotType.Aimless, 1 } });
+                    break;
                 case 5:
+                    Turn = new Turn(9, new Dictionary<BotType, int>() { { BotType.Introvert, 2 }, { BotType.Persistent, 1 }, { BotType.Lucky, 1 } });
+                    break;
                 case 6:
-                    Turn = new Turn(10, new Dictionary<BotType, int>() { { BotType.None, 5 } });
+                    Turn = new Turn(10, new Dictionary<BotType, int>() { { BotType.None, 1 }, { BotType.Speedster, 1 }, { BotType.Introvert, 2 } });
                     break;
                 default:
                     break;

@@ -1,5 +1,8 @@
-﻿using IAcademyOfDoom.Logic.Places;
+
+using IAcademyOfDoom.Logic.Places;
 using System.Collections.Generic;
+using IAcademyOfDoom.Logic.Mobiles;
+using System.Collections.ObjectModel;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
@@ -27,7 +30,7 @@ namespace IAcademyOfDoom.Logic.Actions
         /// </summary>
         public bool IsAvailable { get; set; }
 
-     
+        
 
         /// <summary>
         /// Constructor.
@@ -41,8 +44,31 @@ namespace IAcademyOfDoom.Logic.Actions
             IsAvailable = true;
         }
 
+        public void actionOnRooms(Collection<Room> rooms)
+        {
+            foreach (Room room in rooms)
+            {
+                actionOnRoom(room);
+            }
+        }
 
+        public void actionOnBotlings(Collection<Botling> botlings)
+        {
+            foreach (Botling bot in botlings)
+            {
+                actionOnBotling(bot);
+            }
+        }
 
+        public virtual bool actionOnRoom(Room targetRoom)
+        {
+            return false; 
+        }
+
+        public virtual bool actionOnBotling(Botling targetBotling)
+        {
+            return false;
+        }
 
         public override string ToString() => $"{Name}:{Type} ~~ ({Cost})";
 
