@@ -11,10 +11,6 @@ namespace IAcademyOfDoom.Logic.Places
     public class ProfRoom : Room
     {
         /// <summary>
-        /// Specific: the hit points of the teacher in the room (0 or less: exhausted).
-        /// </summary>
-        public int HP {  get; set; }
-        /// <summary>
         /// The skill taught in this room.
         /// </summary>
         public SkillType SkillType {  get; set; }
@@ -23,7 +19,7 @@ namespace IAcademyOfDoom.Logic.Places
         /// </summary>
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
-        public ProfRoom(int x, int y) : base(x, y)
+        public ProfRoom(int x, int y, int HP) : base(x, y, HP)
         {
             Type = RoomType.Prof;
             HP = Default.BaseProfHitPoints;
@@ -36,8 +32,8 @@ namespace IAcademyOfDoom.Logic.Places
         /// <returns>the result of the lesson - actual type: bool</returns>
         public override object ActOnEntry(Botling botling)
         {
-            HP--;
-            if (HP <=0)
+            this.HP--;
+            if (this.HP <=0)
             {
                 Controller.Instance.DestroyRoom(this);
             }

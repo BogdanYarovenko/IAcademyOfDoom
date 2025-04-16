@@ -106,9 +106,9 @@ namespace IAcademyOfDoom.Logic
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
         /// <param name="placeable">the placeable item</param>
-        public void AddRoomHere(int x, int y, Placeable placeable)
+        public void AddRoomHere(int x, int y,int HP, Placeable placeable)
         {
-            rooms.Add(placeable.MakeRoom(x, y));
+            rooms.Add(placeable.MakeRoom(x, y, HP));
         }
         public void AddPlaceable(Placeable placeable)
         {
@@ -134,7 +134,7 @@ namespace IAcademyOfDoom.Logic
         {
             if (placeables.Contains(placeable))
             {
-                AddRoomHere(x, y, placeable);
+                AddRoomHere(x, y, Default.BaseProfHitPoints, placeable);
                 placeables.Remove(placeable);
                 return true;
             }

@@ -1,5 +1,14 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
+using IAcademyOfDoom.Properties;
 using System.Drawing;
+using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.GameSequence;
+using IAcademyOfDoom.Logic.GameSettings;
+using IAcademyOfDoom.Logic.Mobiles;
+using IAcademyOfDoom.Logic.Places;
+using IAcademyOfDoom.Logic.Skills;
+using IAcademyOfDoom.View;
+
 
 namespace IAcademyOfDoom.Logic.Places
 {
@@ -19,6 +28,10 @@ namespace IAcademyOfDoom.Logic.Places
         /// <summary>
         /// The type of the room.
         /// </summary>
+        /// 
+
+        public int HP { get; set; }
+
         public RoomType Type { get; internal set; }
         public string Name { get; internal set; }
         /// <summary>
@@ -26,10 +39,11 @@ namespace IAcademyOfDoom.Logic.Places
         /// </summary>
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
-        public Room(int x, int y)
+        public Room(int x, int y, int hP)
         {
             X = x;
             Y = y;
+            HP = Default.BaseProfHitPoints;
         }
         /// <summary>
         /// Factory method for the spawn area (top-left corner).
@@ -37,7 +51,7 @@ namespace IAcademyOfDoom.Logic.Places
         /// <returns>a new spawn area room</returns>
         public static Room SpawnArea()
         {
-            Room r = new Room(0, 0)
+            Room r = new Room(0, 0, Default.BaseProfHitPoints)
             {
                 Name = "Spawn area",
                 Type = RoomType.Cycle
@@ -50,9 +64,9 @@ namespace IAcademyOfDoom.Logic.Places
         /// <returns>a new exam room</returns>
         public static Room ExamRoom()
         {
-            Room r = new Room(Game.MaxX, Game.MaxY)
+            Room r = new Room(Game.MaxX, Game.MaxY , Default.BaseProfHitPoints)
             {
-                Name = "Examination",
+               Name = "Examination",
                 Type = RoomType.Cycle
             };
             return r;

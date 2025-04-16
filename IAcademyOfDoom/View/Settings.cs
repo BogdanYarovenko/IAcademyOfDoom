@@ -24,6 +24,9 @@ namespace IAcademyOfDoom.View
         public static Brush ActionBrush { get; } = Brushes.Black;
         public static Font RoomFont { get; } = SystemFonts.IconTitleFont;
         public static Font ActionFont { get; } = SystemFonts.IconTitleFont;
+
+
+       public static int HP_Room {  get; } = 5;
         public static Font TitleFont { get; } = new Font("Arial", 12, FontStyle.Bold);
         public static int PlaceableLeft = Left + Width * Cols + 50;
         public static int PlaceableTop = Top + 5;

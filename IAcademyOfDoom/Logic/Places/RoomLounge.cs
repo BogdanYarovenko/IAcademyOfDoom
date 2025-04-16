@@ -12,7 +12,7 @@ namespace IAcademyOfDoom.Logic.Places
     // AKA Party room
     internal class RoomLounge : Room
     {
-        public RoomLounge(int x, int y) : base(x, y)
+        public RoomLounge(int x, int y, int HP) : base(x, y,HP)
         {
             Type = RoomType.Facility; 
             Name = "Lounge Room";

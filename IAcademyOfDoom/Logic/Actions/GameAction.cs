@@ -39,12 +39,11 @@
         }
 
 
-      
 
-        public override string ToString()
-        {
-            return $"{Name}:{Type} ~~ ({Cost})";
-        }
+
+        public override string ToString() => $"{Name}:{Type} ~~ ({Cost})";
+
+
     }
 
    

@@ -598,6 +598,7 @@ namespace IAcademyOfDoom.View
             {
                 MessageBox.Show(
                     $"Room Label: {roomView.Label}\n\n" +
+                    $"Room HP : {roomView.Room.HP}\n" +
                     $"* Room Name: {roomView.Room?.Name}\n" +
                     $"* Room Type: {roomView.Room?.Type.ToString()}\n" +
                     $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}"

@@ -11,7 +11,7 @@ namespace IAcademyOfDoom.Logic.Places
 {
     public class FacilityRoom : Room
     {
-        public FacilityRoom(int x, int y) : base(x, y)
+        public FacilityRoom(int x, int y, int hP) : base(x, y, hP)
         {
             Type = RoomType.Facility;
         }

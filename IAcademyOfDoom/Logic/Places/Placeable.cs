@@ -34,23 +34,23 @@ namespace IAcademyOfDoom.Logic.Places
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
         /// <returns>a new room object</returns>
-        public Room MakeRoom(int x, int y)
+        public Room MakeRoom(int x, int y, int HP)
         {
             switch (RoomType)
             {
                 case RoomType.Cycle:
-                    return new Room(x, y) { Name = name };
+                    return new Room(x, y, HP) { Name = name };
                 case RoomType.Prof:
                     if (Skill.HasValue)
                     {
-                        return new ProfRoom(x, y) { Name = name, SkillType = Skill.Value };
+                        return new ProfRoom(x, y, HP) { Name = name, SkillType = Skill.Value };
                     }
                     else
                     {
                         return null;
                     }
                 case RoomType.Facility:
-                    return new FacilityRoom(x, y) { Name = name };
+                    return new FacilityRoom(x, y, HP) { Name = name };
                 default:
                     return null;  
             }

@@ -11,7 +11,7 @@ namespace IAcademyOfDoom.Logic.Places
 {
     internal class RoomRest : Room
     {
-        public RoomRest(int x, int y) : base(x, y)
+        public RoomRest(int x, int y, int HP) : base(x, y, HP)
         {
             Type = RoomType.Facility;
             Name = "Rest Room";
