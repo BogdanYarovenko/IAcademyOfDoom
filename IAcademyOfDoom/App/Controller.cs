@@ -31,7 +31,7 @@ namespace IAcademyOfDoom.App
         /// <param name="window">the window (from which this method is called)</param>
         /// <param name="name">optional name for the player</param>
         /// <param name="difficulty">optional difficulty for the game</param>
-        public void Associate(MainWindow window, string name=null, Difficulty? difficulty=null)
+        public void Associate(MainWindow window, string name = null, Difficulty? difficulty = null)
         {
             this.window = window;
             game = new Game();
@@ -83,14 +83,7 @@ namespace IAcademyOfDoom.App
         {
             window.DisplayResults(game.GetResults());
         }
-        public (int successes, int failures, int Tired) GetLastResults()
-        {
-            var results = game.GetResults();
-           
-            MessageBox.Show($"✅ Successes: {results.successes}\n❌ Failures: {results.failures}\n☠️ Tired: {results.tired} \n  ");
 
-            return results;
-        }
         /// <summary>
         /// Method called whenever botling mobiles should be updated.
         /// </summary>
@@ -106,10 +99,6 @@ namespace IAcademyOfDoom.App
         public void BotRemove(List<Botling> removed)
         {
             window.RemoveBots(removed);
-        }
-        public bool IsSameTypeOfBotling(Botling bot)
-        {
-            return game.IsSameTypeOfBotling(bot);
         }
         /// <summary>
         /// Method checking whether all mandatory placeable items are placed.
@@ -137,19 +126,73 @@ namespace IAcademyOfDoom.App
             window.SyncRooms();
             window.Refresh();
         }
-
+        /// <summary>
+        /// Checks if a room exists at the specified coordinates (x, y) and optionally excludes cycle rooms.
+        /// </summary>
+        /// <param name="x">The X coordinate of the room to check.</param>
+        /// <param name="y">The Y coordinate of the room to check.</param>
+        /// <param name="isCycleRoom">Indicates whether to exclude cycle rooms. Defaults to true.</param>
+        /// <returns>
+        /// The room at the specified coordinates if it exists, otherwise null.
+        /// If `isCycleRoom` is false and the room is a cycle room, null will be returned.
+        /// </returns>
         public Room IsRoomHere(int x, int y, bool isCycleRoom = true)
         {
             return game.FindRoomAt(x, y, isCycleRoom);
         }
+        /// <summary>
+        /// Checks if a room of the specified type exists at the given coordinates (x, y).
+        /// </summary>
+        /// <param name="x">The X coordinate of the room to check.</param>
+        /// <param name="y">The Y coordinate of the room to check.</param>
+        /// <param name="type">The type of room to check for.</param>
+        /// <returns>
+        /// True if the room at the specified coordinates matches the given room type, otherwise false.
+        /// </returns>
         public bool IsRoomTypeHere(int x, int y, RoomType type)
         {
             Room room = IsRoomHere(x, y);
             return room != null && room.Type == type;
         }
+
+
+        /// <summary>
+        /// Checks if the room at the specified coordinates (x, y) is occupied by a bot.
+        /// </summary>
+        /// <param name="x">The X coordinate of the room to check.</param>
+        /// <param name="y">The Y coordinate of the room to check.</param>
+        /// <returns>
+        /// True if the room is occupied by a bot, otherwise false.
+        /// </returns>
         public bool IsRoomOccupiedByBot(int x, int y)
         {
             return game.IsRoomOccupiedByBot(x, y);
+        }
+        /// <summary>
+        /// Checks if the provided bot is of the same type as the bots in the game.
+        /// </summary>
+        /// <param name="bot">The bot to compare against the bots in the game.</param>
+        /// <returns>
+        /// True if the provided bot is of the same type as the bots in the game, otherwise false.
+        /// </returns>
+        public bool IsSameTypeOfBotling(Botling bot)
+        {
+            return game.IsSameTypeOfBotling(bot);
+        }
+        /// <summary>
+        /// Retrieves the last recorded results, including successes, failures, and tired outcomes.
+        /// Displays the results in a message box and returns them as a tuple.
+        /// </summary>
+        /// <returns>
+        /// A tuple containing the counts of successes, failures, and tired outcomes.
+        /// </returns>
+        public (int successes, int failures, int Tired) GetLastResults()
+        {
+            var results = game.GetResults();
+
+            MessageBox.Show($"✅ Successes: {results.successes}\n❌ Failures: {results.failures}\n☠️ Tired: {results.tired} \n  ");
+
+            return results;
         }
         /// <summary>
         /// Method called from the game when a botling's lesson has ended.
