@@ -96,13 +96,10 @@ namespace IAcademyOfDoom.View
             {
                 placeable.Draw(e.Graphics);
             }
-            //int x = Settings.ActionTop;
-            //int y = Settings.ActionLeft;
-            //actionViews.Add(new ActionView(new GameAction("HealType ", ActionType.Heal, 5), new Point(x, y) ));
             foreach(ActionView action in actionViews)
             {
                 action.Draw(e.Graphics);
-            }*/
+            }
             foreach (BuyableView buyable in buyables)
             {
                 buyable.Draw(e.Graphics);
