@@ -559,6 +559,7 @@ namespace IAcademyOfDoom.View
             string name = botling.Name;
             string hp = botling.HP.ToString() + " HP";
             string skills = "Skills: ";
+            string type = botling.Type.ToString();
             foreach (SkillType skill in botling.Skills.Keys)
             {
                 skills += "[ " + skill.ToString() + " ]" + " =" + botling.Skills[skill] + " ";
@@ -580,6 +581,7 @@ namespace IAcademyOfDoom.View
             {
                 MessageBox.Show(
                     $"Botling: {name}\n\n" +
+                    $"* Type: {type}\n" +
                     $"* Coordonates: {{ {botling.X} , {botling.Y} }}\n" +
                     $"* HP: {hp}\n" +
                     $"* Skills: {skills}\n" +
