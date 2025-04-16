@@ -1,4 +1,7 @@
-﻿namespace IAcademyOfDoom.Logic.Actions
+﻿using IAcademyOfDoom.Logic.Places;
+using System.Collections.Generic;
+
+namespace IAcademyOfDoom.Logic.Actions
 {
     /// <summary>
     /// Represents a logical action that can be performed in the game.

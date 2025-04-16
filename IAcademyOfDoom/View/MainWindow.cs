@@ -596,12 +596,22 @@ namespace IAcademyOfDoom.View
         {
             if (isMessageBox)
             {
+              
+                string skillText = "";
+
+                if (roomView.Room?.Type == RoomType.Prof && roomView.Room is ProfRoom profRoom)
+                {
+
+                    skillText = $"* Skill Type: {profRoom.SkillType}\n";
+                }
+
                 MessageBox.Show(
                     $"Room Label: {roomView.Label}\n\n" +
-                    $"Room HP : {roomView.Room.HP}\n" +
+                    $"* Room HP : {roomView.Room.HP}\n" +
                     $"* Room Name: {roomView.Room?.Name}\n" +
                     $"* Room Type: {roomView.Room?.Type.ToString()}\n" +
-                    $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}"
+                    $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}\n" +
+                    skillText
                 );
             }
             else
