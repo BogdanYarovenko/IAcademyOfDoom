@@ -39,6 +39,7 @@
             this.numberOfCoins = new System.Windows.Forms.Label();
             this.magasinDesign = new System.Windows.Forms.Button();
             this.outputButton = new System.Windows.Forms.Button();
+            this.actionsMagasin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -146,7 +147,7 @@
             this.magasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.magasinDesign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.magasinDesign.Image = global::IAcademyOfDoom.Properties.Resources.Design_sans_titre;
-            this.magasinDesign.Location = new System.Drawing.Point(1043, 52);
+            this.magasinDesign.Location = new System.Drawing.Point(1081, 53);
             this.magasinDesign.Name = "magasinDesign";
             this.magasinDesign.Size = new System.Drawing.Size(67, 63);
             this.magasinDesign.TabIndex = 9;
@@ -165,6 +166,18 @@
             this.outputButton.UseVisualStyleBackColor = true;
             this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
             // 
+            // actionsMagasin
+            // 
+            this.actionsMagasin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.actionsMagasin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.actionsMagasin.Location = new System.Drawing.Point(1124, 122);
+            this.actionsMagasin.Name = "actionsMagasin";
+            this.actionsMagasin.Size = new System.Drawing.Size(24, 162);
+            this.actionsMagasin.TabIndex = 11;
+            this.actionsMagasin.Text = "<<<<<<<<";
+            this.actionsMagasin.UseVisualStyleBackColor = false;
+            this.actionsMagasin.Click += new System.EventHandler(this.actionsMagasin_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +185,7 @@
             this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1160, 687);
+            this.Controls.Add(this.actionsMagasin);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
@@ -209,6 +223,7 @@
         private System.Windows.Forms.Label numberOfCoins;
         private System.Windows.Forms.Button magasinDesign;
         private System.Windows.Forms.Button outputButton;
+        private System.Windows.Forms.Button actionsMagasin;
     }
 }
 

@@ -36,6 +36,9 @@ namespace IAcademyOfDoom.View
         public static readonly Rectangle ActionsObjectsSquareArea =
                 new Rectangle(x: ActionLeft - 5, y: ActionTop - 5, 
                             width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
+        public static readonly Rectangle ActionsMagasin =
+                new Rectangle(x: 100, y: ActionTop - 5,
+                            width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
         public static Size PlaceableSquare { get; } = new Size(10, 10);
         public static Size ActionSquare { get; } = new Size(10,10);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;

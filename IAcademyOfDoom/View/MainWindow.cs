@@ -34,6 +34,7 @@ namespace IAcademyOfDoom.View
         private int m_selectIndexBuyables = 0;
         private BotlingView hoveredBotlingView;
         Magasin magasin = null;
+        ActionsWindow actWindow = null;
         private System.Windows.Forms.Timer assaultTimer;
 
 
@@ -95,13 +96,10 @@ namespace IAcademyOfDoom.View
             {
                 placeable.Draw(e.Graphics);
             }
-            int x = Settings.ActionTop;
-            int y = Settings.ActionLeft;
-            actionViews.Add(new ActionView(new GameAction("HealType ", ActionType.Heal, 5), new Point(x, y) ));
-            foreach(ActionView action in actionViews)
+           /* foreach(ActionView action in actionViews)
             {
                 action.Draw(e.Graphics);
-            }
+            }*/
             foreach (BuyableView buyable in buyables)
             {
                 buyable.Draw(e.Graphics);
@@ -832,6 +830,18 @@ namespace IAcademyOfDoom.View
            {
                 assaultTimer.Stop();
            }
+        }
+
+        private void actionsMagasin_Click(object sender, EventArgs e)
+        {
+            if(actWindow == null)
+            {
+                actWindow = new ActionsWindow();
+            }
+            if (actWindow.ShowDialog() == DialogResult.OK)
+            {
+              
+            }
         }
     }
 }
