@@ -194,6 +194,11 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 Badges.Add(skill, false);
             }
         }
+
+        public static void updateSkill(SkillType skill,Botling bot, int value)
+        {
+            bot.Skills[skill] += value;
+        }
         /// <summary>
         /// Calculates the next position for the entity based on the current position.
         /// </summary>
