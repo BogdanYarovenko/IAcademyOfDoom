@@ -11,6 +11,8 @@
 
 ### VisualStudioCode ###
 .vscode/*
+.vscode
+.vs
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -53,3 +55,4 @@ x64/
 *.psess
 *.vsp
 *.vspx
+.idea
