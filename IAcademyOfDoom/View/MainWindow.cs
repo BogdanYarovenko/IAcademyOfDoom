@@ -66,14 +66,14 @@ namespace IAcademyOfDoom.View
                 playerNameLabel.Visible = false;
             }
             SyncRooms();
-           
+
         }
 
         public void InitializeTimer()
         {
             assaultTimer = new System.Windows.Forms.Timer();
             assaultTimer.Interval = 150;
-            assaultTimer.Tick += AssaultTimer_Clock; 
+            assaultTimer.Tick += AssaultTimer_Clock;
         }
         #endregion
         #region event handling methods
@@ -96,7 +96,7 @@ namespace IAcademyOfDoom.View
             {
                 placeable.Draw(e.Graphics);
             }
-            foreach(ActionView action in actionViews)
+            foreach (ActionView action in actionViews)
             {
                 action.Draw(e.Graphics);
             }
@@ -135,9 +135,9 @@ namespace IAcademyOfDoom.View
                 {
                     Point startPoint = botlingView.Center;
                     int arrowLength = 20;
-                    Point vector = new Point(positionNext.x - prevX,positionNext.y - prevY);
+                    Point vector = new Point(positionNext.x - prevX, positionNext.y - prevY);
                     double length = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-                    Point normalized = new Point((int)(vector.X / length),(int)(vector.Y / length));
+                    Point normalized = new Point((int)(vector.X / length), (int)(vector.Y / length));
                     Point endPoint = new Point(
                         (int)(startPoint.X + normalized.X * arrowLength),
                         (int)(startPoint.Y + normalized.Y * arrowLength)
@@ -164,9 +164,11 @@ namespace IAcademyOfDoom.View
         private void EndPrepButton_Click(object sender, EventArgs e)
         {
             if (c.CanEndPreparations()) { c.EndPreparations(); }
-            else {
-                MessageBox.Show("Preparations are not complete yet."); 
-                WriteLine("Preparations are not complete yet."); }
+            else
+            {
+                MessageBox.Show("Preparations are not complete yet.");
+                WriteLine("Preparations are not complete yet.");
+            }
         }
         /// <summary>
         /// Event handling: click on next in assault button.
@@ -330,7 +332,7 @@ namespace IAcademyOfDoom.View
         {
             assaultTimer.Stop();
             c.GetLastResults();
-            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.tired} are tired" );
+            WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.tired} are tired");
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
             Game.AddMoney(results.successes);
@@ -522,34 +524,34 @@ namespace IAcademyOfDoom.View
             WriteLine("Items:" + items);
             Refresh();
         }
-      /*  public void PreviewActionItems(List<Action> actions)
-        {
-            this.actions.Clear();
-            if (actions.Count == 0)
-            {
-                WriteLine("All items placed !");
-                return;
-            }
+        /*  public void PreviewActionItems(List<Action> actions)
+          {
+              this.actions.Clear();
+              if (actions.Count == 0)
+              {
+                  WriteLine("All items placed !");
+                  return;
+              }
 
-            string items = "";
-            int x = Settings.PlaceableLeft;
-            int y = Settings.PlaceableTop;
+              string items = "";
+              int x = Settings.PlaceableLeft;
+              int y = Settings.PlaceableTop;
 
-            int i = 0;
-            foreach (Action action in actions)
-            {
-                items += " " + placeable.ToString();
-                PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
+              int i = 0;
+              foreach (Action action in actions)
+              {
+                  items += " " + placeable.ToString();
+                  PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
 
-                this.placeables.Add(newPlaceableView);
+                  this.placeables.Add(newPlaceableView);
 
-                y += Settings.PlaceableOffset;
-                i++;
-            }
-            WriteLine("Preparations: please place the following...");
-            WriteLine("Items:" + items);
-            Refresh();
-        }*/
+                  y += Settings.PlaceableOffset;
+                  i++;
+              }
+              WriteLine("Preparations: please place the following...");
+              WriteLine("Items:" + items);
+              Refresh();
+          }*/
         /// <summary>
         /// Method displaying the current status of a logical botling mobile.
         /// </summary>
@@ -559,6 +561,7 @@ namespace IAcademyOfDoom.View
             string name = botling.Name;
             string hp = botling.HP.ToString() + " HP";
             string skills = "Skills: ";
+            string type = botling.Type.ToString();
             foreach (SkillType skill in botling.Skills.Keys)
             {
                 skills += "[ " + skill.ToString() + " ]" + " =" + botling.Skills[skill] + " ";
@@ -580,6 +583,7 @@ namespace IAcademyOfDoom.View
             {
                 MessageBox.Show(
                     $"Botling: {name}\n\n" +
+                    $"* Type: {type}\n" +
                     $"* Coordonates: {{ {botling.X} , {botling.Y} }}\n" +
                     $"* HP: {hp}\n" +
                     $"* Skills: {skills}\n" +
@@ -596,12 +600,22 @@ namespace IAcademyOfDoom.View
         {
             if (isMessageBox)
             {
+
+                string skillText = "";
+
+                if (roomView.Room?.Type == RoomType.Prof && roomView.Room is ProfRoom profRoom)
+                {
+
+                    skillText = $"* Skill Type: {profRoom.SkillType}\n";
+                }
+
                 MessageBox.Show(
                     $"Room Label: {roomView.Label}\n\n" +
-                    $"Room HP : {roomView.Room.HP}\n" +
+                    $"* Room HP : {roomView.Room.HP}\n" +
                     $"* Room Name: {roomView.Room?.Name}\n" +
                     $"* Room Type: {roomView.Room?.Type.ToString()}\n" +
-                    $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}"
+                    $"* Coordinates: {roomView.Room?.X} , {roomView.Room?.Y}\n" +
+                    skillText
                 );
             }
             else
@@ -793,7 +807,7 @@ namespace IAcademyOfDoom.View
 
         private void outputButton_Click(object sender, EventArgs e)
         {
-           outputListBox.Visible = !outputListBox.Visible;
+            outputListBox.Visible = !outputListBox.Visible;
             if (outputListBox.Visible)
             {
                 outputButton.Text = "Hide output";
@@ -827,21 +841,21 @@ namespace IAcademyOfDoom.View
 
         private void nextInAssaultButton_MouseUp(object sender, MouseEventArgs e)
         {
-          if (e.Button == MouseButtons.Left)
-           {
+            if (e.Button == MouseButtons.Left)
+            {
                 assaultTimer.Stop();
-           }
+            }
         }
 
         private void actionsMagasin_Click(object sender, EventArgs e)
         {
-            if(actWindow == null)
+            if (actWindow == null)
             {
                 actWindow = new ActionsWindow();
             }
             if (actWindow.ShowDialog() == DialogResult.OK)
             {
-              
+
             }
         }
     }

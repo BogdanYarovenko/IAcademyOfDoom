@@ -17,14 +17,6 @@ namespace IAcademyOfDoom.Logic.Mobiles
         }
 
         /// <summary>
-        /// Overrides the move method for the Perfectionist bot
-        /// </summary>
-        public override void Move()
-        {
-            base.Move();
-        }
-
-        /// <summary>
         /// If the bot is in a room and the exam fails, it stays in its current position.
         /// Otherwise, it proceeds with the default movement logic.
         /// </summary>
