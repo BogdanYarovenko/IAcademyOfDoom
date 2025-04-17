@@ -1,4 +1,5 @@
 ﻿    using System.Collections.Generic;
+    using IAcademyOfDoom.App;
     using IAcademyOfDoom.Logic.Mobiles;
     using IAcademyOfDoom.Logic.Skills;
     using IAcademyOfDoom.Logic.GameSettings;
@@ -17,6 +18,11 @@
 
             public override object ActOnEntry(Botling botling)
             {
+                this.HP--;
+                if (this.HP <=0)
+                {
+                    Controller.Instance.DestroyRoom(this);
+                }
                 int hpLoose;
                 if (botling.HP <= 3 && botling.HP > 0)
                 {

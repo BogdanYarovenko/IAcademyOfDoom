@@ -1,4 +1,5 @@
-﻿using IAcademyOfDoom.Logic.GameSettings;
+﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 
 
@@ -15,6 +16,11 @@ namespace IAcademyOfDoom.Logic.Places
 
         public override object ActOnEntry(Botling botling)
         {
+            this.HP--;
+            if (this.HP <=0)
+            {
+                Controller.Instance.DestroyRoom(this);
+            }
             int hpInit = Default.BaseHitPoints(Game.Difficulty);
             int hpLost = hpInit - botling.HP;
 

@@ -16,7 +16,11 @@ namespace IAcademyOfDoom.Logic.Places
 
         public override object ActOnEntry(Botling botling)
         {
-            // Page 33
+            this.HP--;
+            if (this.HP <=0)
+            {
+                Controller.Instance.DestroyRoom(this);
+            }
 
             var compare = int.MaxValue;
             SkillType? weakestSkill = null;
