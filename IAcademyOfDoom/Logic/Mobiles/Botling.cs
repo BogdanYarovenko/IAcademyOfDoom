@@ -216,6 +216,48 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
             return (X + 1, Y);
         }
+
+        protected virtual (int x, int y) NextMoveOriented(Botling botling)
+        {
+            if (X == Game.MaxX && Y == Game.MaxY)
+            {
+                return (X, Y);
+            }
+            
+            wichSkillIsWeak(botling);
+            for (int y = 0; y <= Game.MaxY; y++)
+            {
+                for (int x = 0; x <= Game.MaxX; x++)
+                {
+   
+                }
+            }
+            
+            
+            
+            
+            return (X, Y);
+        }
+
+        protected SkillType? wichSkillIsWeak(Botling botling)
+        {
+            int compare = -1;
+            SkillType? weakestSkill = null;
+
+            foreach (KeyValuePair<SkillType, int> skillEntry in botling.Skills)
+            {
+                if (skillEntry.Key.IsBaseSkill())
+                {
+                    if (skillEntry.Value < compare)
+                    {
+                        compare = skillEntry.Value;
+                        weakestSkill = skillEntry.Key;
+                    }
+                }
+            }
+
+            return weakestSkill;
+        }
         /// <summary>
         /// Moves the entity to a specified position (x, y) if the position is valid within the map bounds.
         /// </summary>

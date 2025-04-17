@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
+using IAcademyOfDoom.App;
+
 
 namespace IAcademyOfDoom.Logic.Places
 {
@@ -23,7 +25,8 @@ namespace IAcademyOfDoom.Logic.Places
             //Page 33
             int compare = -1;
             SkillType? weakestSkill = null;
-
+            List<Room> currentRooms = Controller.Instance.Rooms();
+            
             foreach (KeyValuePair<SkillType, int> skillEntry in botling.Skills)
             {
                 if (skillEntry.Key.IsBaseSkill())
@@ -36,13 +39,25 @@ namespace IAcademyOfDoom.Logic.Places
                 }
             }
 
-            // TO:DO -> Orienté le botling 
-
             if (weakestSkill.HasValue)
             {
-                // REFAIRE EN MODIFIANT DANS BOTLING CAR PROTECT ET CREER UN ATTRIBUT DANS BOTLING.CS
+                // A CONTINUER
+                foreach (Room room in currentRooms)
+                {
+                    string roomName = room.Name;           // Nom de la salle 
+                    RoomType roomType = room.Type;         // Type de salle 
+                    int roomX = room.X;                    // Coordonnée X (colonne)
+                    int roomY = room.Y;                    // Coordonnée Y (ligne)
+                    int roomHP = room.HP;                  // Points de vie actuels de la salle
+                    
+                    if (room?.Type == RoomType.Prof && room is ProfRoom profRoom)
+                    {
 
+                    }
+                }
             }
+
+            return null;
         }
 
     }
