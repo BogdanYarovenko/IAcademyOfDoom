@@ -1,6 +1,7 @@
 ﻿    using System.Collections.Generic;
     using IAcademyOfDoom.Logic.Mobiles;
     using IAcademyOfDoom.Logic.Skills;
+    using IAcademyOfDoom.Logic.GameSettings;
 
     namespace IAcademyOfDoom.Logic.Places
     {
@@ -11,6 +12,7 @@
             {
                 Type = RoomType.Facility; 
                 Name = "Lounge Room";
+                HP = Default.BaseProfHitPoints;
             }
 
             public override object ActOnEntry(Botling botling)

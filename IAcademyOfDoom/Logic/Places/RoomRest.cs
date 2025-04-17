@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IAcademyOfDoom.Logic.GameSettings;
+﻿using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 
 
@@ -15,6 +10,7 @@ namespace IAcademyOfDoom.Logic.Places
         {
             Type = RoomType.Facility;
             Name = "Rest Room";
+            HP = Default.BaseProfHitPoints;
         }
 
         public override object ActOnEntry(Botling botling)
