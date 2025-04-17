@@ -27,14 +27,14 @@ namespace IAcademyOfDoom.View
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
         private readonly List<BuyableView> buyables = new List<BuyableView>();
-        private readonly List<ActionView> actionViews = new List<ActionView>();
+        private readonly List<ActionView> gameActions = new List<ActionView>();
         private PlaceableView m_placeableSelected = null;
         private BuyableView m_buyableSelected = null;
         private int m_selectIndexPlaceables = 0;
         private int m_selectIndexBuyables = 0;
         private BotlingView hoveredBotlingView;
         Magasin magasin = null;
-        ActionsWindow actWindow = null;
+        ActionsWindow actMagasin = null;
         private System.Windows.Forms.Timer assaultTimer;
 
 
@@ -96,7 +96,7 @@ namespace IAcademyOfDoom.View
             {
                 placeable.Draw(e.Graphics);
             }
-            foreach (ActionView action in actionViews)
+            foreach (ActionView action in gameActions)
             {
                 action.Draw(e.Graphics);
             }
@@ -524,34 +524,32 @@ namespace IAcademyOfDoom.View
             WriteLine("Items:" + items);
             Refresh();
         }
-        /*  public void PreviewActionItems(List<Action> actions)
-          {
-              this.actions.Clear();
-              if (actions.Count == 0)
-              {
-                  WriteLine("All items placed !");
-                  return;
-              }
+        public void PreviewActionItems(List<GameAction> actions)
+        {
+            this.gameActions.Clear();
+            if (actions.Count == 0)
+            {
+                WriteLine("All items placed !");
+                return;
+            }
 
-              string items = "";
-              int x = Settings.PlaceableLeft;
-              int y = Settings.PlaceableTop;
+            string items = "";
+            int x = Settings.ActionLeft;
+            int y = Settings.ActionTop;
 
-              int i = 0;
-              foreach (Action action in actions)
-              {
-                  items += " " + placeable.ToString();
-                  PlaceableView newPlaceableView = new PlaceableView(placeable, new Point(x, y));
-
-                  this.placeables.Add(newPlaceableView);
-
-                  y += Settings.PlaceableOffset;
-                  i++;
-              }
-              WriteLine("Preparations: please place the following...");
-              WriteLine("Items:" + items);
-              Refresh();
-          }*/
+            int i = 0;
+            foreach (GameAction action in actions)
+            {
+                items += " " + action.ToString();
+                ActionView newActionView = new ActionView(action, new Point(x, y));
+                this.gameActions.Add(newActionView);
+                y += Settings.ActionsOffset;
+                i++;
+            }
+            WriteLine("Preparations: please place the following...");
+            WriteLine("Items:" + items);
+            Refresh();
+        }
         /// <summary>
         /// Method displaying the current status of a logical botling mobile.
         /// </summary>
@@ -804,6 +802,22 @@ namespace IAcademyOfDoom.View
                 PreviewPlaceableItems(c.Placeables());
             }
         }
+        private void actionsMagasin_Click(object sender, EventArgs e)
+        {
+            if (actMagasin == null)
+            {
+                actMagasin = new ActionsWindow();
+            }
+            if (actMagasin.ShowDialog() == DialogResult.OK)
+            {
+                List<GameAction> actions = actMagasin.GetPurchasedActions();
+                foreach (GameAction action in actions)
+                {
+                    c.AddAction(action);
+                }
+                PreviewActionItems(c.GameActions());
+            }
+        }
 
         private void outputButton_Click(object sender, EventArgs e)
         {
@@ -847,16 +861,6 @@ namespace IAcademyOfDoom.View
             }
         }
 
-        private void actionsMagasin_Click(object sender, EventArgs e)
-        {
-            if (actWindow == null)
-            {
-                actWindow = new ActionsWindow();
-            }
-            if (actWindow.ShowDialog() == DialogResult.OK)
-            {
 
-            }
-        }
     }
 }

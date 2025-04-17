@@ -1,4 +1,5 @@
 ﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.Actions;
 using IAcademyOfDoom.Logic.GameSequence;
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
@@ -61,6 +62,7 @@ namespace IAcademyOfDoom.Logic
         private int tired;
         private readonly List<Room> rooms = new List<Room>();
         private readonly List<Placeable> placeables = new List<Placeable>();
+        private readonly List<GameAction> gameActions = new List<GameAction>();
         private readonly List<Botling> botlings = new List<Botling>();
         private Controller c = Controller.Instance;
         #endregion
@@ -122,11 +124,16 @@ namespace IAcademyOfDoom.Logic
         {
             placeables.Add(placeable);
         }
+        public void AddAction(GameAction action)
+        {
+            gameActions.Add(action);
+        }
         /// <summary>
         /// Provides a copy of the list of placeable items.
         /// </summary>
         /// <returns>a new list</returns>
         public List<Placeable> Placeables() => new List<Placeable>(placeables);
+        public List<GameAction> GameActions() => new List<GameAction>(gameActions);
         public List<Room> Rooms()
         {
             return new List<Room>(rooms);

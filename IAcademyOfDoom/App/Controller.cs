@@ -6,6 +6,7 @@ using IAcademyOfDoom.View;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms;
+using IAcademyOfDoom.Logic.Actions;
 
 namespace IAcademyOfDoom.App
 {
@@ -59,6 +60,7 @@ namespace IAcademyOfDoom.App
         /// </summary>
         /// <returns>the game's list of placeables</returns>
         public List<Placeable> Placeables() => game.Placeables();
+        public List<GameAction> GameActions() => game.GameActions();
         /// <summary>
         /// Method called by the window when preparations are over.
         /// </summary>
@@ -115,6 +117,10 @@ namespace IAcademyOfDoom.App
         public void AddPlaceable(Placeable placeable)
         {
             game.AddPlaceable(placeable);
+        }
+        public void AddAction(GameAction action)
+        {
+            game.AddAction(action);
         }
         /// <summary>
         /// Method called to place a placeable item.

@@ -39,7 +39,7 @@
             this.numberOfCoins = new System.Windows.Forms.Label();
             this.magasinDesign = new System.Windows.Forms.Button();
             this.outputButton = new System.Windows.Forms.Button();
-            this.actionsMagasin = new System.Windows.Forms.Button();
+            this.actionMagasinDesign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -173,15 +173,15 @@
             // 
             // actionsMagasin
             // 
-            this.actionsMagasin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.actionsMagasin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.actionsMagasin.Location = new System.Drawing.Point(1124, 122);
-            this.actionsMagasin.Name = "actionsMagasin";
-            this.actionsMagasin.Size = new System.Drawing.Size(24, 162);
-            this.actionsMagasin.TabIndex = 11;
-            this.actionsMagasin.Text = "<<<<<<<<";
-            this.actionsMagasin.UseVisualStyleBackColor = false;
-            this.actionsMagasin.Click += new System.EventHandler(this.actionsMagasin_Click);
+            this.actionMagasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.actionMagasinDesign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.actionMagasinDesign.Location = new System.Drawing.Point(1124, 122);
+            this.actionMagasinDesign.Name = "actionsMagasin";
+            this.actionMagasinDesign.Size = new System.Drawing.Size(24, 162);
+            this.actionMagasinDesign.TabIndex = 11;
+            this.actionMagasinDesign.Text = "<<<<<<<<";
+            this.actionMagasinDesign.UseVisualStyleBackColor = false;
+            this.actionMagasinDesign.Click += new System.EventHandler(this.actionsMagasin_Click);
             // 
             // MainWindow
             // 
@@ -190,7 +190,7 @@
             this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1160, 687);
-            this.Controls.Add(this.actionsMagasin);
+            this.Controls.Add(this.actionMagasinDesign);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
@@ -228,7 +228,7 @@
         private System.Windows.Forms.Label numberOfCoins;
         private System.Windows.Forms.Button magasinDesign;
         private System.Windows.Forms.Button outputButton;
-        private System.Windows.Forms.Button actionsMagasin;
+        private System.Windows.Forms.Button actionMagasinDesign;
     }
 }
 

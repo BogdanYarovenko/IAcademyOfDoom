@@ -47,7 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Controller.cs" />
+    <Compile Include="Logic\Actions\BudgetCutsAction.cs" />
+    <Compile Include="Logic\Actions\EminentVisitorAction.cs" />
+    <Compile Include="Logic\Actions\HolidaysAction.cs" />
+    <Compile Include="Logic\Actions\JuryLeniencyAction.cs" />
+    <Compile Include="Logic\Actions\MassiveCorruptionAction.cs" />
+    <Compile Include="Logic\Actions\RemedialCourseAction.cs" />
+    <Compile Include="Logic\Actions\RemoteClassAction.cs" />
+    <Compile Include="Logic\Actions\RoomRepairAction.cs" />
     <Compile Include="Logic\Actions\ActionType.cs" />
+    <Compile Include="Logic\Actions\StudentStrikeAction.cs" />
+    <Compile Include="Logic\Actions\SuddenReformAction.cs" />
+    <Compile Include="Logic\Actions\TeacherStrikeAction.cs" />
     <Compile Include="Logic\Mobiles\Aimless.cs" />
     <Compile Include="Logic\Mobiles\Introvert.cs" />
     <Compile Include="Logic\Mobiles\Lucky.cs" />
