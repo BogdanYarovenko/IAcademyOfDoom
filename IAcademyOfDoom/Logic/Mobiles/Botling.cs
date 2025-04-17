@@ -46,6 +46,10 @@ namespace IAcademyOfDoom.Logic.Mobiles
         /// This botling will move there next.
         /// </summary>
         public (int x, int y) NextMove { get; set; }
+        
+        public int? TargetX { get; set; } = null;
+        public int? TargetY { get; set; } = null;
+        
         /// <summary>
         /// Empty constructor, use with caution.
         /// </summary>
@@ -104,7 +108,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
         }
         /// <summary>
-        /// Conduct a lesson for the bot in some skill.
+        /// Conduct a lesson for the bot in somme skill.
         /// </summary>
         /// <param name="skill">the skill, basic or combo</param>
         /// <returns>true iff the lesson is successful</returns>
@@ -216,48 +220,39 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
             return (X + 1, Y);
         }
-
-        protected virtual (int x, int y) NextMoveOriented(Botling botling)
+        
+        /// <summary>
+        /// Define for a specified bottling where to go
+        /// </summary>
+        /// <param name="x">Coordinate West/East</param>
+        /// <param name="y">Coordinate North/South</param>
+        public void SetTarget(int x, int y)
         {
-            if (X == Game.MaxX && Y == Game.MaxY)
-            {
-                return (X, Y);
-            }
-            
-            wichSkillIsWeak(botling);
-            for (int y = 0; y <= Game.MaxY; y++)
-            {
-                for (int x = 0; x <= Game.MaxX; x++)
-                {
-   
-                }
-            }
-            
-            
-            
-            
-            return (X, Y);
+            TargetX = x;
+            TargetY = y;
+            NextMove = Next();
         }
 
-        protected SkillType? wichSkillIsWeak(Botling botling)
+        /// <summary>
+        /// Method to remove the target of a bot if the bottling has reach the case or it's null
+        /// </summary>
+        public void ClearTarget()
         {
-            int compare = -1;
-            SkillType? weakestSkill = null;
-
-            foreach (KeyValuePair<SkillType, int> skillEntry in botling.Skills)
-            {
-                if (skillEntry.Key.IsBaseSkill())
-                {
-                    if (skillEntry.Value < compare)
-                    {
-                        compare = skillEntry.Value;
-                        weakestSkill = skillEntry.Key;
-                    }
-                }
-            }
-
-            return weakestSkill;
+            TargetX = null;
+            TargetY = null;
         }
+        
+        /// <summary>
+        /// Indicates if a bottling is oriented or is not
+        /// </summary>
+        /// <returns>True if it's oriented</returns>
+        public bool HasSpecificTarget()
+        {
+            return TargetX.HasValue && TargetY.HasValue;
+        }
+        
+        
+        
         /// <summary>
         /// Moves the entity to a specified position (x, y) if the position is valid within the map bounds.
         /// </summary>

@@ -4,7 +4,6 @@ using IAcademyOfDoom.Logic.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using IAcademyOfDoom.App;
@@ -22,11 +21,10 @@ namespace IAcademyOfDoom.Logic.Places
 
         public override object ActOnEntry(Botling botling)
         {
-            //Page 33
-            int compare = -1;
+            // Page 33
+
+            int compare = int.MaxValue;
             SkillType? weakestSkill = null;
-            List<Room> currentRooms = Controller.Instance.Rooms();
-            
             foreach (KeyValuePair<SkillType, int> skillEntry in botling.Skills)
             {
                 if (skillEntry.Key.IsBaseSkill())
@@ -41,24 +39,39 @@ namespace IAcademyOfDoom.Logic.Places
 
             if (weakestSkill.HasValue)
             {
-                // A CONTINUER
+                List<Room> currentRooms = Controller.Instance.Rooms();
+                Room targetRoom = null;
+
                 foreach (Room room in currentRooms)
                 {
-                    string roomName = room.Name;           // Nom de la salle 
-                    RoomType roomType = room.Type;         // Type de salle 
-                    int roomX = room.X;                    // Coordonnée X (colonne)
-                    int roomY = room.Y;                    // Coordonnée Y (ligne)
-                    int roomHP = room.HP;                  // Points de vie actuels de la salle
-                    
-                    if (room?.Type == RoomType.Prof && room is ProfRoom profRoom)
+                    if (room.Type == RoomType.Prof && room is ProfRoom profRoom) 
                     {
+                        (SkillType?, SkillType?)? check = SkillTypeUtils.BasePair(profRoom.SkillType);
 
+                        if (check.HasValue && (check.Value.Item1 == weakestSkill.Value ||
+                                               check.Value.Item2 == weakestSkill.Value))
+                        {
+                            targetRoom = room; 
+                            break; 
+                        }
                     }
                 }
+
+                if (targetRoom != null)
+                {
+                    botling.SetTarget(targetRoom.X, targetRoom.Y);
+                }
+                else
+                {
+                    botling.ClearTarget(); 
+                }
+            }
+            else
+            {
+                botling.ClearTarget(); 
             }
 
             return null;
         }
-
     }
 }
