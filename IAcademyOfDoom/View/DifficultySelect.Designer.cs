@@ -38,20 +38,20 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.Location = new System.Drawing.Point(76, 43);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(87, 20);
+            this.nameLabel.Size = new System.Drawing.Size(93, 21);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Your name";
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.difficultyLabel.Location = new System.Drawing.Point(53, 124);
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLabel.Location = new System.Drawing.Point(65, 128);
             this.difficultyLabel.Name = "difficultyLabel";
-            this.difficultyLabel.Size = new System.Drawing.Size(136, 20);
+            this.difficultyLabel.Size = new System.Drawing.Size(151, 21);
             this.difficultyLabel.TabIndex = 1;
             this.difficultyLabel.Text = "Selected Difficulty";
             // 
@@ -60,10 +60,11 @@
             this.nameTextBox.AccessibleDescription = "Votre";
             this.nameTextBox.AccessibleName = "Votre";
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.nameTextBox.Location = new System.Drawing.Point(16, 83);
+            this.nameTextBox.Location = new System.Drawing.Point(12, 67);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(223, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(223, 24);
             this.nameTextBox.TabIndex = 2;
             // 
             // okButton
@@ -71,9 +72,9 @@
             this.okButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.FlatAppearance.BorderSize = 0;
-            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okButton.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.okButton.Location = new System.Drawing.Point(361, 114);
+            this.okButton.Location = new System.Drawing.Point(367, 106);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(132, 43);
             this.okButton.TabIndex = 4;
@@ -82,23 +83,25 @@
             // 
             // difficulySelectList
             // 
+            this.difficulySelectList.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.difficulySelectList.FormattingEnabled = true;
-            this.difficulySelectList.Location = new System.Drawing.Point(57, 168);
+            this.difficulySelectList.Location = new System.Drawing.Point(80, 154);
             this.difficulySelectList.Name = "difficulySelectList";
-            this.difficulySelectList.Size = new System.Drawing.Size(121, 21);
+            this.difficulySelectList.Size = new System.Drawing.Size(121, 22);
             this.difficulySelectList.TabIndex = 5;
             // 
             // DifficultySelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(539, 238);
             this.Controls.Add(this.difficulySelectList);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.nameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DifficultySelect";
             this.Text = "DifficultySelect";
             this.ResumeLayout(false);

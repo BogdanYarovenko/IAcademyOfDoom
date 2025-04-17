@@ -71,7 +71,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
         {
             (X, Y) = NextMove;
             NextMove = Next();
-            
+
         }
         /// <summary>
         /// A diceroll-based test for a skill.
@@ -152,6 +152,10 @@ namespace IAcademyOfDoom.Logic.Mobiles
             SkillType examinated = subjects[Game.Random.Next(0, subjects.Count)];
             return TestSkill(examinated, Default.ExamDifficulty(Game.Difficulty)) ? ExamResult.Success : ExamResult.Failure;
         }
+        /// <summary>
+        /// Initializes the set of skills for the entity by distributing skill points randomly 
+        /// across all base skill types. The method also sets the initial status for all combinatory skills.
+        /// </summary>
         private void SetInitialSetOfSkills()
         {
             int distribute = Default.SkillPoints;
@@ -186,6 +190,12 @@ namespace IAcademyOfDoom.Logic.Mobiles
                 Badges.Add(skill, false);
             }
         }
+        /// <summary>
+        /// Calculates the next position for the entity based on the current position.
+        /// </summary>
+        /// <returns>
+        /// A tuple representing the next coordinates (x, y)
+        /// </returns>
         protected virtual (int x, int y) Next()
         {
             if (X == Game.MaxX && Y == Game.MaxY)
@@ -206,21 +216,36 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
             return (X + 1, Y);
         }
+        /// <summary>
+        /// Moves the entity to a specified position (x, y) if the position is valid within the map bounds.
+        /// </summary>
+        /// <param name="x">The X-coordinate to move to.</param>
+        /// <param name="y">The Y-coordinate to move to.</param>
         public void MoveTo(int x, int y)
         {
             if (isInMap(x, y))
             {
                 X = x;
                 Y = y;
-            } 
+            }
         }
+        /// <summary>
+        /// Resets the entity's position to (0, 0) and calculates the next move.
+        /// </summary>
         public void Repeater()
         {
             MoveTo(0, 0);
-            NextMove = Next(); 
+            NextMove = Next();
         }
 
-
+        /// <summary>
+        /// Checks whether the given coordinates (x, y) are within the valid bounds of the map.
+        /// </summary>
+        /// <param name="x">The X-coordinate to check.</param>
+        /// <param name="y">The Y-coordinate to check.</param>
+        /// <returns>
+        /// True if the coordinates are within the bounds of the map, false otherwise.
+        /// </returns>
         protected bool isInMap(int x, int y)
         {
             return x >= 0 && y >= 0 && x <= Game.MaxX && y <= Game.MaxY;

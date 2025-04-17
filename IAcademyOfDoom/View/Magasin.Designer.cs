@@ -41,7 +41,6 @@
             this.tutorRoomQty = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label4 = new System.Windows.Forms.Label();
-            this.buyableLabel = new System.Windows.Forms.Label();
             this.messageRestQty = new System.Windows.Forms.Label();
             this.messageLoungeQty = new System.Windows.Forms.Label();
             this.messageTutoringQty = new System.Windows.Forms.Label();
@@ -59,7 +58,7 @@
             this.okButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.okButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okButton.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okButton.Location = new System.Drawing.Point(440, 359);
             this.okButton.Margin = new System.Windows.Forms.Padding(2);
             this.okButton.Name = "okButton";
@@ -74,7 +73,7 @@
             this.cancelButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(619, 359);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
@@ -88,11 +87,11 @@
             // 
             this.BalanceInMagasin.AutoSize = true;
             this.BalanceInMagasin.BackColor = System.Drawing.Color.Transparent;
-            this.BalanceInMagasin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceInMagasin.Location = new System.Drawing.Point(436, 71);
+            this.BalanceInMagasin.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceInMagasin.Location = new System.Drawing.Point(427, 33);
             this.BalanceInMagasin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BalanceInMagasin.Name = "BalanceInMagasin";
-            this.BalanceInMagasin.Size = new System.Drawing.Size(125, 20);
+            this.BalanceInMagasin.Size = new System.Drawing.Size(118, 21);
             this.BalanceInMagasin.TabIndex = 2;
             this.BalanceInMagasin.Text = "Your balance :";
             // 
@@ -102,8 +101,8 @@
             this.restRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.restRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.restRoomButton.FlatAppearance.BorderSize = 2;
-            this.restRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomButton.Location = new System.Drawing.Point(283, 174);
+            this.restRoomButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restRoomButton.Location = new System.Drawing.Point(283, 149);
             this.restRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.restRoomButton.Name = "restRoomButton";
             this.restRoomButton.Size = new System.Drawing.Size(113, 55);
@@ -118,8 +117,8 @@
             this.loungeRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.loungeRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.loungeRoomButton.FlatAppearance.BorderSize = 2;
-            this.loungeRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomButton.Location = new System.Drawing.Point(73, 174);
+            this.loungeRoomButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loungeRoomButton.Location = new System.Drawing.Point(69, 149);
             this.loungeRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.loungeRoomButton.Name = "loungeRoomButton";
             this.loungeRoomButton.Size = new System.Drawing.Size(113, 55);
@@ -134,8 +133,8 @@
             this.orientationOfficeButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.orientationOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.orientationOfficeButton.FlatAppearance.BorderSize = 2;
-            this.orientationOfficeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orientationOfficeButton.Location = new System.Drawing.Point(70, 386);
+            this.orientationOfficeButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orientationOfficeButton.Location = new System.Drawing.Point(68, 365);
             this.orientationOfficeButton.Margin = new System.Windows.Forms.Padding(2);
             this.orientationOfficeButton.Name = "orientationOfficeButton";
             this.orientationOfficeButton.Size = new System.Drawing.Size(113, 55);
@@ -149,8 +148,8 @@
             this.tutoringRoomButton.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.button;
             this.tutoringRoomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tutoringRoomButton.FlatAppearance.BorderSize = 2;
-            this.tutoringRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutoringRoomButton.Location = new System.Drawing.Point(283, 386);
+            this.tutoringRoomButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tutoringRoomButton.Location = new System.Drawing.Point(281, 366);
             this.tutoringRoomButton.Margin = new System.Windows.Forms.Padding(2);
             this.tutoringRoomButton.Name = "tutoringRoomButton";
             this.tutoringRoomButton.Size = new System.Drawing.Size(113, 55);
@@ -164,7 +163,7 @@
             this.restRoomQty.AutoSize = true;
             this.restRoomQty.BackColor = System.Drawing.Color.Transparent;
             this.restRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restRoomQty.Location = new System.Drawing.Point(280, 149);
+            this.restRoomQty.Location = new System.Drawing.Point(280, 133);
             this.restRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.restRoomQty.Name = "restRoomQty";
             this.restRoomQty.Size = new System.Drawing.Size(14, 13);
@@ -176,7 +175,7 @@
             this.loungeRoomQty.AutoSize = true;
             this.loungeRoomQty.BackColor = System.Drawing.Color.Transparent;
             this.loungeRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loungeRoomQty.Location = new System.Drawing.Point(70, 149);
+            this.loungeRoomQty.Location = new System.Drawing.Point(70, 133);
             this.loungeRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loungeRoomQty.Name = "loungeRoomQty";
             this.loungeRoomQty.Size = new System.Drawing.Size(14, 13);
@@ -187,11 +186,11 @@
             // 
             this.orientOfficeQty.AutoSize = true;
             this.orientOfficeQty.BackColor = System.Drawing.Color.Transparent;
-            this.orientOfficeQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orientOfficeQty.Location = new System.Drawing.Point(66, 371);
+            this.orientOfficeQty.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orientOfficeQty.Location = new System.Drawing.Point(70, 350);
             this.orientOfficeQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orientOfficeQty.Name = "orientOfficeQty";
-            this.orientOfficeQty.Size = new System.Drawing.Size(14, 13);
+            this.orientOfficeQty.Size = new System.Drawing.Size(14, 14);
             this.orientOfficeQty.TabIndex = 9;
             this.orientOfficeQty.Text = "q";
             // 
@@ -199,11 +198,11 @@
             // 
             this.tutorRoomQty.AutoSize = true;
             this.tutorRoomQty.BackColor = System.Drawing.Color.Transparent;
-            this.tutorRoomQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutorRoomQty.Location = new System.Drawing.Point(281, 371);
+            this.tutorRoomQty.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tutorRoomQty.Location = new System.Drawing.Point(281, 351);
             this.tutorRoomQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tutorRoomQty.Name = "tutorRoomQty";
-            this.tutorRoomQty.Size = new System.Drawing.Size(115, 13);
+            this.tutorRoomQty.Size = new System.Drawing.Size(101, 14);
             this.tutorRoomQty.TabIndex = 10;
             this.tutorRoomQty.Text = "Qty : 1 / each type";
             // 
@@ -220,35 +219,23 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(436, 111);
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(427, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 20);
+            this.label4.Size = new System.Drawing.Size(143, 21);
             this.label4.TabIndex = 14;
             this.label4.Text = "Purchased items :";
-            // 
-            // buyableLabel
-            // 
-            this.buyableLabel.AutoSize = true;
-            this.buyableLabel.BackColor = System.Drawing.Color.Transparent;
-            this.buyableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buyableLabel.Location = new System.Drawing.Point(435, 33);
-            this.buyableLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.buyableLabel.Name = "buyableLabel";
-            this.buyableLabel.Size = new System.Drawing.Size(98, 26);
-            this.buyableLabel.TabIndex = 15;
-            this.buyableLabel.Text = "Buyable";
             // 
             // messageRestQty
             // 
             this.messageRestQty.AutoSize = true;
             this.messageRestQty.BackColor = System.Drawing.Color.Transparent;
-            this.messageRestQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.messageRestQty.Location = new System.Drawing.Point(279, 66);
+            this.messageRestQty.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageRestQty.Location = new System.Drawing.Point(281, 206);
             this.messageRestQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.messageRestQty.Name = "messageRestQty";
-            this.messageRestQty.Size = new System.Drawing.Size(27, 15);
+            this.messageRestQty.Size = new System.Drawing.Size(23, 16);
             this.messageRestQty.TabIndex = 16;
             this.messageRestQty.Text = "RR";
             // 
@@ -256,11 +243,11 @@
             // 
             this.messageLoungeQty.AutoSize = true;
             this.messageLoungeQty.BackColor = System.Drawing.Color.Transparent;
-            this.messageLoungeQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLoungeQty.Location = new System.Drawing.Point(70, 66);
+            this.messageLoungeQty.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLoungeQty.Location = new System.Drawing.Point(70, 206);
             this.messageLoungeQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.messageLoungeQty.Name = "messageLoungeQty";
-            this.messageLoungeQty.Size = new System.Drawing.Size(25, 15);
+            this.messageLoungeQty.Size = new System.Drawing.Size(21, 16);
             this.messageLoungeQty.TabIndex = 17;
             this.messageLoungeQty.Text = "LR";
             // 
@@ -277,11 +264,11 @@
             // 
             this.messageOrientationQty.AutoSize = true;
             this.messageOrientationQty.BackColor = System.Drawing.Color.Transparent;
-            this.messageOrientationQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageOrientationQty.Location = new System.Drawing.Point(70, 282);
+            this.messageOrientationQty.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageOrientationQty.Location = new System.Drawing.Point(70, 422);
             this.messageOrientationQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.messageOrientationQty.Name = "messageOrientationQty";
-            this.messageOrientationQty.Size = new System.Drawing.Size(27, 15);
+            this.messageOrientationQty.Size = new System.Drawing.Size(25, 16);
             this.messageOrientationQty.TabIndex = 19;
             this.messageOrientationQty.Text = "OO";
             // 
@@ -289,10 +276,10 @@
             // 
             this.purchasedLabel.AutoSize = true;
             this.purchasedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.purchasedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasedLabel.Location = new System.Drawing.Point(448, 149);
+            this.purchasedLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasedLabel.Location = new System.Drawing.Point(437, 97);
             this.purchasedLabel.Name = "purchasedLabel";
-            this.purchasedLabel.Size = new System.Drawing.Size(23, 13);
+            this.purchasedLabel.Size = new System.Drawing.Size(22, 14);
             this.purchasedLabel.TabIndex = 20;
             this.purchasedLabel.Text = "list";
             // 
@@ -300,23 +287,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 33);
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(302, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 21;
-            this.label1.Text = "RestRoom";
+            this.label1.Text = "Rest Room";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(278, 251);
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(285, 251);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 22;
             this.label2.Text = "TutoringRoom";
             // 
@@ -324,11 +311,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 251);
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(70, 251);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 20);
+            this.label3.Size = new System.Drawing.Size(119, 16);
             this.label3.TabIndex = 23;
             this.label3.Text = "Orientation Office";
             // 
@@ -336,13 +323,13 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(66, 33);
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(79, 33);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 20);
+            this.label5.Size = new System.Drawing.Size(93, 16);
             this.label5.TabIndex = 24;
-            this.label5.Text = "LoungeRoom";
+            this.label5.Text = "Lounge Room";
             // 
             // Magasin
             // 
@@ -360,7 +347,6 @@
             this.Controls.Add(this.messageTutoringQty);
             this.Controls.Add(this.messageLoungeQty);
             this.Controls.Add(this.messageRestQty);
-            this.Controls.Add(this.buyableLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tutorRoomQty);
@@ -375,6 +361,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Magasin";
             this.Text = "Magasin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Magasin_FormClosing);
@@ -398,7 +385,6 @@
         private System.Windows.Forms.Label tutorRoomQty;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label buyableLabel;
         private System.Windows.Forms.Label messageRestQty;
         private System.Windows.Forms.Label messageLoungeQty;
         private System.Windows.Forms.Label messageTutoringQty;
