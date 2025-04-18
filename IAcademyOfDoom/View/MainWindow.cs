@@ -26,12 +26,12 @@ namespace IAcademyOfDoom.View
         private readonly List<RoomView> rooms = new List<RoomView>();
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
-        private readonly List<BuyableView> buyables = new List<BuyableView>();
+        //private readonly List<BuyableView> buyables = new List<BuyableView>();
         private readonly List<ActionView> gameActions = new List<ActionView>();
         private PlaceableView m_placeableSelected = null;
-        private BuyableView m_buyableSelected = null;
+        private ActionView m_actionSelected = null;
         private int m_selectIndexPlaceables = 0;
-        private int m_selectIndexBuyables = 0;
+        private int m_selectIndexAction = 0;
         private BotlingView hoveredBotlingView;
         Magasin magasin = null;
         ActionsWindow actMagasin = null;
@@ -100,10 +100,10 @@ namespace IAcademyOfDoom.View
             {
                 action.Draw(e.Graphics);
             }
-            foreach (BuyableView buyable in buyables)
+            /*foreach (BuyableView buyable in buyables)
             {
                 buyable.Draw(e.Graphics);
-            }
+            }*/
             BackgroundGrid(e.Graphics);
 
             foreach (RoomView room in rooms)
@@ -198,8 +198,6 @@ namespace IAcademyOfDoom.View
             (int x, int y) = PointCoordinates(e.Location);
             if (e.Button == MouseButtons.Left && endPrepButton.Enabled)
             {
-                selectPlaceableView(e.Location);
-
                 m_selectedRoom = RoomHere(e.Location);
                 if (m_selectedRoom != null && m_selectedRoom.Room.Type == RoomType.Cycle)
                     m_selectedRoom = null;
@@ -208,6 +206,16 @@ namespace IAcademyOfDoom.View
                 {
                     m_selectIndexPlaceables = 0;
                     m_PlaceRoom(e.Location);
+                }
+
+                if (selectPlaceableView(e.Location))
+                {
+                    
+                }
+                else if (selectActionView(e.Location))
+                {
+                    GameAction action = m_actionSelected.Action;
+
                 }
             }
             if (e.Button == MouseButtons.Right)
@@ -269,7 +277,7 @@ namespace IAcademyOfDoom.View
             }
 
             m_selectedRoom = null;
-
+            m_actionSelected = null;
             m_placeableSelected = null;
             m_selectIndexPlaceables = 0;
             Refresh();
@@ -757,18 +765,19 @@ namespace IAcademyOfDoom.View
 
             return false;
         }
-        private bool selectBuyableView(Point p)
+
+        private bool selectActionView(Point p)
         {
-            int indexBuyable = 0;
-            foreach (BuyableView buyable in buyables)
+            int index = 0;
+            foreach (ActionView action in gameActions)
             {
-                if (buyable.OnSquare(p))
+                if (action.OnSquare(p))
                 {
-                    m_buyableSelected = buyable;
-                    m_selectIndexBuyables = indexBuyable;
+                    m_actionSelected = action;
+                    m_selectIndexAction = index;
                     return true;
                 }
-                indexBuyable++;
+                index++;
             }
 
             return false;

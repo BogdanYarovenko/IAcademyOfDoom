@@ -138,6 +138,8 @@ namespace IAcademyOfDoom.Logic
         {
             return new List<Room>(rooms);
         }
+        public List<Room> getRooms() { return rooms; }
+        public List<Botling> getBotlings() { return botlings; }
         /// <summary>
         /// Attempts to place a placeable item at some position.
         /// </summary>

@@ -61,6 +61,8 @@ namespace IAcademyOfDoom.App
         /// <returns>the game's list of placeables</returns>
         public List<Placeable> Placeables() => game.Placeables();
         public List<GameAction> GameActions() => game.GameActions();
+        public List<Room> getRooms() { return game.getRooms(); }
+        public List<Botling> getBotlings() { return game.getBotlings(); }
         /// <summary>
         /// Method called by the window when preparations are over.
         /// </summary>

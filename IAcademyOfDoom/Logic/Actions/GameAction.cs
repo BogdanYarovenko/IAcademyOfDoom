@@ -3,6 +3,7 @@ using IAcademyOfDoom.Logic.Places;
 using System.Collections.Generic;
 using IAcademyOfDoom.Logic.Mobiles;
 using System.Collections.ObjectModel;
+using IAcademyOfDoom.App;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
@@ -11,7 +12,7 @@ namespace IAcademyOfDoom.Logic.Actions
     /// </summary>
     public class GameAction
     {
-
+        Controller c = Controller.Instance;
         /// <summary>
         /// The name or label of the action.
         /// </summary>
@@ -44,17 +45,17 @@ namespace IAcademyOfDoom.Logic.Actions
             IsAvailable = true;
         }
 
-        public void actionOnRooms(Collection<Room> rooms)
+        public void actionOnRooms()
         {
-            foreach (Room room in rooms)
+            foreach (Room room in c.getRooms())
             {
                 actionOnRoom(room);
             }
         }
 
-        public void actionOnBotlings(Collection<Botling> botlings)
+        public void actionOnBotlings()
         {
-            foreach (Botling bot in botlings)
+            foreach (Botling bot in c.getBotlings())
             {
                 actionOnBotling(bot);
             }
