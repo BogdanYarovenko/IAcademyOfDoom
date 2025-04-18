@@ -13,9 +13,18 @@ namespace IAcademyOfDoom.Logic.Actions
         public HolidaysAction()
             : base("Holidays", ActionType.Holidays, 5) { }
 
-        public override bool actionOnBotling(Botling targetBotling) => true;
+        public override bool actionOnBotling(Botling targetBotling)
+        {
+            targetBotling.HP += 2;
+            return true;
 
-        public override bool actionOnRoom(Room targetRoom) => false;
+        }
+
+        public override bool actionOnRoom(Room targetRoom)
+        {
+            targetRoom.HP += 2;
+            return true;
+        }
     }
 
 }

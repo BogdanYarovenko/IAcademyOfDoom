@@ -13,9 +13,17 @@ namespace IAcademyOfDoom.Logic.Actions
         public StudentStrikeAction()
             : base("Student Strike", ActionType.StudentStrike, 5) { }
 
-        public override bool actionOnRoom(Room targetRoom) => true;
+        public override bool actionOnRoom(Room targetRoom) {
+            targetRoom.HP -= targetRoom.getNumberBotlings();
 
-        public override bool actionOnBotling(Botling targetBotling) => true;
+            return true;
+        }
+
+        public override bool actionOnBotling(Botling targetBotling) {
+            targetBotling.HP += 3;
+        return true;
+        
+        }
     }
 
 }

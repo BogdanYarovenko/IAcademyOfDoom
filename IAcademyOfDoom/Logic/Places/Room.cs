@@ -8,6 +8,7 @@ using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using IAcademyOfDoom.Logic.Skills;
 using IAcademyOfDoom.View;
+using System.Collections.Generic;
 
 
 namespace IAcademyOfDoom.Logic.Places
@@ -17,6 +18,8 @@ namespace IAcademyOfDoom.Logic.Places
     /// </summary>
     public class Room
     {
+
+        Controller c = Controller.Instance;
         /// <summary>
         /// The column.
         /// </summary>
@@ -34,6 +37,8 @@ namespace IAcademyOfDoom.Logic.Places
 
         public RoomType Type { get; internal set; }
         public string Name { get; internal set; }
+
+        public List<Botling> botlingsInTheRoom = new List<Botling>();
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -88,5 +93,24 @@ namespace IAcademyOfDoom.Logic.Places
             X = x;
             Y = y;
         }
+
+        public void getBotlingsForRoom()
+        {
+           
+            foreach (Botling botling in c.getBotlings())
+            {
+
+                if(this.X == botling.X && this.Y == botling.Y)
+                {
+                    botlingsInTheRoom.Add(botling);
+                }
+               }
+        }
+
+        public int getNumberBotlings()
+        {
+            return botlingsInTheRoom.Count;
+        }
+
     }
 }

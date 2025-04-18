@@ -15,7 +15,12 @@ namespace IAcademyOfDoom.Logic.Actions
 
         public override bool actionOnBotling(Botling targetBotling) => false;
 
-        public override bool actionOnRoom(Room targetRoom) => false;
+        public override bool actionOnRoom(Room targetRoom) {
+            int HPLost = targetRoom.HP / 2;
+            targetRoom.HP -= HPLost;
+            Game.AddMoney(HPLost);
+            return true;
+        }
     }
 
 }
