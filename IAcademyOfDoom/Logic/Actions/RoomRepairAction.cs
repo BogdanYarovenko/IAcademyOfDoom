@@ -19,10 +19,7 @@ namespace IAcademyOfDoom.Logic.Actions
             return true;
         }
 
-        public override bool actionOnBotling(Botling targetBotling)
-        {
-            return false; 
-        }
+        public override bool actionOnBotling(Botling targetBotling) => false;
     }
 
 }

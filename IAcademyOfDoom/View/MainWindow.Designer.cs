@@ -39,7 +39,8 @@
             this.numberOfCoins = new System.Windows.Forms.Label();
             this.magasinDesign = new System.Windows.Forms.Button();
             this.outputButton = new System.Windows.Forms.Button();
-            this.actionMagasinDesign = new System.Windows.Forms.Button();
+            this.actionMagasinButton = new System.Windows.Forms.Button();
+            this.autoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
@@ -105,7 +106,7 @@
             // 
             this.quitButton.Enabled = false;
             this.quitButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitButton.Location = new System.Drawing.Point(833, 603);
+            this.quitButton.Location = new System.Drawing.Point(833, 630);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(162, 23);
             this.quitButton.TabIndex = 5;
@@ -128,7 +129,7 @@
             // showResultsButton
             // 
             this.showResultsButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showResultsButton.Location = new System.Drawing.Point(833, 550);
+            this.showResultsButton.Location = new System.Drawing.Point(833, 579);
             this.showResultsButton.Name = "showResultsButton";
             this.showResultsButton.Size = new System.Drawing.Size(162, 23);
             this.showResultsButton.TabIndex = 7;
@@ -171,17 +172,29 @@
             this.outputButton.UseVisualStyleBackColor = true;
             this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
             // 
-            // actionsMagasin
+            // actionMagasinButton
             // 
-            this.actionMagasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.actionMagasinDesign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.actionMagasinDesign.Location = new System.Drawing.Point(1124, 122);
-            this.actionMagasinDesign.Name = "actionsMagasin";
-            this.actionMagasinDesign.Size = new System.Drawing.Size(24, 162);
-            this.actionMagasinDesign.TabIndex = 11;
-            this.actionMagasinDesign.Text = "<<<<<<<<";
-            this.actionMagasinDesign.UseVisualStyleBackColor = false;
-            this.actionMagasinDesign.Click += new System.EventHandler(this.actionsMagasin_Click);
+            this.actionMagasinButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.actionMagasinButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.actionMagasinButton.Location = new System.Drawing.Point(1124, 122);
+            this.actionMagasinButton.Name = "actionMagasinButton";
+            this.actionMagasinButton.Size = new System.Drawing.Size(24, 162);
+            this.actionMagasinButton.TabIndex = 11;
+            this.actionMagasinButton.Text = "<<<<<<<<";
+            this.actionMagasinButton.UseVisualStyleBackColor = false;
+            this.actionMagasinButton.Click += new System.EventHandler(this.actionsMagasin_Click);
+            // 
+            // autoButton
+            // 
+            this.autoButton.Enabled = false;
+            this.autoButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoButton.Location = new System.Drawing.Point(833, 550);
+            this.autoButton.Name = "autoButton";
+            this.autoButton.Size = new System.Drawing.Size(162, 23);
+            this.autoButton.TabIndex = 12;
+            this.autoButton.Text = "AutoGame";
+            this.autoButton.UseVisualStyleBackColor = true;
+            this.autoButton.Click += new System.EventHandler(this.autoButton_Click);
             // 
             // MainWindow
             // 
@@ -190,7 +203,8 @@
             this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1160, 687);
-            this.Controls.Add(this.actionMagasinDesign);
+            this.Controls.Add(this.autoButton);
+            this.Controls.Add(this.actionMagasinButton);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
@@ -228,7 +242,8 @@
         private System.Windows.Forms.Label numberOfCoins;
         private System.Windows.Forms.Button magasinDesign;
         private System.Windows.Forms.Button outputButton;
-        private System.Windows.Forms.Button actionMagasinDesign;
+        private System.Windows.Forms.Button actionMagasinButton;
+        private System.Windows.Forms.Button autoButton;
     }
 }
 

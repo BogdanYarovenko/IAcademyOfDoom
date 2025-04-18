@@ -1,4 +1,5 @@
-﻿using IAcademyOfDoom.Logic.Mobiles;
+﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,11 @@ namespace IAcademyOfDoom.Logic.Actions
         public JuryLeniencyAction()
             : base("Jury Leniency", ActionType.JuryLeniency, 5) { }
 
-        public override bool actionOnBotling(Botling targetBotling) => false;
+        public override bool actionOnBotling(Botling targetBotling) {
+           // TODO
+            return true;
+        
+        } 
 
         public override bool actionOnRoom(Room targetRoom) => false;
     }
