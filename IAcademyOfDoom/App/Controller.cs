@@ -124,6 +124,10 @@ namespace IAcademyOfDoom.App
         {
             game.AddAction(action);
         }
+        public void RemoveAction(GameAction action)
+        {
+            game.RemoveAction(action);
+        }
         /// <summary>
         /// Method called to place a placeable item.
         /// </summary>

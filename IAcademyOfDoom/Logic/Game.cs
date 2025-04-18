@@ -128,6 +128,10 @@ namespace IAcademyOfDoom.Logic
         {
             gameActions.Add(action);
         }
+        public void RemoveAction(GameAction action)
+        {
+            gameActions.Remove(action);
+        }
         /// <summary>
         /// Provides a copy of the list of placeable items.
         /// </summary>

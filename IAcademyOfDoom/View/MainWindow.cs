@@ -92,14 +92,9 @@ namespace IAcademyOfDoom.View
                new PointF(Settings.ActionsObjectsSquareArea.X + 50, Settings.ActionsObjectsSquareArea.Y - 20));
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
-            foreach (PlaceableView placeable in placeables)
-            {
-                placeable.Draw(e.Graphics);
-            }
-            foreach (ActionView action in gameActions)
-            {
-                action.Draw(e.Graphics);
-            }
+
+            
+            
             /*foreach (BuyableView buyable in buyables)
             {
                 buyable.Draw(e.Graphics);
@@ -113,6 +108,14 @@ namespace IAcademyOfDoom.View
             foreach (BotlingView bot in bots)
             {
                 bot.Draw(e.Graphics);
+            }
+            foreach (PlaceableView placeable in placeables)
+            {
+                placeable.Draw(e.Graphics);
+            }
+            foreach (ActionView action in gameActions)
+            {
+                action.Draw(e.Graphics);
             }
             if (hoveredBotlingView != null)
             {
@@ -212,11 +215,6 @@ namespace IAcademyOfDoom.View
                 {
                     
                 }
-                else if (selectActionView(e.Location))
-                {
-                    GameAction action = m_actionSelected.Action;
-
-                }
             }
             if (e.Button == MouseButtons.Right)
             {
@@ -232,6 +230,27 @@ namespace IAcademyOfDoom.View
                 {
                     DisplayStateOf(target, true);
                     return;
+                }
+            }
+
+            if (!endPrepButton.Enabled)
+            {
+                if (selectActionView(e.Location))
+                {
+                    GameAction action = m_actionSelected.Action;
+                    if (action.Type == ActionType.RoomRepair || action.Type == ActionType.RemedialCourse)
+                    {
+
+                    }
+                    else
+                    {
+                        action.actionOnBotlings();
+                        action.actionOnRooms();
+
+                        c.RemoveAction(action);
+                        PreviewActionItems(c.GameActions());
+                        m_actionSelected = null;
+                    }
                 }
             }
 
@@ -275,6 +294,17 @@ namespace IAcademyOfDoom.View
                     m_selectedRoom.relocate();
                 }
             }
+            else if (m_actionSelected != null)
+            {
+                RoomView roomHit = RoomHere(e.Location);
+                if (roomHit != null)
+                {
+                    m_actionSelected.Action.actionOnRoom(roomHit.Room);
+                    c.RemoveAction(m_actionSelected.Action);
+                }
+
+                PreviewActionItems(c.GameActions());
+            }
 
             m_selectedRoom = null;
             m_actionSelected = null;
@@ -288,6 +318,10 @@ namespace IAcademyOfDoom.View
             if (m_placeableSelected != null)
             {
                 m_placeableSelected.Location = Utils.getCenteredPosition(e.Location, Settings.PlaceableSquare);
+            }
+            else if (m_actionSelected != null)
+            {
+                m_actionSelected.Location = Utils.getCenteredPosition(e.Location, Settings.PlaceableSquare);
             }
 
             if (m_selectedRoom != null)
