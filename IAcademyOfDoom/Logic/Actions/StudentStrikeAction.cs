@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
@@ -14,8 +15,9 @@ namespace IAcademyOfDoom.Logic.Actions
             : base("Student Strike", ActionType.StudentStrike, 5) { }
 
         public override bool actionOnRoom(Room targetRoom) {
+           
+            targetRoom.getBotlingsForRoom();
             targetRoom.HP -= targetRoom.getNumberBotlings();
-
             return true;
         }
 

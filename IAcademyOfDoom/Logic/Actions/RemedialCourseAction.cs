@@ -1,5 +1,6 @@
 ﻿using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Places;
+using IAcademyOfDoom.Logic.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,15 @@ namespace IAcademyOfDoom.Logic.Actions
         public RemedialCourseAction()
             : base("Remedial Course", ActionType.RemedialCourse, 5) { }
 
-        public override bool actionOnRoom(Room targetRoom) => true;
+        public override bool actionOnRoom(Room targetRoom) => false;
 
-        public override bool actionOnBotling(Botling targetBotling) => false;
+        public override bool actionOnBotling(Botling targetBotling)
+        {
+            foreach (SkillType skillType in targetBotling.Skills.Keys) {
+                targetBotling.Skills[skillType] += 1;
+            }
+            return true;
+        }
     }
 
 }

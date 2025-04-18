@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using IAcademyOfDoom.Logic.Actions;
 using System.Text;
+using IAcademyOfDoom.Logic.Skills;
 
 namespace IAcademyOfDoom.View
 {
@@ -51,7 +52,7 @@ namespace IAcademyOfDoom.View
                 {
                     Text = action.ToString(),
                     Location = new Point(20, yOffset),
-                    Size = new Size(100, 20),
+                    Size = new Size(200, 20),
                     Font = new Font("Microsoft Tai Le", 9.75f, FontStyle.Bold),
                     BackColor = Color.Transparent
                 };
@@ -60,7 +61,7 @@ namespace IAcademyOfDoom.View
                 Label remainingCopiesLabel = new Label
                 {
                     Text = "{" + _remainingCopies[action] + "}",
-                    Location = new Point(200, yOffset),
+                    Location = new Point(250, yOffset),
                     Size = new Size(50, 20),
                     Font = new Font("Microsoft Tai Le", 9.75f, FontStyle.Bold),
                     BackColor = Color.Transparent
@@ -70,7 +71,7 @@ namespace IAcademyOfDoom.View
                 Button buyButton = new Button
                 {
                     Text = "Buy",
-                    Location = new Point(250, yOffset),
+                    Location = new Point(300, yOffset),
                     Size = new Size(60, 20),
                     Font = new Font("Microsoft Tai Le", 9.75f, FontStyle.Bold),
                     Tag = action
@@ -146,7 +147,7 @@ namespace IAcademyOfDoom.View
                 new StudentStrikeAction(),
                 new HolidaysAction(),
                 new RemedialCourseAction(),
-                new RemoteClassAction("Logic"),
+                new RemoteClassAction(SkillType.Analyse),
                 new BudgetCutsAction(),
                 new MassiveCorruptionAction(),
                 new JuryLeniencyAction(),

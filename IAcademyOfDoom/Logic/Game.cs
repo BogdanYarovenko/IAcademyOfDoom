@@ -248,6 +248,7 @@ namespace IAcademyOfDoom.Logic
                 wave = null;
                 c.EndAssault();
             }
+
         }
         /// <summary>
         /// Accesses the current results of the assault.

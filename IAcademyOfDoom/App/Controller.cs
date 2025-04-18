@@ -23,6 +23,7 @@ namespace IAcademyOfDoom.App
         /// The single instance of the controller.
         /// </summary>
         public static Controller Instance { get; private set; } = new Controller();
+      
         private Controller()
         {
         }

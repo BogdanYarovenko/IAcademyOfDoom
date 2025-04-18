@@ -14,6 +14,9 @@ namespace IAcademyOfDoom.Logic.Places
         /// The skill taught in this room.
         /// </summary>
         public SkillType SkillType {  get; set; }
+
+
+     
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -37,6 +40,7 @@ namespace IAcademyOfDoom.Logic.Places
             {
                 Controller.Instance.DestroyRoom(this);
             }
+           
             return botling.GetLessonIn(SkillType);
         }
     }

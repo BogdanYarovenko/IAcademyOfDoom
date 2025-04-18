@@ -13,7 +13,11 @@ namespace IAcademyOfDoom.Logic.Actions
         public SuddenReformAction()
             : base("Sudden Reform", ActionType.SuddenReform, 5) { }
 
-        public override bool actionOnRoom(Room targetRoom) => false;
+        public override bool actionOnRoom(Room targetRoom)
+        {
+            //TODO
+            return true;
+        }
 
         public override bool actionOnBotling(Botling targetBotling) => false;
     }

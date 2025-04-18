@@ -36,6 +36,7 @@ namespace IAcademyOfDoom.View
         Magasin magasin = null;
         ActionsWindow actMagasin = null;
         private System.Windows.Forms.Timer assaultTimer;
+        private bool isAutoMode = false;
 
 
         #endregion
@@ -66,6 +67,7 @@ namespace IAcademyOfDoom.View
                 playerNameLabel.Visible = false;
             }
             SyncRooms();
+           
 
         }
 
@@ -240,7 +242,7 @@ namespace IAcademyOfDoom.View
                     GameAction action = m_actionSelected.Action;
                     if (action.Type == ActionType.RoomRepair || action.Type == ActionType.RemedialCourse)
                     {
-
+                        
                     }
                     else
                     {
@@ -248,15 +250,17 @@ namespace IAcademyOfDoom.View
                         action.actionOnRooms();
 
                         c.RemoveAction(action);
+                        MessageBox.Show(action.GetActionEffectMessage(action.Type));
                         PreviewActionItems(c.GameActions());
                         m_actionSelected = null;
                     }
+
                 }
             }
 
             Refresh();
         }
-
+      
         private void MainWindow_MouseUp(object sender, MouseEventArgs e)
         {
             if (m_placeableSelected != null)
@@ -354,6 +358,8 @@ namespace IAcademyOfDoom.View
         {
             endPrepButton.Enabled = false;
             nextInAssaultButton.Enabled = true;
+            autoButton.Enabled = true;
+           
             WriteLine("Assault!");
         }
         /// <summary>
@@ -377,6 +383,9 @@ namespace IAcademyOfDoom.View
             WriteLine($"Assault ended! {results.successes} successes, {results.failures} failures and  {results.tired} are tired");
             endPrepButton.Enabled = true;
             nextInAssaultButton.Enabled = false;
+            autoButton.Enabled = false;
+        
+           // gameActions.Clear();
             Game.AddMoney(results.successes);
             Refresh();
             c.NextWave();
@@ -847,21 +856,25 @@ namespace IAcademyOfDoom.View
         }
         private void actionsMagasin_Click(object sender, EventArgs e)
         {
-            if (actMagasin == null)
-            {
-                actMagasin = new ActionsWindow();
-            }
-            if (actMagasin.ShowDialog() == DialogResult.OK)
-            {
-                List<GameAction> actions = actMagasin.GetPurchasedActions();
-                foreach (GameAction action in actions)
+            
+                if (actMagasin == null)
                 {
-                    c.AddAction(action);
+                    actMagasin = new ActionsWindow();
                 }
-                PreviewActionItems(c.GameActions());
-            }
+                if (actMagasin.ShowDialog() == DialogResult.OK)
+                {
+                    List<GameAction> actions = actMagasin.GetPurchasedActions();
+                    foreach (GameAction action in actions)
+                    {
+                        c.AddAction(action);
+                    }
+                    PreviewActionItems(c.GameActions());
+                }
         }
-
+           
+           
+        
+   
         private void outputButton_Click(object sender, EventArgs e)
         {
             outputListBox.Visible = !outputListBox.Visible;
@@ -885,6 +898,18 @@ namespace IAcademyOfDoom.View
             {
                 assaultTimer.Stop();
             }
+
+            // AutoGame
+            if ((nextInAssaultButton.Enabled && !endPrepButton.Enabled) && isAutoMode)
+            {
+                c.NextInAssault();
+            }
+            else
+            {
+                assaultTimer.Stop();
+                isAutoMode = false;
+                autoButton.Text = "Start Auto";
+            }
         }
 
         private void nextInAssaultButton_MouseDown(object sender, MouseEventArgs e)
@@ -904,6 +929,23 @@ namespace IAcademyOfDoom.View
             }
         }
 
+        private void autoButton_Click(object sender, EventArgs e)
+        {
+            isAutoMode = !isAutoMode; 
 
+            if (isAutoMode && nextInAssaultButton.Enabled && !endPrepButton.Enabled)
+            {
+                c.NextInAssault();
+                assaultTimer.Start();
+                autoButton.Text = "Stop Auto"; 
+            }
+            else
+            {
+                assaultTimer.Stop();
+                autoButton.Text = "Start Auto"; 
+            }
+
+        }
+      
     }
 }
