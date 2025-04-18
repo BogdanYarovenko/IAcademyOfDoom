@@ -13,9 +13,11 @@ namespace IAcademyOfDoom.View
     public partial class ActionsWindow : Form
     {
         private List<GameAction> _availableActions;
-        private Dictionary<GameAction, int> _remainingCopies = new Dictionary<GameAction, int>(); // Tracks remaining copies of actions
-        private Dictionary<GameAction, int> _purchasedActions = new Dictionary<GameAction, int>(); // Tracks purchased actions
+        private Dictionary<GameAction, int> _remainingCopies = new Dictionary<GameAction, int>();
+        private Dictionary<GameAction, int> _purchasedActions = new Dictionary<GameAction, int>();
+        private Dictionary<GameAction, Label> _remainingCopiesLabels = new Dictionary<GameAction, Label>();
         private int _localMoney;
+
 
         public ActionsWindow()
         {
@@ -63,6 +65,7 @@ namespace IAcademyOfDoom.View
                     Font = new Font("Microsoft Tai Le", 9.75f, FontStyle.Bold),
                     BackColor = Color.Transparent
                 };
+                _remainingCopiesLabels[action] = remainingCopiesLabel;
 
                 Button buyButton = new Button
                 {
@@ -206,6 +209,13 @@ namespace IAcademyOfDoom.View
                     _remainingCopies[action] += _purchasedActions[action];
                 }
             }
+            foreach (GameAction action in _remainingCopies.Keys)
+            {
+                if (_remainingCopiesLabels.ContainsKey(action))
+                {
+                    _remainingCopiesLabels[action].Text = "{" + _remainingCopies[action] + "}";
+                }
+            }
 
             _purchasedActions.Clear();
         }
@@ -228,6 +238,7 @@ namespace IAcademyOfDoom.View
                     actions.Add(action);
                 }
             }
+        
 
             _purchasedActions.Clear();
 

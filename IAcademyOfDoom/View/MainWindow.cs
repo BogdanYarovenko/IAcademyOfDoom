@@ -88,7 +88,7 @@ namespace IAcademyOfDoom.View
             e.Graphics.DrawString("Placeables", Settings.TitleFont, Brushes.Black,
                 new PointF(Settings.PlaceableObjetsSquareArea.X + 70, Settings.PlaceableObjetsSquareArea.Y - 20));
             e.Graphics.DrawRectangle(Pens.Gray, Settings.ActionsObjectsSquareArea);
-            e.Graphics.DrawString("Availables actions", Settings.TitleFont, Brushes.Black,
+            e.Graphics.DrawString("Available actions", Settings.TitleFont, Brushes.Black,
                new PointF(Settings.ActionsObjectsSquareArea.X + 50, Settings.ActionsObjectsSquareArea.Y - 20));
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
