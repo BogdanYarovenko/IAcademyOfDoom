@@ -39,21 +39,24 @@
             this.numberOfCoins = new System.Windows.Forms.Label();
             this.magasinDesign = new System.Windows.Forms.Button();
             this.outputButton = new System.Windows.Forms.Button();
-            this.actionsMagasin = new System.Windows.Forms.Button();
+            this.actionMagasinDesign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputListBox
             // 
+            this.outputListBox.BackColor = System.Drawing.SystemColors.Window;
+            this.outputListBox.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputListBox.FormattingEnabled = true;
+            this.outputListBox.ItemHeight = 14;
             this.outputListBox.Location = new System.Drawing.Point(34, 492);
             this.outputListBox.Name = "outputListBox";
-            this.outputListBox.Size = new System.Drawing.Size(765, 134);
+            this.outputListBox.Size = new System.Drawing.Size(765, 130);
             this.outputListBox.TabIndex = 0;
             this.outputListBox.Visible = false;
             // 
             // endPrepButton
             // 
-            this.endPrepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endPrepButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endPrepButton.Location = new System.Drawing.Point(833, 492);
             this.endPrepButton.Name = "endPrepButton";
             this.endPrepButton.Size = new System.Drawing.Size(162, 23);
@@ -65,7 +68,7 @@
             // nextInAssaultButton
             // 
             this.nextInAssaultButton.Enabled = false;
-            this.nextInAssaultButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextInAssaultButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nextInAssaultButton.Location = new System.Drawing.Point(833, 521);
             this.nextInAssaultButton.Name = "nextInAssaultButton";
             this.nextInAssaultButton.Size = new System.Drawing.Size(162, 23);
@@ -80,10 +83,10 @@
             // 
             this.botnumTextLabel.AutoSize = true;
             this.botnumTextLabel.BackColor = System.Drawing.Color.Transparent;
-            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botnumTextLabel.Location = new System.Drawing.Point(15, 23);
+            this.botnumTextLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botnumTextLabel.Location = new System.Drawing.Point(12, 23);
             this.botnumTextLabel.Name = "botnumTextLabel";
-            this.botnumTextLabel.Size = new System.Drawing.Size(117, 13);
+            this.botnumTextLabel.Size = new System.Drawing.Size(133, 16);
             this.botnumTextLabel.TabIndex = 3;
             this.botnumTextLabel.Text = "Number of botlings:";
             // 
@@ -91,16 +94,17 @@
             // 
             this.numberOfBotlingsContentLabel.AutoSize = true;
             this.numberOfBotlingsContentLabel.BackColor = System.Drawing.Color.Transparent;
-            this.numberOfBotlingsContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfBotlingsContentLabel.Location = new System.Drawing.Point(138, 23);
+            this.numberOfBotlingsContentLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfBotlingsContentLabel.Location = new System.Drawing.Point(152, 23);
             this.numberOfBotlingsContentLabel.Name = "numberOfBotlingsContentLabel";
-            this.numberOfBotlingsContentLabel.Size = new System.Drawing.Size(19, 13);
+            this.numberOfBotlingsContentLabel.Size = new System.Drawing.Size(23, 16);
             this.numberOfBotlingsContentLabel.TabIndex = 4;
-            this.numberOfBotlingsContentLabel.Text = "   ";
+            this.numberOfBotlingsContentLabel.Text = "nb";
             // 
             // quitButton
             // 
             this.quitButton.Enabled = false;
+            this.quitButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.Location = new System.Drawing.Point(833, 603);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(162, 23);
@@ -114,16 +118,16 @@
             // 
             this.playerNameLabel.AutoSize = true;
             this.playerNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.playerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerNameLabel.Location = new System.Drawing.Point(204, 23);
+            this.playerNameLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerNameLabel.Location = new System.Drawing.Point(218, 23);
             this.playerNameLabel.Name = "playerNameLabel";
-            this.playerNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.playerNameLabel.Size = new System.Drawing.Size(55, 16);
             this.playerNameLabel.TabIndex = 6;
-            this.playerNameLabel.Text = "       ";
+            this.playerNameLabel.Text = "plName";
             // 
             // showResultsButton
             // 
-            this.showResultsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showResultsButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showResultsButton.Location = new System.Drawing.Point(833, 550);
             this.showResultsButton.Name = "showResultsButton";
             this.showResultsButton.Size = new System.Drawing.Size(162, 23);
@@ -136,11 +140,12 @@
             // 
             this.numberOfCoins.AutoSize = true;
             this.numberOfCoins.BackColor = System.Drawing.Color.Transparent;
-            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCoins.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberOfCoins.Location = new System.Drawing.Point(1011, 23);
             this.numberOfCoins.Name = "numberOfCoins";
-            this.numberOfCoins.Size = new System.Drawing.Size(0, 13);
+            this.numberOfCoins.Size = new System.Drawing.Size(49, 16);
             this.numberOfCoins.TabIndex = 8;
+            this.numberOfCoins.Text = "money";
             // 
             // magasinDesign
             // 
@@ -157,7 +162,7 @@
             // outputButton
             // 
             this.outputButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.outputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputButton.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputButton.Location = new System.Drawing.Point(254, 463);
             this.outputButton.Name = "outputButton";
             this.outputButton.Size = new System.Drawing.Size(75, 23);
@@ -168,15 +173,15 @@
             // 
             // actionsMagasin
             // 
-            this.actionsMagasin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.actionsMagasin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.actionsMagasin.Location = new System.Drawing.Point(1124, 122);
-            this.actionsMagasin.Name = "actionsMagasin";
-            this.actionsMagasin.Size = new System.Drawing.Size(24, 162);
-            this.actionsMagasin.TabIndex = 11;
-            this.actionsMagasin.Text = "<<<<<<<<";
-            this.actionsMagasin.UseVisualStyleBackColor = false;
-            this.actionsMagasin.Click += new System.EventHandler(this.actionsMagasin_Click);
+            this.actionMagasinDesign.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.actionMagasinDesign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.actionMagasinDesign.Location = new System.Drawing.Point(1124, 122);
+            this.actionMagasinDesign.Name = "actionsMagasin";
+            this.actionMagasinDesign.Size = new System.Drawing.Size(24, 162);
+            this.actionMagasinDesign.TabIndex = 11;
+            this.actionMagasinDesign.Text = "<<<<<<<<";
+            this.actionMagasinDesign.UseVisualStyleBackColor = false;
+            this.actionMagasinDesign.Click += new System.EventHandler(this.actionsMagasin_Click);
             // 
             // MainWindow
             // 
@@ -185,7 +190,7 @@
             this.BackgroundImage = global::IAcademyOfDoom.Properties.Resources.Back_ground_main_window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1160, 687);
-            this.Controls.Add(this.actionsMagasin);
+            this.Controls.Add(this.actionMagasinDesign);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.magasinDesign);
             this.Controls.Add(this.numberOfCoins);
@@ -223,7 +228,7 @@
         private System.Windows.Forms.Label numberOfCoins;
         private System.Windows.Forms.Button magasinDesign;
         private System.Windows.Forms.Button outputButton;
-        private System.Windows.Forms.Button actionsMagasin;
+        private System.Windows.Forms.Button actionMagasinDesign;
     }
 }
 

@@ -1,5 +1,7 @@
-﻿using IAcademyOfDoom.Logic.Mobiles;
+
 using IAcademyOfDoom.Logic.Places;
+using System.Collections.Generic;
+using IAcademyOfDoom.Logic.Mobiles;
 using System.Collections.ObjectModel;
 
 namespace IAcademyOfDoom.Logic.Actions
@@ -16,12 +18,12 @@ namespace IAcademyOfDoom.Logic.Actions
         public string Name { get; private set; }
 
 
-        public ActionType Type { get; private set; } 
+        public ActionType Type { get; private set; }
 
         /// <summary>
         /// Optional cost of performing the action (energy, points, etc.)
         /// </summary>
-        public int Cost { get; private set; }
+        public int Cost { get; private set; } = 5;
 
         /// <summary>
         /// Whether the action is currently available or not.
@@ -68,7 +70,7 @@ namespace IAcademyOfDoom.Logic.Actions
             return false;
         }
 
-        public override string ToString() => $"{Name}:{Type} ~~ ({Cost})";
+        public override string ToString() => $"{Name}";
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using IAcademyOfDoom.App;
+using IAcademyOfDoom.Logic.Actions;
 using IAcademyOfDoom.Logic.GameSequence;
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
@@ -27,12 +28,12 @@ namespace IAcademyOfDoom.Logic
         /// </summary>
         public static Random Random { get; } = new Random();
 
-       
+
 
         /// <summary>
         /// The difficulty of the game.
         /// </summary>
-        public static Difficulty Difficulty {  get; set; } = Difficulty.Easy;
+        public static Difficulty Difficulty { get; set; } = Difficulty.Easy;
         /// <summary>
         /// The maximum X (highest index for columns, starting at 0).
         /// </summary>
@@ -40,7 +41,7 @@ namespace IAcademyOfDoom.Logic
         /// <summary>
         /// The maximum Y (highest index for rows, starting at 0).
         /// </summary>
-        public static int MaxY { get; private set; } = Default.Lines- 1;
+        public static int MaxY { get; private set; } = Default.Lines - 1;
         #endregion
         #region public read-only instance properties
         /// <summary>
@@ -61,6 +62,7 @@ namespace IAcademyOfDoom.Logic
         private int tired;
         private readonly List<Room> rooms = new List<Room>();
         private readonly List<Placeable> placeables = new List<Placeable>();
+        private readonly List<GameAction> gameActions = new List<GameAction>();
         private readonly List<Botling> botlings = new List<Botling>();
         private Controller c = Controller.Instance;
         #endregion
@@ -69,7 +71,8 @@ namespace IAcademyOfDoom.Logic
         /// Constructor.
         /// Sets up base values
         /// </summary>
-        public Game() { 
+        public Game()
+        {
             rooms.Add(Room.SpawnArea());
             rooms.Add(Room.ExamRoom());
             placeables.Add(new Placeable(RoomType.Prof, SkillType.Classify, "Classification Professor"));
@@ -94,9 +97,16 @@ namespace IAcademyOfDoom.Logic
         {
             Money = Default.BaseMoney(Difficulty);
         }
+        /// <summary>
+        /// Simulates a dice roll and returns a random value between 1 and 6.
+        /// The method uses a random number generator to simulate rolling a standard six-sided die.
+        /// </summary>
+        /// <returns>
+        /// A random integer between 1 and 6, inclusive.
+        /// </returns>
         public static int Dice()
         {
-            return Game.Random.Next(0, 6) + 1;
+            return Random.Next(0, 6) + 1;
 
         }
 
@@ -106,7 +116,7 @@ namespace IAcademyOfDoom.Logic
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
         /// <param name="placeable">the placeable item</param>
-        public void AddRoomHere(int x, int y,int HP, Placeable placeable)
+        public void AddRoomHere(int x, int y, int HP, Placeable placeable)
         {
             rooms.Add(placeable.MakeRoom(x, y, HP));
         }
@@ -114,11 +124,16 @@ namespace IAcademyOfDoom.Logic
         {
             placeables.Add(placeable);
         }
+        public void AddAction(GameAction action)
+        {
+            gameActions.Add(action);
+        }
         /// <summary>
         /// Provides a copy of the list of placeable items.
         /// </summary>
         /// <returns>a new list</returns>
         public List<Placeable> Placeables() => new List<Placeable>(placeables);
+        public List<GameAction> GameActions() => new List<GameAction>(gameActions);
         public List<Room> Rooms()
         {
             return new List<Room>(rooms);
@@ -152,10 +167,10 @@ namespace IAcademyOfDoom.Logic
             currentPhase = Phase.Assault;
             successes = failures = tired = 0;
             wave = new Wave(waveNumber);
-            
+
         }
 
-       
+
         /// <summary>
         /// Progresses in the assault phase.
         /// </summary>
@@ -186,14 +201,14 @@ namespace IAcademyOfDoom.Logic
                         {
 
                             botling.Repeater();
-                          
+
                         }
                         else
                         {
                             terminatedNow.Add(botling);
                         }
                     }
-                
+
                     else if (result is bool b)
                     {
                         c.LessonResult(botling, b);
@@ -220,7 +235,7 @@ namespace IAcademyOfDoom.Logic
                 c.BotRemove(terminatedNow);
                 c.BotChange(botlings);
             }
-           
+
             else
             {
                 currentPhase = Phase.Result;
@@ -281,41 +296,53 @@ namespace IAcademyOfDoom.Logic
         public static void AddMoney(int amount)
         {
             Money += amount;
-            
+
         }
+        /// <summary>
+        /// Checks if a room at the specified coordinates is occupied by a bot.
+        /// </summary>
+        /// <param name="x">The X coordinate of the room to check.</param>
+        /// <param name="y">The Y coordinate of the room to check.</param>
+        /// <returns>
+        /// True if any bot occupies the room at the specified coordinates, otherwise false.
+        /// </returns>
         public bool IsRoomOccupiedByBot(int x, int y)
         {
             foreach (Botling botling in botlings)
             {
                 if (botling.NextMove.x == x && botling.NextMove.y == y)
                 {
-                    return true; 
+                    return true;
                 }
             }
-            
+
             return false;
         }
-
-        public  bool isBotInList(Botling botling)
-        {
-           return  botlings.Contains(botling);
-        }
-
-
+        /// <summary>
+        /// Checks if all the bots in the list are of the same type as the provided bot.
+        /// </summary>
+        /// <param name="botling">The bot to compare types with.</param>
+        /// <returns>
+        /// True if all bots in the list are of the same type as the provided bot, otherwise false.
+        /// </returns>
         public bool IsSameTypeOfBotling(Botling botling)
         {
             foreach (Botling bot in botlings)
             {
-               if (bot.Type != botling.Type)
-               {
+                if (bot.Type != botling.Type)
+                {
                     return false;
-               }
+                }
             }
             return true;
         }
 
         #endregion
         #region private methods
+        /// <summary>
+        /// Stores the result of an exam (success, failure, or tired).
+        /// </summary>
+        /// <param name="examResult">The result of the exam to store.</param>
         private void StoreExamResult(ExamResult examResult)
         {
             switch (examResult)
@@ -327,17 +354,28 @@ namespace IAcademyOfDoom.Logic
                     failures++;
                     break;
                 case ExamResult.Tired:
-                    tired++; 
+                    tired++;
                     break;
             }
         }
+        /// <summary>
+        /// Finds and returns the room at the specified coordinates (x, y).
+        /// Optionally, it can exclude cycle rooms based on the `isCycleRoom` parameter.
+        /// </summary>
+        /// <param name="x">The X coordinate of the room to find.</param>
+        /// <param name="y">The Y coordinate of the room to find.</param>
+        /// <param name="isCycleRoom">Indicates whether to exclude cycle rooms. Defaults to true.</param>
+        /// <returns>
+        /// The room at the specified coordinates if found, otherwise null. 
+        /// If `isCycleRoom` is false, and the room is a cycle room, null will be returned.
+        /// </returns>
         public Room FindRoomAt(int x, int y, bool isCycleRoom = true)
         {
             int i = 0;
             int index = -1;
             while (index == -1 && i < rooms.Count)
             {
-                if (rooms[i]?.X==x && rooms[i]?.Y==y)
+                if (rooms[i]?.X == x && rooms[i]?.Y == y)
                 {
                     index = i;
                 }

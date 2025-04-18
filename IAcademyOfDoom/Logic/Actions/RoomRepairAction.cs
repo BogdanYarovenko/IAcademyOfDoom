@@ -8,20 +8,22 @@ using System.Threading.Tasks;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
-    class ActionHealRoom : GameAction
+    public class RoomRepairAction : GameAction
     {
-        public ActionHealRoom(string name, ActionType type, int cost): base(name, type, cost) { }
+        public RoomRepairAction()
+            : base("Room Repair", ActionType.RoomRepair, 5) { }
 
         public override bool actionOnRoom(Room targetRoom)
-        {
+        { 
             targetRoom.HP = GameSettings.Default.BaseProfHitPoints;
-
             return true;
         }
 
         public override bool actionOnBotling(Botling targetBotling)
         {
-            return false;
+            return false; 
         }
     }
+
 }
+

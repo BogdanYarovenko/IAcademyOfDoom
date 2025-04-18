@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
-   public  enum ActionType
+    public enum ActionType
     {
-        Heal, Target, Specialisation
+        RoomRepair,
+        EminentVisitor,
+        TeacherStrike,
+        StudentStrike,
+        Holidays,
+        RemedialCourse,
+        RemoteClass,
+        BudgetCuts,
+        MassiveCorruption,
+        JuryLeniency,
+        SuddenReform
     }
 }

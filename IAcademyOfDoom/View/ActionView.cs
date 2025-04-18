@@ -37,7 +37,7 @@ namespace IAcademyOfDoom.View
             Point textPosition = new Point(Location.X + Settings.TextOffset.Width, Location.Y);
             Rectangle rectangle = new Rectangle(Location, Settings.ActionSquare); 
             graphics.FillRectangle(Settings.ActionBrush, rectangle); 
-            graphics.DrawRectangle(Pens.Black, rectangle);
+            graphics.DrawRectangle(Pens.DarkTurquoise, rectangle);
             graphics.DrawString("Action: " + Action.ToString(), Settings.ActionFont, Settings.TextBrush, textPosition);
         }
 

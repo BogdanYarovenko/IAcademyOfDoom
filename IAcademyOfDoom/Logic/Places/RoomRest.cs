@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IAcademyOfDoom.App;
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 
@@ -15,10 +11,16 @@ namespace IAcademyOfDoom.Logic.Places
         {
             Type = RoomType.Facility;
             Name = "Rest Room";
+            HP = Default.BaseProfHitPoints;
         }
 
         public override object ActOnEntry(Botling botling)
         {
+            this.HP--;
+            if (this.HP <=0)
+            {
+                Controller.Instance.DestroyRoom(this);
+            }
             int hpInit = Default.BaseHitPoints(Game.Difficulty);
             int hpLost = hpInit - botling.HP;
 
