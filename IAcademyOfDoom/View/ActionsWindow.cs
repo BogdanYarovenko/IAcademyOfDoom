@@ -34,7 +34,7 @@ namespace IAcademyOfDoom.View
             purchasedActionLabel.Text = "";
             resultOfPurchase.Text = "";
             _availableActions = GetAvailableActions();
-            InitializeRemainingCopies(); 
+            InitializeRemainingCopies();
             InitActionsUI();
         }
 
@@ -80,27 +80,94 @@ namespace IAcademyOfDoom.View
                 buyButton.Click += (s, e) =>
                 {
                     GameAction selectedAction = (GameAction)((Button)s).Tag;
-                    if (_remainingCopies[selectedAction] > 0 && _localMoney >= selectedAction.Cost)
-                    {
-                        _remainingCopies[selectedAction]--;
-                        _localMoney -= selectedAction.Cost;
-                        BalanceInMagasin.Text = "Your balance is : " + _localMoney + " €";
 
-                        remainingCopiesLabel.Text = "{" + _remainingCopies[selectedAction] + "}";
-
-                        actionLabel.Text = selectedAction.ToString();
-                        AddPurchasedActionToList(selectedAction);
-                        resultOfPurchase.Text = "Purchase successful";
-                    }
-                    else if (_localMoney < selectedAction.Cost)
+                    if (selectedAction is RemoteClassAction)
                     {
-                        resultOfPurchase.Text = "Not enough money!";
+                        ComboBox skillChooser = new ComboBox
+                        {
+                            Location = new Point(370, buyButton.Location.Y),
+                            Size = new Size(140, 20),
+                            DropDownStyle = ComboBoxStyle.DropDownList
+                        };
+
+                        SkillType[] skills = new SkillType[]
+                        {
+                            SkillType.Analyse,
+                            SkillType.Recognise,
+                            SkillType.Generate,
+                            SkillType.Communicate
+                        };
+
+                        foreach (var skill in skills) skillChooser.Items.Add(skill.ToString());
+
+                        this.Controls.Add(skillChooser);
+                        skillChooser.BringToFront();
+
+                        skillChooser.SelectedIndexChanged += (senderCombo, ev) =>
+                        {
+                            if (skillChooser.SelectedItem != null)
+                            {
+                                SkillType chosenSkill = (SkillType)Enum.Parse(typeof(SkillType), skillChooser.SelectedItem.ToString());
+
+                                // Prevent duplicate purchase for the same skill
+                                bool alreadyBought = _purchasedActions.Keys
+                                    .OfType<RemoteClassAction>()
+                                    .Any(a => a.skillName == chosenSkill);
+
+                                if (alreadyBought)
+                                {
+                                    resultOfPurchase.Text = $"You already purchased Remote Class for {chosenSkill}!";
+                                    this.Controls.Remove(skillChooser);
+                                    return;
+                                }
+
+                                GameAction customRemoteClass = new RemoteClassAction(chosenSkill);
+
+                            if (_remainingCopies[selectedAction] > 0 && _localMoney >= customRemoteClass.Cost)
+                                {
+                                    _remainingCopies[selectedAction]--;
+                                    _localMoney -= customRemoteClass.Cost;
+                                    BalanceInMagasin.Text = "Your balance is : " + _localMoney + " €";
+
+                                    _remainingCopiesLabels[selectedAction].Text = "{" + _remainingCopies[selectedAction] + "}";
+
+                                    AddPurchasedActionToList(customRemoteClass);
+                                    resultOfPurchase.Text = "Purchase successful";
+
+                                    this.Controls.Remove(skillChooser);
+                                }
+                            else
+                                {
+                                    resultOfPurchase.Text = "Not enough money or no copies left.";
+                                    this.Controls.Remove(skillChooser);
+                                }
+                            }
+                        };
                     }
                     else
                     {
-                        resultOfPurchase.Text = "No copies left for this action.";
+                        if (_remainingCopies[selectedAction] > 0 && _localMoney >= selectedAction.Cost)
+                        {
+                            _remainingCopies[selectedAction]--;
+                            _localMoney -= selectedAction.Cost;
+                            BalanceInMagasin.Text = "Your balance is : " + _localMoney + " €";
+
+                            _remainingCopiesLabels[selectedAction].Text = "{" + _remainingCopies[selectedAction] + "}";
+
+                            AddPurchasedActionToList(selectedAction);
+                            resultOfPurchase.Text = "Purchase successful";
+                        }
+                        else if (_localMoney < selectedAction.Cost)
+                        {
+                            resultOfPurchase.Text = "Not enough money!";
+                        }
+                        else
+                        {
+                            resultOfPurchase.Text = "No copies left for this action.";
+                        }
                     }
                 };
+
                 this.Controls.Add(actionLabel);
                 this.Controls.Add(remainingCopiesLabel);
                 this.Controls.Add(buyButton);
@@ -177,7 +244,7 @@ namespace IAcademyOfDoom.View
             if (action is StudentStrikeAction) return 2;
             if (action is HolidaysAction) return 2;
             if (action is RemedialCourseAction) return 2;
-            if (action is RemoteClassAction) return 1;
+            if (action is RemoteClassAction) return 4;
             if (action is BudgetCutsAction) return 1;
             if (action is MassiveCorruptionAction) return 1;
             if (action is JuryLeniencyAction) return 1;
@@ -239,7 +306,7 @@ namespace IAcademyOfDoom.View
                     actions.Add(action);
                 }
             }
-        
+
 
             _purchasedActions.Clear();
 

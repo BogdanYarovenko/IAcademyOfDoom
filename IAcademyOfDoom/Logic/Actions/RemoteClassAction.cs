@@ -11,7 +11,7 @@ namespace IAcademyOfDoom.Logic.Actions
 {
     public class RemoteClassAction : GameAction
     {
-        private SkillType skillName;
+      public SkillType skillName { get; }
 
         public RemoteClassAction(SkillType skill)
             : base($"Remote Class - {skill}", ActionType.RemoteClass, 5)
