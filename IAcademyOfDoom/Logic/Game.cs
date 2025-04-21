@@ -214,7 +214,6 @@ namespace IAcademyOfDoom.Logic
                             terminatedNow.Add(botling);
                         }
                     }
-
                     else if (result is bool b)
                     {
                         c.LessonResult(botling, b);
@@ -240,8 +239,12 @@ namespace IAcademyOfDoom.Logic
                 }
                 c.BotRemove(terminatedNow);
                 c.BotChange(botlings);
-            }
 
+                foreach (Room room in rooms)
+                {
+                    room.SetIsLessons(true);
+                }
+            }
             else
             {
                 currentPhase = Phase.Result;

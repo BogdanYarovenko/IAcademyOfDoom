@@ -18,8 +18,8 @@ namespace IAcademyOfDoom.Logic.Places
     /// </summary>
     public class Room
     {
-
-        Controller c = Controller.Instance;
+        protected bool m_isLesson = true;
+        protected Controller c = Controller.Instance;
         /// <summary>
         /// The column.
         /// </summary>
@@ -86,6 +86,11 @@ namespace IAcademyOfDoom.Logic.Places
         public virtual object ActOnEntry(Botling botling)
         {
             return botling.Exam();
+        }
+
+        public void SetIsLessons(bool isLesson)
+        {
+            m_isLesson = isLesson;
         }
         
         public void moveTo(int x, int y)

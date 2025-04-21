@@ -18,7 +18,7 @@ namespace IAcademyOfDoom.Logic.Actions
         public override bool actionOnRoom(Room targetRoom) {
             targetRoom.HP += 10;
 
-            // Add actOnEntry // TODO
+            targetRoom.SetIsLessons(false);
             return true;
         }
 

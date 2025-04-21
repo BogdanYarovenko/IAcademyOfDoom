@@ -15,7 +15,20 @@ namespace IAcademyOfDoom.Logic.Actions
 
         public override bool actionOnRoom(Room targetRoom)
         {
-            //TODO
+            if (targetRoom.Type == RoomType.Cycle)
+            {
+                return true;
+            }
+
+            int x, y;
+            do
+            {
+                x = Game.Random.Next(0, Game.MaxX + 1);
+                y = Game.Random.Next(0, Game.MaxY + 1);
+            } while (c.IsRoomHere(x, y) != null);
+
+            targetRoom.moveTo(x, y);
+
             return true;
         }
 

@@ -15,9 +15,8 @@ namespace IAcademyOfDoom.Logic.Actions
             : base("Jury Leniency", ActionType.JuryLeniency, 5) { }
 
         public override bool actionOnBotling(Botling targetBotling) {
-           // TODO
+            targetBotling.SetPassExamNextTurn();
             return true;
-        
         } 
 
         public override bool actionOnRoom(Room targetRoom) => false;

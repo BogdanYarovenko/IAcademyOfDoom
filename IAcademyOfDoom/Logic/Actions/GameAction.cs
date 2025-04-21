@@ -15,7 +15,7 @@ namespace IAcademyOfDoom.Logic.Actions
     /// </summary>
     public class GameAction
     {
-        Controller c = Controller.Instance;
+        protected Controller c = Controller.Instance;
         /// <summary>
         /// The name or label of the action.
         /// </summary>
