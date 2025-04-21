@@ -20,6 +20,11 @@ namespace IAcademyOfDoom.Logic.Actions
         }
 
         public override bool actionOnBotling(Botling targetBotling) => false;
+
+        public override string GetActionEffectMessage()
+        {
+            return "Effect: Fully heals a targeted classroom";
+        }
     }
 
 }

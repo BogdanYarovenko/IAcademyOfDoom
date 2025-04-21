@@ -3,6 +3,7 @@ using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Skills;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace IAcademyOfDoom.Logic.Mobiles
     /// </summary>
     public class Botling
     {
+        private bool m_isEasyToPass = false;
         protected Controller c = Controller.Instance;
         /// <summary>
         /// The current values for each basic skill.
@@ -89,6 +91,13 @@ namespace IAcademyOfDoom.Logic.Mobiles
             {
                 return false;
             }
+            
+            if (m_isEasyToPass)
+            {
+                m_isEasyToPass = false;
+                return true;
+            }
+
             Random random = Game.Random;
             if (skill.IsBaseSkill())
             {
@@ -278,6 +287,11 @@ namespace IAcademyOfDoom.Logic.Mobiles
         {
             MoveTo(0, 0);
             NextMove = Next();
+        }
+
+        public void SetPassExamNextTurn()
+        {
+            m_isEasyToPass = true;
         }
 
         /// <summary>

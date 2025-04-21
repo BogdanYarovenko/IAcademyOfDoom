@@ -20,6 +20,11 @@ namespace IAcademyOfDoom.Logic.Actions
             targetRoom.HP += 5;
             return true;
         }
+
+        public override string GetActionEffectMessage()
+        {
+            return "Effect: All teachers regain 5 HP";
+        }
     }
 
 }

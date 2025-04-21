@@ -25,6 +25,7 @@
                 }
                 int hpLoose;
                 if (botling.HP <= 3 && botling.HP > 0)
+                    
                 {
                     hpLoose = botling.HP;
                     botling.HP = 1;

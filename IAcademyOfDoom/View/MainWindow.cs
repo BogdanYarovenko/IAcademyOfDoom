@@ -249,8 +249,16 @@ namespace IAcademyOfDoom.View
                         action.actionOnBotlings();
                         action.actionOnRooms();
 
+                        if (action.Type == ActionType.SuddenReform)
+                        {
+                            foreach (RoomView roomView in rooms)
+                            {
+                                roomView.relocate();
+                            }
+                        }
+
                         c.RemoveAction(action);
-                        MessageBox.Show(action.GetActionEffectMessage(action.Type));
+                        MessageBox.Show(action.GetActionEffectMessage());
                         PreviewActionItems(c.GameActions());
                         m_actionSelected = null;
                     }

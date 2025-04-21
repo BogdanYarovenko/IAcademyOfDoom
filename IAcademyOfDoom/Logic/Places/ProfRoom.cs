@@ -2,6 +2,7 @@
 using IAcademyOfDoom.Logic.GameSettings;
 using IAcademyOfDoom.Logic.Mobiles;
 using IAcademyOfDoom.Logic.Skills;
+using System.Windows.Forms;
 
 namespace IAcademyOfDoom.Logic.Places
 {
@@ -35,6 +36,11 @@ namespace IAcademyOfDoom.Logic.Places
         /// <returns>the result of the lesson - actual type: bool</returns>
         public override object ActOnEntry(Botling botling)
         {
+            if (!m_isLesson)
+            {
+                return false;
+            }
+
             this.HP--;
             if (this.HP <=0)
             {
