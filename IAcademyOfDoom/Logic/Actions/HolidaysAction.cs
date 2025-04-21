@@ -25,6 +25,11 @@ namespace IAcademyOfDoom.Logic.Actions
             targetRoom.HP += 2;
             return true;
         }
+
+        public override string GetActionEffectMessage()
+        {
+            return "All teachers and AIs gain 2 HP";
+        }
     }
 
 }

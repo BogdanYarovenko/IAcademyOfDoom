@@ -23,6 +23,10 @@ namespace IAcademyOfDoom.Logic.Actions
             }
             return true;
         }
+        public override string GetActionEffectMessage()
+        {
+            return "All AIs on a tile gain +1 in all skills";
+        }
     }
 
 }

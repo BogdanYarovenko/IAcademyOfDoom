@@ -25,6 +25,10 @@ namespace IAcademyOfDoom.Logic.Actions
         }
 
         public override bool actionOnRoom(Room targetRoom) => false;
-    }
 
+        public override string GetActionEffectMessage()
+        {
+            return "All AIs lose 3 HP; removed AIs generate money";
+        }
+    }
 }

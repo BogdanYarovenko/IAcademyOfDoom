@@ -18,8 +18,13 @@ namespace IAcademyOfDoom.Logic.Actions
         public override bool actionOnRoom(Room targetRoom) {
             targetRoom.HP += 10;
 
-           // Add actOnEntry // TODO
+            // Add actOnEntry // TODO
             return true;
+        }
+
+        public override string GetActionEffectMessage()
+        {
+            return "Effect: No classes next turn, all teachers regain 10 HP";
         }
     }
 

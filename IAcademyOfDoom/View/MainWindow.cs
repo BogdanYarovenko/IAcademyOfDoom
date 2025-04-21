@@ -250,7 +250,7 @@ namespace IAcademyOfDoom.View
                         action.actionOnRooms();
 
                         c.RemoveAction(action);
-                        MessageBox.Show(action.GetActionEffectMessage(action.Type));
+                        MessageBox.Show(action.GetActionEffectMessage());
                         PreviewActionItems(c.GameActions());
                         m_actionSelected = null;
                     }

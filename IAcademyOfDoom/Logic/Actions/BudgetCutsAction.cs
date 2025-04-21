@@ -21,6 +21,12 @@ namespace IAcademyOfDoom.Logic.Actions
             Game.AddMoney(HPLost);
             return true;
         }
+
+
+        public override string GetActionEffectMessage()
+        {
+            return "Teachers lose 50% current HP (rounded up), total HP lost is converted to money";
+        }
     }
 
 }

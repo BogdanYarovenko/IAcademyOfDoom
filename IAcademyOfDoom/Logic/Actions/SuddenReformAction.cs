@@ -20,6 +20,11 @@ namespace IAcademyOfDoom.Logic.Actions
         }
 
         public override bool actionOnBotling(Botling targetBotling) => false;
+
+        public override string GetActionEffectMessage()
+        {
+            return "All rooms are randomly reassigned (except spawn and exam rooms)";
+        }
     }
 
 }

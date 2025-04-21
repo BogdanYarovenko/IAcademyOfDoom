@@ -11,8 +11,7 @@ namespace IAcademyOfDoom.Logic.Actions
 {
     public class StudentStrikeAction : GameAction
     {
-        public StudentStrikeAction()
-            : base("Student Strike", ActionType.StudentStrike, 5) { }
+        public StudentStrikeAction() : base("Student Strike", ActionType.StudentStrike, 5) { }
 
         public override bool actionOnRoom(Room targetRoom) {
            
@@ -23,9 +22,12 @@ namespace IAcademyOfDoom.Logic.Actions
 
         public override bool actionOnBotling(Botling targetBotling) {
             targetBotling.HP += 3;
-        return true;
-        
+            return true;
+        }
+
+        public override string GetActionEffectMessage()
+        {
+            return "All AIs gain 3 HP, teachers lose 1 HP per AI in their room";
         }
     }
-
 }

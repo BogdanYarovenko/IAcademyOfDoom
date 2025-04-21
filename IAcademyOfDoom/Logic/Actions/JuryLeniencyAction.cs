@@ -21,6 +21,11 @@ namespace IAcademyOfDoom.Logic.Actions
         } 
 
         public override bool actionOnRoom(Room targetRoom) => false;
+
+        public override string GetActionEffectMessage()
+        {
+            return "All exams next turn are automatically passed";
+        }
     }
 
 }
