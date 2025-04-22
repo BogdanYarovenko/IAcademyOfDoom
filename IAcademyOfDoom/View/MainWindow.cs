@@ -26,7 +26,6 @@ namespace IAcademyOfDoom.View
         private readonly List<RoomView> rooms = new List<RoomView>();
         private RoomView m_selectedRoom = null;
         private readonly List<PlaceableView> placeables = new List<PlaceableView>();
-        //private readonly List<BuyableView> buyables = new List<BuyableView>();
         private readonly List<ActionView> gameActions = new List<ActionView>();
         private PlaceableView m_placeableSelected = null;
         private ActionView m_actionSelected = null;
@@ -92,15 +91,9 @@ namespace IAcademyOfDoom.View
             e.Graphics.DrawRectangle(Pens.Gray, Settings.ActionsObjectsSquareArea);
             e.Graphics.DrawString("Available actions", Settings.TitleFont, Brushes.Black,
                new PointF(Settings.ActionsObjectsSquareArea.X + 50, Settings.ActionsObjectsSquareArea.Y - 20));
+ 
             numberOfBotlingsContentLabel.Text = bots.Count.ToString();
             numberOfCoins.Text = "Your balance is : " + Game.Money.ToString() + " €";
-
-            
-            
-            /*foreach (BuyableView buyable in buyables)
-            {
-                buyable.Draw(e.Graphics);
-            }*/
             BackgroundGrid(e.Graphics);
 
             foreach (RoomView room in rooms)
@@ -174,15 +167,6 @@ namespace IAcademyOfDoom.View
                 MessageBox.Show("Preparations are not complete yet.");
                 WriteLine("Preparations are not complete yet.");
             }
-        }
-        /// <summary>
-        /// Event handling: click on next in assault button.
-        /// </summary>
-        /// <param name="sender">ignored</param>
-        /// <param name="e">ignored</param>
-        private void NextInAssaultButton_Click(object sender, EventArgs e)
-        {
-
         }
         /// <summary>
         /// Event handling: click on quit button.
@@ -845,7 +829,7 @@ namespace IAcademyOfDoom.View
 
         #endregion
 
-        private void magasinDesign_Click(object sender, EventArgs e)
+        private void MagasinDesign_Click(object sender, EventArgs e)
         {
             if (magasin == null)
             {
@@ -862,7 +846,7 @@ namespace IAcademyOfDoom.View
                 PreviewPlaceableItems(c.Placeables());
             }
         }
-        private void actionsMagasin_Click(object sender, EventArgs e)
+        private void ActionsMagasin_Click(object sender, EventArgs e)
         {
             
                 if (actMagasin == null)
@@ -879,11 +863,9 @@ namespace IAcademyOfDoom.View
                     PreviewActionItems(c.GameActions());
                 }
         }
-           
-           
-        
-   
-        private void outputButton_Click(object sender, EventArgs e)
+
+
+        private void OutputButton_Click(object sender, EventArgs e)
         {
             outputListBox.Visible = !outputListBox.Visible;
             if (outputListBox.Visible)
@@ -920,7 +902,7 @@ namespace IAcademyOfDoom.View
             }
         }
 
-        private void nextInAssaultButton_MouseDown(object sender, MouseEventArgs e)
+        private void NextInAssaultButton_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && nextInAssaultButton.Enabled)
             {
@@ -929,7 +911,7 @@ namespace IAcademyOfDoom.View
             }
         }
 
-        private void nextInAssaultButton_MouseUp(object sender, MouseEventArgs e)
+        private void NextInAssaultButton_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -937,7 +919,7 @@ namespace IAcademyOfDoom.View
             }
         }
 
-        private void autoButton_Click(object sender, EventArgs e)
+        private void AutoButton_Click(object sender, EventArgs e)
         {
             isAutoMode = !isAutoMode; 
 

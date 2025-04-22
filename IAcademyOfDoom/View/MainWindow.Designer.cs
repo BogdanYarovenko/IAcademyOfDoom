@@ -76,9 +76,8 @@
             this.nextInAssaultButton.TabIndex = 2;
             this.nextInAssaultButton.Text = "Assault: next";
             this.nextInAssaultButton.UseVisualStyleBackColor = true;
-            this.nextInAssaultButton.Click += new System.EventHandler(this.NextInAssaultButton_Click);
-            this.nextInAssaultButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextInAssaultButton_MouseDown);
-            this.nextInAssaultButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nextInAssaultButton_MouseUp);
+            this.nextInAssaultButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.NextInAssaultButton_MouseDown);
+            this.nextInAssaultButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NextInAssaultButton_MouseUp);
             // 
             // botnumTextLabel
             // 
@@ -158,7 +157,7 @@
             this.magasinDesign.Size = new System.Drawing.Size(67, 63);
             this.magasinDesign.TabIndex = 9;
             this.magasinDesign.UseVisualStyleBackColor = false;
-            this.magasinDesign.Click += new System.EventHandler(this.magasinDesign_Click);
+            this.magasinDesign.Click += new System.EventHandler(this.MagasinDesign_Click);
             // 
             // outputButton
             // 
@@ -170,7 +169,7 @@
             this.outputButton.TabIndex = 10;
             this.outputButton.Text = "↓ output ↓";
             this.outputButton.UseVisualStyleBackColor = true;
-            this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
+            this.outputButton.Click += new System.EventHandler(this.OutputButton_Click);
             // 
             // actionMagasinButton
             // 
@@ -182,7 +181,7 @@
             this.actionMagasinButton.TabIndex = 11;
             this.actionMagasinButton.Text = "<<<<<<<<";
             this.actionMagasinButton.UseVisualStyleBackColor = false;
-            this.actionMagasinButton.Click += new System.EventHandler(this.actionsMagasin_Click);
+            this.actionMagasinButton.Click += new System.EventHandler(this.ActionsMagasin_Click);
             // 
             // autoButton
             // 
@@ -194,7 +193,7 @@
             this.autoButton.TabIndex = 12;
             this.autoButton.Text = "AutoGame";
             this.autoButton.UseVisualStyleBackColor = true;
-            this.autoButton.Click += new System.EventHandler(this.autoButton_Click);
+            this.autoButton.Click += new System.EventHandler(this.AutoButton_Click);
             // 
             // MainWindow
             // 
