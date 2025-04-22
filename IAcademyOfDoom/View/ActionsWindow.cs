@@ -24,9 +24,11 @@ namespace IAcademyOfDoom.View
         {
             InitializeComponent();
             this.Load += ActionsWindow_Load;
-            this.Paint += ActionsWindow_Paint;
         }
 
+        /// <summary>
+        /// Event handler for the form load event. Initializes the game state and UI elements.
+        /// </summary>
         private void ActionsWindow_Load(object sender, EventArgs e)
         {
             _localMoney = Game.Money;
@@ -38,10 +40,11 @@ namespace IAcademyOfDoom.View
             InitActionsUI();
         }
 
-        private void ActionsWindow_Paint(object sender, PaintEventArgs e)
-        {
-        }
 
+        /// <summary>
+        /// Initializes the UI components for available actions, their remaining copies, and purchase buttons.
+        /// The actions are displayed in two columns based on the number of available actions.
+        /// </summary>
         private void InitActionsUI()
         {
             int yOffsetLeft = 40;
@@ -49,6 +52,7 @@ namespace IAcademyOfDoom.View
             int columnSpacing = 400;
             int maxItemsPerColumn = (_availableActions.Count + 1) / 2;
 
+            // Iterating over each available action to add to the UI
             for (int i = 0; i < _availableActions.Count; i++)
             {
                 var action = _availableActions[i];
@@ -57,6 +61,7 @@ namespace IAcademyOfDoom.View
                 int xBase = isLeftColumn ? 20 : 20 + columnSpacing;
                 int yOffset = isLeftColumn ? yOffsetLeft : yOffsetRight;
 
+                // Create action label
                 Label actionLabel = new Label
                 {
                     Text = action.ToString(),
@@ -66,6 +71,7 @@ namespace IAcademyOfDoom.View
                     BackColor = Color.Transparent
                 };
 
+                // Create label for remaining copies
                 Label remainingCopiesLabel = new Label
                 {
                     Text = "{" + _remainingCopies[action] + "}",
@@ -76,6 +82,7 @@ namespace IAcademyOfDoom.View
                 };
                 _remainingCopiesLabels[action] = remainingCopiesLabel;
 
+                // Create button to buy the action
                 Button buyButton = new Button
                 {
                     Text = "Buy",
@@ -85,10 +92,12 @@ namespace IAcademyOfDoom.View
                     Tag = action
                 };
 
+                // Handle the purchase button click event
                 buyButton.Click += (s, e) =>
                 {
                     GameAction selectedAction = (GameAction)((Button)s).Tag;
 
+                    // Check if the user can afford and if there are remaining copies
                     if (_remainingCopies[selectedAction] > 0 && _localMoney >= selectedAction.Cost)
                     {
                         _remainingCopies[selectedAction]--;
@@ -110,6 +119,7 @@ namespace IAcademyOfDoom.View
                     }
                 };
 
+                // Add the controls to the form
                 this.Controls.Add(actionLabel);
                 this.Controls.Add(remainingCopiesLabel);
                 this.Controls.Add(buyButton);
@@ -122,7 +132,10 @@ namespace IAcademyOfDoom.View
         }
 
 
-
+        /// <summary>
+        /// Adds a purchased action to the list of purchased actions and updates the UI with the purchase summary.
+        /// </summary>
+        /// <param name="action"> action to add for the purchased list</param>
         private void AddPurchasedActionToList(GameAction action)
         {
             if (_purchasedActions.ContainsKey(action))
@@ -134,22 +147,69 @@ namespace IAcademyOfDoom.View
                 _purchasedActions.Add(action, 1);
             }
 
-            StringBuilder sb = new StringBuilder();
             int columnWidth = 30;
+            int quantityWidth = 8;
+            int rowIndex = 0;
 
-            sb.Append("Action Name".PadRight(columnWidth)).Append("Quantity").Append("\n");
-            sb.Append(new string('-', columnWidth + 20)).Append("\n");
+            StringBuilder sbLeft = new StringBuilder();
+            StringBuilder sbRight = new StringBuilder();
 
-            foreach (var entry in _purchasedActions)
+            string header = "Action Name".PadRight(columnWidth) + "Quantity".PadLeft(quantityWidth) + "\n" +
+                            new string('-', columnWidth + quantityWidth) + "\n";
+
+            sbLeft.Append(header);
+
+            bool useRightColumn = _purchasedActions.Count > 5;
+            if (useRightColumn)
             {
-                sb.Append(entry.Key.Name.PadRight(columnWidth))
-                  .Append(entry.Value.ToString())
-                  .Append("\n");
+                sbRight.Append(header);
             }
 
-            purchasedActionLabel.Text = sb.ToString();
+            foreach (KeyValuePair<GameAction, int> entry in _purchasedActions)
+            {
+                string line = entry.Key.Name.PadRight(columnWidth) + entry.Value.ToString().PadLeft(quantityWidth) + "\n";
+
+                if (rowIndex < 5)
+                {
+                    sbLeft.Append(line);
+                }
+                else
+                {
+                    sbRight.Append(line);
+                }
+
+                rowIndex++;
+            }
+
+            StringBuilder finalText = new StringBuilder();
+
+            if (useRightColumn)
+            {
+                string[] leftLines = sbLeft.ToString().Split('\n');
+                string[] rightLines = sbRight.ToString().Split('\n');
+                int maxLines = Math.Max(leftLines.Length, rightLines.Length);
+
+                for (int i = 0; i < maxLines; i++)
+                {
+                    string left = i < leftLines.Length ? leftLines[i].PadRight(columnWidth + quantityWidth + 5) : "".PadRight(columnWidth + quantityWidth + 5);
+                    string right = i < rightLines.Length ? rightLines[i] : "";
+                    finalText.AppendLine(left + right);
+                }
+            }
+            else
+            {
+                finalText.Append(sbLeft);
+            }
+
+            purchasedActionLabel.Text = finalText.ToString();
         }
 
+
+
+        /// <summary>
+        /// Gets a list of all available actions that can be purchased in the game.
+        /// </summary>
+        /// <returns>A list of objects representing the available actions.</returns>
         public static List<GameAction> GetAvailableActions()
         {
             return new List<GameAction>
@@ -170,7 +230,9 @@ namespace IAcademyOfDoom.View
                 new SuddenReformAction()
             };
         }
-
+        /// <summary>
+        /// Initializes the remaining copies for each available action.
+        /// </summary>
         private void InitializeRemainingCopies()
         {
 
@@ -184,7 +246,11 @@ namespace IAcademyOfDoom.View
                 }
             }
         }
-
+        /// <summary>
+        /// Gets the quantity of remaining copies for each specific action.
+        /// </summary>
+        /// <param name="action"> GameAction for which the quantity is being retrieved.</param>
+        /// <returns>The number of remaining copies of the action.</returns>
         private int GetActionQuantity(GameAction action)
         {
             if (action is RoomRepairAction) return 3;
@@ -203,19 +269,27 @@ namespace IAcademyOfDoom.View
             return 0;
         }
 
-
+        /// <summary>
+        /// Event handler for the cancel button click. Reinitializes the window and closes it.
+        /// </summary>
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            reinitialise();
+            Reinitialise();
             this.Close();
         }
 
+        /// <summary>
+        /// Event handler for the form closing event. Ensures reinitialization if the dialog result is not OK.
+        /// </summary>
         private void ActionsWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult != DialogResult.OK) reinitialise();
+            if (this.DialogResult != DialogResult.OK) Reinitialise();
         }
 
-        private void reinitialise()
+        /// <summary>
+        /// Reinitializes the game state when the window is closed or canceled. Resets the remaining copies and purchased actions.
+        /// </summary>
+        private void Reinitialise()
         {
             this.DialogResult = DialogResult.Cancel;
 
@@ -237,13 +311,20 @@ namespace IAcademyOfDoom.View
             _purchasedActions.Clear();
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Event handler for the OK button click. Finalizes the purchase process and updates the game state.
+        /// </summary>
+        private void OkButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             Game.RemoveMoney(Game.Money - _localMoney);
             this.Close();
         }
 
+        /// <summary>
+        /// Returns a list of all purchased actions.
+        /// </summary>
+        /// <returns>A list of objects that the user has purchased.</returns>
         public List<GameAction> GetPurchasedActions()
         {
             List<GameAction> actions = new List<GameAction>();
@@ -256,9 +337,7 @@ namespace IAcademyOfDoom.View
                 }
             }
 
-
             _purchasedActions.Clear();
-
             return actions;
         }
     }

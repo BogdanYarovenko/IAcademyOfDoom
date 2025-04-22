@@ -66,7 +66,7 @@
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = false;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
@@ -81,7 +81,7 @@
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // BalanceInMagasin
             // 
@@ -109,7 +109,7 @@
             this.restRoomButton.TabIndex = 3;
             this.restRoomButton.Text = "Buy RR";
             this.restRoomButton.UseVisualStyleBackColor = false;
-            this.restRoomButton.Click += new System.EventHandler(this.restRoomButton_Click);
+            this.restRoomButton.Click += new System.EventHandler(this.RestRoomButton_Click);
             // 
             // loungeRoomButton
             // 
@@ -125,7 +125,7 @@
             this.loungeRoomButton.TabIndex = 4;
             this.loungeRoomButton.Text = "Buy LR";
             this.loungeRoomButton.UseVisualStyleBackColor = false;
-            this.loungeRoomButton.Click += new System.EventHandler(this.loungeRoomButton_Click);
+            this.loungeRoomButton.Click += new System.EventHandler(this.LoungeRoomButton_Click);
             // 
             // orientationOfficeButton
             // 
@@ -141,7 +141,7 @@
             this.orientationOfficeButton.TabIndex = 5;
             this.orientationOfficeButton.Text = "Buy OO";
             this.orientationOfficeButton.UseVisualStyleBackColor = false;
-            this.orientationOfficeButton.Click += new System.EventHandler(this.orientationOfficeButton_Click);
+            this.orientationOfficeButton.Click += new System.EventHandler(this.OrientationOfficeButton_Click);
             // 
             // tutoringRoomButton
             // 
@@ -156,7 +156,7 @@
             this.tutoringRoomButton.TabIndex = 6;
             this.tutoringRoomButton.Text = "Buy TR";
             this.tutoringRoomButton.UseVisualStyleBackColor = true;
-            this.tutoringRoomButton.Click += new System.EventHandler(this.tutoringRoomButton_Click);
+            this.tutoringRoomButton.Click += new System.EventHandler(this.TutoringRoomButton_Click);
             // 
             // restRoomQty
             // 

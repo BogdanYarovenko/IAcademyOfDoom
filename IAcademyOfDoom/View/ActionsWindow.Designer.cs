@@ -33,6 +33,7 @@
             this.BalanceInMagasin = new System.Windows.Forms.Label();
             this.purchasedActionLabel = new System.Windows.Forms.Label();
             this.resultOfPurchase = new System.Windows.Forms.Label();
+            this.purchasedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // okButton
@@ -46,7 +47,7 @@
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
@@ -76,7 +77,7 @@
             // 
             this.purchasedActionLabel.AutoSize = true;
             this.purchasedActionLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasedActionLabel.Location = new System.Drawing.Point(72, 313);
+            this.purchasedActionLabel.Location = new System.Drawing.Point(35, 313);
             this.purchasedActionLabel.Name = "purchasedActionLabel";
             this.purchasedActionLabel.Size = new System.Drawing.Size(26, 16);
             this.purchasedActionLabel.TabIndex = 3;
@@ -92,11 +93,22 @@
             this.resultOfPurchase.TabIndex = 4;
             this.resultOfPurchase.Text = "resultOfPurchase";
             // 
+            // purchasedLabel
+            // 
+            this.purchasedLabel.AutoSize = true;
+            this.purchasedLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasedLabel.Location = new System.Drawing.Point(114, 272);
+            this.purchasedLabel.Name = "purchasedLabel";
+            this.purchasedLabel.Size = new System.Drawing.Size(124, 16);
+            this.purchasedLabel.TabIndex = 5;
+            this.purchasedLabel.Text = "Purchased Actions:";
+            // 
             // ActionsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 461);
+            this.Controls.Add(this.purchasedLabel);
             this.Controls.Add(this.resultOfPurchase);
             this.Controls.Add(this.purchasedActionLabel);
             this.Controls.Add(this.BalanceInMagasin);
@@ -108,7 +120,6 @@
             this.Text = "ActionsWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActionsWindow_FormClosing);
             this.Load += new System.EventHandler(this.ActionsWindow_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ActionsWindow_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +132,6 @@
         private System.Windows.Forms.Label BalanceInMagasin;
         private System.Windows.Forms.Label purchasedActionLabel;
         private System.Windows.Forms.Label resultOfPurchase;
+        private System.Windows.Forms.Label purchasedLabel;
     }
 }

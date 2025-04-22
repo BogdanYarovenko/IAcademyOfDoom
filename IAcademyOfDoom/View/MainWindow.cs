@@ -838,7 +838,7 @@ namespace IAcademyOfDoom.View
 
             if (magasin.ShowDialog() == DialogResult.OK)
             {
-                List<Placeable> placeables = magasin.getPurchasedPlaceables();
+                List<Placeable> placeables = magasin.GetPurchasedPlaceables();
                 foreach (Placeable placeable in placeables)
                 {
                     c.AddPlaceable(placeable);
