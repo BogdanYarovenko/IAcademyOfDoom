@@ -38,10 +38,11 @@
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.okButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.okButton.Location = new System.Drawing.Point(549, 359);
+            this.okButton.Location = new System.Drawing.Point(488, 369);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(148, 66);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -50,10 +51,11 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(662, 359);
+            this.cancelButton.Location = new System.Drawing.Point(673, 369);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(148, 66);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -63,30 +65,30 @@
             // 
             this.BalanceInMagasin.AutoSize = true;
             this.BalanceInMagasin.BackColor = System.Drawing.Color.Transparent;
-            this.BalanceInMagasin.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceInMagasin.Location = new System.Drawing.Point(615, 9);
+            this.BalanceInMagasin.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceInMagasin.Location = new System.Drawing.Point(12, 9);
             this.BalanceInMagasin.Name = "BalanceInMagasin";
-            this.BalanceInMagasin.Size = new System.Drawing.Size(43, 14);
+            this.BalanceInMagasin.Size = new System.Drawing.Size(49, 16);
             this.BalanceInMagasin.TabIndex = 2;
             this.BalanceInMagasin.Text = "money";
             // 
             // purchasedActionLabel
             // 
             this.purchasedActionLabel.AutoSize = true;
-            this.purchasedActionLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasedActionLabel.Location = new System.Drawing.Point(546, 43);
+            this.purchasedActionLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasedActionLabel.Location = new System.Drawing.Point(72, 313);
             this.purchasedActionLabel.Name = "purchasedActionLabel";
-            this.purchasedActionLabel.Size = new System.Drawing.Size(22, 14);
+            this.purchasedActionLabel.Size = new System.Drawing.Size(26, 16);
             this.purchasedActionLabel.TabIndex = 3;
             this.purchasedActionLabel.Text = "list";
             // 
             // resultOfPurchase
             // 
             this.resultOfPurchase.AutoSize = true;
-            this.resultOfPurchase.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultOfPurchase.Location = new System.Drawing.Point(248, 385);
+            this.resultOfPurchase.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultOfPurchase.Location = new System.Drawing.Point(587, 313);
             this.resultOfPurchase.Name = "resultOfPurchase";
-            this.resultOfPurchase.Size = new System.Drawing.Size(95, 14);
+            this.resultOfPurchase.Size = new System.Drawing.Size(112, 16);
             this.resultOfPurchase.TabIndex = 4;
             this.resultOfPurchase.Text = "resultOfPurchase";
             // 
@@ -94,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 450);
+            this.ClientSize = new System.Drawing.Size(854, 461);
             this.Controls.Add(this.resultOfPurchase);
             this.Controls.Add(this.purchasedActionLabel);
             this.Controls.Add(this.BalanceInMagasin);

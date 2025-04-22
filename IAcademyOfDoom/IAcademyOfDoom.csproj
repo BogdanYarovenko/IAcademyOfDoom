@@ -66,7 +66,6 @@
     <Compile Include="Logic\Mobiles\Persistent.cs" />
     <Compile Include="Logic\Mobiles\Speedster.cs" />
     <Compile Include="Logic\Actions\GameAction.cs" />
-    <Compile Include="Logic\Places\Buyable.cs" />
     <Compile Include="Logic\GameSettings\Difficulty.cs" />
     <Compile Include="Logic\Mobiles\Botling.cs" />
     <Compile Include="Logic\Mobiles\BotType.cs" />
@@ -95,7 +94,6 @@
       <DependentUpon>ActionsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ActionView.cs" />
-    <Compile Include="View\BuyableView.cs" />
     <Compile Include="View\DifficultySelect.cs">
       <SubType>Form</SubType>
     </Compile>

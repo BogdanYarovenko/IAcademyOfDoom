@@ -45,7 +45,7 @@ namespace IAcademyOfDoom.Logic.GameSequence
                     for (int i = 0; i < Bots[bot]; i++)
                     {
                         switch (bot)
-                        { ///  None, Speedster, Perfectionnist, Introvert, Lucky, Aimless, Persistent
+                        { ///  Generique, Speedster, Perfectionnist, Introvert, Lucky, Aimless, Persistent
                             case BotType.None:
                                 res.Add(new Botling(bot));
                                 break;
