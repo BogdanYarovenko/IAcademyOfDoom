@@ -33,6 +33,7 @@ namespace IAcademyOfDoom.Logic.Places
         /// </summary>
         /// <param name="x">the column</param>
         /// <param name="y">the row</param>
+        /// <param name="hp">hp of the room</param>
         /// <returns>a new room object</returns>
         public Room MakeRoom(int x, int y, int HP)
         {
@@ -50,9 +51,42 @@ namespace IAcademyOfDoom.Logic.Places
                         return null;
                     }
                 case RoomType.Facility:
-                    return new FacilityRoom(x, y, HP) { Name = name };
+                    if (string.IsNullOrEmpty(this.name))
+                    {
+                         return null;
+                    }
+                    if ((this.name == "Tutor Room"))
+                    {
+                        //TO.DO
+                        
+                         //if (this.Skill.HasValue) {
+                              //return new RoomTutor(x, y, HP) { Name = this.name, SkillType = Skill.Value };
+                        // } else {
+                              //return null; 
+                         //}
+                         return null;
+                    }
+                    else if (this.name == "Orientation Office")
+                    {
+                        return new RoomOrientation(x, y,HP) { Name = this.name };
+                    }
+                    else if (this.name == "Rest Room")
+                    {
+                        return new RoomRest(x, y, HP) { Name = this.name };
+                    }
+                    else if (this.name == "Party Room") 
+                    {
+                        return new RoomLounge(x, y, HP) { Name = this.name }; 
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Erreur: Nom de salle Facility non reconnu: '{this.name}'");
+                        return null;
+                    }
+                    
                 default:
-                    return null;  
+                    System.Diagnostics.Debug.WriteLine($"Erreur: RoomType non géré dans MakeRoom: {this.RoomType}");
+                    return null;
             }
         }
         /// <summary>

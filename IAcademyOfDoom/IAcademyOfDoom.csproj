@@ -80,8 +80,8 @@
     <Compile Include="Logic\Places\Room.cs" />
     <Compile Include="Logic\Places\RoomLounge.cs" />
     <Compile Include="Logic\Places\RoomOrientation.cs" />
-    <Compile Include="Logic\Places\RoomOritentation.cs" />
     <Compile Include="Logic\Places\RoomRest.cs" />
+    <Compile Include="Logic\Places\RoomTutor.cs" />
     <Compile Include="Logic\Places\RoomType.cs" />
     <Compile Include="Logic\Skills\SkillType.cs" />
     <Compile Include="Logic\GameSequence\Turn.cs" />
