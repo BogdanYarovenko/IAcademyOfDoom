@@ -5,13 +5,12 @@ using IAcademyOfDoom.Logic.Skills;
 
 namespace IAcademyOfDoom.Logic.Places
 {
-    internal class RoomOrientation : Room
+    public class RoomOrientation : Room
     {
         public RoomOrientation(int x, int y, int HP) : base(x, y, HP)
         {
             Type = RoomType.Facility;
             Name = "Orientation Office";
-            HP = Default.BaseProfHitPoints;
         }
 
         public override object ActOnEntry(Botling botling)

@@ -55,7 +55,7 @@ namespace IAcademyOfDoom.Logic.Places
                     {
                          return null;
                     }
-                    if ((this.name == "Tutor Room"))
+                    if ((this.name.Equals(View.FrameTypeRoom.TutoringRoom.ToString())))
                     {
                         //TO.DO
                         
@@ -66,17 +66,17 @@ namespace IAcademyOfDoom.Logic.Places
                          //}
                          return null;
                     }
-                    else if (this.name == "Orientation Office")
+                    else if (this.name.Equals(View.FrameTypeRoom.OrientationOffice.ToString()))
                     {
-                        return new RoomOrientation(x, y,HP) { Name = this.name };
+                        return new RoomOrientation(x, y, HP);
                     }
-                    else if (this.name == "Rest Room")
+                    else if (this.name.Equals(View.FrameTypeRoom.RestRoom.ToString()))
                     {
-                        return new RoomRest(x, y, HP) { Name = this.name };
+                        return new RoomRest(x, y, HP);
                     }
-                    else if (this.name == "Party Room") 
+                    else if (this.name.Equals(View.FrameTypeRoom.LoungeRoom.ToString()))
                     {
-                        return new RoomLounge(x, y, HP) { Name = this.name }; 
+                        return new RoomLounge(x, y, HP); 
                     }
                     else
                     {

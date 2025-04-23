@@ -7,13 +7,12 @@
     namespace IAcademyOfDoom.Logic.Places
     {
         // AKA Party room
-        internal class RoomLounge : Room
+        public class RoomLounge : Room
         {
-            public RoomLounge(int x, int y, int HP) : base(x, y,HP)
+            public RoomLounge(int x, int y, int HP) : base(x, y, HP)
             {
                 Type = RoomType.Facility; 
                 Name = "Lounge Room";
-                HP = Default.BaseProfHitPoints;
             }
 
             public override object ActOnEntry(Botling botling)

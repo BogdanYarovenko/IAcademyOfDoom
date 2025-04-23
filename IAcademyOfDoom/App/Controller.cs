@@ -129,6 +129,7 @@ namespace IAcademyOfDoom.App
         {
             game.RemoveAction(action);
         }
+
         /// <summary>
         /// Method called to place a placeable item.
         /// </summary>
@@ -137,12 +138,13 @@ namespace IAcademyOfDoom.App
         /// <param name="placeable">the placeable item</param>
         public void PlaceHere(int x, int y, Placeable placeable)
         {
-            game.PlaceThisHere(x, y, placeable);
+            bool a = game.PlaceThisHere(x, y, placeable);
             window.WriteLine("Placed:" + placeable.ToString());
             window.PreviewPlaceableItems(game.Placeables());
             window.SyncRooms();
             window.Refresh();
         }
+
         /// <summary>
         /// Checks if a room exists at the specified coordinates (x, y) and optionally excludes cycle rooms.
         /// </summary>
