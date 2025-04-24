@@ -1,0 +1,52 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>50</x><y>50</y><w>790</w><h>300</h></coordinates><panel_attributes>Mobiles
+--
+bg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>80</y><w>180</w><h>140</h></coordinates><panel_attributes>Botling
+--
+#c: Controller
+--
++Move(): void &lt;&lt;abstract&gt;&gt; 
+#Next(): (int,int) &lt;&lt;abstract&gt;&gt;
++MoveTo(int,int): void
++Repeater(): void
+#isInMap(int,int): bool
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>190</y><w>100</w><h>70</h></coordinates><panel_attributes>Introvert
+--
+--
++Introvert()
+#Next():(int,int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>270</y><w>100</w><h>60</h></coordinates><panel_attributes>Aimless
+--
+--
++Aimless()
+#Next():(int,int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>670</x><y>200</y><w>140</w><h>80</h></coordinates><panel_attributes>Lucky
+--
+--
++Lucky()
+#Next():(int,int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>260</y><w>140</w><h>70</h></coordinates><panel_attributes>Perfectionnist
+--
+--
++Perfectionnist()
+#Next():(int,int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>240</y><w>120</w><h>60</h></coordinates><panel_attributes>Persistent
+--
+--
++Persistent()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>80</y><w>170</w><h>100</h></coordinates><panel_attributes>Speedster
+--
+--
++Speedster()
++Move():void
+#Next():(int,int)
+-isNextToWall(int,int): bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>390</y><w>230</w><h>150</h></coordinates><panel_attributes>Game
+--
+
+--
+__+Dice():int__
++isRoomOccupiedByBot(int,int);bool
++isSameTypeOfBotling(Botling):bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>90</y><w>260</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;240;10</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>170</y><w>280</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;260;50</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>200</y><w>180</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;160;40</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>210</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;50</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>210</y><w>40</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>150</y><w>120</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;40</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>10</x><y>570</y><w>470</w><h>120</h></coordinates><panel_attributes>App
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>600</y><w>240</w><h>70</h></coordinates><panel_attributes>Controller
+--
+--
++IsRoomOccupiedByBot(int,int):bool
++IsSameTypeOfBotling(Botling): bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>990</w><h>550</h></coordinates><panel_attributes>Logic
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
