@@ -1,0 +1,40 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>184</x><y>44</y><w>168</w><h>104</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+RoomType
+
+--
+
+Cycle
+Prof
+Facility</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>536</x><y>244</y><w>208</w><h>56</h></coordinates><panel_attributes>Room
+
+--
++ Room(int,int,int)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>328</x><y>292</y><w>224</w><h>336</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>260;10;230;10;230;400;10;400</additional_attributes></element><element><id>Relation</id><coordinates><x>328</x><y>292</y><w>224</w><h>168</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>260;10;60;10;60;190;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>328</x><y>292</y><w>224</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>260;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>260</y><w>168</w><h>80</h></coordinates><panel_attributes>RoomLounge
+
+--
+
++ RommLounge(int,int,int)  
++ ActOnEntry(Botling) : object</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>604</y><w>168</w><h>72</h></coordinates><panel_attributes>RoomOrientation
+
+--
+
++ RommOrientation(int,int,int)  
++ ActOnEntry(Botling) : object</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>404</y><w>168</w><h>72</h></coordinates><panel_attributes>RoomRest
+
+--
+
++ RommRest(int,int,int)  
++ ActOnEntry(Botling) : object</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>328</x><y>292</y><w>224</w><h>280</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>260;10;100;10;100;330;10;330</additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>508</y><w>168</w><h>72</h></coordinates><panel_attributes>RoomTutor
+
+--
+
++ RommTutor(int,int,int)  
++ ActOnEntry(Botling) : object</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>344</x><y>76</y><w>280</w><h>184</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+r1=Type</panel_attributes><additional_attributes>10;20;330;20;330;210</additional_attributes></element><element><id>UMLClass</id><coordinates><x>608</x><y>484</y><w>168</w><h>72</h></coordinates><panel_attributes>Placeable
+
+--
+
++ MakeRoom(int,int) : Room
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
