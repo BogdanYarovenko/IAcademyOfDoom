@@ -34,8 +34,6 @@ namespace IAcademyOfDoom.Logic.Actions
         /// </summary>
         public bool IsAvailable { get; set; }
 
-
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -52,9 +50,6 @@ namespace IAcademyOfDoom.Logic.Actions
         {
             return $"Effect: Unknown effect";
         }
-
-
-
         public void actionOnRooms()
         {
             foreach (Room room in c.getRooms())
@@ -82,9 +77,5 @@ namespace IAcademyOfDoom.Logic.Actions
         }
 
         public override string ToString() => $"{Name}";
-
-
     }
-
-
 }

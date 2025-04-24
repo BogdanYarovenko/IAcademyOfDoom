@@ -1,5 +1,6 @@
 ﻿using IAcademyOfDoom.Logic;
 using IAcademyOfDoom.Logic.Places;
+using IAcademyOfDoom.Logic.Skills;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,10 @@ namespace IAcademyOfDoom.View
         RestRoom,
         LoungeRoom,
         OrientationOffice,
-        TutoringRoom
+        TutoringAnalyse,
+        TutoringRecognise,
+        TutoringGenerate,
+        TutoringCommunicate
     }
 
     public partial class Magasin : Form
@@ -35,7 +39,10 @@ namespace IAcademyOfDoom.View
             _qtyRooms.Add(FrameTypeRoom.RestRoom, 4);
             _qtyRooms.Add(FrameTypeRoom.LoungeRoom, 4);
             _qtyRooms.Add(FrameTypeRoom.OrientationOffice, 3);
-            _qtyRooms.Add(FrameTypeRoom.TutoringRoom, 0); //Rajouter le type de salle
+            _qtyRooms.Add(FrameTypeRoom.TutoringAnalyse, 1);
+            _qtyRooms.Add(FrameTypeRoom.TutoringRecognise, 1);
+            _qtyRooms.Add(FrameTypeRoom.TutoringGenerate, 1);
+            _qtyRooms.Add(FrameTypeRoom.TutoringCommunicate, 1);
         }
         private void Magasin_Load(object sender, EventArgs e)
         {
@@ -57,6 +64,52 @@ namespace IAcademyOfDoom.View
 
             ResetStates();
             ResetPurchaseLabels();
+        }
+
+        /// <summary>
+        /// Returns a list of all purchased placeables. Each purchased item is added as a Placeable object with the room type.
+        /// After retrieving the purchased items, the list is cleared.
+        /// </summary>
+        /// <returns>A list of objects representing the purchased room items.</returns>
+        public List<Placeable> GetPurchasedPlaceables()
+        {
+            List<Placeable> placeables = new List<Placeable>();
+
+
+            foreach (FrameTypeRoom typeOfRoom in _purchasedItem.Keys)
+            {
+                for (int i = 0; i < _purchasedItem[typeOfRoom]; i++)
+                {
+                    SkillType? skill = null;
+                    switch (typeOfRoom)
+                    {
+                        case FrameTypeRoom.TutoringAnalyse:
+                            skill = SkillType.Analyse;
+                            break;
+                        case FrameTypeRoom.TutoringGenerate:
+                            skill = SkillType.Generate;
+                            break;
+                        case FrameTypeRoom.TutoringRecognise:
+                            skill = SkillType.Recognise;
+                            break;
+                        case FrameTypeRoom.TutoringCommunicate:
+                            skill = SkillType.Communicate;
+                            break;
+                    }
+                    
+                    if (skill == null)
+                    {
+                        placeables.Add(new Placeable(RoomType.Facility, null, typeOfRoom.ToString()));
+                    }
+                    else
+                    {
+                        placeables.Add(new Placeable(RoomType.Facility, skill, "TutorRoom"));
+                    }
+                }
+            }
+            _purchasedItem.Clear();
+
+            return placeables;
         }
 
         /// <summary>
@@ -131,7 +184,10 @@ namespace IAcademyOfDoom.View
                     messageOrientationQty.Text = "Not enough money";
                     messageOrientationQty.ForeColor = Color.Red;
                     break;
-                case FrameTypeRoom.TutoringRoom:
+                case FrameTypeRoom.TutoringAnalyse:
+                case FrameTypeRoom.TutoringRecognise:
+                case FrameTypeRoom.TutoringGenerate:
+                case FrameTypeRoom.TutoringCommunicate:
                     messageTutoringQty.Text = "Not enough money";
                     messageTutoringQty.ForeColor = Color.Red;
                     break;
@@ -162,7 +218,10 @@ namespace IAcademyOfDoom.View
 
                     orientOfficeQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString();
                     break;
-                case FrameTypeRoom.TutoringRoom:
+                case FrameTypeRoom.TutoringAnalyse:
+                case FrameTypeRoom.TutoringRecognise:
+                case FrameTypeRoom.TutoringGenerate:
+                case FrameTypeRoom.TutoringCommunicate:
                     messageTutoringQty.Text = "Purchase successful";
                     messageTutoringQty.ForeColor = Color.Green;
                     // tutorRoomQty.Text = "Qty : " + _qtyRooms[typeOfRoom].ToString(); Need to implement different type of this room
@@ -198,8 +257,17 @@ namespace IAcademyOfDoom.View
                 case FrameTypeRoom.OrientationOffice:
                     roomButton = orientationOfficeButton;
                     break;
-                case FrameTypeRoom.TutoringRoom:
-                    roomButton = tutoringRoomButton;
+                case FrameTypeRoom.TutoringAnalyse:
+                    roomButton = AnalyseBtn;
+                    break;
+                case FrameTypeRoom.TutoringRecognise:
+                    roomButton = RecogniseBtn;
+                    break;
+                case FrameTypeRoom.TutoringGenerate:
+                    roomButton = GenerateBtn;
+                    break;
+                case FrameTypeRoom.TutoringCommunicate:
+                    roomButton = CommunicateBtn;
                     break;
             }
 
@@ -309,32 +377,31 @@ namespace IAcademyOfDoom.View
         private void OrientationOfficeButton_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.OrientationOffice);
 
         /// <summary>
-        /// Event handler for when the "Tutoring Room" button is clicked. Initiates the purchase of a TutoringRoom.
+        /// Event handler for when the "Tutoring Room" button is clicked. Initiates the purchase of a TutoringRoom Analyse.
         /// </summary>
         /// <param name="sender">The sender of the event, typically the "Tutoring Room" button.</param>
         /// <param name="e">The event arguments.</param>
-        private void TutoringRoomButton_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.TutoringRoom);
+        private void AnalyseBtn_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.TutoringAnalyse);
 
         /// <summary>
-        /// Returns a list of all purchased placeables. Each purchased item is added as a Placeable object with the room type.
-        /// After retrieving the purchased items, the list is cleared.
+        /// Event handler for when the "Tutoring Room" button is clicked. Initiates the purchase of a TutoringRoom Recognise.
         /// </summary>
-        /// <returns>A list of objects representing the purchased room items.</returns>
-        public List<Placeable> GetPurchasedPlaceables()
-        {
-            List<Placeable> placeables = new List<Placeable>();
+        /// <param name="sender">The sender of the event, typically the "Tutoring Room" button.</param>
+        /// <param name="e">The event arguments.</param>
+        private void RecogniseBtn_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.TutoringRecognise);
 
-           
-            foreach (FrameTypeRoom typeOfRoom in _purchasedItem.Keys)
-            {
-                for (int i = 0; i < _purchasedItem[typeOfRoom]; i++)
-                {
-                    placeables.Add(new Placeable(RoomType.Facility, null, typeOfRoom.ToString())); 
-                }
-            }
-            _purchasedItem.Clear();
+        /// <summary>
+        /// Event handler for when the "Tutoring Room" button is clicked. Initiates the purchase of a TutoringRoom Generate.
+        /// </summary>
+        /// <param name="sender">The sender of the event, typically the "Tutoring Room" button.</param>
+        /// <param name="e">The event arguments.</param>
+        private void GenerateBtn_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.TutoringGenerate);
 
-            return placeables;
-        }
+        /// <summary>
+        /// Event handler for when the "Tutoring Room" button is clicked. Initiates the purchase of a TutoringRoom Communicate.
+        /// </summary>
+        /// <param name="sender">The sender of the event, typically the "Tutoring Room" button.</param>
+        /// <param name="e">The event arguments.</param>
+        private void CommunicateBtn_Click(object sender, EventArgs e) => Buy(FrameTypeRoom.TutoringCommunicate);
     } 
-    }
+}
