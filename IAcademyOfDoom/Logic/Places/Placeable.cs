@@ -55,16 +55,16 @@ namespace IAcademyOfDoom.Logic.Places
                     {
                          return null;
                     }
-                    if ((this.name.Equals(View.FrameTypeRoom.TutoringRoom.ToString())))
+                    if ((this.name.Equals("TutorRoom")))
                     {
-                        //TO.DO
-                        
-                         //if (this.Skill.HasValue) {
-                              //return new RoomTutor(x, y, HP) { Name = this.name, SkillType = Skill.Value };
-                        // } else {
-                              //return null; 
-                         //}
-                         return null;
+                        if (this.Skill.HasValue)
+                        {
+                            return new RoomTutor(x, y, HP) { Name = this.name, SkillType = Skill.Value };
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                     else if (this.name.Equals(View.FrameTypeRoom.OrientationOffice.ToString()))
                     {
@@ -83,7 +83,6 @@ namespace IAcademyOfDoom.Logic.Places
                         System.Diagnostics.Debug.WriteLine($"Erreur: Nom de salle Facility non reconnu: '{this.name}'");
                         return null;
                     }
-                    
                 default:
                     System.Diagnostics.Debug.WriteLine($"Erreur: RoomType non géré dans MakeRoom: {this.RoomType}");
                     return null;
