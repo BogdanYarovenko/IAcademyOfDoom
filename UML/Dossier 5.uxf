@@ -30,7 +30,7 @@ Facility</panel_attributes><additional_attributes></additional_attributes></elem
 
 + RommTutor(int,int,int)  
 + ActOnEntry(Botling) : object</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>344</x><y>84</y><w>280</w><h>176</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;330;10;330;200</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>112</x><y>228</y><w>408</w><h>464</h></coordinates><panel_attributes>CustomRoom
+m1=1</panel_attributes><additional_attributes>10;10;330;10;330;200</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>112</x><y>228</y><w>408</w><h>464</h></coordinates><panel_attributes>Placeable
 --
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>608</x><y>484</y><w>168</w><h>72</h></coordinates><panel_attributes>Placeable
 
