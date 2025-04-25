@@ -19,6 +19,14 @@ namespace IAcademyOfDoom.Logic.Mobiles
         public Aimless() : base(BotType.Aimless)
         {
         }
+
+        /// <summary>
+        /// If there is another type of botling on the map, this botling will go to random direction (top, left, right, bottom)
+        /// While he goes randomly he couldn't enter to exam room.
+        /// 
+        /// If there is only Aimless type of botling on the map, it goes normaly directly to exam room.
+        /// </summary>
+        /// <returns></returns>
         protected override (int x, int y) Next()
         {
             if (c.IsSameTypeOfBotling(this))

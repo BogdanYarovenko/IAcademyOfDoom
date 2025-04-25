@@ -267,7 +267,7 @@ namespace IAcademyOfDoom.View
         /// </summary>
         /// <param name="sender">Object that raised the event</param>
         /// <param name="e">Mouse event</param>
-      
+
         private void MainWindow_MouseUp(object sender, MouseEventArgs e)
         {
             if (m_placeableSelected != null)
@@ -323,6 +323,7 @@ namespace IAcademyOfDoom.View
             m_selectIndexPlaceables = 0;
             Refresh();
         }
+
         /// <summary>
         /// Method to handles the MouseMove event for the main window.
         /// Updates the position of visual elements.
@@ -330,7 +331,6 @@ namespace IAcademyOfDoom.View
         /// </summary>
         /// <param name="sender">The main window</param>
         /// <param name="e">Mouse event</param>
-
         private void MainWindow_MouseMove(object sender, MouseEventArgs e)
         {
             if (m_placeableSelected != null)
@@ -714,6 +714,7 @@ namespace IAcademyOfDoom.View
         }
         #endregion
         #region private mehods
+
         /// <summary>
         /// Checks and returns the botling at precise position
         /// </summary>
@@ -743,6 +744,7 @@ namespace IAcademyOfDoom.View
                 return bots[index].Botling;
             }
         }
+
         /// <summary>
         /// Method to transform the current position of the cursor to a grid coordinates.
         /// </summary>
@@ -763,6 +765,7 @@ namespace IAcademyOfDoom.View
                 return (-1, -1);
             }
         }
+
         /// <summary>
         /// Method to update the room representation obtained via the controller.
         /// </summary>
@@ -779,6 +782,7 @@ namespace IAcademyOfDoom.View
                 }
             }
         }
+
         /// <summary>
         /// Method to place the currently selected Placeable item.
         /// </summary>
@@ -795,6 +799,7 @@ namespace IAcademyOfDoom.View
             }
             return false;
         }
+
         /// <summary>
         /// Metho to draw the background grid onto the specified graphic.
         /// </summary>
@@ -811,6 +816,7 @@ namespace IAcademyOfDoom.View
                 }
             }
         }
+
         /// <summary>
         /// Method to find and returns the RoomView located at the position of the cursor.
         /// </summary>
@@ -840,6 +846,7 @@ namespace IAcademyOfDoom.View
                 return rooms[index];
             }
         }
+
         /// <summary>
         /// Method to check if there is a Placeable, define the index of the room.
         /// </summary>
@@ -861,6 +868,7 @@ namespace IAcademyOfDoom.View
 
             return false;
         }
+
         /// <summary>
         /// Method to check if a given point (mouse click) is on the clickable area.
         /// Select an action from a selected position.
@@ -923,6 +931,7 @@ namespace IAcademyOfDoom.View
                 PreviewPlaceableItems(c.Placeables());
             }
         }
+
         /// <summary>
         /// Method to display the Action form when clicked.
         /// If action are purchased (DialogResult.OK), retrieves the purchased Action items.
@@ -1047,6 +1056,5 @@ namespace IAcademyOfDoom.View
             }
 
         }
-      
     }
 }
