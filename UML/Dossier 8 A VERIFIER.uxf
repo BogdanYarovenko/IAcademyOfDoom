@@ -1,5 +1,5 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>70</x><y>60</y><w>1200</w><h>760</h></coordinates><panel_attributes>Actions
-bg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>360</y><w>220</w><h>220</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><element><id>UMLPackage</id><coordinates><x>44</x><y>66</y><w>1320</w><h>836</h></coordinates><panel_attributes>Actions
+bg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>77</x><y>396</y><w>242</w><h>242</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
 ActionType
 --
 RoomRepair
@@ -12,7 +12,7 @@ RemoteClass
 BudgetCuts
 MassiveCorruption
 JuryLeniency
-SuddenReform</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>360</y><w>440</w><h>330</h></coordinates><panel_attributes>GameAction
+SuddenReform</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>407</x><y>396</y><w>484</w><h>363</h></coordinates><panel_attributes>GameAction
 --
 #c:Controller
 -Name:String
@@ -20,99 +20,99 @@ SuddenReform</panel_attributes><additional_attributes></additional_attributes></
 -isAvailable:bool
 --
 +GameAction(string, ActionType, int)
-+getName(): string
--setName(string): void
-+getType(): ActionType
--setType(ActionType): void
-+getCost(): int
--setCost(int); void
-+getIsAvailable(): bool
-+setIsAvailalble(bool): void 
++Name.get() : string
+-Name.set(string): void
++Type.get(): ActionType
+-Type.set(ActionType): void
++Cost.get(): int
+-Cost.set(int); void
++IsAvailable.get(): bool
++IsAvailalble.set(bool): void 
 +GetActionEffectMessage(): &lt;&lt;abstract&gt;&gt; string
 +actionOnRooms():void
 +actionOnBotlings(): void
 +actionOnRoom(Room): &lt;&lt;abstract&gt;&gt; bool
 +actionOnBotling(Botling): &lt;&lt;abstract&gt;&gt; bool
-+ToString(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>480</y><w>260</w><h>100</h></coordinates><panel_attributes>BudgetCutsAction
++ToString(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1067</x><y>528</y><w>286</w><h>110</h></coordinates><panel_attributes>BudgetCutsAction
 --
 --
 +BudgetCutsAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>350</y><w>260</w><h>110</h></coordinates><panel_attributes>EminentVisitorAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1067</x><y>385</y><w>286</w><h>121</h></coordinates><panel_attributes>EminentVisitorAction
 --
 --
 +EminentVisitorAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>230</y><w>250</w><h>100</h></coordinates><panel_attributes>JuryLeniencyAction
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>561</x><y>253</y><w>275</w><h>110</h></coordinates><panel_attributes>JuryLeniencyAction
 --
 --
 +JuryLeniencyAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>100</y><w>280</w><h>90</h></coordinates><panel_attributes>MassiveCorruptionAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1056</x><y>110</y><w>308</w><h>99</h></coordinates><panel_attributes>MassiveCorruptionAction
 --
 --
 +MassiveCorruptionAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>120</y><w>250</w><h>120</h></coordinates><panel_attributes>RemedialCourseAction
++actionOnBotling(Botling):  bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>88</x><y>132</y><w>275</w><h>132</h></coordinates><panel_attributes>RemedialCourseAction
 --
 --
 +RemedialCourseAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>690</y><w>260</w><h>100</h></coordinates><panel_attributes>RemoteClassAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage():  string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1078</x><y>759</y><w>286</w><h>121</h></coordinates><panel_attributes>RemoteClassAction
 --
 --
 RemoteClassAction(SkillType)
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage():override string
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string
 +getSkillName(): Skilltype
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>590</y><w>280</w><h>80</h></coordinates><panel_attributes>RoomRepairAction
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1056</x><y>649</y><w>308</w><h>88</h></coordinates><panel_attributes>RoomRepairAction
 --
 --
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>220</y><w>260</w><h>100</h></coordinates><panel_attributes>StudentStrikeAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1067</x><y>242</y><w>286</w><h>110</h></coordinates><panel_attributes>StudentStrikeAction
 --
 --
 +StudentStrikeAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>100</y><w>270</w><h>100</h></coordinates><panel_attributes>SuddenReformAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>110</y><w>297</w><h>110</h></coordinates><panel_attributes>SuddenReformAction
 --
 --
 +SuddenReformAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>90</y><w>260</w><h>110</h></coordinates><panel_attributes>TeacherStrikeAction
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>715</x><y>99</y><w>286</w><h>121</h></coordinates><panel_attributes>TeacherStrikeAction
 --
 --
 +TeacherStrikeAction()
-+actionOnBotling(Botling): override bool
-+actionOnRoom(Room): override bool
-+GetActionEffectMessage(): override string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1300</x><y>350</y><w>160</w><h>90</h></coordinates><panel_attributes>Room
++actionOnBotling(Botling): bool
++actionOnRoom(Room): bool
++GetActionEffectMessage(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1430</x><y>385</y><w>176</w><h>99</h></coordinates><panel_attributes>Room
 --
 #m_isLesson: bool
 #c:Controller
 --
 +SetIsLessons(bool):void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1280</x><y>670</y><w>210</w><h>90</h></coordinates><panel_attributes>Game
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1408</x><y>737</y><w>231</w><h>99</h></coordinates><panel_attributes>Game
 --
 --
 +AddAction(GameAction): void
 +RemoveAction(GameAction): void
 +GameActions():List&lt;GameAction&gt;
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>120</x><y>840</y><w>850</w><h>320</h></coordinates><panel_attributes>View
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>132</x><y>924</y><w>935</w><h>352</h></coordinates><panel_attributes>View
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1520</w><h>830</h></coordinates><panel_attributes>Logic
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1672</w><h>913</h></coordinates><panel_attributes>Logic
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>900</y><w>200</w><h>90</h></coordinates><panel_attributes>ActionView
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>638</x><y>990</y><w>220</w><h>99</h></coordinates><panel_attributes>ActionView
 --
 -Location:Point
 --
@@ -123,7 +123,7 @@ RemoteClassAction(SkillType)
 +setLocation(Point) : void 
 +Draw(Graphics): void 
 +OnSquare(Point): bool
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>890</y><w>390</w><h>260</h></coordinates><panel_attributes>ActionsWindow
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>979</y><w>429</w><h>286</h></coordinates><panel_attributes>ActionsWindow
 --
 -_localMoney: int
 --
@@ -139,49 +139,49 @@ __+GetAvailableActions(): List&lt;GameAction&gt;__
 -Reinitialise(): void
 -OkButton_Click(object, EventArgs): void
 +GetPurchasedActions(): List&lt;GameAction&gt;
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1280</x><y>490</y><w>210</w><h>150</h></coordinates><panel_attributes>Mobiles
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1408</x><y>539</y><w>231</w><h>165</h></coordinates><panel_attributes>Mobiles
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1290</x><y>530</y><w>180</w><h>80</h></coordinates><panel_attributes>Bolting
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1419</x><y>583</y><w>198</w><h>88</h></coordinates><panel_attributes>Bolting
 --
 -m_isEasyToPass:bool
 --
 +SetPassExamNextTurn():void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>360</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>308</x><y>396</y><w>121</w><h>55</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
-r1=Type</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>570</y><w>140</w><h>340</h></coordinates><panel_attributes>lt=&lt;-
+r1=Type</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>Relation</id><coordinates><x>275</x><y>627</y><w>154</w><h>374</h></coordinates><panel_attributes>lt=&lt;-
 m1= _availableActions
-r1=*</panel_attributes><additional_attributes>120;20;10;20;10;320</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>680</y><w>230</w><h>230</h></coordinates><panel_attributes>lt=&lt;-
+r1=*</panel_attributes><additional_attributes>120;20;10;20;10;320</additional_attributes></element><element><id>Relation</id><coordinates><x>286</x><y>748</y><w>253</w><h>253</h></coordinates><panel_attributes>lt=&lt;-
 m1= _remainingCopies
-r1=*</panel_attributes><additional_attributes>110;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>690</y><w>360</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
+r1=*</panel_attributes><additional_attributes>110;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>451</x><y>748</y><w>396</w><h>253</h></coordinates><panel_attributes>lt=&lt;-
 m1= _purchasedActions
-r1=*</panel_attributes><additional_attributes>240;10;220;60;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>690</y><w>240</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
+r1=*</panel_attributes><additional_attributes>240;10;220;70;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>748</y><w>275</w><h>253</h></coordinates><panel_attributes>lt=&lt;-
 m1= _remainingCopiesLabels 
-r1=*</panel_attributes><additional_attributes>80;10;60;80;10;200</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1290</x><y>320</y><w>190</w><h>140</h></coordinates><panel_attributes>Places
+r1=*</panel_attributes><additional_attributes>90;10;10;210</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1419</x><y>352</y><w>209</w><h>154</h></coordinates><panel_attributes>Places
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1100</x><y>890</y><w>100</w><h>30</h></coordinates><panel_attributes>SkillType</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>780</y><w>90</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1210</x><y>979</y><w>110</w><h>33</h></coordinates><panel_attributes>SkillType</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1276</x><y>869</y><w>99</w><h>132</h></coordinates><panel_attributes>lt=&lt;-
 m1=skillName
-r1=1</panel_attributes><additional_attributes>10;110;70;10</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>190</y><w>50</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>30;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>320</y><w>40</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>190</y><w>70</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;170;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>180</y><w>190</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;210;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>270</y><w>190</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;200;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>390</y><w>190</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;160;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>510</y><w>190</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>610</y><w>180</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;160;30</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>660</y><w>210</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;190;80</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>230</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;130;10;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>1040</y><w>290</w><h>100</h></coordinates><panel_attributes>MainWindow
+r1=1</panel_attributes><additional_attributes>10;100;70;10</additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>209</y><w>55</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>30;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>682</x><y>352</y><w>44</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>836</x><y>209</y><w>77</w><h>209</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;170;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>198</y><w>209</w><h>253</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;210;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>297</y><w>209</w><h>242</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;200;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>429</y><w>209</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;160;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>561</y><w>209</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>671</y><w>198</w><h>55</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;160;30</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>726</y><w>231</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;190;80</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>253</y><w>132</w><h>165</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;130;10;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>715</x><y>1144</y><w>319</w><h>110</h></coordinates><panel_attributes>MainWindow
 --
 -m_selectIndexAction: int
 --
 +PreviewActionItems(List&lt;GameAction&gt;): void 
 -selectActionView(Point): bool
 -ActionMagasin_Click(object, EventArgs): void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1310</x><y>970</y><w>240</w><h>90</h></coordinates><panel_attributes>Controller
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1441</x><y>1067</y><w>264</w><h>99</h></coordinates><panel_attributes>Controller
 --
 --
 +GameActions():List&lt;GameAction&gt;
 +AddAction(GameAction): void
 +RemoveAction(GameAction): void
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>980</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>836</x><y>1078</y><w>110</w><h>88</h></coordinates><panel_attributes>lt=&lt;-
 m1=gameActions
-r1=*</panel_attributes><additional_attributes>10;10;20;60</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>980</y><w>130</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+r1=*</panel_attributes><additional_attributes>10;10;20;60</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>1078</y><w>143</w><h>88</h></coordinates><panel_attributes>lt=&lt;-
 m1=0..1
-r1=m_actionSelected</panel_attributes><additional_attributes>10;10;10;60;20;60</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>1030</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+r1=m_actionSelected</panel_attributes><additional_attributes>10;10;10;60;20;60</additional_attributes></element><element><id>Relation</id><coordinates><x>572</x><y>1133</y><w>165</w><h>55</h></coordinates><panel_attributes>lt=&lt;-
 m1=0..1
-r1= actMagasin</panel_attributes><additional_attributes>10;20;130;30</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>680</y><w>650</w><h>180</h></coordinates><panel_attributes>lt=&lt;-
+r1= actMagasin</panel_attributes><additional_attributes>10;20;130;30</additional_attributes></element><element><id>Relation</id><coordinates><x>847</x><y>748</y><w>715</w><h>198</h></coordinates><panel_attributes>lt=&lt;-
 m1=*
-r1=gameActions</panel_attributes><additional_attributes>10;10;30;160;620;160;630;80</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1280</x><y>910</y><w>270</w><h>190</h></coordinates><panel_attributes>App
+r1=gameActions</panel_attributes><additional_attributes>10;10;30;160;620;160;630;80</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1408</x><y>1001</y><w>297</w><h>209</h></coordinates><panel_attributes>App
 --
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>
