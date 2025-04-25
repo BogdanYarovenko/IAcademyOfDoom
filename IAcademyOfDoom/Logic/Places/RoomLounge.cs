@@ -11,8 +11,8 @@
         {
             public RoomLounge(int x, int y, int HP) : base(x, y, HP)
             {
-                Type = RoomType.Facility; 
-                Name = "Lounge Room";
+                Type = RoomType.Facility;
+                Name = View.FrameTypeRoom.LoungeRoom.ToString();
             }
 
             public override object ActOnEntry(Botling botling)

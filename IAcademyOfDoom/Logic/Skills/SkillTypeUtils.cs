@@ -32,16 +32,22 @@ namespace IAcademyOfDoom.Logic.Skills
                     return null;
             }
         }
+
+        /// <summary>
+        /// Checks if the skill is base (simple) without combination
+        /// </summary>
+        /// <param name="skillType">skill to check</param>
+        /// <returns>a bool value if it's base skill</returns>
         public static bool IsBaseSkill(this SkillType skillType)
         {
             return AllBaseSkills().Contains(skillType);
         }
+
         /// <summary>
         /// Determines whether a skill type is basic or combinated (combo)
         /// </summary>
         /// <param name="skillType"the skill type to call the method on</param>
         /// <returns>true iff the skill is combinated</returns>
-
         public static bool IsCombinatedSkill(this SkillType skillType)
         {
             return !skillType.IsBaseSkill();

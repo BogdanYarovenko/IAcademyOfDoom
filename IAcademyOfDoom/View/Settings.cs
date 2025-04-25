@@ -26,22 +26,26 @@ namespace IAcademyOfDoom.View
         public static Font ActionFont { get; } = SystemFonts.IconTitleFont;
 
 
-       public static int HP_Room {  get; } = 5;
+        public static int HP_Room {  get; } = 5;
         public static Font TitleFont { get; } = new Font("Arial", 12, FontStyle.Bold);
         public static int PlaceableLeft = Left + Width * Cols + 50;
         public static int PlaceableTop = Top + 5;
         public static int ActionLeft = PlaceableLeft + 230 + 20;
         public static int ActionTop = PlaceableTop;
         public static Size ObjectsBoxSize = new Size(230, 350);
+
         public static readonly Rectangle PlaceableObjetsSquareArea =
                 new Rectangle(x: PlaceableLeft - 5, y: PlaceableTop - 5,  
                             width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
+
         public static readonly Rectangle ActionsObjectsSquareArea =
                 new Rectangle(x: ActionLeft - 5, y: ActionTop - 5, 
                             width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
+
         public static readonly Rectangle ActionsMagasin =
                 new Rectangle(x: 100, y: ActionTop - 5,
                             width: ObjectsBoxSize.Width, height: ObjectsBoxSize.Height);
+
         public static Size PlaceableSquare { get; } = new Size(10, 10);
         public static Size ActionSquare { get; } = new Size(10,10);
         public static Brush PlaceableSquareBrush { get; } = Brushes.Firebrick;
@@ -49,6 +53,12 @@ namespace IAcademyOfDoom.View
 
         public static int PlaceableOffset { get; } = 20;
         public static int ActionsOffset { get; } = 20;
+
+        /// <summary>
+        /// Color for each type of room
+        /// </summary>
+        /// <param name="type">type of room</param>
+        /// <returns>a color which depends on type of room</returns>
         public static Color GetRoomColourFor(RoomType type)
         {
             switch (type)
@@ -61,20 +71,25 @@ namespace IAcademyOfDoom.View
                     return Color.LightYellow;
                 default:
                     return Color.LightGray;
-            }
+            }   
         }
+
+        /// <summary>
+        /// Color for each type of botling
+        /// </summary>
+        /// <param name="type">type of botling</param>
+        /// <returns>a color which depends on type of botling</returns>
         public static Color GetBotColourFor(BotType type)
         {
             switch(type)
             {
-               
                 case BotType.Speedster: return Color.Red;
                 case BotType.Perfectionnist: return Color.Blue;
                 case BotType.Introvert: return Color.Green;
                 case  BotType.Lucky: return Color.Gold;
                 case BotType.Aimless: return Color.Purple;
-               case BotType.Persistent: return Color.Orange;
-                default: return Color.CadetBlue;// None
+                case BotType.Persistent: return Color.Orange;
+                default: return Color.CadetBlue;
             };
         }
     }

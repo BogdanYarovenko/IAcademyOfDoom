@@ -18,6 +18,11 @@ namespace IAcademyOfDoom.View
             Label = label;
             BackColour = backColour;
         }
+        /// <summary>
+        /// Creates a new RoomView from existing Room
+        /// </summary>
+        /// <param name="r">The room to create RoomView from it</param>
+        /// <returns>A new RoomView from Room</returns>
         public static RoomView CreateFromRoom(Room r)
         {
             Point p = MainWindow.ConvertCoordinates(r.X, r.Y);
@@ -46,7 +51,10 @@ namespace IAcademyOfDoom.View
             return new Rectangle(Location, new Size(Settings.Width, Settings.Height)).Contains(p);
         }
 
-        public void relocate()
+        /// <summary>
+        /// Refresh a position of render room by existing Room
+        /// </summary>
+        public void refresh()
         {
             Location = MainWindow.ConvertCoordinates(Room.X, Room.Y);
         }

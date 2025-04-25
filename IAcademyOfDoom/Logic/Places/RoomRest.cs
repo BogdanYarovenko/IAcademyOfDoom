@@ -10,7 +10,7 @@ namespace IAcademyOfDoom.Logic.Places
         public RoomRest(int x, int y, int HP) : base(x, y, HP)
         {
             Type = RoomType.Facility;
-            Name = "Rest Room";
+            Name = View.FrameTypeRoom.RestRoom.ToString();
         }
 
         public override object ActOnEntry(Botling botling)

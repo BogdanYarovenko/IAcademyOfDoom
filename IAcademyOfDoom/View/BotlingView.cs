@@ -57,8 +57,8 @@ namespace IAcademyOfDoom.View
         public void Draw(Graphics graphics)
         {
             graphics.FillEllipse(new SolidBrush(Colour), new Rectangle(Location, Size));
-        
         }
+
         /// <summary>
         /// Method checking whether a point is contained in the representation (bounding box).
         /// </summary>

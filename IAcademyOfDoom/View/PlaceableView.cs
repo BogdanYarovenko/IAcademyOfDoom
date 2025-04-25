@@ -12,10 +12,12 @@ namespace IAcademyOfDoom.View
         /// The logical placeable item refered by this graphic object.
         /// </summary>
         public Placeable Placeable { get; private set; }
+
         /// <summary>
         /// The location - top left corner.
         /// </summary>
         public Point Location { get; set; }
+
         /// <summary>
         /// Parametered constructor.
         /// </summary>
@@ -26,6 +28,7 @@ namespace IAcademyOfDoom.View
             Placeable = placeable;
             Location = location;
         }
+
         /// <summary>
         /// Method displaying the graphics.
         /// </summary>
@@ -37,6 +40,7 @@ namespace IAcademyOfDoom.View
             graphics.FillRectangle(Settings.PlaceableSquareBrush, rectangle);
             graphics.DrawString("Placeable: " + Placeable.ToString(), Settings.RoomFont, Settings.TextBrush, p);
         }
+
         /// <summary>
         /// Method checking whether a point is on the square next to the placeable item's display.
         /// </summary>

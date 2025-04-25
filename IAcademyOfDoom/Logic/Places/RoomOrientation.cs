@@ -10,7 +10,7 @@ namespace IAcademyOfDoom.Logic.Places
         public RoomOrientation(int x, int y, int HP) : base(x, y, HP)
         {
             Type = RoomType.Facility;
-            Name = "Orientation Office";
+            Name = View.FrameTypeRoom.OrientationOffice.ToString();
         }
 
         public override object ActOnEntry(Botling botling)

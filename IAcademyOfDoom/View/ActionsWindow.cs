@@ -19,7 +19,6 @@ namespace IAcademyOfDoom.View
         private Dictionary<GameAction, Label> _remainingCopiesLabels = new Dictionary<GameAction, Label>();
         private int _localMoney;
 
-
         public ActionsWindow()
         {
             InitializeComponent();
@@ -39,7 +38,6 @@ namespace IAcademyOfDoom.View
             InitializeRemainingCopies();
             InitActionsUI();
         }
-
 
         /// <summary>
         /// Initializes the UI components for available actions, their remaining copies, and purchase buttons.

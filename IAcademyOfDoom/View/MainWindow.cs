@@ -66,8 +66,6 @@ namespace IAcademyOfDoom.View
                 playerNameLabel.Visible = false;
             }
             SyncRooms();
-           
-
         }
 
         public void InitializeTimer()
@@ -117,57 +115,68 @@ namespace IAcademyOfDoom.View
                 DrawDirectionHint(e.Graphics, hoveredBotlingView);
             }
         }
+
         /// <summary>
-        /// 
+        /// Draws an moving direction arrow of selected BotlingView that is hovered
         /// </summary>
-        /// <param name="graphics"></param>
-        /// <param name="botlingView"></param>
+        /// <param name="graphics">graphics where to draw</param>
+        /// <param name="botlingView">botlingView to draw arrow onto</param>
         private void DrawDirectionHint(Graphics graphics, BotlingView botlingView)
         {
-            if (botlingView.IsHovered)
-            {
-                int prevX = botlingView.Botling.X;
-                int prevY = botlingView.Botling.Y;
-                (int x, int y) positionNext = botlingView.Botling.NextMove;
-                if (positionNext != (0, 0) && (positionNext.x != prevX || positionNext.y != prevY))
-                {
-                    Point startPoint = botlingView.Center;
-                    int arrowLength = 20;
-                    Point vector = new Point(positionNext.x - prevX, positionNext.y - prevY);
-                    double length = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-                    Point normalized = new Point((int)(vector.X / length), (int)(vector.Y / length));
-                    Point endPoint = new Point(
-                        (int)(startPoint.X + normalized.X * arrowLength),
-                        (int)(startPoint.Y + normalized.Y * arrowLength)
-                    );
-                    Point arrowPosition = new Point((int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X, (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y);
+            if (!botlingView.IsHovered)
+                return;
 
-                    Pen arrowPen = new Pen(Color.Red, 2);
-                    graphics.DrawLine(arrowPen, startPoint, endPoint);
-                    const int arrowHeadSize = 5;
-                    Point arrowHead1 = new Point(
-                        (int)(arrowPosition.X + arrowHeadSize * (-normalized.Y)),
-                        (int)(arrowPosition.Y + arrowHeadSize * normalized.X)
-                    );
-                    Point arrowHead2 = new Point(
-                        (int)(arrowPosition.X + arrowHeadSize * normalized.Y),
-                        (int)(arrowPosition.Y + arrowHeadSize * (-normalized.X))
-                    );
-                    graphics.DrawLine(arrowPen, endPoint, arrowHead1);
-                    graphics.DrawLine(arrowPen, endPoint, arrowHead2);
-                }
-            }
+            int prevX = botlingView.Botling.X;
+            int prevY = botlingView.Botling.Y;
+            (int x, int y) positionNext = botlingView.Botling.NextMove;
+
+            if (!(positionNext != (0, 0) && (positionNext.x != prevX || positionNext.y != prevY)))
+                return;
+
+            Point startPoint = botlingView.Center;
+            int arrowLength = 20;
+            Point vector = new Point(positionNext.x - prevX, positionNext.y - prevY);
+            double length = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
+            Point normalized = new Point((int)(vector.X / length), (int)(vector.Y / length));
+            Point endPoint = new Point(
+                (int)(startPoint.X + normalized.X * arrowLength),
+                (int)(startPoint.Y + normalized.Y * arrowLength)
+            );
+            Point arrowPosition = new Point((int)((endPoint.X - startPoint.X) * 0.7) + startPoint.X, (int)((endPoint.Y - startPoint.Y) * 0.7) + startPoint.Y);
+
+            Pen arrowPen = new Pen(Color.Red, 2);
+            graphics.DrawLine(arrowPen, startPoint, endPoint);
+            const int arrowHeadSize = 5;
+            Point arrowHead1 = new Point(
+                (int)(arrowPosition.X + arrowHeadSize * (-normalized.Y)),
+                (int)(arrowPosition.Y + arrowHeadSize * normalized.X)
+            );
+            Point arrowHead2 = new Point(
+                (int)(arrowPosition.X + arrowHeadSize * normalized.Y),
+                (int)(arrowPosition.Y + arrowHeadSize * (-normalized.X))
+            );
+            graphics.DrawLine(arrowPen, endPoint, arrowHead1);
+            graphics.DrawLine(arrowPen, endPoint, arrowHead2);
         }
 
+        /// <summary>
+        /// End preparation button click event
+        /// </summary>
+        /// <param name="sender">ignored</param>
+        /// <param name="e">ignored</param>
         private void EndPrepButton_Click(object sender, EventArgs e)
         {
-            if (c.CanEndPreparations()) { c.EndPreparations(); }
+            if (c.CanEndPreparations())
+            {
+                c.EndPreparations();
+            }
             else
             {
                 MessageBox.Show("Preparations are not complete yet.");
                 WriteLine("Preparations are not complete yet.");
             }
         }
+
         /// <summary>
         /// Event handling: click on quit button.
         /// </summary>
@@ -177,6 +186,7 @@ namespace IAcademyOfDoom.View
         {
             Dispose();
         }
+
         /// <summary>
         /// Event handling: Mouse button down
         /// </summary>
@@ -237,7 +247,7 @@ namespace IAcademyOfDoom.View
                         {
                             foreach (RoomView roomView in rooms)
                             {
-                                roomView.relocate();
+                                roomView.refresh();
                             }
                         }
 
@@ -266,7 +276,7 @@ namespace IAcademyOfDoom.View
             else if (m_selectedRoom != null)
             {
                 (int x, int y) = PointCoordinates(e.Location);
-                m_selectedRoom.relocate();
+                m_selectedRoom.refresh();
                 if (Settings.PlaceableObjetsSquareArea.Contains(e.Location))
                 {
                     SkillType? skill = null;
@@ -274,9 +284,9 @@ namespace IAcademyOfDoom.View
                     {
                         skill = ((ProfRoom)m_selectedRoom.Room).SkillType;
                     }
-                    else if (m_selectedRoom.Room.Type == RoomType.Facility)
+                    else if (m_selectedRoom.Room.Type == RoomType.Facility && m_selectedRoom.Room.Name.Equals("TutorRoom"))
                     {
-                        //skill = ((FacilityRoom)m_selectedRoom.Room).SkillType; // no skill
+                        skill = ((RoomTutor)m_selectedRoom.Room).SkillType;
                     }
 
                     c.AddPlaceable(new Placeable(m_selectedRoom.Room.Type, skill, m_selectedRoom.Room.Name));
@@ -287,7 +297,7 @@ namespace IAcademyOfDoom.View
                 else if (RoomHere(e.Location) == null && !(x, y).Equals((-1, -1)))
                 {
                     m_selectedRoom.Room.moveTo(x, y);
-                    m_selectedRoom.relocate();
+                    m_selectedRoom.refresh();
                 }
             }
             else if (m_actionSelected != null)
@@ -684,6 +694,11 @@ namespace IAcademyOfDoom.View
         }
         #endregion
         #region private mehods
+        /// <summary>
+        /// Checks and returns the botling at precise position
+        /// </summary>
+        /// <param name="location">a position to check</param>
+        /// <returns>a botling at selected position, else null</returns>
         private Botling BotlingHere(Point location)
         {
             int i = 0;
