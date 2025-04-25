@@ -190,7 +190,7 @@ namespace IAcademyOfDoom.View
         /// <summary>
         /// Event handling: Mouse button down
         /// </summary>
-        /// <param name="sender">ignore</param>
+        /// <param name="sender">ignored</param>
         /// <param name="e">used for pointer location and mouse button id</param>
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
         {
@@ -262,6 +262,11 @@ namespace IAcademyOfDoom.View
 
             Refresh();
         }
+        /// <summary>
+        /// Method to handles the MouseUp event for the main window, finalizing actions initiated by MouseDown.
+        /// </summary>
+        /// <param name="sender">Object that raised the event</param>
+        /// <param name="e">Mouse event</param>
       
         private void MainWindow_MouseUp(object sender, MouseEventArgs e)
         {
@@ -318,6 +323,13 @@ namespace IAcademyOfDoom.View
             m_selectIndexPlaceables = 0;
             Refresh();
         }
+        /// <summary>
+        /// Method to handles the MouseMove event for the main window.
+        /// Updates the position of visual elements.
+        /// Also handles the drag of room via MouseDown.
+        /// </summary>
+        /// <param name="sender">The main window</param>
+        /// <param name="e">Mouse event</param>
 
         private void MainWindow_MouseMove(object sender, MouseEventArgs e)
         {
@@ -731,6 +743,11 @@ namespace IAcademyOfDoom.View
                 return bots[index].Botling;
             }
         }
+        /// <summary>
+        /// Method to transform the current position of the cursor to a grid coordinates.
+        /// </summary>
+        /// <param name="point">The cursor position</param>
+        /// <returns>A tuple of the grid coordinates. Returns (-1, -1) if the point is outside the grid</returns>
         private (int x, int y) PointCoordinates(Point point)
         {
             int posX = point.X;
@@ -746,6 +763,9 @@ namespace IAcademyOfDoom.View
                 return (-1, -1);
             }
         }
+        /// <summary>
+        /// Method to update the room representation obtained via the controller.
+        /// </summary>
         public void SyncRooms()
         {
             HashSet<Room> currentRooms = new HashSet<Room>(c.Rooms());
@@ -759,6 +779,11 @@ namespace IAcademyOfDoom.View
                 }
             }
         }
+        /// <summary>
+        /// Method to place the currently selected Placeable item.
+        /// </summary>
+        /// <param name="pos">The cursor position</param>
+        /// <returns>True if the room was successfully placed</returns>
         private bool m_PlaceRoom(Point pos)
         {
             (int x, int y) = PointCoordinates(pos);
@@ -770,6 +795,10 @@ namespace IAcademyOfDoom.View
             }
             return false;
         }
+        /// <summary>
+        /// Metho to draw the background grid onto the specified graphic.
+        /// </summary>
+        /// <param name="graphics">Where to draw the grid</param>
 
         private static void BackgroundGrid(Graphics graphics)
         {
@@ -782,6 +811,11 @@ namespace IAcademyOfDoom.View
                 }
             }
         }
+        /// <summary>
+        /// Method to find and returns the RoomView located at the position of the cursor.
+        /// </summary>
+        /// <param name="location">The cursor position</param>
+        /// <returns>The RoomView found at the specified location</returns>
         private RoomView RoomHere(Point location)
         {
             int i = 0;
@@ -806,7 +840,11 @@ namespace IAcademyOfDoom.View
                 return rooms[index];
             }
         }
-
+        /// <summary>
+        /// Method to check if there is a Placeable, define the index of the room.
+        /// </summary>
+        /// <param name="p">The cursor position</param>
+        /// <returns>True if a room was selected at the given point</returns>
         private bool selectPlaceableView(Point p)
         {
             int indexPlaceable = 0;
@@ -823,7 +861,12 @@ namespace IAcademyOfDoom.View
 
             return false;
         }
-
+        /// <summary>
+        /// Method to check if a given point (mouse click) is on the clickable area.
+        /// Select an action from a selected position.
+        /// </summary>
+        /// <param name="p">The cursor position</param>
+        /// <returns>True if an action was selected at the given point</returns>
         private bool selectActionView(Point p)
         {
             int index = 0;
@@ -841,6 +884,11 @@ namespace IAcademyOfDoom.View
             return false;
         }
 
+        /// <summary>
+        /// Method to add the botling to a dictionary grouped by their coordinates.
+        /// </summary>
+        /// <param name="list">The dictionary with two int x,y</param>
+        /// <param name="botling">The botling to add</param>
         private void PutBotlingInListByRoom(Dictionary<(int x, int y), List<Botling>> list, Botling botling)
         {
             if (!list.ContainsKey((botling.X, botling.Y)))
@@ -853,11 +901,11 @@ namespace IAcademyOfDoom.View
         #endregion
 
         /// <summary>
-        /// Display the Magasin form when clicked.
+        /// Method to check display the Magasin form when clicked.
         /// If items are purchased (DialogResult.OK), retrieves the purchased Room items.
         /// </summary>
         /// <param name="sender">The button</param>
-        /// <param name="e">ignore</param>
+        /// <param name="e">ignored</param>
         private void MagasinDesign_Click(object sender, EventArgs e)
         {
             if (magasin == null)
@@ -876,11 +924,11 @@ namespace IAcademyOfDoom.View
             }
         }
         /// <summary>
-        /// Display the Action form when clicked.
+        /// Method to display the Action form when clicked.
         /// If action are purchased (DialogResult.OK), retrieves the purchased Action items.
         /// </summary>
         /// <param name="sender">The button</param>
-        /// <param name="e">ignore</param>
+        /// <param name="e">ignored</param>
         private void ActionsMagasin_Click(object sender, EventArgs e)
         {
             
@@ -903,7 +951,7 @@ namespace IAcademyOfDoom.View
         ///  It toggles visibility hides or shows.
         /// </summary>
         /// <param name="sender">The button</param>
-        /// <param name="e">ignore</param>
+        /// <param name="e">ignored</param>
         private void OutputButton_Click(object sender, EventArgs e)
         {
             outputListBox.Visible = !outputListBox.Visible;
@@ -918,10 +966,11 @@ namespace IAcademyOfDoom.View
         }
         
         /// <summary>
-        /// 
+        /// Handle the tick of the assault timer.
+        /// Also handle the AutoGames mode.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The timer</param>
+        /// <param name="e">ignored</param>
         private void AssaultTimer_Clock(object sender, EventArgs e)
         {
             if (nextInAssaultButton.Enabled && !endPrepButton.Enabled)
@@ -945,7 +994,13 @@ namespace IAcademyOfDoom.View
                 autoButton.Text = "Start Auto";
             }
         }
-
+        
+        /// <summary>
+        /// Handle the MouseDown NextAssaultButton.
+        /// Handle the starts continuous assault.
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignored</param>
         private void NextInAssaultButton_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && nextInAssaultButton.Enabled)
@@ -955,6 +1010,12 @@ namespace IAcademyOfDoom.View
             }
         }
 
+        /// <summary>
+        /// Handle the MouseUp NextAssaultButton.
+        /// Handle the stop continuous assault.
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignored</param>
         private void NextInAssaultButton_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -963,6 +1024,12 @@ namespace IAcademyOfDoom.View
             }
         }
 
+        /// <summary>
+        ///Handles the Click event for the 'AutoGame' button (autoButton).
+        /// Toggles the AutoGame mode state (enabled/disabled).
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignored</param>
         private void AutoButton_Click(object sender, EventArgs e)
         {
             isAutoMode = !isAutoMode; 
