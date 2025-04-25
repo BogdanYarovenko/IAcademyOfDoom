@@ -204,10 +204,17 @@ namespace IAcademyOfDoom.Logic.Mobiles
             }
         }
 
+        /// <summary>
+        /// Update botling's skill with adjust value
+        /// </summary>
+        /// <param name="skill">skill to update</param>
+        /// <param name="bot">the botling</param>
+        /// <param name="value">a value to add</param>
         public static void updateSkill(SkillType skill,Botling bot, int value)
         {
             bot.Skills[skill] += value;
         }
+
         /// <summary>
         /// Calculates the next position for the entity based on the current position.
         /// </summary>

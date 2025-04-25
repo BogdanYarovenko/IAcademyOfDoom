@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace IAcademyOfDoom.Logic.Actions
 {
+    /// <summary>
+    /// All types of actions
+    /// </summary>
     public enum ActionType
     {
         RoomRepair,

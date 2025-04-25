@@ -46,10 +46,18 @@ namespace IAcademyOfDoom.Logic.Actions
             IsAvailable = true;
         }
 
+        /// <summary>
+        /// Description for every action
+        /// </summary>
+        /// <returns>a string description of an action</returns>
         public virtual string GetActionEffectMessage()
         {
             return $"Effect: Unknown effect";
         }
+
+        /// <summary>
+        /// Makes an action for each room
+        /// </summary>
         public void actionOnRooms()
         {
             foreach (Room room in c.getRooms())
@@ -58,6 +66,9 @@ namespace IAcademyOfDoom.Logic.Actions
             }
         }
 
+        /// <summary>
+        /// Makes an action for each botling
+        /// </summary>
         public void actionOnBotlings()
         {
             foreach (Botling bot in c.getBotlings())
@@ -66,16 +77,30 @@ namespace IAcademyOfDoom.Logic.Actions
             }
         }
 
+        /// <summary>
+        /// abstract function for action on room
+        /// </summary>
+        /// <param name="targetRoom">room to use action on it</param>
+        /// <returns>if action worked</returns>
         public virtual bool actionOnRoom(Room targetRoom)
         {
             return false;
         }
 
+        /// <summary>
+        /// abstract function for action on botling
+        /// </summary>
+        /// <param name="targetBotling">botling to use action on it</param>
+        /// <returns>if action worked</returns>
         public virtual bool actionOnBotling(Botling targetBotling)
         {
             return false;
         }
 
+        /// <summary>
+        /// To string override
+        /// </summary>
+        /// <returns>a name of action</returns>
         public override string ToString() => $"{Name}";
     }
 }
