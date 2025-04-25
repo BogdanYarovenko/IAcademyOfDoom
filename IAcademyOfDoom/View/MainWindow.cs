@@ -129,7 +129,7 @@ namespace IAcademyOfDoom.View
                 int prevX = botlingView.Botling.X;
                 int prevY = botlingView.Botling.Y;
                 (int x, int y) positionNext = botlingView.Botling.NextMove;
-                if (positionNext != (0, 0))
+                if (positionNext != (0, 0) && (positionNext.x != prevX || positionNext.y != prevY))
                 {
                     Point startPoint = botlingView.Center;
                     int arrowLength = 20;
