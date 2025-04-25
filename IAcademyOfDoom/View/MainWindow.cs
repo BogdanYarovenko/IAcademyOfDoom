@@ -577,6 +577,10 @@ namespace IAcademyOfDoom.View
             WriteLine("Items:" + items);
             Refresh();
         }
+        /// <summary>
+        /// Method to display the list of action available.
+        /// </summary>
+        /// <param name="actions">The current list of action</param>
         public void PreviewActionItems(List<GameAction> actions)
         {
             this.gameActions.Clear();
@@ -647,6 +651,10 @@ namespace IAcademyOfDoom.View
                 WriteLine("  " + badges);
             }
         }
+        /// <summary>
+        /// Method displaying the current status of a Room.
+        /// </summary>
+        /// <param name="roomView">The selected room</param>
         public void DisplayStateOf(RoomView roomView, bool isMessageBox = false)
         {
             if (isMessageBox)
@@ -844,6 +852,12 @@ namespace IAcademyOfDoom.View
 
         #endregion
 
+        /// <summary>
+        /// Display the Magasin form when clicked.
+        /// If items are purchased (DialogResult.OK), retrieves the purchased Room items.
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignore</param>
         private void MagasinDesign_Click(object sender, EventArgs e)
         {
             if (magasin == null)
@@ -861,6 +875,12 @@ namespace IAcademyOfDoom.View
                 PreviewPlaceableItems(c.Placeables());
             }
         }
+        /// <summary>
+        /// Display the Action form when clicked.
+        /// If action are purchased (DialogResult.OK), retrieves the purchased Action items.
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignore</param>
         private void ActionsMagasin_Click(object sender, EventArgs e)
         {
             
@@ -879,7 +899,11 @@ namespace IAcademyOfDoom.View
                 }
         }
 
-
+        /// <summary>
+        ///  It toggles visibility hides or shows.
+        /// </summary>
+        /// <param name="sender">The button</param>
+        /// <param name="e">ignore</param>
         private void OutputButton_Click(object sender, EventArgs e)
         {
             outputListBox.Visible = !outputListBox.Visible;
@@ -892,7 +916,12 @@ namespace IAcademyOfDoom.View
                 outputButton.Text = "Show output";
             }
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AssaultTimer_Clock(object sender, EventArgs e)
         {
             if (nextInAssaultButton.Enabled && !endPrepButton.Enabled)
