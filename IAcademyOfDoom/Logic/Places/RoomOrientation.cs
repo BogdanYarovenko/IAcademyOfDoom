@@ -24,12 +24,17 @@ namespace IAcademyOfDoom.Logic.Places
             var compare = int.MaxValue;
             SkillType? weakestSkill = null;
             foreach (var skillEntry in botling.Skills)
+            {
                 if (skillEntry.Key.IsBaseSkill())
+                {
                     if (skillEntry.Value < compare)
                     {
                         compare = skillEntry.Value;
                         weakestSkill = skillEntry.Key;
                     }
+                }
+            }
+            
 
             if (weakestSkill.HasValue)
             {
@@ -37,6 +42,7 @@ namespace IAcademyOfDoom.Logic.Places
                 Room targetRoom = null;
 
                 foreach (var room in currentRooms)
+                {
                     if (room.Type == RoomType.Prof && room is ProfRoom profRoom)
                     {
                         (SkillType?, SkillType?)? check = profRoom.SkillType.BasePair();
@@ -48,6 +54,7 @@ namespace IAcademyOfDoom.Logic.Places
                             break;
                         }
                     }
+                }
 
                 if (targetRoom != null)
                     botling.SetTarget(targetRoom.X, targetRoom.Y);
