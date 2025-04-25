@@ -28,17 +28,27 @@ namespace IAcademyOfDoom.Logic.Places
         /// The row.
         /// </summary>
         public int Y { get; private set; }
+        
+        /// <summary>
+        /// Health point of this room
+        /// </summary>
+        public int HP { get; set; }
+
         /// <summary>
         /// The type of the room.
         /// </summary>
-        /// 
-
-        public int HP { get; set; }
-
         public RoomType Type { get; internal set; }
+
+        /// <summary>
+        /// Name of this room
+        /// </summary>
         public string Name { get; internal set; }
 
+        /// <summary>
+        /// List of botlings in this room
+        /// </summary>
         public List<Botling> botlingsInTheRoom = new List<Botling>();
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -88,34 +98,51 @@ namespace IAcademyOfDoom.Logic.Places
             return botling.Exam();
         }
 
+        /// <summary>
+        /// Sets a bool value if there will be a lesson in this room or not
+        /// </summary>
+        /// <param name="isLesson">value if there will be a lesson</param>
         public void SetIsLessons(bool isLesson)
         {
             m_isLesson = isLesson;
         }
         
+        /// <summary>
+        /// Move to a specific position, if position is out of the map it doesn't change
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
         public void moveTo(int x, int y)
         {
-            X = x;
-            Y = y;
+            if (x >= 0 && x <= Game.MaxX && y >= 0 && y <= Game.MaxY)
+            {   
+                X = x;
+                Y = y;
+            }
         }
 
-        public void getBotlingsForRoom()
+        /// <summary>
+        /// Updates a list of botlings in this room
+        /// </summary>
+        public void updateBotlingsForRoom()
         {
-           
+            botlingsInTheRoom.Clear();
             foreach (Botling botling in c.getBotlings())
             {
-
-                if(this.X == botling.X && this.Y == botling.Y)
+                if (this.X == botling.X && this.Y == botling.Y)
                 {
                     botlingsInTheRoom.Add(botling);
                 }
-               }
+            }
         }
 
+        /// <summary>
+        /// Number of botlings that are in this room
+        /// </summary>
+        /// <returns>Number of botlings in the room</returns>
         public int getNumberBotlings()
         {
             return botlingsInTheRoom.Count;
         }
-
     }
 }

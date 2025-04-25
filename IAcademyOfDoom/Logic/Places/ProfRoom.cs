@@ -15,8 +15,6 @@ namespace IAcademyOfDoom.Logic.Places
         /// The skill taught in this room.
         /// </summary>
         public SkillType SkillType {  get; set; }
-
-
      
         /// <summary>
         /// Constructor.
@@ -28,6 +26,7 @@ namespace IAcademyOfDoom.Logic.Places
             Type = RoomType.Prof;
             HP = Default.BaseProfHitPoints;
         }
+
         /// <summary>
         /// Override method: a botling entering this room is lectured.
         /// The room may also be destroyed

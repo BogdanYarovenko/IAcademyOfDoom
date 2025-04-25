@@ -15,7 +15,7 @@ namespace IAcademyOfDoom.Logic.Actions
 
         public override bool actionOnRoom(Room targetRoom) {
            
-            targetRoom.getBotlingsForRoom();
+            targetRoom.updateBotlingsForRoom();
             targetRoom.HP -= targetRoom.getNumberBotlings();
             return true;
         }

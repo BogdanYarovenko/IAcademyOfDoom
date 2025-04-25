@@ -19,10 +19,6 @@ namespace IAcademyOfDoom.Logic.Mobiles
         public Aimless() : base(BotType.Aimless)
         {
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         protected override (int x, int y) Next()
         {
             if (c.IsSameTypeOfBotling(this))
